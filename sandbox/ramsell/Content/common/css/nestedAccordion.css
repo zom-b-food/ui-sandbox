@@ -1,0 +1,192 @@
+/* Icon font for arrow icons */
+@font-face {
+	font-family: 'icomoon';
+	src:url('../../../Content/common/css/fonts/icomoon.eot');
+	src:url('../../../Content/common/css/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+	url('../../../Content/common/css/fonts/icomoon.woff') format('woff'),
+	url('../../../Content/common/css/fonts/icomoon.ttf') format('truetype'),
+	url('../../../Content/common/css/fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+} /* Iconfont by Icomoon http://icomoon.io/ */
+
+
+/* Accordion style */
+.cbp-ntaccordion {
+	list-style: none;
+	margin: 0;
+	padding: 10px;
+	border: 1px solid #dbb98c;
+	-webkit-border-radius: 4px 4px 4px 4px !important;
+	-moz-border-radius: 4px 4px 4px 4px !important;
+	border-radius: 4px 4px 4px 4px !important;
+	background-color:#DCDCDC;
+}
+
+.cbp-ntaccordion.noBorder {
+	list-style: none;
+	margin-top: 0;
+	padding: 0 4px 8px 4px;
+	border: none;
+	background-color:#ffffff;
+}
+
+.cbp-ntsubaccordion {
+	list-style: none;
+	margin-bottom:10px;
+}
+
+.cbp-ntaccordion .cbp-ntcontent .cbp-ntsubaccordion .cbp-ntcontent p {
+
+}
+
+.cbp-ntcontent .sub {
+	margin-bottom:8px;
+}
+
+.cbp-ntaccordion .cbp-nttrigger {
+	cursor: pointer;
+	border-color: #e5e5e5;
+	-webkit-border-radius: 4px 4px 4px 4px !important;
+	-moz-border-radius: 4px 4px 4px 4px !important;
+	border-radius: 4px 4px 4px 4px !important;
+}
+
+.cbp-ntaccordion h3 {
+	font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+	color: #444;
+	text-decoration: none;
+	font-weight: bold;
+	border:1px solid #e5e5e5 !important;
+	margin-top:2px;
+	margin-bottom: 3px !important;
+	background: #f2f2f2 !important;
+	font-size: 14px;
+	padding-bottom: 3px !important;
+	padding-top: 6px;
+	padding-left: 4px;
+}
+
+.cbp-ntaccordion h4 {
+	font-size: 13px;
+	padding: 3px;
+	margin: 0 0 0 26px;
+}
+
+.cbp-ntaccordion h5 {
+	font-size: 12px;
+	color: #c27314;
+	padding: 2px;
+	margin: 0 0 0 0;
+}
+
+.cbp-ntaccordion .cbp-ntcontent p {
+	color: #888;
+	font-size: 13px;
+	font-weight: normal;
+	padding: 2px;
+	margin: 2px 0 2px 14px;
+}
+
+/* Arrow icons */
+.cbp-ntaccordion > li > .cbp-nttrigger:before,
+.cbp-ntsubaccordion > li > .cbp-nttrigger:before {
+	font-family: 'icomoon';
+	speak: none;
+	font-size:14px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	color: #9e9e9e;
+	margin-right: 6px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.cbp-ntaccordion > li > .cbp-nttrigger:before {
+	content: "\36";
+}
+.cbp-ntaccordion > li > .cbp-nttrigger:hover:before {
+	content: "\35";
+	color: inherit;
+}
+.cbp-ntaccordion > li.cbp-ntopen > .cbp-nttrigger:before,
+.no-js .cbp-ntaccordion > li > .cbp-nttrigger:before {
+	content: "\34";
+	color: inherit;
+}
+
+.cbp-ntsubaccordion > li > .cbp-nttrigger:before {
+	content: "\36";
+	font-size:11px;
+}
+.cbp-ntsubaccordion > li > .cbp-nttrigger:hover:before {
+	content: "\35";
+	color: inherit;
+	font-size:11px;
+}
+.cbp-ntsubaccordion > li.cbp-ntopen > .cbp-nttrigger:before,
+.no-js .cbp-ntsubaccordion > li > .cbp-nttrigger:before {
+	content: "\34";
+	color: inherit;
+	font-size:11px;
+}
+
+.cbp-ntcontent label {
+	padding-top:6px;
+}
+
+/* Initial height is zero */
+.cbp-ntaccordion .cbp-ntcontent {
+	height: 0;
+	overflow: hidden;
+	background-color: #fbf8f5;
+	margin-top:-3px;
+}
+
+/* When open, set height to auto */
+.cbp-ntaccordion .cbp-ntopen > .cbp-ntcontent,
+.cbp-ntsubaccordion .cbp-ntopen > .cbp-ntcontent,
+.no-js .cbp-ntaccordion .cbp-ntcontent {
+	height: auto;
+}
+
+/* Example for media query */
+@media screen and (max-width: 32em) {
+
+	.cbp-ntaccordion {
+		font-size: 70%;
+	}
+
+}
+
+.cbp-ntsubaccordion .cbp-ntcontent {
+	border-top:1px dashed #cccccc;
+	margin-left:30px;
+	margin-right:30px;
+}
+
+label {
+	font-weight: normal !important;
+}
+
+#cbp-ntaccordionFilter h3 {
+	background-color: #fcc174 !important;
+	border: 1px solid #a15d04 !important;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+
+}
+
+#cbp-ntaccordionFilter > li div {
+
+	background-color:#fce7cd !important;
+
+
+
+}

@@ -1,0 +1,80 @@
+var content = '';
+content += '<style type="text/css">';
+content += '.wdd-contest-newsletter-inactive {color:#888;}';
+content += '#wdd-newsletter-subscribe-btn { cursor:pointer; position:absolute; top:133px; left:186px; margin:0; border:none; padding:0; width:49px; height:36px; background: url(http://netdna.webdesignerdepot.com/images/widget/go-btn-260.png) no-repeat;}';
+content += '#wdd-newsletter-subscribe-btn:hover { background-position:0px -36px;} ';
+content += '#wdd-newsletter-newsletter-email { font-size:13px; font-family:Arial; outline:none; position:absolute; top:135px; left:20px; padding-left:10px; width:158px; height:35px; background:none; border:none;} ';
+content += '.wdd-newsletter-chk-label { color:#333;  font-size:10px; font-family:Arial; position:absolute; top:181px;}';
+content += '</style>';
+
+content += '<form style="font-family:Arial; position:relative;width:260px; height:217px; background: url(http://netdna.webdesignerdepot.com/images/widget/newsletter-260.jpg) no-repeat;" id="wdd-newsletter-subscribe-form" method="post" name="wdd_newsletter_subscribe_form" action="http://www.webdesignerdepot.com/widget/large_newsletter.php" onsubmit="return submitWddNewsletter();">';
+content += ' <input type="hidden" name="ref" value="wddblog" />';
+content += ' <input type="text" id="wdd-newsletter-newsletter-email" class="wdd-contest-newsletter-inactive"  name="email" onfocus="if(this.value==\'Enter your email address\'){this.value=\'\'; this.className = \'\';}" value="Enter your email address" />';
+content += ' <label class="wdd-newsletter-chk-label" style="left:18px;"><input style="vertical-align:middle;" checked="checked" type="checkbox" id="wdd_newsletter_chk" name="wdd_newsletter_chk" value="1" /><span style="vertical-align:middle;">WDD Newsletter</span></label>';
+content += ' <label class="wdd-newsletter-chk-label" style="right:18px;"><input style="vertical-align:middle;" checked="checked" type="checkbox" id="md_newsletter_chk" name="md_newsletter_chk" value="1" /><span style="vertical-align:middle;">MightyDeals.com News</span></label>';
+content += '<input type="submit" id="wdd-newsletter-subscribe-btn" value="" />';
+content += '</form>';
+document.write(content);
+
+function submitWddNewsletter(){
+  var xmlhttp;
+  if (window.XMLHttpRequest){
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  }
+  else{
+  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+  xmlhttp.onreadystatechange=function(){
+  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+     //document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+     
+     alert('Thank you! Please check your email for the confirmation link. ');
+    }
+  }
+  
+  var email = document.forms['wdd_newsletter_subscribe_form'].elements['email'].value;
+  
+  
+  
+  if(!validateEmailForWdd(email)){
+   alert('Please enter a valid email address');
+   return false;
+  }
+  
+  var wdd_chk = document.forms['wdd_newsletter_subscribe_form'].elements['wdd_newsletter_chk'].checked;
+  var md_chk = document.forms['wdd_newsletter_subscribe_form'].elements['md_newsletter_chk'].checked;
+  
+  if( !(md_chk || wdd_chk)){
+   alert('Please select at least one newsletter');
+   return false;
+  }
+  
+  var params = "ref=wddblog&email="+ email.replace('+','%2b');
+  if(wdd_chk)
+    params += '&wdd_newsletter_chk=1';
+  
+  if(md_chk)
+    params += '&md_newsletter_chk=1';
+    
+  xmlhttp.open("POST","http://www.webdesignerdepot.com/widget/large_newsletter.php", true);
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.setRequestHeader("Content-length", params.length);
+  xmlhttp.setRequestHeader("Connection", "close");
+  
+  xmlhttp.send(params);
+  
+  document.forms['wdd_newsletter_subscribe_form'].elements['email'].value = '';
+  
+  
+  return false;
+}
+
+function validateEmailForWdd(email) 
+{ 
+ var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
+ return email.match(re) 
+}
+

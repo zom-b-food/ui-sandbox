@@ -1,0 +1,226 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+// Name:            Accordion
+// Description:     Defines styles for the accordion
+//
+// Component:       `uk-accordion`
+//
+// Sub-objects:     `uk-accordion-title`
+//                  `uk-accordion-content`
+//
+// Markup:
+//
+// <!-- uk-accordion -->
+// <div class="uk-accordion" data-uk-accordion>
+//     <h3 class="uk-accordion-title"></h3>
+//     <div class="uk-accordion-content">
+//         <p></p>
+//     </div>
+// </div>
+//
+// ========================================================================
+
+
+@import "../variables";
+@import "../mixins";
+
+
+/* ========================================================================
+   Component: Accordion
+ ========================================================================== */
+.uk-accordion, .collapsible  {
+  border:1px solid $moonblue;
+  border-radius: 3px!important;
+  padding: 0;
+  @include hook-accordion();
+  >.uk-accordion-title{
+
+    background: -moz-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #e8f3f9), color-stop(100%, #cedee4));
+    background: -webkit-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+    background: -o-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+    background: -ms-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+    background: linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8f3f9', endColorstr='#cedee4', GradientType=0);
+    padding:4px;
+    margin:0 ;
+    cursor: pointer;
+    border-bottom:1px solid $smoke;
+    font-family:$base-body-font-family !important;
+    &:last-of-type {
+      border-bottom:none;
+    }
+    &.uk-active {
+      background-color: #154D77 !important;
+      background: -moz-linear-gradient(top, #154D77 1%, #154D77 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #154D77), color-stop(100%, #154D77));
+      background: -webkit-linear-gradient(top, #154D77 1%, #154D77 100%);
+      background: -o-linear-gradient(top, #154D77 1%, #154D77 100%);
+      background: -ms-linear-gradient(top, #154D77 1%, #154D77 100%);
+      background: linear-gradient(top, #154D77 1%, #154D77 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#154D77', endColorstr='#154D77', GradientType=0);
+      color: $cream;
+      &:hover {
+        background-color: #294f62 !important;
+        background: -moz-linear-gradient(top, #294f62 1%, #294f62 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #294f62), color-stop(100%, #294f62));
+        background: -webkit-linear-gradient(top, #294f62 1%, #294f62 100%);
+        background: -o-linear-gradient(top, #294f62 1%, #294f62 100%);
+        background: -ms-linear-gradient(top, #294f62 1%, #294f62 100%);
+        background: linear-gradient(top, #294f62 1%, #294f62 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#294f62', endColorstr='#294f62', GradientType=0);
+        color: $cream;
+      }
+    }
+    &:hover {
+      background: -moz-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #cedee4), color-stop(100%, #e8f3f9));
+      background: -webkit-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+      background: -o-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+      background: -ms-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+      background: linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cedee4', endColorstr='#e8f3f9', GradientType=0);
+    }
+    @include hook-accordion-title();
+
+  }
+  .uk-accordion-content {
+    padding:5px;
+    background-color: #ffffff;
+    @include hook-accordion-content();
+  }
+
+}
+
+
+/*
+ * Micro clearfix to make panels more robust
+ */
+
+.uk-accordion-content:before,
+.uk-accordion-content:after {
+    content: "";
+    display: table;
+}
+
+.uk-accordion-content:after { clear: both; }
+
+/*
+ * Remove margin from the last-child
+ */
+
+ .uk-accordion-content > :last-child { margin-bottom: 0; }
+
+
+// Hooks
+// ========================================================================
+
+@include hook-accordion-misc();
+
+// @mixin hook-accordion(){}
+// @mixin hook-accordion-title(){}
+// @mixin hook-accordion-content(){}
+// @mixin hook-accordion-misc(){}
+
+ul.collapsible {
+  list-style-type: none;
+}
+
+.collapsible, .side-nav {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.collapsible {
+
+}
+
+.collapsible.popout > li:hover {
+
+    background: -moz-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #cedee4), color-stop(100%, #e8f3f9));
+    background: -webkit-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+    background: -o-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+    background: -ms-linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+    background: linear-gradient(top, #cedee4 1%, #e8f3f9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cedee4', endColorstr='#e8f3f9', GradientType=0);
+  }
+
+.collapsible-header {
+
+  &.active {
+    min-height:25px;
+    background-color:$dkocean;
+    color:$cream;
+  }
+}
+
+.collapsible-body {
+  overflow: hidden;
+  display: none;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &.open {
+    border-top: 1px solid $moonblue;
+  }
+}
+
+.collapsible-body p {
+  margin: 0;
+  padding: 2rem;
+}
+
+.collapsible.popout {
+  border: none;
+  box-shadow: none;
+}
+
+.collapsible.popout > li {
+  background: -moz-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #e8f3f9), color-stop(100%, #cedee4));
+  background: -webkit-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+  background: -o-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+  background: -ms-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+  background: linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8f3f9', endColorstr='#cedee4', GradientType=0);
+  padding:4px;
+  margin:0 ;
+  cursor: pointer;
+  border-bottom:1px solid $smoke;
+  font-family:$base-body-font-family !important;
+  transform: scaleX(.92) translate3d(0, 0, 0);
+  transition: margin .35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform .35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  list-style-position: inside;
+
+}
+
+.collapsible.popout > li:hover {
+  will-change: margin, transform;
+}
+
+.collapsible.popout > li.active {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  margin: 10px 0;
+  transform: scaleX(.94) translate3d(0, 0, 0);
+  background: -moz-linear-gradient(top, #e8f3f9 1%, #deedf2 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #e8f3f9), color-stop(100%, #deedf2));
+  background: -webkit-linear-gradient(top, #e8f3f9 1%, #deedf2 100%);
+  background: -o-linear-gradient(top, #e8f3f9 1%, #deedf2 100%);
+  background: -ms-linear-gradient(top, #e8f3f9 1%, #deedf2 100%);
+  background: linear-gradient(top, #e8f3f9 1%, #deedf2 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8f3f9', endColorstr='#deedf2', GradientType=0);
+  color: $dkocean;
+  line-height: 20px;
+}
+
+ul#popAccordion li.clean {
+  list-style-type:none;
+  list-style-image:none;
+
+  i {
+    font-size:12px;
+  }
+}

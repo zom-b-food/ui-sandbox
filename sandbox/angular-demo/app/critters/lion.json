@@ -1,0 +1,19 @@
+{
+    "genus": "hipster pet",
+    "diet": "pretty much everything at the sanctuary",
+
+    "description": "The lion (Panthera leo) is one of the big cats in the genus Panthera and a member of the family Felidae. The commonly used term African lion collectively denotes the several subspecies found in Africa. With some males exceeding 250 kg (550 lb) in weight,[4] it is the second-largest living cat after the tiger. Wild lions currently exist in sub-Saharan Africa and in India (where an endangered remnant population resides in Gir Forest National Park).",
+
+    "habitat": "dog parks, subway tunnels",
+    "id": "lion",
+    "images": [
+        "img/critters/lion.4.jpg",
+        "img/critters/lion.2.jpg",
+        "img/critters/lion.0.jpg"
+    ],
+    "name": "African Lion",
+    "weight": "200-300 pounds"
+
+
+
+}

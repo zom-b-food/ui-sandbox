@@ -1,0 +1,19 @@
+{
+    "genus": "sweat machine",
+    "diet": "tourists on rafts",
+
+    "description": "The common hippopotamus is a large, mostly herbivorous mammal in sub-Saharan Africa, and one of only two extant species in the family Hippopotamidae, the other being the pygmy hippopotamus (Choeropsis liberiensis or Hexaprotodon liberiensis). The name comes from the ancient Greek for 'river horse'.",
+
+    "habitat": "very large hot tubs, bachelor parties",
+    "id": "hippo",
+    "images": [
+        "img/critters/hippo.0.jpg",
+        "img/critters/hippo.4.jpg",
+        "img/critters/hippo.1.jpg"
+    ],
+    "name": "Hippopotamus",
+    "weight": "300-800 pounds"
+
+
+
+}

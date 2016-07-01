@@ -1,0 +1,64 @@
+@import "variables/_variables";
+@import "mixins/mixins";
+@import "mediaqueries";
+
+/*Don't edit beginning here*/
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+.page-header {
+	margin: 0 auto;
+	border-bottom: 2px solid $page-header-border-color;
+	background: linear-gradient(#065f91, #007CC2) repeat scroll 0% 0% transparent;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	background: linear-gradient(#dca64e, #c7851c) repeat scroll 0% 0% transparent;
+}
+
+img.logo {
+	padding-top: 8px;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
+	border: 1px solid #dbc6a6;
+}
+
+th {
+	color: #a66907;
+}
+
+h1 {
+	color: #065f91;
+	font-weight: bold;
+}
+
+.pt20 {
+	padding-top: 20px;
+}
+
+.red {
+	color: red;
+}

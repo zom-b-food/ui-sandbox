@@ -1,0 +1,187 @@
+@import "../variables/_variables";
+@import "../mixins/mixins";
+@import "../_mediaqueries";
+
+/*overrides for stock bootstrap form elements*/
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	// Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+	margin-bottom: 3px;
+	font-weight: bold;
+}
+
+.form-group {
+	margin-bottom: 5px;
+	padding: 0 2px 0 12px;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: $input-height-base;
+	// Make inputs at least the height of their button counterpart (base line-height + padding + border)
+	padding: $padding-base-vertical $padding-base-horizontal;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $input-color;
+	background-color: $input-bg;
+	background-image: none;
+	// Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	border: 1px solid $input-border;
+	border-radius: $input-border-radius;
+	// Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+	@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
+	@include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+}
+
+.btn {
+	display: inline-block;
+	margin-bottom: 0;
+	// For input.btn
+	font-weight: $btn-font-weight;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-image: none;
+	// Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	border: 1px solid transparent;
+	white-space: nowrap;
+	@include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+	@include user-select(none);
+
+	&,
+	&:active,
+	&.active {
+		&:focus,
+		&.focus {
+			@include tab-focus;
+		}
+	}
+
+	&:hover,
+	&:focus,
+	&.focus {
+		color: $btn-default-color;
+		text-decoration: none;
+	}
+
+	&:active,
+	&.active {
+		outline: 0;
+		background-image: none;
+		@include box-shadow(inset 0 3px 5px rgba(0, 0, 0, .125));
+	}
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: $cursor-disabled;
+		@include opacity(.65);
+		@include box-shadow(none);
+	}
+
+}
+
+.btn-inmar-blue {
+	box-shadow: 1px 1px 1px #065f91;
+	background: linear-gradient(#5d91ae, #065f91) repeat scroll 0% 0% transparent;
+	line-height: $line-height-button;
+	color: #ffffff;
+	&.mt6 {
+		margin-top: 6px;
+	}
+}
+
+.btn-inmar-blue:hover {
+	box-shadow: 1px 1px 1px #5d91ae;
+	background: linear-gradient(#065f91, #5d91ae) repeat scroll 0% 0% transparent;
+	line-height: $line-height-button;
+	color: #ffffff;
+}
+
+.btn-inmar {
+	box-shadow: 1px 1px 1px #c7851c;
+	background: linear-gradient(#dca64e, #c7851c) repeat scroll 0% 0% transparent;
+	line-height: $line-height-button;
+	color: #ffffff;
+	&.mt6 {
+		margin-top: 6px;
+	}
+}
+
+.btn-inmar:hover {
+	box-shadow: 1px 1px 1px #dca64e;
+	background: linear-gradient(#c7851c, #dca64e) repeat scroll 0% 0% transparent;
+	line-height: $line-height-button;
+	color: #ffffff;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"] {
+	background: #fff; /*fallback for non-CSS3 browsers*/
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#eee) to(#fff)); /*old webkit*/
+	background: -webkit-linear-gradient(#eee, #fff); /*new webkit*/
+	background: -moz-linear-gradient(#eee, #fff); /*gecko*/
+	background: -ms-linear-gradient(#eeeeee, #ffffff); /*IE10*/
+	background: -o-linear-gradient(#eee, #fff); /*opera 11.10+*/
+	background: linear-gradient(#eee, #fff); /*future CSS3 browsers*/
+	-pie-background: linear-gradient(#eee, #fff); /*PIE*/
+	border: 1px solid #848484;
+	color: #666;
+	position: relative;
+	z-index: 0;
+	display: block;
+	vertical-align: middle;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+:root input[type="text"],
+:root input[type="password"] {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#ffffff')";
+}
+
+/* IE9 + IE10pp4 */
+
+textarea {
+	background: #fff; /*fallback for non-CSS3 browsers*/
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#eee) to(#fff)); /*old webkit*/
+	background: -webkit-linear-gradient(#eee, #fff); /*new webkit*/
+	background: -moz-linear-gradient(#eee, #fff); /*gecko*/
+	background: -ms-linear-gradient(#eee, #fff); /*IE10*/
+	background: -o-linear-gradient(#eee, #fff); /*opera 11.10+*/
+	background: linear-gradient(#eee, #fff); /*future CSS3 browsers*/
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	color: #a7a7b4 !important;
+	position: relative;
+	z-index: 0;
+	width: 97%;
+	height: 85px;
+}
+
+textarea:focus {
+	color: #000000 !important;
+}
+
+:root textarea {
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#ffffff')";
+}
+
+select {
+	color: #4d4d4d;
+	padding: 3px;
+	margin-left: 1px;
+	border: 1px solid #aaa;
+	outline: none;
+}
+

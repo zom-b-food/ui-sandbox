@@ -1,0 +1,19 @@
+{
+    "genus": "ice bird",
+    "diet": "sardines and other small bait fish",
+
+    "description": "The emperor penguin is the tallest and heaviest of all living penguin species and is endemic to Antarctica. The male and female are similar in plumage and size, reaching 122 cm (48 in) in height and weighing from 22 to 45 kg (49 to 99 lb). The dorsal side and head are black and sharply delineated from the white belly, pale-yellow breast and bright-yellow ear patches. Like all penguins it is flightless, with a streamlined body.",
+
+    "habitat": "ice fields, billboards, tv commercials",
+    "id": "penguin",
+    "images": [
+        "img/critters/penguin.2.jpg",
+        "img/critters/penguin.4.jpg",
+        "img/critters/penguin.3.jpg"
+    ],
+    "name": "Emperor Penguin",
+    "weight": "90-100 pounds"
+
+
+
+}

@@ -1,0 +1,230 @@
+@import "fonts-icons";
+@import "mediaqueries";
+@import "variables";
+@import "mixins";
+@import "components";
+
+
+.rbheader {
+  background: url(../images/brains/rbheader.jpg) no-repeat center center;
+  height: 255px;
+  width: 50%;
+  padding: 0;
+  background-size: cover;
+  padding-left: 0 !important;
+  -webkit-animation: fadein 4s;
+  -moz-animation: fadein 4s;
+  -ms-animation: fadein 4s;
+  -o-animation: fadein 4s;
+  animation: fadein 4s;
+  border-bottom:1px solid #00071D;
+  z-index: 3;
+}
+
+.lbheader {
+  background: url(../images/brains/lbheader.jpg) no-repeat center center;
+  height: 255px;
+  width: 50%;
+  padding: 0;
+  background-size: cover;
+  padding-right: 0 !important;
+  -webkit-animation: fadein 4s;
+  -moz-animation: fadein 4s;
+  -ms-animation: fadein 4s;
+  -o-animation: fadein 4s;
+  animation: fadein 4s;
+  border-bottom:1px solid #F0EEE2;
+  z-index: 3;
+}
+
+body, .ghostly {
+  margin: 0;
+  padding: 0;
+}
+
+.uk-grid+.uk-grid, .uk-grid-margin, .uk-grid>*>.uk-panel+.uk-panel {
+  margin-top: 0 !important;
+}
+
+#am-logo {
+  float: left;
+  padding: 2px;
+  margin: 0 0 0 5%;
+  width:223px !important;
+  height:46px !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#am-nametag {
+  float: right;
+  padding: 2px;
+  margin: 0 5% 0 0;
+  width:223px !important;
+  height:46px !important;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ghostly {
+  /*  *//* Fallback (could use .jpg/.png alternatively) *//*
+    background-color: transparent; *//* For browsers that do not support gradients *//*
+    background: -webkit-linear-gradient(left, #00061C, #E9E3D7); *//* For Safari 5.1 to 6.0 *//*
+    background: -o-linear-gradient(right, #00061C, #E9E3D7); *//* For Opera 11.1 to 12.0 *//*
+    background: -moz-linear-gradient(right, #00061C, #E9E3D7); *//* For Firefox 3.6 to 15 *//*
+    background: linear-gradient(to right, #00061C , #E9E3D7); *//* Standard syntax */
+  background: url(../images/brains/brainBG.jpg) no-repeat center center;
+  background-size: cover;
+  padding-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+#brain {
+  position: static;
+  max-width:320px;
+  margin:0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.leftbrain {
+  margin-top: 59px;
+  width: 100%;
+  margin-left: 98%;
+}
+
+.rightbrain {
+  margin-top: 60px;
+  width: 100%;
+  margin-left: 1%;
+}
+
+.leftbrain h1 {
+  color: #e1ebf5;
+  text-align:right;
+  font-weight: 700;
+  right: 50%;
+}
+
+.leftbrain h3 {
+  color: #e1ebf5;
+  text-align:right;
+  font-weight: normal;
+  right: 50%;
+}
+
+.rightbrain h1 {
+  color: #000000;
+  text-align:left;
+  font-weight: 700;
+  left: 50%;
+}
+
+.rightbrain h3 {
+  color: #000000;
+  text-align:left;
+  font-weight: normal;
+  left: 50%;
+}
+
+.leftcopy {
+  padding-top: 40px;
+  background-color: #00071C;
+  background: url(../images/brains/motherboard1.jpg) no-repeat left center;
+  background-size: cover;
+  text-align: right;
+  min-height: 600px;
+  position: relative;
+  padding-right: 60px;
+
+}
+
+.leftcopy * {
+  color:#d9e3ee;
+}
+
+.rightcopy {
+  padding-top: 40px;
+  background-color: #E9E3D7;
+  background: url(../images/brains/art1.jpg) no-repeat left center;
+  background-size: cover;
+  text-align: left;
+  min-height: 600px;
+  position: relative;
+  padding-left:44px !important;
+
+}
+
+.rightcopy * {
+  color:#01081c;
+}
+
+.blackishLeft {
+  background-color: #0f354d;
+  opacity: .6;
+  height: 48px;
+  border-bottom:1px solid #F0EEE2;
+}
+
+.blackishRight {
+  background-color: #c7bda8;
+  opacity: .6;
+  height: 48px;
+  border-bottom:1px solid #00071D;
+}
+
+#splash {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.fr {
+  float:right;
+  margin-top: 29%;
+  margin-right: -34%;
+  color: #E9E3D7;
+}
+.fl {
+  float:left;
+  margin-top: 20%;
+  margin-left: -30%;
+  color:#00071C;
+
+}
+.uk-grid>* {
+  padding-left:0;
+}
+
+span.whitelink a {
+  color:#ffffff;
+  float: right;
+  font-weight:700;
+}
+
+span.blacklink a {
+  color:#000000;
+  float: left;
+  font-weight:700;
+}
+
+h2.lb, h2.rb {
+  font-size:1.5rem;
+  font-weight:normal;
+}
+
+h3.lb, h3.rb {
+  font-size:1.25rem;
+  font-weight:normal;
+}
+p.warning {
+  font-size:12px;
+  color:#853f3a;
+  text-align:center;
+}

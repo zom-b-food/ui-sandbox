@@ -1,0 +1,44 @@
+// Resize anything
+
+@mixin resizable($direction) {
+	resize: $direction;
+// Options: horizontal, vertical, both
+	overflow: auto;
+// Per CSS3 UI, `resize` only applies when `overflow` isn't `visible`
+}
+
+@mixin col-xs() {
+	@media (max-width: 300px) {
+		@content;
+	}
+}
+
+@mixin col-sm-down() {
+	@media (min-width: 301px) and (max-width: 479px) {
+		@content;
+	}
+}
+
+@mixin col-md-down() {
+	@media (min-width: 300px) and (max-width: 784px) {
+		@content;
+	}
+}
+
+@mixin col-md-up() {
+	@media (min-width: 785px) {
+		@content;
+	}
+}
+
+@mixin col-lg() {
+	@media (min-width: 1125px) and (max-width: 1740px) {
+		@content;
+	}
+}
+
+@mixin col-xl() {
+	@media (min-width: 1741px) {
+		@content;
+	}
+}

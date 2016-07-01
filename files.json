@@ -1,0 +1,28 @@
+{
+    "files": [
+        {
+            "source": "./resources/compiled/ui-design-engineering.min.js",
+            "type": "SCRIPT",
+            "size": 5.096,
+            "stopExecution": false
+        },
+        {
+            "source": "./resources/js/libs/jquery-2.1.1.js",
+            "type": "SCRIPT",
+            "size": 4.096,
+            "stopExecution": true
+        },
+
+        {
+            "source": "./resources/compiled/ui-design-engineering.min.css",
+            "type": "CSS",
+            "size": 10.819
+        },
+        {
+            "source": "./resources/css/custom-w.css",
+            "type": "CSS",
+            "size": 7.336
+        }
+    ]
+
+}

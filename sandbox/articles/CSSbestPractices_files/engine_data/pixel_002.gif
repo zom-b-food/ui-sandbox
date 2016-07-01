@@ -1,0 +1,14 @@
+ <br><SCRIPT Language="JavaScript1.1">
+<!--
+function fixString(str) { 
+ var newStr = new String(); 
+ for (var i=0; i<str.length;i++) { 
+ if (str.charAt(i) == ' ' || str.charAt(i) == '+') 
+ newStr += '-'; 
+ else 
+ newStr += str.charAt(i); 
+ } 
+ return newStr; 
+ } 
+myImage = new Image();myImage.src = "http://pbid.pro-market.net/engine?noAd+gmtoffset=(" + Math.floor((new Date()).getTimezoneOffset()/-60) + ")+localdate=$" + fixString((new Date()).toString()) + "$;"
+//--></SCRIPT>

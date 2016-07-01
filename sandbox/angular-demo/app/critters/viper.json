@@ -1,0 +1,20 @@
+{
+    "genus": "snake or 645 hp muscle car",
+    "diet": "rodents, bugs (or premium unleaded)",
+
+    "description": "The Viperidae (vipers) are a family of venomous snakes found all over the world, except in Antarctica, Australia, New Zealand, Madagascar, Hawaii, and north of the Arctic Circle. All have relatively long, hinged fangs that permit deep penetration and injection of venom. Four subfamilies are currently recognised. They are also known as viperids. During a strike, the mouth can open nearly 180° and the maxilla rotates forward, erecting the fangs.",
+
+    "habitat": "my garage",
+    "id": "viper",
+    "images": [
+        "img/critters/viper.0.jpg",
+        "img/critters/viper.1.jpg",
+
+        "img/critters/viper.3.jpg"
+    ],
+    "name": "Viper",
+    "weight": "20-3,097 pounds"
+
+
+
+}

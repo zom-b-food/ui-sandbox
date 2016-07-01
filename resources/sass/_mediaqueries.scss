@@ -1,0 +1,111 @@
+/* break mixins are in /my-mixins/_global.scss  */
+@import "variables";
+@import "mixins";
+
+html,
+body {
+  height: auto;
+  font-size: $font-size-base;
+}
+
+p, table, td, th, a, li, label, body, div, ul > li, button {
+  font-size: 1em;
+  @include break-small() {
+    font-size: 1em;
+    border:1px solid lightgreen;
+  }
+  @include break-medium() {
+    font-size: 1em;
+    border:1px solid #79382f;
+  }
+  @include break-large() {
+    font-size: 1em;
+    border:1px solid #166e21;
+  }
+  @include break-xlarge() {
+    font-size: 1em;
+    border:1px solid #54c2cc;
+  }
+
+}
+
+h1 {
+  font-size: 1.75em;
+  font-weight:$bold;
+  @include break-small() {
+    font-size: 1.25em;
+  }
+
+  @include break-medium() {
+    font-size: 1.75em;
+  }
+
+  @include break-large() {
+    font-size: 1.75em;
+  }
+
+  @include break-xlarge() {
+    font-size: 1.75em;
+  }
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight:$bold;
+  @include break-small() {
+    font-size: 1.15em;
+  }
+
+  @include break-medium() {
+    font-size: 1.5em;
+  }
+
+  @include break-large() {
+    font-size: 1.5em;
+  }
+
+  @include break-xlarge() {
+    font-size: 1.5em;
+  }
+}
+
+h3 {
+  font-size: 1.15em;
+  font-weight:$bold;
+  @include break-small() {
+    font-size: 1.05em;
+  }
+
+  @include break-medium() {
+    font-size: 1.15em;
+  }
+
+  @include break-large() {
+    font-size: 1.15em;
+  }
+
+  @include break-xlarge() {
+    font-size: 1.15em;
+  }
+}
+
+h4, legend {
+  font-size: 1em;
+  font-weight:$bold;
+  @include break-small() {
+    font-size: 1em;
+  }
+
+  @include break-medium() {
+    font-size: 1em;
+  }
+
+  @include break-large() {
+    font-size: 1em;
+  }
+
+  @include break-xlarge() {
+    font-size: 1em;
+  }
+}
+

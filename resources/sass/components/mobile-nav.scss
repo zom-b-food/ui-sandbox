@@ -1,0 +1,150 @@
+
+@import "../mixins";
+@import "../variables";
+
+/* mobile navigation */
+#container1, #container2 {
+  position: relative;
+  width: 100%;
+}
+
+#navigation1 li, #navigation2 li {
+  display: inline-block;
+  *display: inline;
+  margin-right: 20px;
+  zoom: 1;
+}
+
+#toggle-menu1, #toggle-menu2 {
+  position: relative;
+  height:24px;
+  width: 80px;
+  cursor: pointer;
+  text-indent: -99999em;
+  opacity: .7;
+  &:hover {
+    opacity:1;
+  }
+}
+
+.mobile-navigation1  {
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: $blackish;
+  z-index: 200;
+}
+
+.mobile-navigation2  {
+  width: 0;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  right:0;
+  top: 0;
+  background: $blackish;
+  z-index: 200;
+}
+
+.mobile-navigation1 ul, .mobile-navigation2 ul {
+  margin: 0;
+  padding: 80px 0 0 20px;
+  list-style-type: none;
+}
+
+.mobile-navigation1 li, .mobile-navigation2 li {
+  padding: 8px 0;
+}
+.mobile-navigation1 li {
+  padding:6px;
+  height:22px;
+  width:100%;
+  list-style-type: none;
+  color:white;
+}
+
+.mobile-navigation1 li.uk-nav-header {
+  padding:6px;
+  height:22px;
+  width:100%;
+  list-style-type: none;
+  color:white;
+
+}
+
+.mobile-navigation1 li.link-active {
+  padding-top: 12px;
+  height: 20px;
+  padding-left: 12px;
+  border:1px solid $camel;
+
+  border-radius: 3px;
+  width: 90%;
+  span {
+    float:left;
+  }
+}
+.mobile-navigation1 li span {
+  float:left;
+}
+.mobile-navigation1 a.link1 {
+  padding: 5px 10px;
+  color: #fff;
+
+  white-space: nowrap;
+  height:33px;
+  span {
+    float:left;
+  }
+}
+
+.mobile-navigation2 li.uk-nav-header {
+  color:$palegreen;
+  text-transform: uppercase;
+}
+
+.mobile-navigation2 li.uk-active {
+  background: $slategreen;
+  border:1px solid $camel;
+  padding-left:10px;
+  border-radius: 3px;
+  width: 90%;
+}
+
+.mobile-navigation2 a.anchor {
+  padding: 5px 0;
+  color: #fff;
+  padding-left:10px;
+  white-space: nowrap;
+}
+
+.mobile-navigation1 .close {
+  width: 67px;
+  height: 20px;
+  position: absolute;
+  text-indent: -99999em;
+  cursor: pointer;
+  background: url("../images/scrollNav/close1.png") no-repeat center center;
+  z-index: 9999;
+  padding: 20px;
+  right: 1%;
+}
+
+.mobile-navigation2 .close {
+  width: 67px;
+  height: 20px;
+  position: absolute;
+  text-indent: -99999em;
+  cursor: pointer;
+  background: url("../images/scrollNav/close2.png") no-repeat center center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.am-nav1 {
+
+
+}

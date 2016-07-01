@@ -1,0 +1,19 @@
+{
+    "genus": "mythical land/sea creature",
+    "diet": "baby penguins (if they're in season, otherwise little fish)",
+
+    "description": "The harbor (or harbour) seal (Phoca vitulina), also known as the common seal, is a true seal found along temperate and Arctic marine coastlines of the Northern Hemisphere. The most widely distributed species of pinniped (walruses, eared seals, and true seals), they are found in coastal waters of the northern Atlantic and Pacific oceans, the Baltic and North Seas.",
+
+    "habitat": "ocean, starbucks on pier 69",
+    "id": "seal",
+    "images": [
+        "img/critters/seal.4.jpg",
+        "img/critters/seal.1.jpg",
+        "img/critters/seal.0.jpg"
+    ],
+    "name": "California [Navy] Seal",
+    "weight": "90-100 pounds"
+
+
+
+}

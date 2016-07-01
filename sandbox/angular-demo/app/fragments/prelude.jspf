@@ -1,0 +1,6 @@
+<%@ include file="tags.jspf" %>
+
+
+<%@ include file="mobile-detect.jspf" %>
+<fmt:setLocale value="en_US" scope="session"/>
+<c:set var="contextPath" value="${pageContext.servletContext.contextPath}" scope="request"/>

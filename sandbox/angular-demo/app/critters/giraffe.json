@@ -1,0 +1,20 @@
+{
+    "genus": "stretch horse",
+    "diet": "leaves, thorns, walnuts",
+
+    "description": "The giraffe (Giraffa camelopardalis) is an African even-toed ungulate mammal, the tallest living terrestrial animal and the largest ruminant. Its species name refers to its camel-like shape and its leopard-like colouring. Its chief distinguishing characteristics are its extremely long neck and legs, its horn-like ossicones, and its distinctive coat patterns.",
+
+    "habitat": "wide open spaces, long driveways",
+    "id": "giraffe",
+    "images": [
+        "img/critters/giraffe.0.jpg",
+        "img/critters/giraffe.1.jpg",
+
+        "img/critters/giraffe.2.jpg"
+    ],
+    "name": "Giraffe",
+    "weight": "300 pounds"
+
+
+
+}

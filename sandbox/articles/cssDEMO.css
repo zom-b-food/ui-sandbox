@@ -1,0 +1,188 @@
+/* Eric Meyer's reset */
+@import "reset.css";
+
+body {
+	font-family: Candara, Verdana, Arial, sans-serif;
+	background: url(../images/body_bg2.gif) repeat left top;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.content, .clear {
+    clear: both;
+}
+
+.clearfix {
+    display: block;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+#splash-page {
+	height: 160%;
+	width: 774px;
+	position: relative;
+    margin: 0 auto;
+	border-left:2px dotted #a0a78a;
+	-moz-box-shadow: 4px 4px 4px rgba(67, 71, 36, 0.75);
+    -webkit-box-shadow: 4px 5px 5px rgba(67, 71, 36, 0.75);
+    box-shadow: 4px 5px 5px rgba(67, 71, 36, 0.75);
+}
+
+.splash h2 {
+	font-size:2em;
+	text-shadow: 0 1px 1px #cccccc;
+    margin-top:0;
+	margin-left:186px;
+}
+
+.resSep a.standard, a.samples, a.wide,
+a.main {
+	font-family: Candara, Verdana, Arial, sans-serif;
+	font-size:1.1em;
+	color: #574d18;
+	background-color: transparent;
+    letter-spacing: 1px;
+}
+
+.resSep a.standard:hover, a.samples:hover, a.wide:hover,
+a.main:hover{
+	color: #d7c469;
+}
+
+p.subhead {
+	margin-top:20px;
+}
+
+#bayJob h3 {
+	color:#ad2636;
+	line-height:1px;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	padding: 8px 0 0 2px;
+}
+
+ul.fancybullet {
+	list-style-image: url(../images/bullet1.gif);
+	list-style-position: outside;
+	line-height: 20px;
+	text-align: left;
+}
+
+ul.fancybullet li {
+	font-size: 1.2em;
+}
+
+ul.fancybullet a {
+	font-family: Candara, Verdana, Arial, sans-serif;
+	text-decoration: none;
+}
+
+ul.fancybullet a:visited {
+	color: #574d18;
+}
+
+ul.fancybullet a:hover {
+	color: #08390b;
+}
+
+.toggle_container {
+	margin: 0 5px 20px;
+	background: #f0f0f0 url(../images/toggle_block_stretch.gif) repeat-y left top;
+	overflow: auto;
+	width: 666px;
+}
+
+.toggle_container .slide {
+	padding: 20px;
+    background: url(../images/toggle_block_btm.gif) no-repeat left bottom; 
+}
+
+/* Fieldset is used outside of a form which is why it appears in this css file  */
+fieldset {
+	border: 1px solid #b3c0a9;
+	width:90%;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+}
+
+fieldset legend {
+	font-family: "Trebuchet MS", Candara, Verdana, Arial, sans-serif;
+	font-size: 1.5em;
+	text-shadow: 0 1px 1px #cccccc;
+	letter-spacing: 1px;
+	color: #273953;
+}
+
+/*   will only select parent div's direct children ul's */
+div.parent > ul   {
+    margin-top: 12px;
+}
+
+/*   will select only the first ul that is immediately after an h3  */
+h3 + ul {
+    margin-top: 12px;
+}
+
+/*   will select any ul element that is immediately after an h3  */
+h3 ~ ul {
+    margin-top: 12px;
+}
+
+/*   will select only the last element within a paragraph with a class of js  */
+p.js:last-of-type {
+    margin-bottom: 16px;
+}
+
+/*   selects 3rd li  */
+ul li:nth-child(3) {
+    color: red;
+}
+
+/*   selects 3rd ul (type refers to the element) */
+ul:nth-of-type(3) {
+    border: 1px solid black;
+}
+
+/* will target the last item of the element's parent */
+ul.parent > li:last-child {
+    color: green;
+}
+
+/*   selects 3rd li  */
+ul li:first-child {
+    border-top: none;
+}
+
+/*   pseudo class selects first line of p  */
+p::first-line {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.fancy.left {
+/*   <div class="fancy left">blah</div>  */
+}
+
+.fancy .left {
+/*  <div class="fancy">
+	<div class="left">blah</div>
+</div>  */
+}
+
+/*   SPECIFICITY:   */
+p             has a specificity of 1 (1 HTML selector)
+div p         has a specificity of 2 (2 HTML selectors)
+.sith         has a specificity of 10 (1 class selector)
+div p.sith    has a specificity of 12 (2 HTML selectors and a class selector)
+#sith         has a specificity of 100 (1 id selector)
+body #darkside .sith p      has a specificity of 112 (HTML selector, id selector, class selector, HTML selector)

@@ -1,0 +1,19 @@
+{
+    "genus": "drunken cow",
+    "diet": "tundra, chocolate kisses, vodka",
+
+    "description": "The moose (North America) or elk (Eurasia), Alces alces, is the largest extant species in the deer family. Moose are distinguished by the palmate antlers of the males; other members of the family have antlers with a dendritic ('twig-like') configuration. Moose typically inhabit boreal and mixed deciduous forests of the Northern Hemisphere in temperate to subarctic climates. Moose used to have a much wider range but hunting and other human activities have greatly reduced it.",
+
+    "habitat": "canada, eh?",
+    "id": "moose",
+    "images": [
+        "img/critters/moose.3.jpg",
+        "img/critters/moose.1.jpg",
+        "img/critters/moose.4.jpg"
+    ],
+    "name": "Canadian Moose",
+    "weight": "300-700 pounds"
+
+
+
+}

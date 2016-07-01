@@ -1,0 +1,85 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head><body>
+
+<div id="cwpxls" style="display: none"></div>
+<script>
+(function () {
+    var cwso = window.navigator;
+    if (!cwso.cwvmts || cwso.cwvmts < (new Date().getTime() - 5000)) {
+        cwso.cwvmts = new Date().getTime();
+        var cwvmpxl = {
+            delay: 500,
+            cwimgs: new Array(),
+            cwifrs: new Array(),
+            cwaifr: function () {
+                clearTimeout(cwvmpxl.cwth);
+                var cwpixels = document.getElementById('cwpxls');
+                if (cwpixels) {
+                    try {
+                        var src = cwvmpxl.cwifrs.pop();
+                        if (src) {
+                            var ifr = document.createElement('iframe');
+                            ifr.onload = cwvmpxl.cwaifr;
+                            ifr.onerror = cwvmpxl.cwaifr;
+                            ifr.style.width = ifr.style.height = 0;
+                            ifr.src = src;
+                            cwpixels.appendChild(ifr);
+                            cwvmpxl.cwth = setTimeout(cwvmpxl.cwaifr, cwvmpxl.delay);
+                        } else {
+                            cwvmpxl.cwclr();
+                        }
+                    } catch (e) {}
+                }
+            },
+            cwaimg: function () {
+                clearTimeout(cwvmpxl.cwth);
+                var cwpixels = document.getElementById('cwpxls');
+                if (cwpixels) {
+                    try {
+                        var src = cwvmpxl.cwimgs.pop();
+                        if (src) {
+                            var img = document.createElement('img');
+                            img.onload = cwvmpxl.cwaimg;
+                            img.onerror = cwvmpxl.cwaimg;
+                            img.style.width = img.style.height = 0;
+                            img.src = src;
+                            cwpixels.appendChild(img);
+                            cwvmpxl.cwth = setTimeout(cwvmpxl.cwaimg, cwvmpxl.delay);
+                        } else {
+                            cwvmpxl.cwaifr();
+                        }
+                    } catch (e) {}
+                }
+            },
+            cwclr: function () {
+                if (cwvmpxl.cwh5()) {
+                    localStorage.removeItem('cwvmts');
+                }
+                cwso.cwvmts = null;
+            },
+            cwh5: function () {
+                try {
+                    return 'localStorage' in window && window['localStorage'] !== null;
+                } catch (e) {
+                    return false;
+                }
+            },
+            cwdp: function () {
+                if (cwvmpxl.cwh5()) {
+                    if (localStorage.getItem('cwvmts') === null || localStorage['cwvmts'] < (new Date().getTime() - 5000)) {
+                        localStorage['cwvmts'] = new Date().getTime();
+                        cwvmpxl.cwaimg();
+                    }
+                } else {
+                    cwvmpxl.cwaimg();
+                }
+            },
+            cwth: null
+        };
+        cwvmpxl.cwdp();
+    }
+})()
+</script>
+
+
+</body></html>

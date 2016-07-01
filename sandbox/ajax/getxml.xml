@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<vacation>
+    <stops>
+        <city>Sayulita</city>
+        <state>Nayarit</state>
+        <country>Mexico</country>
+        <date>01/01/2015</date>
+    </stops>
+    <stops>
+        <city>Puerto Vallarta</city>
+        <state>Jalisco</state>
+        <country>Mexico</country>
+        <date>02/01/2015</date>
+    </stops>
+    <stops>
+        <city>Vancouver</city>
+        <state>British Columbia</state>
+        <country>Canada</country>
+        <date>03/01/2015</date>
+    </stops>
+    <stops>
+        <city>Miami</city>
+        <state>Florida</state>
+        <country>USA</country>
+        <date>04/01/2015</date>
+    </stops>
+    <stops>
+        <city>Watford</city>
+        <state>Middlesex</state>
+        <country>UK</country>
+        <date>05/01/2015</date>
+    </stops>
+    <stops>
+        <city>Juneau</city>
+        <state>Alaska</state>
+        <country>USA</country>
+        <date>06/01/2015</date>
+    </stops>
+    <stops>
+        <city>Chicago</city>
+        <state>Illinois</state>
+        <country>USA</country>
+        <date>07/01/2015</date>
+    </stops>
+    <stops>
+        <city>Toulon</city>
+        <state>Provence</state>
+        <country>France</country>
+        <date>08/01/2015</date>
+    </stops>
+    <stops>
+        <city>Aix</city>
+        <state>Provence</state>
+        <country>France</country>
+        <date>09/01/2015</date>
+    </stops>
+   
+</vacation>
+

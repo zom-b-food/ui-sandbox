@@ -1,0 +1,257 @@
+.uk-dotnav {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-top: -15px;
+  padding: 0;
+  list-style: none; }
+
+.uk-dotnav > * {
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+  padding-left: 15px;
+  margin-top: 15px; }
+
+.uk-dotnav:after, .uk-dotnav:before {
+  content: "";
+  display: block;
+  overflow: hidden; }
+
+.uk-dotnav:after {
+  clear: both; }
+
+.uk-dotnav > * {
+  float: left; }
+
+.uk-dotnav > * > * {
+  display: block;
+  box-sizing: content-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(50, 50, 50, 0.1);
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+.uk-dotnav > * > :focus, .uk-dotnav > * > :hover {
+  background: rgba(50, 50, 50, 0.4);
+  outline: 0; }
+
+.uk-dotnav > * > :active {
+  background: rgba(50, 50, 50, 0.6); }
+
+.uk-dotnav > .uk-active > * {
+  background: rgba(50, 50, 50, 0.4);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3); }
+
+.uk-dotnav-contrast > * > * {
+  background: rgba(255, 255, 255, 0.4); }
+
+.uk-dotnav-contrast > * > :focus, .uk-dotnav-contrast > * > :hover {
+  background: rgba(255, 255, 255, 0.7); }
+
+.uk-dotnav-contrast > * > :active {
+  background: rgba(255, 255, 255, 0.9); }
+
+.uk-dotnav-contrast > .uk-active > * {
+  background: rgba(255, 255, 255, 0.9); }
+
+.uk-dotnav-vertical {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column; }
+
+.uk-dotnav-vertical > * {
+  float: none; }
+
+.uk-slidenav {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  color: rgba(50, 50, 50, 0.4);
+  font-size: 60px;
+  text-align: center; }
+
+.uk-slidenav:focus, .uk-slidenav:hover {
+  outline: 0;
+  text-decoration: none;
+  color: rgba(50, 50, 50, 0.7);
+  cursor: pointer; }
+
+.uk-slidenav:active {
+  color: rgba(50, 50, 50, 0.9); }
+
+.uk-slidenav-previous:before {
+  content: "\f104";
+  font-family: FontAwesome; }
+
+.uk-slidenav-next:before {
+  content: "\f105";
+  font-family: FontAwesome; }
+
+.uk-slidenav-position {
+  position: relative; }
+
+.uk-slidenav-position .uk-slidenav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  margin-top: -30px; }
+
+.uk-slidenav-position:hover .uk-slidenav {
+  display: block; }
+
+.uk-slidenav-position .uk-slidenav-previous {
+  left: 20px; }
+
+.uk-slidenav-position .uk-slidenav-next {
+  right: 20px; }
+
+.uk-slidenav-contrast {
+  color: rgba(255, 255, 255, 0.5); }
+
+.uk-slidenav-contrast:focus, .uk-slidenav-contrast:hover {
+  color: rgba(255, 255, 255, 0.7); }
+
+.uk-slidenav-contrast:active {
+  color: rgba(255, 255, 255, 0.9); }
+
+.uk-slider {
+  position: relative;
+  z-index: 0;
+  touch-action: pan-y; }
+
+.uk-slider:not(.uk-grid) {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.uk-slider > * {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.uk-slider-container {
+  overflow: hidden; }
+
+.uk-slider:not(.uk-drag) {
+  -webkit-transition: -webkit-transform 200ms linear;
+  transition: transform 200ms linear; }
+
+.uk-slider.uk-drag {
+  cursor: col-resize;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.uk-slider a, .uk-slider img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  -webkit-touch-callout: none; }
+
+.uk-slider img {
+  pointer-events: none; }
+
+.uk-slider-fullscreen, .uk-slider-fullscreen > li {
+  height: 100vh; }
+
+.uk-slideshow {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  touch-action: pan-y; }
+
+.uk-slideshow > li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0; }
+
+.uk-slideshow > .uk-active {
+  z-index: 10;
+  opacity: 1; }
+
+.uk-slideshow > li > img {
+  visibility: hidden; }
+
+[data-uk-slideshow-slide] {
+  cursor: pointer; }
+
+.uk-slideshow-fullscreen, .uk-slideshow-fullscreen > li {
+  height: 100vh; }
+
+.uk-slideshow-fade-in {
+  -webkit-animation: uk-fade .5s linear;
+  animation: uk-fade 0.5s linear; }
+
+.uk-slideshow-fade-out {
+  -webkit-animation: uk-fade .5s linear reverse;
+  animation: uk-fade 0.5s linear reverse; }
+
+.uk-slideshow-scroll-forward-in {
+  -webkit-animation: uk-slide-right .5s ease-in-out;
+  animation: uk-slide-right 0.5s ease-in-out; }
+
+.uk-slideshow-scroll-forward-out {
+  -webkit-animation: uk-slide-left .5s ease-in-out reverse;
+  animation: uk-slide-left 0.5s ease-in-out reverse; }
+
+.uk-slideshow-scroll-backward-in {
+  -webkit-animation: uk-slide-left .5s ease-in-out;
+  animation: uk-slide-left 0.5s ease-in-out; }
+
+.uk-slideshow-scroll-backward-out {
+  -webkit-animation: uk-slide-right .5s ease-in-out reverse;
+  animation: uk-slide-right 0.5s ease-in-out reverse; }
+
+.uk-slideshow-scale-out {
+  -webkit-animation: uk-fade-scale-15 .5s ease-in-out reverse;
+  animation: uk-fade-scale-15 0.5s ease-in-out reverse; }
+
+.uk-slideshow-swipe-forward-in {
+  -webkit-animation: uk-slide-left-33 .5s ease-in-out;
+  animation: uk-slide-left-33 0.5s ease-in-out; }
+
+.uk-slideshow-swipe-forward-out {
+  -webkit-animation: uk-slide-left .5s ease-in-out reverse;
+  animation: uk-slide-left 0.5s ease-in-out reverse; }
+
+.uk-slideshow-swipe-backward-in {
+  -webkit-animation: uk-slide-right-33 .5s ease-in-out;
+  animation: uk-slide-right-33 0.5s ease-in-out; }
+
+.uk-slideshow-swipe-backward-out {
+  -webkit-animation: uk-slide-right .5s ease-in-out reverse;
+  animation: uk-slide-right 0.5s ease-in-out reverse; }
+
+.uk-slideshow-swipe-backward-in:before, .uk-slideshow-swipe-forward-in:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-animation: uk-fade .5s ease-in-out reverse;
+  animation: uk-fade 0.5s ease-in-out reverse; }
+
+/*# sourceMappingURL=amslides.css.map */

@@ -1,0 +1,20 @@
+{
+    "genus": "faux dog",
+    "diet": "small children (often left on beaches)",
+
+    "description": "The dingo (Canis lupus dingo) is a wild dog found in Australia. Its exact ancestry is debated, but dingoes are generally believed to be descended from semi-domesticated dogs from East or South Asia, which returned to a wild lifestyle when introduced to Australia. Both dingo and domestic dog are classified as a subspecies of Canis lupus in Mammal Species of the World.",
+
+    "habitat": "petting zoos, car dealerships",
+    "id": "dingo",
+    "images": [
+        "img/critters/dingo.0.jpg",
+        "img/critters/dingo.1.jpg",
+
+        "img/critters/dingo.4.jpg"
+    ],
+    "name": "Dingo",
+    "weight": "90-100 pounds"
+
+
+
+}

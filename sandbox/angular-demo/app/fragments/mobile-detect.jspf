@@ -1,0 +1,2 @@
+<c:set var="ua" value="${fn:toLowerCase(header['User-Agent'])}"/>
+<c:set var="isMobile" value="${fn:contains(ua, 'mobi')}"/>

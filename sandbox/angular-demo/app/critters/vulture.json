@@ -1,0 +1,19 @@
+{
+    "genus": "skunk bird",
+    "diet": "dead things, pork rinds, black licorice",
+
+    "description": "Vulture is the name given to two groups of scavenging birds of prey: the New World vultures, including the Californian and Andean condors; and the Old World vultures, including the birds that are seen scavenging on carcasses of dead animals on African plains. Research has shown that some traditional Old World vultures (including the bearded vulture) are not closely related to the others.",
+
+    "habitat": "playgrounds, rodeos",
+    "id": "vulture",
+    "images": [
+        "img/critters/vulture.3.jpg",
+        "img/critters/vulture.4.jpg",
+        "img/critters/vulture.2.jpg"
+    ],
+    "name": "Vulture",
+    "weight": "90-100 pounds"
+
+
+
+}

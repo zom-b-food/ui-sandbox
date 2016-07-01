@@ -1,0 +1,80 @@
+[
+    {
+        "age": 0,
+        "id": "moose",
+        "imageUrl": "img/critters/moose.2.jpg",
+        "name": "Canadian Moose",
+        "snippet": "The Canadian Moose is a majestic creature. I once saw a Canadian Moose sneak across the border into Montana but when he saw me, he scurried back over to Canada."
+    },
+    {
+        "age": 1,
+        "id": "eagle",
+        "imageUrl": "img/critters/eagle.0.jpg",
+        "name": "American Bald Eagle",
+        "snippet": "The American Bald Eagle is a sacred and endangered bird in the US. If Fish & Game knew I had a few in my sanctuary, I'd be screwed since my permit actually says, 'American Grey Goose'"
+    },
+    {
+        "age": 2,
+        "id": "vulture",
+        "imageUrl": "img/critters/vulture.0.jpg",
+        "name": "Vulture",
+        "snippet": "There are few things in this world as disgusting as vultures. Go to youtube and watch these things eat. Gross, no manners at all. I had a jacket with a picture of a vulture on it in high school--it was the 80's afterall."
+    },
+    {
+        "age": 3,
+        "id": "dingo",
+        "imageUrl": "img/critters/dingo.2.jpg",
+        "name": "Dingo",
+        "snippet": "Listening to a pack of dingos maow down on a toddler is terrifying. They don't really look that bad-ass, but they'll keep me from hiking around Australia."
+    },
+    {
+        "age": 4,
+        "id": "viper",
+        "imageUrl": "img/critters/viper.2.jpg",
+        "name": "Viper",
+        "snippet": "Vipers come in many colors. Their bite is nasty and their teeth are scary as hell. It's best to run over them quickly in your pimped out...viper!"
+    },
+    {
+        "age": 5,
+        "id": "penguin",
+        "imageUrl": "img/critters/penguin.1.jpg",
+        "name": "Emperor Penguin",
+        "snippet": "I can't think of penguins without thinking of Morgan Freeman. That man is awesome. So are penguins. Not sure what they're going to do once all the ice melts."
+    },
+    {
+        "age": 6,
+        "id": "seal",
+        "imageUrl": "img/critters/seal.3.jpg",
+        "name": "California Seal",
+        "snippet": "The seal is an intelligent mammal with the math skills of the average 5th grader. Higher levels of math should be tutored by dolphins. Unfortunately, I have no dolphins at my sanctuary."
+    },
+    {
+        "age": 7,
+        "id": "hippo",
+        "imageUrl": "img/critters/hippo.2.jpg",
+        "name": "Hippo",
+        "snippet": "Seriously, the hippo is the 'real' King of the Jungle. Hippos are mean s.o.b's and kill more people every year than Lions, Vultures, and Field Mice combined. It's best to stay away from these savage creatures."
+    },
+    {
+        "age": 7,
+        "id": "giraffe",
+        "imageUrl": "img/critters/giraffe.3.jpg",
+        "name": "Giraffe",
+        "snippet": "Tall and awkward, the towering giraffe has a tongue as long as my arm. Watching them run as a pack (pack of giraffes? gaggle of giraffes? quorum of giraffes?) is a sight to see on animal planet."
+    },
+    {
+        "age": 9,
+        "id": "lion",
+        "imageUrl": "img/critters/lion.1.jpg",
+        "name": "Lion",
+        "snippet": "So, I have to have a lion in my 'sanctuary' even though I think they're way over-rated. Whatever, I'm not a hater; just watching these beasts makes me yaaaawwwn..."
+    },
+    {
+        "age": 10,
+        "id": "kangaroo",
+        "imageUrl": "img/critters/kangaroo.0.jpg",
+        "name": "Kangaroo",
+        "snippet": "The mighty kangaroo is unique to the Australian outback and spends 22 hours a day licking itself to keep cool since Australia is so effing hot. I saw one waving a fan once."
+    }
+
+]

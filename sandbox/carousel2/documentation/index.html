@@ -1,0 +1,825 @@
+<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+
+		<title>UtilCarousel Document</title>
+
+		<meta name="description" content="">
+		<meta name="author" content="YourName">
+		<meta name="copyright" content="YourName">
+		<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+		<meta name="date" content="2014-04-15T00:00:00+02:00">
+
+		<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+		<link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" media="screen">
+		<script src="assets/js/google-code-prettify/prettify.js"></script>
+
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+		<script src="assets/js/jquery.js"></script>
+
+		<script src="assets/js/jquery.scrollTo.js"></script>
+		<script src="assets/js/jquery.easing.js"></script>
+
+		<script>
+			document.createElement('section');
+			var duration = '500', easing = 'swing';
+		</script>
+		<script src="assets/js/script.js"></script>
+
+		<style>
+			html {
+				background-color: #EEEEEE;
+				color: #383838;
+			}
+			::-moz-selection {
+				background: #333636;
+				color: #00DFFC;
+			}
+			::selection {
+				background: #333636;
+				color: #00DFFC;
+			}
+			#documenter_sidebar #documenter_logo {
+				background-image: url(assets/images/image_1.png);
+			}
+			a {
+				color: #008C9E;
+			}
+			.btn {
+				border-radius: 3px;
+			}
+			.btn-primary {
+				background-image: -moz-linear-gradient(top, #008C9E, #006673);
+				background-image: -ms-linear-gradient(top, #008C9E, #006673);
+				background-image: -webkit-gradient(linear, 0 0, 0 008C9E%, from(#343838), to(#006673));
+				background-image: -webkit-linear-gradient(top, #008C9E, #006673);
+				background-image: -o-linear-gradient(top, #008C9E, #006673);
+				background-image: linear-gradient(top, #008C9E, #006673);
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008C9E', endColorstr='#006673', GradientType=0);
+				border-color: #006673 #006673 #bfbfbf;
+				color: #FFFFFF;
+			}
+			.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+				border-color: #008C9E #008C9E #bfbfbf;
+				background-color: #006673;
+			}
+			hr {
+				border-top: 1px solid #D4D4D4;
+				border-bottom: 1px solid #FFFFFF;
+			}
+			#documenter_sidebar, #documenter_sidebar ul a {
+				background-color: #343838;
+				color: #FFFFFF;
+			}
+			#documenter_sidebar ul a {
+				-webkit-text-shadow: 1px 1px 0px #494F4F;
+				-moz-text-shadow: 1px 1px 0px #494F4F;
+				text-shadow: 1px 1px 0px #494F4F;
+			}
+			#documenter_sidebar ul {
+				border-top: 1px solid #212424;
+			}
+			#documenter_sidebar ul a {
+				border-top: 1px solid #494F4F;
+				border-bottom: 1px solid #212424;
+				color: #FFFFFF;
+			}
+			#documenter_sidebar ul a:hover {
+				background: #333636;
+				color: #00DFFC;
+				border-top: 1px solid #333636;
+			}
+			#documenter_sidebar ul a.current {
+				background: #333636;
+				color: #00DFFC;
+				border-top: 1px solid #333636;
+			}
+			#documenter_copyright {
+				display: block !important;
+				visibility: visible !important;
+			}
+			ol.linenums {
+				margin: 0;
+			}
+			#documenter_content .table {
+				background: #fafafa;
+				line-height: 1.8em;
+			}
+			#documenter_content .table td {
+				padding: 5px;
+				border: 1px solid #dbdbdb;
+			}
+			#documenter_content .table th {
+				padding: 8px 5px;
+				background: #fefefe;
+				border: 1px solid #dbdbdb;
+			}
+			#documenter_content .table strong {
+				color: #DD1144;
+				text-shadow: #fff 0px 1px 0px;
+				margin: auto 3px;
+			}
+		</style>
+
+	</head>
+	<body class="documenter-project-itemname">
+		<div id="documenter_sidebar">
+			<a href="#documenter_cover" id="documenter_logo"></a>
+			<ul id="documenter_nav">
+				<li>
+					<a class="current" href="#documenter_cover">Start</a>
+				</li>
+
+				<li>
+					<a href="#how_to_use" title="How To Use">How To Use</a>
+				</li>
+				<li>
+					<a href="#options" title="Options">Options</a>
+				</li>
+				<li>
+					<a href="#callbacks" title="Callbacks">Callbacks</a>
+				</li>
+				<li>
+					<a href="#methods" title="Methods">Methods</a>
+				</li>
+				<li>
+					<a href="#use_skin_templates" title="Use Skin/Templates">Use Skin/Templates</a>
+				</li>
+				<li>
+					<a href="#use_lightbox" title="Use Lightbox">Use Lightbox</a>
+				</li>
+
+			</ul>
+			<div id="documenter_copyright">
+				Copyright Hkeyjun 2014
+				<br>
+				made with the <a href="http://rxa.li/documenter">Documenter v2.0</a>
+			</div>
+		</div>
+		<div id="documenter_content">
+			<section id="documenter_cover">
+				<h1>UtilCarousel</h1>
+				<h2>Responsive jQuery Carousel Plugin</h2>
+				<div id="documenter_buttons">
+					<a href="mailto:hkeyjun@gmail.com" class="btn btn-primary btn-large">Contact Me</a>
+				</div>
+				<hr>
+				<ul>
+					<li>
+						created: 01/10/2014
+					</li>
+					<li>
+						latest update: 04/20/2014
+					</li>
+					<li>
+						by: Hkeyjun
+					</li>
+
+					<li>
+						email: <a href="mailto:hkeyjun@gmail.com">hkeyjun@gmail.com</a>
+					</li>
+				</ul>
+				<p>
+					UtilCarousel is a fully responsive jQuery carousel plugin with super smooth hardware accelerated transitions.It is responsive witch support both 'breakpoints' and 'itemwidthrange'. And it is touch-enabled with css3 3d hardware acceleration, so it is super smooth both on desktop and mobile.
+					Touch, drag, pagination control, navigation control, mousewheel are all enable to navigate UtilCarousel. There are  over 9+ ready to use skins/templates, over 24 options, 7 callbacks and 8 developer apis you can build you carousel easily.
+				</p>
+			</section>
+
+			<section id="how_to_use">
+				<div class="page-header">
+					<h3>How To Use</h3>
+					<hr class="notop">
+				</div>
+				<h4 id="how_to_use_1_include_jquery_and_utilcarousel_files">1. Include jQuery and UtilCarousel files.</h4>
+				<p>
+					To use UtilCarousel, you&rsquo;ll need to include both jQuery 1.7 or higher and UtilCarousel files.
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;!-- UtilCarousel base css and default theme for control. --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;utilcarousel/util.carousel.css&quot;&gt;
+
+&lt;!-- Include jQuery 1.7+  --&gt;
+&lt;script src=&quot;js/jquery-1.11.0.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Include utilcarousel js file --&gt;
+&lt;script src=&quot;utilcarousel/jquery.utilcarousel.min.js&quot;&gt;&lt;/script&gt;</pre>
+<div class="alert alert-success">
+If you want to use the built-in itemAnimation , you will also need to include util.aminate.css. 
+				</div>
+				<h4 id="how_to_use_2_set_up_the_markup">2. Set up the markup</h4>
+				<p>
+					There are no limit to your markup,the only thing is wrap your child elements(not only div , utilcarousel work with any type element) with &#39;&lt;div class=&#39;util-carousel&#39;&gt;&lt;/div&gt;&#39; . &quot; class=&#39;util-carousel&#39; &quot; is not necessary also , plugin will add it auto.
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div id=&quot;carousel-demo&quot; class=&quot;util-carousel&quot;&gt;
+    &lt;div&gt;Any content here!&lt;/div&gt;
+    &lt;div&gt;Any content here!&lt;/div&gt;
+    &lt;div&gt;Any content here!&lt;/div&gt;
+    &lt;div&gt;Any content here!&lt;/div&gt;
+    ...
+&lt;/div&gt;</pre>
+				<h4 id="how_to_use_3_call_utilcarousel">3. Call UtilCarousel</h4>
+				<p>
+					Now you can call UtilCarosel like bellow.
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(document).ready(function(){
+    $(&#39;#carousel-demo&#39;).utilCarousel();
+});</pre>
+				<h4 id="how_to_use_4_customizing_options">4. Customizing options</h4>
+				<p>
+					There are over 24 options you can config, <a href="#options">clike here</a> to see all the options .And&nbsp; apply it like below.
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(document).ready(function(){
+&nbsp;&nbsp;&nbsp; $(&#39;#carousel-demo&#39;).utilCarousel({
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;responsiveMode : &#39;itemWidthRange&#39;,
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;itemWidthRange : [260, 320]
+&nbsp;&nbsp; &nbsp;});
+});&nbsp;&nbsp; 
+</pre>
+			</section>
+			<section id="options">
+				<div class="page-header">
+					<h3>Options</h3>
+					<hr class="notop">
+				</div>
+				<table  class="table" width="95%">
+					<thead>
+						<tr>
+							<th scope="col"> Variable</th>
+							<th scope="col"> Default</th>
+							<th scope="col"> Type</th>
+							<th scope="col"> Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> showItems</td>
+							<td> 4</td>
+							<td> int</td>
+							<td> The default displayed items count. When in responsive mode it will be override by responsive setting.</td>
+						</tr>
+						<tr>
+							<td> responsive</td>
+							<td> true</td>
+							<td> boolean</td>
+							<td> Set it do enable or disable responsive.</td>
+						</tr>
+						<tr>
+							<td> responsiveMode</td>
+							<td> &#39;breakPoints&#39;</td>
+							<td> string</td>
+							<td> UitlCarouse support tow responsive mode: &#39;<strong>breakPoints</strong>&#39; and &#39;<strong>itemWidthRange</strong>&#39;.<a href="../demo/index.html#responsivemode" target="_blank">click here to see difference.</a></td>
+						</tr>
+						<tr>
+							<td> breakPoints</td>
+							<td>&nbsp; </td>
+							<td> array</td>
+							<td> The breakPoints and showItems when responsiveMode in &#39;breakPoints&#39; Mode. Use it like [[480, 1], [768, 2], [992, 3], [1200, 4]] , means when the element (responsiveBaseOn option ,default:window)&#39;s width &lt;= 480 show 1 item, when it&lt;=768 show 2 item, when it &lt;= 992 show 3 item, etc ...</td>
+						</tr>
+						<tr>
+							<td> itemWidthRange</td>
+							<td>&nbsp; </td>
+							<td> array</td>
+							<td> The item width range when responsiveMode in &#39;itemWidthRange&#39;. Use it like [200, 400],means UtilCarousel will keep the item&#39;s width between 200px to 400px and auto caculate how many items to show.</td>
+						</tr>
+						<tr>
+							<td> pagination</td>
+							<td> true</td>
+							<td> boolean</td>
+							<td> Whether show the pagination controls</td>
+						</tr>
+						<tr>
+							<td> navigation</td>
+							<td> false</td>
+							<td> boolean</td>
+							<td> Whether show the navigation button controls.</td>
+						</tr>
+						<tr>
+							<td> navigationText</td>
+							<td> [&#39;Prev&#39;, &#39;Next&#39;]</td>
+							<td> array</td>
+							<td> The navigation button text. Set it like [&#39;prev&#39;,&#39;next&#39;]</td>
+						</tr>
+						<tr>
+							<td> drag</td>
+							<td> true</td>
+							<td> boolean</td>
+							<td> Whether enable drag.</td>
+						</tr>
+						<tr>
+							<td> swipe</td>
+							<td> true</td>
+							<td> boolean</td>
+							<td> Whether enable swipe.</td>
+						</tr>
+						<tr>
+							<td> mouseWheel</td>
+							<td> false</td>
+							<td> boolean</td>
+							<td> Whether enable mousewheel.</td>
+						</tr>
+						<tr>
+							<td> autoPlay</td>
+							<td> false</td>
+							<td> boolean</td>
+							<td> Whether UtilCarousel start autoPlay after init.</td>
+						</tr>
+						<tr>
+							<td> interval</td>
+							<td> 3000</td>
+							<td> int</td>
+							<td> The auto play interval.</td>
+						</tr>
+						<tr>
+							<td> rewind</td>
+							<td> true</td>
+							<td> boolean</td>
+							<td> Whether Uticarousel will slide to the first item when there is the end of the item list.</td>
+						</tr>
+						<tr>
+							<td> slideSpeed</td>
+							<td>400 </td>
+							<td>int </td>
+							<td>Slide animation speed  in milliseconds.</td>
+						</tr>
+						<tr>
+							<td> responsiveSpeed</td>
+							<td>400 </td>
+							<td>int </td>
+							<td>Item responsive animation(width change) speed in milliseconds.</td>
+						</tr>
+						<tr>
+							<td> scrollPageSpeed</td>
+							<td>600 </td>
+							<td>int </td>
+							<td>Item slide  animation speed in milliseconds when click pagination controls.</td>
+						</tr>
+						<tr>
+							<td> scrollPerPage</td>
+							<td> false</td>
+							<td> boolean</td>
+							<td> Whether UtilCarouse scroll items per page not per item.</td>
+						</tr>
+						<tr>
+							<td> pauseOnHover</td>
+							<td> true</td>
+							<td> boolean</td>
+							<td> Pause the autoplay on mouse hover.</td>
+						</tr>
+						<tr>
+							<td>itemAnimation</td>
+							<td>false</td>
+							<td>boolean/string</td>
+							<td>Add css3 animation class to the visable item. If you use built-in animation, make sure include util.animate.css to you page. Then use it like <code>$('#demo').utilCarousel({itemAnimation:'util-fade-in'}); </code>And you can use the animate.css on it like <code>$('#demo').utilCarousel({itemAnimation:'animated bounce'}); </code> <a href="../demo/more.html#animation" target="_blank">click here to see live demo.</a></td>
+						</tr>
+                        <tr>
+							<td>lazyLoad</td>
+							<td>false</td>
+							<td>boolean</td>
+							<td>Lazy load images , images will not be loaded before slide to them. To use lazy load of image , you need set it to true, then add class 'img-lazy' and attribute 'data-src' for real image path. like :<code>&lt;img class=&quot;img-lazy&quot; data-src=&quot;you image path&quot; src=&quot;your placeholder img&quot; alt=&quot;&quot;/&gt;</code> <a href="../demo/more.html#lazyload" target="_blank">click here to see live demo.</a></td>
+						</tr>
+						<tr>
+							<td> itemLess</td>
+							<td> &#39;margin&#39;</td>
+							<td> string</td>
+							<td> What does UtilCarousel do when there are less items to show. &#39;<strong>margin</strong>&#39;: add margin to the items (the items will be centered).&#39;<strong>scaleUp</strong>&#39;: the items well be scale up to flat the container.<a href="../demo/more.html#itemless" target="_blank">click here to see live demo.</a></td>
+						</tr>
+						<tr>
+							<td> responsiveBaseOn</td>
+							<td> window</td>
+							<td> jQuery selector</td>
+							<td> The jQuery element that UtilCarousel will check it&#39;s width to apply breakpoints.</td>
+						</tr>
+						<tr>
+							<td> responsiveDelay</td>
+							<td> 200</td>
+							<td> int</td>
+							<td> The small delay of check and do responsive actions.</td>
+						</tr>
+						<tr>
+							<td> themeClass</td>
+							<td> &#39;util-theme-default&#39;</td>
+							<td> string</td>
+							<td> The default UtilCarousel control style class. You can coustom you own control style and set the class here.</td>
+						</tr>
+						<tr>
+							<td> itemWidthRangeConflict</td>
+							<td> &#39;margin&#39;</td>
+							<td> string</td>
+							<td> How does UtilCarousel do when there is an conflict with the item range and the container width. For example the container&#39;s width is 1000 and you set the itemWidthRange [399, 400]. So there are no with between 399 ~ 400 that can flat ( n * 399~400 = 1000 , n is the integer value that will show items count ). There are tow value, &#39;<strong>ajust</strong>&#39; and &#39;<strong>margin</strong>&#39;.&#39;ajust&#39; will ignore the itemWidthRange limit to flat the container. &#39;margin&#39; will and margin to the item to flat the container.</td>
+						</tr>
+						<tr>
+							<td> rangeCaculate</td>
+							<td> &#39;maxFirst&#39;</td>
+							<td> string</td>
+							<td> About the itemWidthRange witch is the prefer width. &#39;<strong>minFirst</strong>&#39; means the displayed items count caculate base on the min value of itemWidthRange then do ajust. &#39;<strong>maxFirst</strong>&#39; means the displayed items count caculate base on the max value of itemWidthRange then do ajust. <a href="../demo/more.html#rangecaculate" target="_blank">click here to see live demo.</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<p>&nbsp;
+					
+				</p>
+			</section>
+			<section id="callbacks">
+				<div class="page-header">
+					<h3>Callbacks</h3>
+					<hr class="notop" />
+				</div>
+				<p>
+					There are 7 callbacks you can use in UtilCarousel , like bellow: <a target="_blank" href="../demo/more.html#api">Click here to see live demo!</a>
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;#api-demo&#39;).utilCarousel({
+    beforeInit : function() {
+        log(&#39;beforeInit callback&#39;);
+    },
+    afterInit : function() {
+        log(&#39;afterInit callback&#39;);
+    },
+    beforeUpdate : function() {
+        log(&#39;beforeUpdate callback&#39;);
+    },
+    afterUpdate : function() {
+        log(&#39;afterUpdate callback&#39;);
+    },
+    indexChanged : function(index) {
+        log(&#39;indexChanged callback: index changed to &#39; + index);
+    },
+    beforeDrag : function() {
+        log(&#39;beforeDrag callback&#39;);
+    },
+    afterDrag : function() {
+        log(&#39;afterDrag callback&#39;);
+    }
+});</pre>
+			</section>
+			<section id="methods">
+				<div class="page-header">
+					<h3>Methods</h3>
+					<hr class="notop">
+				</div>
+				<p>
+					Use UtilCarousel methods simply&nbsp; like bellow,<a target="_blank" href="../demo/more.html#api"> click here to see live demo</a>.
+				</p>
+				<pre class="prettyprint lang-js linenums">
+//Init plugin        
+$(&#39;#api-demo&#39;).utilCarousel();
+
+//Get UtilCarousel Instance
+var utilCarouselObj = $(&#39;#api-demo&#39;).data(&#39;utilCarousel&#39;);
+
+//Go to previous item
+utilCarouselObj.prev();
+
+//Go to next item
+utilCarouselObj.next();
+
+//Start autoplay
+utilCarouselObj.play();
+
+//Stop autoplay
+utilCarouselObj.stop();
+
+//Go to start item
+utilCarouselObj.toStart();
+
+//Go to end item
+utilCarouselObj.toEnd();
+
+//Go to the specified index, index start with 0
+utilCarouselObj.goTo(3);
+
+//Destroy
+utilCarouselObj.destroy();</pre>
+			</section>
+			<section id="use_skin_templates">
+				<div class="page-header">
+					<h3>Use Skin/Templates</h3>
+					<hr class="notop">
+				</div>
+				<h4 id="use_skin_templates_1include_the_skin_css_file">1.Include the skin css file.</h4>
+				<pre class="prettyprint lang-html linenums">
+&lt;!-- UtilCarousel base css and default theme for control. --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;utilcarousel/util.carousel.css&quot;&gt;
+
+<strong>&lt;!-- Include the skin styleseet --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;utilcarousel/util.carousel.skins.css&quot;&gt;</strong>
+
+&lt;!-- Include jQuery 1.7+  --&gt;
+&lt;script src=&quot;js/jquery-1.11.0.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- Include utilcarousel js file --&gt;
+&lt;script src=&quot;utilcarousel/jquery.utilcarousel.min.js&quot;&gt;&lt;/script&gt;</pre>
+				<h4 id="use_skin_templates_2_if_you_want_use_lightbox_as_the_demo_,you_should_also_include_magnific_popup_files">2. If you want use lightbox as the demo ,you should also include magnific-popup files.</h4>
+				<pre class="prettyprint lang-html linenums">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;magnific-popup/magnific-popup.css&quot; /&gt;
+&lt;script src=&quot;magnific-popup/jquery.magnific-popup.js&quot;&gt;&lt;/script&gt;</pre>
+				<div class="alert alert-info">
+					Add <strong>class = &quot;img-link&quot;</strong> to a tag for show large image like bellow:
+				</div>
+				<pre class="prettyprint lang-html linenums">
+&lt;a href=&quot;path/your-image.jpg&quot; class=&quot;img-link&quot; title=&quot;put image description here&quot;&gt;open large image in lightbox&lt;/a&gt;</pre>
+				<div class="alert alert-info">
+					Add <strong>class = &quot;video-link&quot;</strong>&nbsp; to a tag show&nbsp; videos (YouTube / Vimeo) like bellow:
+				</div>
+				<pre class="prettyprint lang-html linenums">
+&lt;a href=&quot;http://www.youtube.com/watch?v=H1mX8ptsmBM&quot; class=&quot;video-link&quot; &gt;open video in lightbox&lt;/a&gt;</pre>
+				<h4 id="use_skin_templates_3_set_up_the_skin_templates_markup">3. Set up the skin/templates markup</h4>
+				<div class="alert alert-success">
+					You can config the call options as you like! There is no limit to the options. That&#39;s just an example.
+				</div>
+				<h6><strong>SIMPLE IMAGE WITH LIGHTBOX</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>sample-img</strong>&quot;&gt;
+&nbsp;&nbsp; &nbsp;&lt;!-- Item entity --&gt;
+&nbsp;&nbsp; &nbsp;&lt;div class=&quot;item&quot;&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;div class=&quot;meida-holder&quot;&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;img src=&quot;demo-assets/t1.jpg&quot; alt=&quot;&quot; /&gt; &lt;!-- You Image --&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/div&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;div class=&quot;hover-content&quot;&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;div class=&quot;link-container&quot;&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-link&quot;&gt;&lt;/i&gt;&lt;/a&gt; &lt;!-- Detail link --&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;a href=&quot;demo-assets/t1.jpg&quot; class=&quot;img-link&quot; title=&quot;Sample image 1 description&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;!-- Use lightbox&nbsp; --&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/div&gt;
+&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;/div&gt;
+&nbsp;&nbsp; &nbsp;&lt;/div&gt;
+&nbsp;&nbsp; &nbsp;&lt;!-- End Item --&gt;
+&nbsp;&nbsp; &nbsp;... &lt;!-- your other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.sample-img&#39;).utilCarousel({
+    responsiveMode : &#39;itemWidthRange&#39;,
+    itemWidthRange : [260, 320]
+});
+</pre>
+				<h6><strong>Team Showcase</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>team-showcase</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;div class=&quot;media-holder&quot;&gt;
+            &lt;img src=&quot;demo-assets/p1.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;social-links&quot;&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-gplus&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-vimeo&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-pinterest&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;a href=&quot;#&quot;&gt;&lt;i class=&quot;icon-vimeo&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;detail-container&quot;&gt;
+            &lt;div class=&quot;detail-title&quot;&gt;
+                John Smith
+            &lt;/div&gt;
+            &lt;div class=&quot;detail-subtitle&quot;&gt;
+                Web Designer
+            &lt;/div&gt;
+            &lt;p&gt;
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam massa quis mauris sollicitudin commodo ...
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- End Item --&gt;
+    ...&lt;!-- your other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.team-showcase&#39;).utilCarousel({
+    responsiveMode : &#39;itemWidthRange&#39;,
+    itemWidthRange : [300, 360]
+});</pre>
+				<h6><strong>Protfolio Skin</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>portfolio-list</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;div class=&quot;meida-holder&quot;&gt;
+            &lt;img src=&quot;demo-assets/a1.jpg&quot; alt=&quot;&quot; /&gt;&lt;!-- You Image --&gt;
+            &lt;div class=&quot;hover-content&quot;&gt;
+                &lt;div class=&quot;link-container&quot;&gt;
+                    &lt;a href=&quot;demo-assets/a1.jpg&quot; class=&quot;img-link&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;!-- Use lightbox  --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;detail-container&quot;&gt;
+            &lt;h4&gt;&lt;a href=&quot;#&quot;&gt;Protfolio Title&lt;/a&gt;&lt;/h4&gt;&lt;!-- Detail link --&gt;
+            &lt;p&gt;protfolio detail &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- End Item --&gt;
+    ...&lt;!-- your other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.portfolio-list&#39;).utilCarousel({
+    breakPosints : [[1200, 4], [992, 3], [768, 2], [480, 1]]
+});</pre>
+				<h6><strong>Top Nav Skin</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>top-nav-box</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt; &lt;img src=&quot;demo-assets/2.jpg&quot; alt=&quot;&quot; /&gt; &lt;span&gt;TARZAN&lt;/span&gt; &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- End Item --&gt;
+    ...&lt;!-- your other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.top-nav-box&#39;).utilCarousel({
+    navigation : true,
+    navigationText : [&#39;&lt;i class=&quot;icon-left-open-big&quot;&gt;&lt;/i&gt;&#39;, &#39;&lt;i class=&quot; icon-right-open-big&quot;&gt;&lt;/i&gt;&#39;],
+    breakPoints : [[1900, 5], [1200, 4], [992, 3], [768, 2], [480, 1]]
+});</pre>
+				<h6><strong>Normal Carousel</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>normal-imglist</strong>&quot;&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;demo-assets/t1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.normal-imglist&#39;).utilCarousel({
+    pagination : false,
+    navigationText : [&#39;&lt;i class=&quot;icon-left-open-big&quot;&gt;&lt;/i&gt;&#39;, &#39;&lt;i class=&quot; icon-right-open-big&quot;&gt;&lt;/i&gt;&#39;],
+    navigation : true
+});
+</pre>
+				<h6><strong>Logo Showcase</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>logo-showcase</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;demo-assets/jquery_t.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- End Item --&gt;
+    ... &lt;!-- Other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.logo-showcase&#39;).utilCarousel({
+    responsiveMode : &#39;itemWidthRange&#39;,
+    itemWidthRange : [200, 210],
+});</pre>
+				<p>
+					Markup (gray)
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>logo-showcase-gray</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;demo-assets/jquery_t.png&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;!-- End Item --&gt;
+    ... &lt;!-- Other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call (gray)
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.logo-showcase-gray&#39;).utilCarousel({
+    responsiveMode : &#39;itemWidthRange&#39;,
+    itemWidthRange : [200, 210],
+    interval : 3000,
+    autoPlay : true,
+    pagination : false
+});</pre>
+				<h6><strong>Full Width Skin</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>fullwidth</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;div class=&quot;meida-holder&quot;&gt;
+            &lt;img src=&quot;demo-assets/t1.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;hover-content&quot;&gt;
+            &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;link-container&quot;&gt;
+                &lt;a href=&quot;#&quot; &gt;&lt;i class=&quot;icon-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;demo-assets/t2.jpg&quot; class=&quot;img-link&quot;&gt;&lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;detail-container&quot;&gt;
+                &lt;h4&gt;UtilCarousel Plugin&lt;/h4&gt;
+                &lt;p&gt;
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam massa quis mauris  ...
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- End Item --&gt;
+    ... &lt;!-- Other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">
+$(&#39;.fullwidth&#39;).utilCarousel({
+    breakPoints : [[600, 1], [900, 2], [1200, 3], [1500, 4], [1800, 5]],
+    mouseWheel : true,
+    rewind:false
+});</pre>
+				<h6><strong>Testimonial Skin</strong></h6>
+				<p>
+					Markup
+				</p>
+				<pre class="prettyprint lang-html linenums">
+&lt;div class=&quot;util-carousel <strong>testimonial</strong>&quot;&gt;
+    &lt;!-- Item entity --&gt;
+    &lt;div class=&quot;item&quot;&gt;
+        &lt;div class=&quot;testimonial-content&quot;&gt;
+            &lt;span class=&quot;testimonial-arrow&quot;&gt;&lt;/span&gt;
+            Duis sit amet orci et lectus dictum auctor a nec enim. Donec suscipit fringilla elementum. 
+        &lt;/div&gt;
+        &lt;div class=&quot;testimonial-user&quot;&gt;
+            &lt;div class=&quot;testimonial-user-thumb&quot;&gt;&lt;img src=&quot;demo-assets/p1.jpg&quot; alt=&quot;&quot; /&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;testimonial-user-name&quot;&gt;
+                John Smith
+            &lt;/div&gt;
+            &lt;div class=&quot;testimonial-user-meta&quot;&gt;
+                Google Inc
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Item entity --&gt;
+    ... &lt;!-- Other items --&gt;
+&lt;/div&gt;</pre>
+				<p>
+					Call
+				</p>
+				<pre class="prettyprint lang-js linenums">$('.testimonial').utilCarousel({
+    showItems : 1,
+    breakPoints : [[1920, 1]],
+    autoPlay : true
+});
+</pre>
+			</section>
+			<section id="use_lightbox">
+				<div class="page-header">
+					<h3>Use Lightbox</h3>
+					<hr class="notop">
+				</div>
+				<h4 id="use_lightbox_if_you_want_use_lightbox_as_the_demo_,you_should_also_include_magnific_popup_files">If you want use lightbox as the demo ,you should also include magnific-popup files.</h4>
+				<pre class="prettyprint lang-html linenums">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;magnific-popup/magnific-popup.css&quot; /&gt;
+&lt;script src=&quot;magnific-popup/jquery.magnific-popup.js&quot;&gt;&lt;/script&gt;</pre>
+				<div class="alert alert-info">
+					Add <strong>class = &quot;img-link&quot;</strong> to a tag for show large image like bellow:
+				</div>
+				<pre class="prettyprint lang-html linenums">
+&lt;a href=&quot;path/your-image.jpg&quot; class=&quot;img-link&quot; title=&quot;put image description here&quot;&gt;open large image in lightbox&lt;/a&gt;</pre>
+				<div class="alert alert-info">
+					Add <strong>class = &quot;video-link&quot;</strong>&nbsp; to a tag show&nbsp; videos (YouTube / Vimeo) like bellow:
+				</div>
+				<pre class="prettyprint lang-html linenums">
+&lt;a href=&quot;http://www.youtube.com/watch?v=H1mX8ptsmBM&quot; class=&quot;video-link&quot; &gt;open video in lightbox&lt;/a&gt;</pre>
+			</section>
+
+		</div>
+	</body>
+</html>
