@@ -1,5 +1,3 @@
-
-
 //HTML - FLASH / SWF
 $('.flash_simple_0').iLightBox({
     innerToolbar: true,
@@ -276,7 +274,6 @@ $('.flash_simple_38').iLightBox({
     },
     skin: 'dark'
 });
-
 
 
 $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');

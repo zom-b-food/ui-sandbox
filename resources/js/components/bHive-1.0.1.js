@@ -2,8 +2,12 @@ function bHive(a) {
     this.setStageDimensions(a.width, a.height);
     this.setStageObject(a.domobject);
     this.init();
-    if (a.hasOwnProperty("backgroundColor")) {this.setStageColor(a.backgroundColor)}
-    if (a.hasOwnProperty("globalCompositeOperation")) {this.setGlobalComposite(a.globalCompositeOperation)}
+    if (a.hasOwnProperty("backgroundColor")) {
+        this.setStageColor(a.backgroundColor)
+    }
+    if (a.hasOwnProperty("globalCompositeOperation")) {
+        this.setGlobalComposite(a.globalCompositeOperation)
+    }
 }
 bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: null, undef: "undefined", defGA: 1, _objects: [], _events: [], _radians: Math.PI / 180, _mouseX: 0, _mouseY: 0, _stageHeight: 320, _stageWidth: 256, _frameRate: 33, _initialisedAt: null, _loopIdent: null, _loopFunction: null, _gfxLibrary: [], _gfxErrorCount: 0, _gfxLoaded: 0, _ready: false, _globalCompositeOperation: "source-over", init: function () {
     this.stageObject = document.createElement("canvas");
@@ -12,21 +16,51 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
     this.stageObject.width = this.sw = this._stageWidth;
     this.stage2d.globalAlpha = this.defGA;
     var a = this;
-    addListener(this.stageObject, "mousemove", function (c) {return function (d) {c.mouseMover(d)}}(a), true);
-    addListener(this.stageObject, "click", function (c) {return function (d) {c.mouseClick(d)}}(a), true);
-    addListener(this.stageObject, "mousedown", function (c) {return function (d) {c.mouseDown(d)}}(a), true);
-    addListener(this.stageObject, "mouseup", function (c) {return function (d) {c.mouseUp(d)}}(a), true);
-    addListener(window, "keydown", function (c) {return function (d) {c.keyDown(d, c)}}(a), true);
-    addListener(window, "keyup", function (c) {return function (d) {c.keyUp(d, c)}}(a), true);
+    addListener(this.stageObject, "mousemove", function (c) {
+        return function (d) {
+            c.mouseMover(d)
+        }
+    }(a), true);
+    addListener(this.stageObject, "click", function (c) {
+        return function (d) {
+            c.mouseClick(d)
+        }
+    }(a), true);
+    addListener(this.stageObject, "mousedown", function (c) {
+        return function (d) {
+            c.mouseDown(d)
+        }
+    }(a), true);
+    addListener(this.stageObject, "mouseup", function (c) {
+        return function (d) {
+            c.mouseUp(d)
+        }
+    }(a), true);
+    addListener(window, "keydown", function (c) {
+        return function (d) {
+            c.keyDown(d, c)
+        }
+    }(a), true);
+    addListener(window, "keyup", function (c) {
+        return function (d) {
+            c.keyUp(d, c)
+        }
+    }(a), true);
     this.attachStage();
     this._initialisedAt = new Date()
-}, addEventListener: function (c, a) {this._events[c] = a}, sizeof: function (d) {
+}, addEventListener: function (c, a) {
+    this._events[c] = a
+}, sizeof: function (d) {
     var c = 0;
     var e = /function (.{1,})\(/;
     for (var a in d) {
         result = e.exec(d[a].constructor.toString());
-        if (result != null && result[1] == "Array") {c += this.sizeof(d[a])}
-        else {c++}
+        if (result != null && result[1] == "Array") {
+            c += this.sizeof(d[a])
+        }
+        else {
+            c++
+        }
     }
     return c
 }, KeyEvent: function (a) {
@@ -40,8 +74,14 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
 }, mainController: function () {
     var a = this;
     this.stage2d.clearRect(0, 0, this._stageWidth, this._stageHeight);
-    if (typeof this._loopFunction == "function") {this._loopFunction.call(this)}
-    this._loopIdent = setTimeout(function (c) {return function () {c.mainController()}}(a), this._frameRate)
+    if (typeof this._loopFunction == "function") {
+        this._loopFunction.call(this)
+    }
+    this._loopIdent = setTimeout(function (c) {
+        return function () {
+            c.mainController()
+        }
+    }(a), this._frameRate)
 }, mouseMover: function (a) {
     a = new MouseEvent(a);
     var c = getPosition(this.stageObject);
@@ -58,9 +98,15 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
     for (var a in this._objects) {
         var c = this._objects[a];
         if (c instanceof bHive.Clip) {
-            if (this._mouseX > c.x && this._mouseX < c.x + c.width()) {xIn = true}
-            if (this._mouseY > c.y && this._mouseY < c.y + c.height()) {yIn = true}
-            if (xIn && yIn && typeof c.events.onclick == "function") {c.events.onclick({x: this._mouseX, y: this._mouseY, src: c})}
+            if (this._mouseX > c.x && this._mouseX < c.x + c.width()) {
+                xIn = true
+            }
+            if (this._mouseY > c.y && this._mouseY < c.y + c.height()) {
+                yIn = true
+            }
+            if (xIn && yIn && typeof c.events.onclick == "function") {
+                c.events.onclick({x: this._mouseX, y: this._mouseY, src: c})
+            }
         }
     }
 }, mouseDown: function (d) {
@@ -74,9 +120,15 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
     for (var a in this._objects) {
         var c = this._objects[a];
         if (c instanceof bHive.Clip) {
-            if (this._mouseX > c.x && this._mouseX < c.x + c.width()) {xIn = true}
-            if (this._mouseY > c.y && this._mouseY < c.y + c.height()) {yIn = true}
-            if (xIn && yIn && typeof c.events.onclick == "function") {c.events.mousedown({x: this._mouseX, y: this._mouseY, src: c})}
+            if (this._mouseX > c.x && this._mouseX < c.x + c.width()) {
+                xIn = true
+            }
+            if (this._mouseY > c.y && this._mouseY < c.y + c.height()) {
+                yIn = true
+            }
+            if (xIn && yIn && typeof c.events.onclick == "function") {
+                c.events.mousedown({x: this._mouseX, y: this._mouseY, src: c})
+            }
         }
     }
 }, mouseUp: function (d) {
@@ -90,26 +142,44 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
     for (var a in this._objects) {
         var c = this._objects[a];
         if (c instanceof bHive.Clip) {
-            if (this._mouseX > c.x && this._mouseX < c.x + c.width()) {xIn = true}
-            if (this._mouseY > c.y && this._mouseY < c.y + c.height()) {yIn = true}
-            if (xIn && yIn && typeof c.events.onclick == "function") {c.events.mouseup({x: this._mouseX, y: this._mouseY, src: c})}
+            if (this._mouseX > c.x && this._mouseX < c.x + c.width()) {
+                xIn = true
+            }
+            if (this._mouseY > c.y && this._mouseY < c.y + c.height()) {
+                yIn = true
+            }
+            if (xIn && yIn && typeof c.events.onclick == "function") {
+                c.events.mouseup({x: this._mouseX, y: this._mouseY, src: c})
+            }
         }
     }
 }, keyDown: function (f, c) {
     this.engine = c;
     f = new this.engine.KeyEvent(f);
-    if (typeof this._events.onkeydown != this.undef) {this._events.onkeydown.apply(this, [f])}
+    if (typeof this._events.onkeydown != this.undef) {
+        this._events.onkeydown.apply(this, [f])
+    }
     for (var a in this._objects) {
         var d = this._objects[a];
-        if (d instanceof bHive.Clip) {if (typeof d.events.onkeydown == "function") {d.events.onkeydown(f)}}
+        if (d instanceof bHive.Clip) {
+            if (typeof d.events.onkeydown == "function") {
+                d.events.onkeydown(f)
+            }
+        }
     }
 }, keyUp: function (f, c) {
     this.engine = c;
     f = new this.engine.KeyEvent(f);
-    if (typeof this._events.onkeyup != this.undef) {this._events.onkeyup.apply(this, [f])}
+    if (typeof this._events.onkeyup != this.undef) {
+        this._events.onkeyup.apply(this, [f])
+    }
     for (var a in this._objects) {
         var d = this._objects[a];
-        if (d instanceof bHive.Clip) {if (typeof d.events.onkeyup == "function") {d.events.onkeyup(f)}}
+        if (d instanceof bHive.Clip) {
+            if (typeof d.events.onkeyup == "function") {
+                d.events.onkeyup(f)
+            }
+        }
     }
 }, setStageDimensions: function (a, c) {
     this._stageHeight = c;
@@ -123,11 +193,18 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
 }, setStageObject: function (a) {
     if (typeof a == "string") {
         var c = document.getElementById(a);
-        if (c !== this.undef) {this.stageTarget = c}
-        else {}
+        if (c !== this.undef) {
+            this.stageTarget = c
+        }
+        else {
+        }
     }
-    else {this.stageTarget = a}
-}, attachStage: function () {this.stageTarget.appendChild(this.stageObject)}, storeObject: function (c) {
+    else {
+        this.stageTarget = a
+    }
+}, attachStage: function () {
+    this.stageTarget.appendChild(this.stageObject)
+}, storeObject: function (c) {
     var a = this._objects.length;
     this._objects.push(c);
     return this._objects[a]
@@ -149,7 +226,11 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
 }, theLoop: function (c) {
     var a = this;
     this._loopFunction = c;
-    this._loopIdent = setTimeout(function (d) {return function () {d.mainController()}}(a), this._frameRate)
+    this._loopIdent = setTimeout(function (d) {
+        return function () {
+            d.mainController()
+        }
+    }(a), this._frameRate)
 }, getRotatedSize: function (a) {
     radians = (2 * Math.PI * a.rotation) / 360;
     cosine = Math.cos(radians);
@@ -172,8 +253,14 @@ bHive.fn = bHive.prototype = {stageTarget: null, stageObject: null, stage2d: nul
 }, hex2RGBa: function (d, f) {
     var e = g = b = 0;
     var c = 1;
-    if (f > 100) {f = 100}
-    else {if (f < 0) {f = 0}}
+    if (f > 100) {
+        f = 100
+    }
+    else {
+        if (f < 0) {
+            f = 0
+        }
+    }
     c = f / 100;
     d = (d.charAt(0) == "#") ? d.substring(1, d.length) : d;
     if (d.length == 3) {
@@ -192,12 +279,22 @@ bHive.Bitmap = function (a, e) {
     var d = this;
     this.engine = e;
     this.events = [];
-    for (var c in a) {this[c] = a[c]}
+    for (var c in a) {
+        this[c] = a[c]
+    }
     this.image = new Image();
     this.image.src = this.src;
-    this.image.onload = (function (f) {return function () {if (typeof f.events.onload != f.engine.undef) {f.events.onload()}}})(d)
+    this.image.onload = (function (f) {
+        return function () {
+            if (typeof f.events.onload != f.engine.undef) {
+                f.events.onload()
+            }
+        }
+    })(d)
 };
-bHive.Bitmap.prototype = {engine: null, src: "", image: null, events: null, x: 0, y: 0, registration_x: 0, registration_y: 0, rotation: 0, visible: true, alpha: 100, x_scale: 100, y_scale: 100, addEventListener: function (c, a) {this.events[c] = a}, draw: function (d, c) {
+bHive.Bitmap.prototype = {engine: null, src: "", image: null, events: null, x: 0, y: 0, registration_x: 0, registration_y: 0, rotation: 0, visible: true, alpha: 100, x_scale: 100, y_scale: 100, addEventListener: function (c, a) {
+    this.events[c] = a
+}, draw: function (d, c) {
     d = (typeof d == this.engine.undef) ? 0 : d;
     c = (typeof c == this.engine.undef) ? 0 : c;
     if (typeof this.parent != this.engine.undef) {
@@ -211,48 +308,86 @@ bHive.Bitmap.prototype = {engine: null, src: "", image: null, events: null, x: 0
             }
             this.engine.stage2d.globalAlpha = Math.abs(newGA) / 100
         }
-        else {if (A < 100) {this.engine.stage2d.globalAlpha = A / 100}}
+        else {
+            if (A < 100) {
+                this.engine.stage2d.globalAlpha = A / 100
+            }
+        }
     }
-    else {if (this.alpha < 100) {this.engine.stage2d.globalAlpha = this.alpha / 100}}
+    else {
+        if (this.alpha < 100) {
+            this.engine.stage2d.globalAlpha = this.alpha / 100
+        }
+    }
     iW = this.image.naturalWidth;
     iH = this.image.naturalHeight;
     if (typeof this.parent != this.engine.undef) {
-        if (this.x_scale != 100) {iW = iW * (this.x_scale / 100)}
-        if (this.parent.x_scale != 100) {iW = iW * (this.parent.x_scale / 100)}
+        if (this.x_scale != 100) {
+            iW = iW * (this.x_scale / 100)
+        }
+        if (this.parent.x_scale != 100) {
+            iW = iW * (this.parent.x_scale / 100)
+        }
     }
-    else {if (this.x_scale != 100) {iW = this.iW * (this.x_scale / 100)}}
+    else {
+        if (this.x_scale != 100) {
+            iW = this.iW * (this.x_scale / 100)
+        }
+    }
     if (typeof this.parent != this.engine.undef) {
-        if (this.x_scale != 100) {iH = iH * (this.y_scale / 100)}
-        if (this.parent.x_scale != 100) {iH = iH * (this.parent.y_scale / 100)}
+        if (this.x_scale != 100) {
+            iH = iH * (this.y_scale / 100)
+        }
+        if (this.parent.x_scale != 100) {
+            iH = iH * (this.parent.y_scale / 100)
+        }
     }
-    else {if (this.y_scale != 100) {iH = iH * (this.y_scale / 100)}}
+    else {
+        if (this.y_scale != 100) {
+            iH = iH * (this.y_scale / 100)
+        }
+    }
     if (this.rotation != 0) {
         this.engine.stage2d.save();
         var a = d + this.x;
         var e = c + this.y;
-        if (this.rotation > 360) {this.rotation = 0}
+        if (this.rotation > 360) {
+            this.rotation = 0
+        }
         this.engine.stage2d.translate(a, e);
         this.engine.stage2d.rotate(this.rotation * this.engine._radians);
         this.engine.stage2d.drawImage(this.image, this.registration_x * -1, this.registration_y * -1, iW, iH);
         this.engine.stage2d.restore()
     }
-    else {this.engine.stage2d.drawImage(this.image, d + this.x, c + this.y, iW, iH)}
-    if (this.alpha < 100) {this.engine.stage2d.globalAlpha = this.engine.defGA}
+    else {
+        this.engine.stage2d.drawImage(this.image, d + this.x, c + this.y, iW, iH)
+    }
+    if (this.alpha < 100) {
+        this.engine.stage2d.globalAlpha = this.engine.defGA
+    }
 }};
 bHive.Clip = function (a, d) {
     this.engine = d;
     this._childObjects = [];
     this.events = [];
-    for (var c in a) {this[c] = a[c]}
+    for (var c in a) {
+        this[c] = a[c]
+    }
 };
-bHive.Clip.prototype = {id: null, events: null, visible: true, _childObjects: null, alpha: 100, x: 0, y: 0, x_scale: 100, y_scale: 100, addEventListener: function (c, a) {this.events[c] = a}, add: function (a) {
+bHive.Clip.prototype = {id: null, events: null, visible: true, _childObjects: null, alpha: 100, x: 0, y: 0, x_scale: 100, y_scale: 100, addEventListener: function (c, a) {
+    this.events[c] = a
+}, add: function (a) {
     this._childObjects.push(a);
     var c = this;
     a.parent = c
 }, draw: function (d, c) {
     d = (typeof d == this.engine.undef) ? 0 : d;
     c = (typeof c == this.engine.undef) ? 0 : c;
-    if (this.visible) {for (var a in this._childObjects) {this._childObjects[a].draw(d + this.x, c + this.y)}}
+    if (this.visible) {
+        for (var a in this._childObjects) {
+            this._childObjects[a].draw(d + this.x, c + this.y)
+        }
+    }
 }, point: function (a, f, c) {
     var c = 2 * Math.PI * c / 360;
     var e = a * Math.cos(c) + f * Math.sin(c);
@@ -268,13 +403,21 @@ bHive.Clip.prototype = {id: null, events: null, visible: true, _childObjects: nu
                     rotatedDimensions = engine.getRotatedSize(c);
                     a.push(rotatedDimensions.width + c.x)
                 }
-                else {a.push(c.image.naturalWidth + c.x)}
+                else {
+                    a.push(c.image.naturalWidth + c.x)
+                }
             }
-            else {if (c instanceof bHive.Clip && c.visible) {a.push(c.width() + c.x)}}
+            else {
+                if (c instanceof bHive.Clip && c.visible) {
+                    a.push(c.width() + c.x)
+                }
+            }
         }
         return Math.max.apply(0, a)
     }
-    else {return 0}
+    else {
+        return 0
+    }
 }, height: function () {
     var a = [];
     if (this._childObjects.length > 0) {
@@ -285,17 +428,27 @@ bHive.Clip.prototype = {id: null, events: null, visible: true, _childObjects: nu
                     rotatedDimensions = engine.getRotatedSize(c);
                     a.push(rotatedDimensions.height + c.y)
                 }
-                else {a.push(c.image.naturalHeight + c.y)}
+                else {
+                    a.push(c.image.naturalHeight + c.y)
+                }
             }
-            else {if (c instanceof bHive.Clip) {a.push(c.height() + c.y)}}
+            else {
+                if (c instanceof bHive.Clip) {
+                    a.push(c.height() + c.y)
+                }
+            }
         }
         return Math.max.apply(0, a)
     }
-    else {return 0}
+    else {
+        return 0
+    }
 }};
 bHive.Line = function (a, d) {
     this.engine = d;
-    for (var c in a) {this[c] = a[c]}
+    for (var c in a) {
+        this[c] = a[c]
+    }
 };
 bHive.Line.prototype = {weight: 1, cap: "butt", corner: "miter", start: null, end: null, visible: true, draw: function () {
     if (this.start instanceof Array) {
@@ -350,7 +503,9 @@ bHive.Line.prototype = {weight: 1, cap: "butt", corner: "miter", start: null, en
 }};
 bHive.Text = function (a, d) {
     this.engine = d;
-    for (var c in a) {this[c] = a[c]}
+    for (var c in a) {
+        this[c] = a[c]
+    }
 };
 bHive.Text.prototype = {text: null, x: 0, y: 0, align: "top", color: "rgb(0, 0, 0, 0)", visible: true, draw: function (c, a) {
     c = (typeof c == this.engine.undef) ? 0 : c;
@@ -361,7 +516,9 @@ bHive.Text.prototype = {text: null, x: 0, y: 0, align: "top", color: "rgb(0, 0, 
 }, };
 bHive.Shape = function (a, d) {
     this.engine = d;
-    for (var c in a) {this[c] = a[c]}
+    for (var c in a) {
+        this[c] = a[c]
+    }
 };
 bHive.Shape.prototype = {shape: "square", style: "filled", x: 0, y: 0, width: 0, height: 0, radius: 0, backgroundColor: "rgba(0, 0, 0, 1)", strokeColor: "rgba(0, 0, 0, 1)", strokeWeight: 1, alpha: 100, draw: function () {
     var a = this.engine.stage2d;

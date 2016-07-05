@@ -1,16 +1,16 @@
-jQuery(function($) {
+jQuery(function ($) {
 
     var $rtl, $style,
         $customizer = $("#customizer"),
-        $iframe     = $("#cm-theme-preview"),
-        $spinner    = $("i.cm-spinner"),
-        $error      = $(".cm-error"),
-        $minify     = $("input[name=minify]"),
-        $modal      = $("#modal"),
-        $download   = (typeof document.createElement('a').download != "undefined"),
-        $url        = window.URL || window.webkitURL,
-        loaded      = false,
-        coptions    = {
+        $iframe = $("#cm-theme-preview"),
+        $spinner = $("i.cm-spinner"),
+        $error = $(".cm-error"),
+        $minify = $("input[name=minify]"),
+        $modal = $("#modal"),
+        $download = (typeof document.createElement('a').download != "undefined"),
+        $url = window.URL || window.webkitURL,
+        loaded = false,
+        coptions = {
             "styles": [
                 {"name": "Default", "url": ["../themes/default/uikit-customizer.less"], "config": "../themes/default/customizer.json"},
                 {"name": "Gradient", "url": ["../themes/gradient/uikit-customizer.less"], "config": "../themes/gradient/customizer.json"},
@@ -27,25 +27,25 @@ jQuery(function($) {
     $iframe.css("opacity", "0");
     $spinner.show();
 
-    $.get("../themes.json", {nocache:Math.random()}).always(function(data, type){
+    $.get("../themes.json", {nocache: Math.random()}).always(function (data, type) {
 
-        if (type==="success") {
+        if (type === "success") {
 
             coptions.styles = [];
 
             for (var i = 0; i < data.length; i++) {
 
-                data[i].url    = "../"+data[i].url;
-                data[i].config = "../"+data[i].config
+                data[i].url = "../" + data[i].url;
+                data[i].config = "../" + data[i].config
 
                 coptions.styles.push(data[i]);
 
                 // theme styles?
                 if (data[i].styles) {
-                    for(var style in data[i].styles) {
+                    for (var style in data[i].styles) {
                         coptions.styles.push({
-                            "name" : data[i].name+" - "+style,
-                            "url"  : [data[i].url, "../"+data[i].styles[style]],
+                            "name": data[i].name + " - " + style,
+                            "url": [data[i].url, "../" + data[i].styles[style]],
                             "config": data[i].config
                         });
                     }
@@ -54,17 +54,17 @@ jQuery(function($) {
         }
 
         $customizer.customizer($.extend({
-            "updating": function(e, style) {
+            "updating": function (e, style) {
                 $iframe.css("opacity", "0");
                 $spinner.show();
             },
-            "updated": function(e, style) {
+            "updated": function (e, style) {
 
                 var url;
 
                 style.fonts = "";
 
-                $("option[data-url]:selected", $customizer).each(function(){
+                $("option[data-url]:selected", $customizer).each(function () {
                     if ((url = $(this).data("url")) && style.fonts.indexOf("'" + url + "'") == -1) {
                         style.fonts += "@import '" + url + "';\n";
                     }
@@ -74,7 +74,7 @@ jQuery(function($) {
             }
         }, coptions));
 
-        $iframe.on("load", function() {
+        $iframe.on("load", function () {
             $customizer.trigger("update", [false, $iframe[0].contentWindow["CustomizerForceUpdate"]]);
 
             // save the latest page displayed by the iframe
@@ -83,26 +83,26 @@ jQuery(function($) {
     });
 
     $error.on({
-        "show": function(e, error) {
+        "show": function (e, error) {
             $error.html($.mustache("<h1 class=\"uk-h3\">Less {{type}} Error</h1><p>{{message}}</p>", error)).show();
             $iframe.css("opacity", "0");
         },
-        "hide": function() {
+        "hide": function () {
             $error.hide();
             $iframe.css("opacity", "1");
         }
     });
 
-    $("input[name=rtl]").on("change", function(e) {
+    $("input[name=rtl]").on("change", function (e) {
         $rtl = $(this).prop("checked");
         renderPreview($style);
     });
 
-    $("a[download='uikit.css']").on("click", function(e) {
+    $("a[download='uikit.css']").on("click", function (e) {
         downloadCSS($(this), $style);
     });
 
-    $("a[download='style.less']").on("click", function(e) {
+    $("a[download='style.less']").on("click", function (e) {
         downloadLess($(this), $style);
     });
 
@@ -112,7 +112,7 @@ jQuery(function($) {
 
     if (window.FileReader) {
 
-       $customizer.on("change", ".cm-file-import input", function(){
+        $customizer.on("change", ".cm-file-import input", function () {
 
             var f = this.files[0], input = this;
 
@@ -120,7 +120,7 @@ jQuery(function($) {
 
                 var r = new FileReader();
 
-                r.onload = function(e) {
+                r.onload = function (e) {
 
                     if (!f.name.match(/\.less$/i)) {
                         alert("Please select a Less file!");
@@ -129,7 +129,7 @@ jQuery(function($) {
 
                     var contents = e.target.result, lessvar, vars = {}, $options = $customizer.data("customizer").$options, theme;
 
-                    contents.split("\n").forEach(function(line){
+                    contents.split("\n").forEach(function (line) {
 
                         if (line.match(/\/\* theme\: (.+) \*\//)) {
                             theme = line.match(/\/\* theme\: (.+) \*\//)[1];
@@ -148,7 +148,7 @@ jQuery(function($) {
 
                         var name = theme ? theme : $customizer.data("customizer").$select.val();
 
-                        $.each($options.styles, function(i, style) {
+                        $.each($options.styles, function (i, style) {
                             if (name == style.name) {
                                 $options.styles[i].variables = $.extend({}, $options.styles[i].variables, vars);
                             }
@@ -162,7 +162,7 @@ jQuery(function($) {
 
                         $(input).replaceWith(input.outerHTML);
                     }
-                  };
+                };
 
                 r.readAsText(f);
             }
@@ -178,7 +178,7 @@ jQuery(function($) {
 
         style.variables['@icon-font-path'] = '"../../fonts"';
 
-        $.less.getCSS(style.less, {id: style.name, variables: style.variables, compress: true}).done(function(css) {
+        $.less.getCSS(style.less, {id: style.name, variables: style.variables, compress: true}).done(function (css) {
 
             if (style.fonts) {
                 css = style.fonts + "\n" + css;
@@ -186,20 +186,20 @@ jQuery(function($) {
 
             $iframe[0].contentWindow.jQuery.UIkit.langdirection = $rtl ? "right" : "left";
             $iframe.contents().find("html").attr("dir", $rtl ? "rtl" : "ltr");
-            $iframe.contents().find("[data-compiled-css]").replaceWith('<style data-compiled-css>'+($rtl ? $.rtl.convert2RTL(css) : css)+'</style>');
+            $iframe.contents().find("[data-compiled-css]").replaceWith('<style data-compiled-css>' + ($rtl ? $.rtl.convert2RTL(css) : css) + '</style>');
             $spinner.hide();
             $error.trigger("hide");
 
-        }).fail(function(e) {
-            $error.trigger("show", e);
-        });
+        }).fail(function (e) {
+                $error.trigger("show", e);
+            });
     }
 
     function downloadCSS(a, style) {
 
         var options = $minify.prop("checked") ? {compress: true} : {};
 
-        $.less.getCSS(style.less, $.extend(options, {id: style.name, variables: style.variables})).done(function(css) {
+        $.less.getCSS(style.less, $.extend(options, {id: style.name, variables: style.variables})).done(function (css) {
 
             if (style.fonts) {
                 css = style.fonts + "\n" + css;
@@ -209,7 +209,7 @@ jQuery(function($) {
                 css = $.rtl.convert2RTL(css);
             }
 
-            css = css.replace(/http(.+?)\/fonts\/?/g, function(){
+            css = css.replace(/http(.+?)\/fonts\/?/g, function () {
                 return "../fonts/";
             });
 
@@ -230,24 +230,24 @@ jQuery(function($) {
             source.push(style.fonts);
         }
 
-        source.push("/* theme: "+$customizer.data("customizer").$select.val()+" */\n")
+        source.push("/* theme: " + $customizer.data("customizer").$select.val() + " */\n")
 
-        $.each(style.config.groups, function(i, grp) {
+        $.each(style.config.groups, function (i, grp) {
             first = true;
-            $.each(grp.vars, function(i, opt) {
-                $.each(style.variables, function(name, value) {
+            $.each(grp.vars, function (i, opt) {
+                $.each(style.variables, function (name, value) {
                     if (style.matchName(opt, name)) {
 
                         if (!cache[name]) {
 
-                            if (first) source.push("\n//\n// "+grp.label+"\n//\n");
+                            if (first) source.push("\n//\n// " + grp.label + "\n//\n");
                             source.push(name + ": " + value + ";");
                             first = false;
                             cache[name] = true;
                         }
                     }
-                  });
-             });
+                });
+            });
         });
 
         if ($download) {

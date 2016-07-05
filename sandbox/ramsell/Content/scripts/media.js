@@ -1,15 +1,17 @@
 if (typeof Object.create !== "function") {
-    Object.create = function(e) {
-        function t() {}
+    Object.create = function (e) {
+        function t() {
+        }
+
         t.prototype = e;
         return new t
     }
 }
 var ua = {
-    toString: function() {
+    toString: function () {
         return navigator.userAgent
     },
-    test: function(e) {
+    test: function (e) {
         return this.toString().toLowerCase().indexOf(e.toLowerCase()) > -1
     }
 };
@@ -21,9 +23,9 @@ ua.ie = ua.test("msie") && !ua.opera;
 ua.ie6 = ua.ie && document.compatMode && typeof document.documentElement.style.maxHeight === "undefined";
 ua.ie7 = ua.ie && document.documentElement && typeof document.documentElement.style.maxHeight !== "undefined" && typeof XDomainRequest === "undefined";
 ua.ie8 = ua.ie && typeof XDomainRequest !== "undefined";
-var domReady = function() {
+var domReady = function () {
     var e = [];
-    var t = function() {
+    var t = function () {
         if (!arguments.callee.done) {
             arguments.callee.done = true;
             for (var t = 0; t < e.length; t++) {
@@ -35,7 +37,7 @@ var domReady = function() {
         document.addEventListener("DOMContentLoaded", t, false)
     }
     if (ua.ie) {
-        (function() {
+        (function () {
             try {
                 document.documentElement.doScroll("left")
             } catch (e) {
@@ -44,7 +46,7 @@ var domReady = function() {
             }
             t()
         })();
-        document.onreadystatechange = function() {
+        document.onreadystatechange = function () {
             if (document.readyState === "complete") {
                 document.onreadystatechange = null;
                 t()
@@ -52,7 +54,7 @@ var domReady = function() {
         }
     }
     if (ua.webkit && document.readyState) {
-        (function() {
+        (function () {
             if (document.readyState !== "loading") {
                 t()
             } else {
@@ -61,14 +63,14 @@ var domReady = function() {
         })()
     }
     window.onload = t;
-    return function(t) {
+    return function (t) {
         if (typeof t === "function") {
             e[e.length] = t
         }
         return t
     }
 }();
-var cssHelper = function() {
+var cssHelper = function () {
     var e = {
         BLOCKS: /[^\s{;][^{;]*\{(?:[^{}]*\{[^{}]*\}[^{}]*|[^{}]*)*\}/g,
         BLOCKS_INSIDE: /[^\s{][^{]*\{[^{}]*\}/g,
@@ -83,18 +85,18 @@ var cssHelper = function() {
     };
     var t, n = false;
     var r = [];
-    var s = function(e) {
+    var s = function (e) {
         if (typeof e === "function") {
             r[r.length] = e
         }
     };
-    var o = function() {
+    var o = function () {
         for (var e = 0; e < r.length; e++) {
             r[e](t)
         }
     };
     var u = {};
-    var a = function(e, t) {
+    var a = function (e, t) {
         if (u[e]) {
             var n = u[e].listeners;
             if (n) {
@@ -104,9 +106,9 @@ var cssHelper = function() {
             }
         }
     };
-    var f = function(e, t, n) {
+    var f = function (e, t, n) {
         if (ua.ie && !window.XMLHttpRequest) {
-            window.XMLHttpRequest = function() {
+            window.XMLHttpRequest = function () {
                 return new ActiveXObject("Microsoft.XMLHTTP")
             }
         }
@@ -122,11 +124,11 @@ var cssHelper = function() {
             return
         }
         var s = false;
-        setTimeout(function() {
+        setTimeout(function () {
             s = true
         }, 5e3);
         document.documentElement.style.cursor = "progress";
-        r.onreadystatechange = function() {
+        r.onreadystatechange = function () {
             if (r.readyState === 4 && !s) {
                 if (!r.status && location.protocol === "file:" || r.status >= 200 && r.status < 300 || r.status === 304 || navigator.userAgent.indexOf("Safari") > -1 && typeof r.status === "undefined") {
                     t(r.responseText)
@@ -139,7 +141,7 @@ var cssHelper = function() {
         };
         r.send("")
     };
-    var l = function(t) {
+    var l = function (t) {
         t = t.replace(e.REDUNDANT_COMPONENTS, "");
         t = t.replace(e.REDUNDANT_WHITESPACE, "$1");
         t = t.replace(e.WHITESPACE_IN_PARENTHESES, "($1)");
@@ -148,7 +150,7 @@ var cssHelper = function() {
         return t
     };
     var c = {
-        stylesheet: function(t) {
+        stylesheet: function (t) {
             var n = {};
             var r = [],
                 i = [],
@@ -177,24 +179,24 @@ var cssHelper = function() {
                 }
             }
             n.element = t;
-            n.getCssText = function() {
+            n.getCssText = function () {
                 return u
             };
-            n.getAttrMediaQueries = function() {
+            n.getAttrMediaQueries = function () {
                 return r
             };
-            n.getMediaQueryLists = function() {
+            n.getMediaQueryLists = function () {
                 return i
             };
-            n.getRules = function() {
+            n.getRules = function () {
                 return s
             };
-            n.getRulesWithoutMQ = function() {
+            n.getRulesWithoutMQ = function () {
                 return o
             };
             return n
         },
-        mediaQueryList: function(t, n) {
+        mediaQueryList: function (t, n) {
             var r = {};
             var i = t.indexOf("{");
             var s = t.substring(0, i);
@@ -212,21 +214,21 @@ var cssHelper = function() {
                 }
             }
             r.type = "mediaQueryList";
-            r.getMediaQueries = function() {
+            r.getMediaQueries = function () {
                 return o
             };
-            r.getRules = function() {
+            r.getRules = function () {
                 return u
             };
-            r.getListText = function() {
+            r.getListText = function () {
                 return s
             };
-            r.getCssText = function() {
+            r.getCssText = function () {
                 return t
             };
             return r
         },
-        mediaQuery: function(t, n) {
+        mediaQuery: function (t, n) {
             t = t || "";
             var r, i;
             if (n.type === "mediaQueryList") {
@@ -256,30 +258,30 @@ var cssHelper = function() {
                 }
             }
             return {
-                getQueryText: function() {
+                getQueryText: function () {
                     return t
                 },
-                getAttrStyleSheet: function() {
+                getAttrStyleSheet: function () {
                     return i || null
                 },
-                getList: function() {
+                getList: function () {
                     return r || null
                 },
-                getValid: function() {
+                getValid: function () {
                     return a
                 },
-                getNot: function() {
+                getNot: function () {
                     return s
                 },
-                getMediaType: function() {
+                getMediaType: function () {
                     return o
                 },
-                getExpressions: function() {
+                getExpressions: function () {
                     return u
                 }
             }
         },
-        rule: function(e, t, n) {
+        rule: function (e, t, n) {
             var r = {};
             var i = e.indexOf("{");
             var s = e.substring(0, i);
@@ -289,22 +291,22 @@ var cssHelper = function() {
             for (var f = 0; f < a.length; f++) {
                 u[u.length] = c.declaration(a[f], r)
             }
-            r.getStylesheet = function() {
+            r.getStylesheet = function () {
                 return t || null
             };
-            r.getMediaQueryList = function() {
+            r.getMediaQueryList = function () {
                 return n || null
             };
-            r.getSelectors = function() {
+            r.getSelectors = function () {
                 return o
             };
-            r.getSelectorText = function() {
+            r.getSelectorText = function () {
                 return s
             };
-            r.getDeclarations = function() {
+            r.getDeclarations = function () {
                 return u
             };
-            r.getPropertyValue = function(e) {
+            r.getPropertyValue = function (e) {
                 for (var t = 0; t < u.length; t++) {
                     if (u[t].getProperty() === e) {
                         return u[t].getValue()
@@ -314,24 +316,24 @@ var cssHelper = function() {
             };
             return r
         },
-        declaration: function(e, t) {
+        declaration: function (e, t) {
             var n = e.indexOf(":");
             var r = e.substring(0, n);
             var i = e.substring(n + 1);
             return {
-                getRule: function() {
+                getRule: function () {
                     return t || null
                 },
-                getProperty: function() {
+                getProperty: function () {
                     return r
                 },
-                getValue: function() {
+                getValue: function () {
                     return i
                 }
             }
         }
     };
-    var h = function(e) {
+    var h = function (e) {
         if (typeof e.cssHelperText !== "string") {
             return
         }
@@ -347,7 +349,7 @@ var cssHelper = function() {
         var s = n.mediaQueryLists = r.getMediaQueryLists();
         var o = n.rules = r.getRules();
         var u = n.selectors;
-        var a = function(e) {
+        var a = function (e) {
             var t = e.getSelectors();
             for (var n = 0; n < t.length; n++) {
                 var r = t[n];
@@ -376,16 +378,16 @@ var cssHelper = function() {
         t[t.length] = e;
         return n
     };
-    var p = function(e, t) {
+    var p = function (e, t) {
         return;
         e.cssHelperText = l(t || e.innerHTML);
         return h(e)
     };
-    var d = function() {
+    var d = function () {
         n = true;
         t = [];
         var r = [];
-        var i = function() {
+        var i = function () {
             for (var e = 0; e < r.length; e++) {
                 h(r[e])
             }
@@ -405,15 +407,15 @@ var cssHelper = function() {
         }
         if (r.length > 0) {
             var c = 0;
-            var d = function() {
+            var d = function () {
                 c++;
                 if (c === r.length) {
                     i()
                 }
             };
-            var v = function(t) {
+            var v = function (t) {
                 var n = t.href;
-                f(n, function(r) {
+                f(n, function (r) {
                     r = l(r).replace(e.RELATIVE_URLS, "url(" + n.substring(0, n.lastIndexOf("/")) + "/$1)");
                     t.cssHelperText = r;
                     d()
@@ -442,7 +444,7 @@ var cssHelper = function() {
         declarations: null,
         properties: null
     };
-    var g = function(e, t) {
+    var g = function (e, t) {
         if (m[e] !== null) {
             if (v[e] === "array") {
                 return m[e] = m[e].concat(t)
@@ -461,7 +463,7 @@ var cssHelper = function() {
             }
         }
     };
-    var y = function(e) {
+    var y = function (e) {
         m[e] = v[e] === "array" ? [] : {};
         for (var n = 0; n < t.length; n++) {
             var r = e === "stylesheets" ? "stylesheet" : e;
@@ -469,7 +471,7 @@ var cssHelper = function() {
         }
         return m[e]
     };
-    var b = function(e) {
+    var b = function (e) {
         if (typeof window.innerWidth != "undefined") {
             return window["inner" + e]
         } else if (typeof document.documentElement !== "undefined" && typeof document.documentElement.clientWidth !== "undefined" && document.documentElement.clientWidth != 0) {
@@ -477,7 +479,7 @@ var cssHelper = function() {
         }
     };
     return {
-        addStyle: function(e, t, n) {
+        addStyle: function (e, t, n) {
             var r = document.createElement("style");
             r.setAttribute("type", "text/css");
             if (t && t.length > 0) {
@@ -491,7 +493,7 @@ var cssHelper = function() {
             }
             r.addedWithCssHelper = true;
             if (typeof n === "undefined" || n === true) {
-                cssHelper.parsed(function(t) {
+                cssHelper.parsed(function (t) {
                     var n = p(r, e);
                     for (var i in n) {
                         if (n.hasOwnProperty(i)) {
@@ -505,10 +507,10 @@ var cssHelper = function() {
             }
             return r
         },
-        removeStyle: function(e) {
+        removeStyle: function (e) {
             return e.parentNode.removeChild(e)
         },
-        parsed: function(e) {
+        parsed: function (e) {
             if (n) {
                 s(e)
             } else {
@@ -522,38 +524,38 @@ var cssHelper = function() {
                 }
             }
         },
-        stylesheets: function(e) {
-            cssHelper.parsed(function(t) {
+        stylesheets: function (e) {
+            cssHelper.parsed(function (t) {
                 e(m.stylesheets || y("stylesheets"))
             })
         },
-        mediaQueryLists: function(e) {
-            cssHelper.parsed(function(t) {
+        mediaQueryLists: function (e) {
+            cssHelper.parsed(function (t) {
                 e(m.mediaQueryLists || y("mediaQueryLists"))
             })
         },
-        rules: function(e) {
-            cssHelper.parsed(function(t) {
+        rules: function (e) {
+            cssHelper.parsed(function (t) {
                 e(m.rules || y("rules"))
             })
         },
-        selectors: function(e) {
-            cssHelper.parsed(function(t) {
+        selectors: function (e) {
+            cssHelper.parsed(function (t) {
                 e(m.selectors || y("selectors"))
             })
         },
-        declarations: function(e) {
-            cssHelper.parsed(function(t) {
+        declarations: function (e) {
+            cssHelper.parsed(function (t) {
                 e(m.declarations || y("declarations"))
             })
         },
-        properties: function(e) {
-            cssHelper.parsed(function(t) {
+        properties: function (e) {
+            cssHelper.parsed(function (t) {
                 e(m.properties || y("properties"))
             })
         },
         broadcast: a,
-        addListener: function(e, t) {
+        addListener: function (e, t) {
             if (typeof t === "function") {
                 if (!u[e]) {
                     u[e] = {
@@ -563,7 +565,7 @@ var cssHelper = function() {
                 u[e].listeners[u[e].listeners.length] = t
             }
         },
-        removeListener: function(e, t) {
+        removeListener: function (e, t) {
             if (typeof t === "function" && u[e]) {
                 var n = u[e].listeners;
                 for (var r = 0; r < n.length; r++) {
@@ -574,15 +576,15 @@ var cssHelper = function() {
                 }
             }
         },
-        getViewportWidth: function() {
+        getViewportWidth: function () {
             return b("Width")
         },
-        getViewportHeight: function() {
+        getViewportHeight: function () {
             return b("Height")
         }
     }
 }();
-domReady(function() {
+domReady(function () {
     var t;
     var n = {
         LENGTH_UNIT: /[0-9]+(em|ex|px|in|cm|mm|pt|pc)$/,
@@ -591,7 +593,7 @@ domReady(function() {
         ABSOLUTE_VALUE: /^[0-9]*(\.[0-9]+)*$/
     };
     var r = [];
-    var i = function() {
+    var i = function () {
         var e = "css3-mediaqueries-test";
         var t = document.createElement("div");
         t.id = e;
@@ -600,12 +602,12 @@ domReady(function() {
         var r = t.offsetWidth === 1;
         n.parentNode.removeChild(n);
         t.parentNode.removeChild(t);
-        i = function() {
+        i = function () {
             return r
         };
         return r
     };
-    var s = function() {
+    var s = function () {
         t = document.createElement("div");
         t.style.cssText = "position:absolute;top:-9999em;left:-9999em;" + "margin:0;border:none;padding:0;width:1em;font-size:1em;";
         document.body.appendChild(t);
@@ -614,13 +616,13 @@ domReady(function() {
         }
         t.style.width = ""
     };
-    var o = function(e) {
+    var o = function (e) {
         t.style.width = e;
         var n = t.offsetWidth;
         t.style.width = "";
         return n
     };
-    var u = function(e, t) {
+    var u = function (e, t) {
         var r = e.length;
         var i = e.substring(0, 4) === "min-";
         var s = !i && e.substring(0, 4) === "max-";
@@ -733,7 +735,7 @@ domReady(function() {
             return false
         }
     };
-    var a = function(e) {
+    var a = function (e) {
         var t = e.getValid();
         var n = e.getExpressions();
         var r = n.length;
@@ -746,7 +748,7 @@ domReady(function() {
         }
         return t
     };
-    var f = function(e, t) {
+    var f = function (e, t) {
         var n = e.getMediaQueries();
         var i = {};
         for (var s = 0; s < n.length; s++) {
@@ -781,12 +783,12 @@ domReady(function() {
             r[r.length] = cssHelper.addStyle("@media " + l.join("") + "{" + e.getCssText() + "}", t, false)
         }
     };
-    var l = function(e, t) {
+    var l = function (e, t) {
         for (var n = 0; n < e.length; n++) {
             f(e[n], t)
         }
     };
-    var c = function(e) {
+    var c = function (e) {
         var t = e.getAttrMediaQueries();
         var n = false;
         var i = {};
@@ -818,23 +820,23 @@ domReady(function() {
             l(c, o)
         }
     };
-    var h = function(e) {
+    var h = function (e) {
         for (var t = 0; t < e.length; t++) {
             c(e[t])
         }
         if (ua.ie) {
             document.documentElement.style.display = "block";
-            setTimeout(function() {
+            setTimeout(function () {
                 document.documentElement.style.display = ""
             }, 0);
-            setTimeout(function() {
+            setTimeout(function () {
                 cssHelper.broadcast("cssMediaQueriesTested")
             }, 100)
         } else {
             cssHelper.broadcast("cssMediaQueriesTested")
         }
     };
-    var p = function() {
+    var p = function () {
         for (var e = 0; e < r.length; e++) {
             cssHelper.removeStyle(r[e])
         }
@@ -842,7 +844,7 @@ domReady(function() {
         cssHelper.stylesheets(h)
     };
     var d = 0;
-    var v = function() {
+    var v = function () {
         var e = cssHelper.getViewportWidth();
         var t = cssHelper.getViewportHeight();
         if (ua.ie) {
@@ -855,14 +857,14 @@ domReady(function() {
             document.body.removeChild(n)
         }
         var r;
-        var s = function() {
+        var s = function () {
             var n = cssHelper.getViewportWidth();
             var s = cssHelper.getViewportHeight();
             if (Math.abs(n - e) > d || Math.abs(s - t) > d) {
                 e = n;
                 t = s;
                 clearTimeout(r);
-                r = setTimeout(function() {
+                r = setTimeout(function () {
                     if (!i()) {
                         p()
                     } else {
@@ -871,9 +873,10 @@ domReady(function() {
                 }, 500)
             }
         };
-        window.onresize = function() {
-            var e = window.onresize || function() {};
-            return function() {
+        window.onresize = function () {
+            var e = window.onresize || function () {
+            };
+            return function () {
                 e();
                 s()
             }
@@ -881,19 +884,19 @@ domReady(function() {
     };
     var m = document.documentElement;
     m.style.marginLeft = "-32767px";
-    setTimeout(function() {
+    setTimeout(function () {
         m.style.marginLeft = ""
     }, 5e3);
-    return function() {
+    return function () {
         if (!i()) {
-            cssHelper.addListener("newStyleParsed", function(e) {
+            cssHelper.addListener("newStyleParsed", function (e) {
                 c(e.cssHelperParsed.stylesheet)
             });
-            cssHelper.addListener("cssMediaQueriesTested", function() {
+            cssHelper.addListener("cssMediaQueriesTested", function () {
                 if (ua.ie) {
                     m.style.width = "1px"
                 }
-                setTimeout(function() {
+                setTimeout(function () {
                     m.style.width = "";
                     m.style.marginLeft = ""
                 }, 0);
@@ -909,4 +912,5 @@ domReady(function() {
 }());
 try {
     document.execCommand("BackgroundImageCache", false, true)
-} catch (e) {}
+} catch (e) {
+}

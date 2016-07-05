@@ -71,7 +71,9 @@
                         [$href.position().top, href]
                     ] ) || null
                 })
-                .sort(function (a, b) { return a[0] - b[0] })
+                .sort(function (a, b) {
+                    return a[0] - b[0]
+                })
                 .each(function () {
                     self.offsets.push(this[0]);
                     ;

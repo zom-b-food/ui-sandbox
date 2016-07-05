@@ -4,10 +4,15 @@
  * @author Ariel Flesler
  * @version 1.4.3.1
  */
-;(function ($) {
-    var h = $.scrollTo = function (a, b, c) {$(window).scrollTo(a, b, c)};
+;
+(function ($) {
+    var h = $.scrollTo = function (a, b, c) {
+        $(window).scrollTo(a, b, c)
+    };
     h.defaults = {axis: 'xy', duration: parseFloat($.fn.jquery) >= 1.3 ? 0 : 1, limit: true};
-    h.window = function (a) {return $(window)._scrollable()};
+    h.window = function (a) {
+        return $(window)._scrollable()
+    };
     $.fn._scrollable = function () {
         return this.map(function () {
             var a = this, isWin = !a.nodeName || $.inArray(a.nodeName.toLowerCase(), ['iframe', '#document', 'html', 'body']) != -1;
@@ -66,7 +71,11 @@
                 }
             });
             animate(g.onAfter);
-            function animate(a) {$elem.animate(attr, f, g.easing, a && function () {a.call(this, e, g)})}
+            function animate(a) {
+                $elem.animate(attr, f, g.easing, a && function () {
+                    a.call(this, e, g)
+                })
+            }
         }).end()
     };
     h.max = function (a, b) {
@@ -75,5 +84,7 @@
         var d = 'client' + c, html = a.ownerDocument.documentElement, body = a.ownerDocument.body;
         return Math.max(html[scroll], body[scroll]) - Math.min(html[d], body[d])
     };
-    function both(a) {return typeof a == 'object' ? a : {top: a, left: a}}
+    function both(a) {
+        return typeof a == 'object' ? a : {top: a, left: a}
+    }
 })(jQuery);

@@ -53,8 +53,12 @@ if (typeof jQuery === 'undefined') {
     $.fn.emulateTransitionEnd = function (duration) {
         var called = false
         var $el = this
-        $(this).one('bsTransitionEnd', function () { called = true })
-        var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+        $(this).one('bsTransitionEnd', function () {
+            called = true
+        })
+        var callback = function () {
+            if (!called) $($el).trigger($.support.transition.end)
+        }
         setTimeout(callback, duration)
         return this
     }
@@ -378,7 +382,9 @@ if (typeof jQuery === 'undefined') {
 
         if (pos > (this.$items.length - 1) || pos < 0) return
 
-        if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
+        if (this.sliding)       return this.$element.one('slid.bs.carousel', function () {
+            that.to(pos)
+        }) // yes, "slid"
         if (activeIndex == pos) return this.pause().cycle()
 
         return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))
@@ -903,7 +909,9 @@ if (typeof jQuery === 'undefined') {
 
     $(document)
         .on('click.bs.dropdown.data-api', clearMenus)
-        .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+        .on('click.bs.dropdown.data-api', '.dropdown form', function (e) {
+            e.stopPropagation()
+        })
         .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
         .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
         .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
@@ -1916,7 +1924,9 @@ if (typeof jQuery === 'undefined') {
                     [$href[offsetMethod]().top + offsetBase, href]
                 ]) || null
             })
-            .sort(function (a, b) { return a[0] - b[0] })
+            .sort(function (a, b) {
+                return a[0] - b[0]
+            })
             .each(function () {
                 self.offsets.push(this[0])
                 self.targets.push(this[1])

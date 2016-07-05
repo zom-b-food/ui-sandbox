@@ -38,7 +38,8 @@ define([
                                     rbrace.test(data) ? jQuery.parseJSON(data) :
                                         data;
                 }
-                catch (e) {}
+                catch (e) {
+                }
 
                 // Make sure we set the data so it isn't changed later
                 data_user.set(elem, key, data);

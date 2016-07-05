@@ -84,7 +84,9 @@
                 ;
 
                 transition ?
-                    that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
+                    that.$element.one($.support.transition.end, function () {
+                        that.$element.focus().trigger('shown')
+                    }) :
                     that.$element.focus().trigger('shown')
 
             })

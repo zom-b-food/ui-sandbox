@@ -7,183 +7,184 @@
  *
  * http://docs.jquery.com/UI/Widget
  */
-(function($) {
+(function ($) {
 
-var _remove = $.fn.remove;
+    var _remove = $.fn.remove;
 
-$.fn.remove = function() {
-	// Safari has a native remove event which actually removes DOM elements,
-	// so we have to use triggerHandler instead of trigger (#3037).
-	$("*", this).add(this).each(function() {
-		$(this).triggerHandler("remove");
-	});
-	return _remove.apply(this, arguments);
-};
+    $.fn.remove = function () {
+        // Safari has a native remove event which actually removes DOM elements,
+        // so we have to use triggerHandler instead of trigger (#3037).
+        $("*", this).add(this).each(function () {
+            $(this).triggerHandler("remove");
+        });
+        return _remove.apply(this, arguments);
+    };
 
 // $.widget is a factory to create jQuery plugins
 // taking some boilerplate code out of the plugin code
-$.widget = function(name, prototype) {
-	var namespace = name.split(".")[0],
-		fullName;
-	name = name.split(".")[1];
-	fullName = namespace + '-' + name;
+    $.widget = function (name, prototype) {
+        var namespace = name.split(".")[0],
+            fullName;
+        name = name.split(".")[1];
+        fullName = namespace + '-' + name;
 
-	// create selector for plugin
-	$.expr[':'][fullName] = function(elem) {
-		return !!$.data(elem, name);
-	};
-	
-	// create plugin method
-	$.fn[name] = function(options) {
-		var isMethodCall = (typeof options == 'string'),
-			args = Array.prototype.slice.call(arguments, 1),
-			returnValue = this;
+        // create selector for plugin
+        $.expr[':'][fullName] = function (elem) {
+            return !!$.data(elem, name);
+        };
 
-		// allow multiple hashes to be passed on init
-		options = !isMethodCall && args.length
-			? $.extend.apply(null, [true, options].concat(args))
-			: options;
+        // create plugin method
+        $.fn[name] = function (options) {
+            var isMethodCall = (typeof options == 'string'),
+                args = Array.prototype.slice.call(arguments, 1),
+                returnValue = this;
 
-		// prevent calls to internal methods
-		if (isMethodCall && options.substring(0, 1) == '_') {
-			return returnValue;
-		}
+            // allow multiple hashes to be passed on init
+            options = !isMethodCall && args.length
+                ? $.extend.apply(null, [true, options].concat(args))
+                : options;
 
-		(isMethodCall
-			? this.each(function() {
-				var instance = $.data(this, name),
-					methodValue = (instance && $.isFunction(instance[options])
-						? instance[options].apply(instance, args)
-						: instance);
-				if (methodValue !== instance && methodValue !== undefined) {
-					returnValue = methodValue;
-					return false;
-				}
-			})
-			: this.each(function() {
-				($.data(this, name) ||
-					$.data(this, name, new $[namespace][name](this, options))._init());
-			}));
+            // prevent calls to internal methods
+            if (isMethodCall && options.substring(0, 1) == '_') {
+                return returnValue;
+            }
 
-		return returnValue;
-	};
+            (isMethodCall
+                ? this.each(function () {
+                var instance = $.data(this, name),
+                    methodValue = (instance && $.isFunction(instance[options])
+                        ? instance[options].apply(instance, args)
+                        : instance);
+                if (methodValue !== instance && methodValue !== undefined) {
+                    returnValue = methodValue;
+                    return false;
+                }
+            })
+                : this.each(function () {
+                ($.data(this, name) ||
+                    $.data(this, name, new $[namespace][name](this, options))._init());
+            }));
 
-	// create widget constructor
-	$[namespace] = $[namespace] || {};
-	$[namespace][name] = function(element, options) {
-		var self = this;
+            return returnValue;
+        };
 
-		this.namespace = namespace;
-		this.widgetName = name;
-		this.widgetEventPrefix = $[namespace][name].eventPrefix || name;
-		this.widgetBaseClass = fullName;
+        // create widget constructor
+        $[namespace] = $[namespace] || {};
+        $[namespace][name] = function (element, options) {
+            var self = this;
 
-		this.options = $.extend(true, {},
-			$.widget.defaults,
-			$[namespace][name].defaults,
-			$.metadata && $.metadata.get(element)[name],
-			options);
+            this.namespace = namespace;
+            this.widgetName = name;
+            this.widgetEventPrefix = $[namespace][name].eventPrefix || name;
+            this.widgetBaseClass = fullName;
 
-		this.element = $(element)
-			.bind('setData.' + name, function(event, key, value) {
-				if (event.target == element) {
-					return self._setData(key, value);
-				}
-			})
-			.bind('getData.' + name, function(event, key) {
-				if (event.target == element) {
-					return self._getData(key);
-				}
-			})
-			.bind('remove.' + name, function() {
-				return self.destroy();
-			});
-	};
+            this.options = $.extend(true, {},
+                $.widget.defaults,
+                $[namespace][name].defaults,
+                $.metadata && $.metadata.get(element)[name],
+                options);
 
-	// add widget prototype
-	$[namespace][name].prototype = $.extend({}, $.widget.prototype, prototype);
-};
+            this.element = $(element)
+                .bind('setData.' + name, function (event, key, value) {
+                    if (event.target == element) {
+                        return self._setData(key, value);
+                    }
+                })
+                .bind('getData.' + name, function (event, key) {
+                    if (event.target == element) {
+                        return self._getData(key);
+                    }
+                })
+                .bind('remove.' + name, function () {
+                    return self.destroy();
+                });
+        };
 
-$.widget.prototype = {
-	_init: function() {},
-	destroy: function() {
-		this.element.removeData(this.widgetName)
-			.removeClass(this.widgetBaseClass + '-disabled' + ' ' + this.namespace + '-state-disabled')
-			.removeAttr('aria-disabled');
+        // add widget prototype
+        $[namespace][name].prototype = $.extend({}, $.widget.prototype, prototype);
+    };
 
-		return this;
-	},
+    $.widget.prototype = {
+        _init: function () {
+        },
+        destroy: function () {
+            this.element.removeData(this.widgetName)
+                .removeClass(this.widgetBaseClass + '-disabled' + ' ' + this.namespace + '-state-disabled')
+                .removeAttr('aria-disabled');
 
-	option: function(key, value) {
-		var options = key,
-			self = this;
+            return this;
+        },
 
-		if (typeof key == "string") {
-			if (value === undefined) {
-				return this._getData(key);
-			}
-			options = {};
-			options[key] = value;
-		}
+        option: function (key, value) {
+            var options = key,
+                self = this;
 
-		$.each(options, function(key, value) {
-			self._setData(key, value);
-		});
+            if (typeof key == "string") {
+                if (value === undefined) {
+                    return this._getData(key);
+                }
+                options = {};
+                options[key] = value;
+            }
 
-		return self;
-	},
-	_getData: function(key) {
-		return this.options[key];
-	},
-	_setData: function(key, value) {
-		this.options[key] = value;
+            $.each(options, function (key, value) {
+                self._setData(key, value);
+            });
 
-		if (key == 'disabled') {
-			this.element
-				[value ? 'addClass' : 'removeClass'](
-					this.widgetBaseClass + '-disabled' + ' ' +
-					this.namespace + '-state-disabled')
-				.attr("aria-disabled", value);
-		}
-	},
+            return self;
+        },
+        _getData: function (key) {
+            return this.options[key];
+        },
+        _setData: function (key, value) {
+            this.options[key] = value;
 
-	enable: function() {
-		this._setData('disabled', false);
-		return this;
-	},
-	disable: function() {
-		this._setData('disabled', true);
-		return this;
-	},
+            if (key == 'disabled') {
+                this.element
+                    [value ? 'addClass' : 'removeClass'](
+                        this.widgetBaseClass + '-disabled' + ' ' +
+                            this.namespace + '-state-disabled')
+                    .attr("aria-disabled", value);
+            }
+        },
 
-	_trigger: function(type, event, data) {
-		var callback = this.options[type];
+        enable: function () {
+            this._setData('disabled', false);
+            return this;
+        },
+        disable: function () {
+            this._setData('disabled', true);
+            return this;
+        },
 
-		event = $.Event(event);
-		event.type = (type == this.widgetEventPrefix
-				? type : this.widgetEventPrefix + type).toLowerCase();
-		data = data || {};
+        _trigger: function (type, event, data) {
+            var callback = this.options[type];
 
-		// copy original event properties over to the new event
-		// this would happen if we could call $.event.fix instead of $.Event
-		// but we don't have a way to force an event to be fixed multiple times
-		if (event.originalEvent) {
-			for (var i = $.event.props.length, prop; i;) {
-				prop = $.event.props[--i];
-				event[prop] = event.originalEvent[prop];
-			}
-		}
+            event = $.Event(event);
+            event.type = (type == this.widgetEventPrefix
+                ? type : this.widgetEventPrefix + type).toLowerCase();
+            data = data || {};
 
-		this.element.trigger(event, data);
+            // copy original event properties over to the new event
+            // this would happen if we could call $.event.fix instead of $.Event
+            // but we don't have a way to force an event to be fixed multiple times
+            if (event.originalEvent) {
+                for (var i = $.event.props.length, prop; i;) {
+                    prop = $.event.props[--i];
+                    event[prop] = event.originalEvent[prop];
+                }
+            }
 
-		return !($.isFunction(callback) && callback.call(this.element[0], event, data) === false
-			|| event.isDefaultPrevented());
-	}
-};
+            this.element.trigger(event, data);
 
-$.widget.defaults = {
-	disabled: false
-};
+            return !($.isFunction(callback) && callback.call(this.element[0], event, data) === false
+                || event.isDefaultPrevented());
+        }
+    };
 
-	
+    $.widget.defaults = {
+        disabled: false
+    };
+
+
 })(jQuery);

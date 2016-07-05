@@ -1,7 +1,5 @@
-
 @import "variables";
 @import "mixins";
-
 
 /* Don't edit these three items */
 html, body {
@@ -71,7 +69,7 @@ img.true {
 .offcanvas-box {
   padding: 10px 4px 0 4px;
   color: $cream;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 ul.offcanvas-box li {
@@ -109,9 +107,9 @@ p.warning {
   height: 100px;
   width: 100%;
   p, span {
-    color:#853f3a;
-    text-align:center;
-    font-size:12px;
+    color: #853f3a;
+    text-align: center;
+    font-size: 12px;
   }
 }
 
@@ -128,16 +126,16 @@ footer {
   width: 100%;
   p, span {
     color: $black-ice;
-    font-size:10px;
+    font-size: 10px;
   }
 }
 
 div#footerA {
   background-color: $nightblue;
   border-bottom: 1px solid $camel;
-  height:1px;
-  margin:0;
-  padding:0;
+  height: 1px;
+  margin: 0;
+  padding: 0;
 }
 
 .fade1 {
@@ -415,8 +413,8 @@ a.back-to-top {
   padding: 0;
   background: url(../images/sidebar111.png) no-repeat center;
   height: 623px;
-  margin-top:0;
-  width:210;
+  margin-top: 0;
+  width: 210;
   div.span {
     padding: 10px 0 0 12px;
   }
@@ -425,7 +423,7 @@ a.back-to-top {
     padding: 10px 0 0 12px;
     font-weight: bold;
     line-height: 17px;
-    margin:0 auto;
+    margin: 0 auto;
   }
   p:nth-of-type(2) {
     color: $cream;
@@ -441,8 +439,8 @@ a.back-to-top {
   padding: 0;
   background: url(../images/sidebar111-alt.png) no-repeat center;
   height: 623px;
-  margin-top:0;
-  width:210;
+  margin-top: 0;
+  width: 210;
   div.span {
     padding: 10px 0 0 12px;
   }
@@ -451,7 +449,7 @@ a.back-to-top {
     padding: 10px 0 0 12px;
     font-weight: bold;
     line-height: 17px;
-    margin:0 auto;
+    margin: 0 auto;
   }
   p:nth-of-type(2) {
     color: $cream;
@@ -506,7 +504,7 @@ ul.tight > li {
 }
 
 .uk-sticky-placeholder {
-  width:100%;
+  width: 100%;
 }
 
 .bold, label, li.head {
@@ -521,7 +519,7 @@ ul.tight > li {
   border: 1px solid $moonblue;
   border-radius: 4px;
   padding: 4px;
-  width:100%;
+  width: 100%;
 }
 
 .am-side-nav li {
@@ -632,12 +630,12 @@ li.uk-nav-header {
 }
 
 .am-nav2 {
-  width:100%;
-  padding-left:6px;
+  width: 100%;
+  padding-left: 6px;
 }
 
 #sidebar {
-  width:260px !important;
+  width: 260px !important;
 }
 
 .am-navbar .uk-navbar-nav > li > a:active {

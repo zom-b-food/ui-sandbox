@@ -8,18 +8,20 @@
  */
 form {
     border: 1px solid #beced5 !important;
-    border-radius:3px;
-    padding:10px;
-    height:98% !important;
-    margin-bottom:20px;
+    border-radius: 3px;
+    padding: 10px;
+    height: 98% !important;
+    margin-bottom: 20px;
 }
+
 input.form-control {
     line-height: normal;
-    padding:2px !important;
-    margin:4px !important;
-    height:26px;
+    padding: 2px !important;
+    margin: 4px !important;
+    height: 26px;
     border: 1px solid #beced5 !important;
 }
+
 /*input[type="file"] {
     width: auto;
     margin-top: 10px;
@@ -37,14 +39,13 @@ input.form-control {
 hr {
     border-top: 1px solid #dce7eb;
 }
+
 body.popDiv {
     width: 100%;
 
     background-image: url('banner2Fade.jpg');
     background-repeat: no-repeat;
     background-size: contain;
-
-
 
     font-family: Candara, sans-serif !important;
     height: auto;

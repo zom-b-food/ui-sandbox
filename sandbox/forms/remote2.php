@@ -18,8 +18,7 @@ $users = array(
 if (isset($_POST['username']) && array_key_exists($_POST['username'], $users)) {
     $valid = false;
     $message = 'The username is not available';
-}
-else if (isset($_POST['email'])) {
+} else if (isset($_POST['email'])) {
     $email = $_POST['email'];
     foreach ($users as $k => $v) {
         if ($email == $v) {

@@ -437,7 +437,8 @@ define([
 
                         // If using innerHTML throws an exception, use the fallback method
                     }
-                    catch (e) {}
+                    catch (e) {
+                    }
                 }
 
                 if (elem) {

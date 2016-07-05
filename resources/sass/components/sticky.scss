@@ -9,6 +9,7 @@
 
 @import "../variables";
 @import "../mixins";
+
 /* ========================================================================
    Component: Sticky
  ========================================================================== */
@@ -18,9 +19,9 @@
  */
 
 [data-uk-sticky].uk-active {
-   z-index: $sticky-z-index;
-   /* 1 */
-   box-sizing: border-box;
+  z-index: $sticky-z-index;
+  /* 1 */
+  box-sizing: border-box;
 }
 
 /*
@@ -28,15 +29,14 @@
  */
 
 [data-uk-sticky][class*='uk-animation-'] {
-    -webkit-animation-duration: $sticky-animation-duration;
-    animation-duration: $sticky-animation-duration;
+  -webkit-animation-duration: $sticky-animation-duration;
+  animation-duration: $sticky-animation-duration;
 }
 
 [data-uk-sticky].uk-animation-reverse {
-    -webkit-animation-duration: $sticky-reverse-animation-duration;
-    animation-duration: $sticky-reverse-animation-duration;
+  -webkit-animation-duration: $sticky-reverse-animation-duration;
+  animation-duration: $sticky-reverse-animation-duration;
 }
-
 
 // Hooks
 // ========================================================================

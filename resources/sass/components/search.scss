@@ -39,12 +39,12 @@
  */
 
 .uk-search {
-    display: inline-block;
-    /* 1 */
-    position: relative;
-    /* 2 */
-    margin: 0;
-    @include hook-search();
+  display: inline-block;
+  /* 1 */
+  position: relative;
+  /* 2 */
+  margin: 0;
+  @include hook-search();
 }
 
 /*
@@ -52,19 +52,18 @@
  */
 
 .uk-search:before {
-    content: $search-icon;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: $search-padding;
-    line-height: $search-height;
-    text-align: center;
-    font-family: FontAwesome;
-    font-size: $search-icon-size;
-    color: $search-icon-color;
-    @include hook-search-icon();
+  content: $search-icon;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $search-padding;
+  line-height: $search-height;
+  text-align: center;
+  font-family: FontAwesome;
+  font-size: $search-icon-size;
+  color: $search-icon-color;
+  @include hook-search-icon();
 }
-
 
 /* Sub-object `uk-search-field`
  ========================================================================== */
@@ -74,8 +73,8 @@
  */
 
 .uk-search-field::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 /*
@@ -83,19 +82,25 @@
  */
 
 .uk-search-field::-webkit-search-cancel-button,
-.uk-search-field::-webkit-search-decoration { -webkit-appearance: none; }
+.uk-search-field::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
 
 /*
  * Removes cancel button in IE10
  */
 
-.uk-search-field::-ms-clear { display: none; }
+.uk-search-field::-ms-clear {
+  display: none;
+}
 
 /*
  * Removes placeholder transparency in Firefox.
  */
 
-.uk-search-field::-moz-placeholder { opacity: 1; }
+.uk-search-field::-moz-placeholder {
+  opacity: 1;
+}
 
 /*
  * 1. Define consistent box sizing.
@@ -107,59 +112,68 @@
  */
 
 .uk-search-field {
-    /* 1 */
-    box-sizing: border-box;
-    /* 2 */
-    margin: 0;
-    /* 3 */
-    border-radius: 0;
-    /* 4 */
-    font: inherit;
-    color: $search-color;
-    /* 5 */
-    -webkit-appearance: none;
-    /* 6 */
-    width: $search-width;
-    height: $search-height;
-    padding: 0 0 0 $search-padding;
-    border: $search-border-width solid $search-border;
-    background: $search-background;
-    -webkit-transition: all linear 0.2s;
-    transition: all linear 0.2s;
-    vertical-align: middle;
-    @include hook-search-field();
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+  border-radius: 0;
+  /* 4 */
+  font: inherit;
+  color: $search-color;
+  /* 5 */
+  -webkit-appearance: none;
+  /* 6 */
+  width: $search-width;
+  height: $search-height;
+  padding: 0 0 0 $search-padding;
+  border: $search-border-width solid $search-border;
+  background: $search-background;
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+  vertical-align: middle;
+  @include hook-search-field();
 }
 
 /* Placeholder */
-.uk-search-field:-ms-input-placeholder { color: $search-placeholder-color !important; }
-.uk-search-field::-moz-placeholder { color: $search-placeholder-color; }
-.uk-search-field::-webkit-input-placeholder { color: $search-placeholder-color; }
+.uk-search-field:-ms-input-placeholder {
+  color: $search-placeholder-color !important;
+}
+
+.uk-search-field::-moz-placeholder {
+  color: $search-placeholder-color;
+}
+
+.uk-search-field::-webkit-input-placeholder {
+  color: $search-placeholder-color;
+}
 
 /* Focus */
 .uk-search-field:focus {
-    outline: 0;
-    @include hook-search-field-focus();
+  outline: 0;
+  @include hook-search-field-focus();
 }
 
 /* Focus + Active */
 .uk-search-field:focus,
-.uk-search.uk-active .uk-search-field { width: $search-focus-width; }
-
+.uk-search.uk-active .uk-search-field {
+  width: $search-focus-width;
+}
 
 /* Dropdown modifier: `uk-dropdown-search`
  ========================================================================== */
 
 .uk-dropdown-search {
-    width: $dropdown-search-width;
-    margin-top: $dropdown-search-margin-top;
-    background: $dropdown-search-background;
-    color: $dropdown-search-color;
-    @include hook-dropdown-search();
+  width: $dropdown-search-width;
+  margin-top: $dropdown-search-margin-top;
+  background: $dropdown-search-background;
+  color: $dropdown-search-color;
+  @include hook-dropdown-search();
 }
 
 .uk-open > .uk-dropdown-search {
-    -webkit-animation: $dropdown-search-animation 0.2s ease-in-out;
-    animation: $dropdown-search-animation 0.2s ease-in-out;
+  -webkit-animation: $dropdown-search-animation 0.2s ease-in-out;
+  animation: $dropdown-search-animation 0.2s ease-in-out;
 }
 
 /*
@@ -167,10 +181,9 @@
  */
 
 .uk-navbar-flip .uk-dropdown-search {
-    margin-top: $dropdown-search-navbar-margin-top;
-    margin-right: $dropdown-search-navbar-margin-right;
+  margin-top: $dropdown-search-navbar-margin-top;
+  margin-right: $dropdown-search-navbar-margin-right;
 }
-
 
 /* Nav modifier `uk-nav-search`
  ========================================================================== */
@@ -180,8 +193,8 @@
  */
 
 .uk-nav-search > li > a {
-    color: $nav-search-color;
-    @include hook-nav-search();
+  color: $nav-search-color;
+  @include hook-nav-search();
 }
 
 /*
@@ -190,11 +203,11 @@
  */
 
 .uk-nav-search > li.uk-active > a {
-    background: $nav-search-active-background;
-    color: $nav-search-active-color;
-    /* 1 */
-    outline: none;
-    @include hook-nav-search-active();
+  background: $nav-search-active-background;
+  color: $nav-search-active-color;
+  /* 1 */
+  outline: none;
+  @include hook-nav-search-active();
 }
 
 /*
@@ -202,8 +215,8 @@
  */
 
 .uk-nav-search .uk-nav-header {
-    color: $nav-search-header-color;
-    @include hook-nav-search-header();
+  color: $nav-search-header-color;
+  @include hook-nav-search-header();
 }
 
 /*
@@ -211,40 +224,53 @@
  */
 
 .uk-nav-search .uk-nav-divider {
-    border-top: $nav-search-divider-border-width solid $nav-search-divider-border;
-    @include hook-nav-search-divider();
+  border-top: $nav-search-divider-border-width solid $nav-search-divider-border;
+  @include hook-nav-search-divider();
 }
 
 /*
  * Nested items
  */
 
-.uk-nav-search ul a { color: $nav-search-nested-color; }
-.uk-nav-search ul a:hover { color: $nav-search-nested-hover-color; }
+.uk-nav-search ul a {
+  color: $nav-search-nested-color;
+}
 
+.uk-nav-search ul a:hover {
+  color: $nav-search-nested-hover-color;
+}
 
 /* Search in offcanvas
  ========================================================================== */
 
 .uk-offcanvas .uk-search {
-    display: block;
-    margin: $offcanvas-search-margin;
+  display: block;
+  margin: $offcanvas-search-margin;
 }
 
-.uk-offcanvas .uk-search:before { color: $offcanvas-search-icon-color; }
+.uk-offcanvas .uk-search:before {
+  color: $offcanvas-search-icon-color;
+}
 
 .uk-offcanvas .uk-search-field {
-    width: 100%;
-    border-color: $offcanvas-search-border;
-    background: $offcanvas-search-background;
-    color: $offcanvas-search-color;
-    @include hook-offcanvas-search-field();
+  width: 100%;
+  border-color: $offcanvas-search-border;
+  background: $offcanvas-search-background;
+  color: $offcanvas-search-color;
+  @include hook-offcanvas-search-field();
 }
 
-.uk-offcanvas .uk-search-field:-ms-input-placeholder { color: $offcanvas-search-placeholder-color !important; }
-.uk-offcanvas .uk-search-field::-moz-placeholder { color: $offcanvas-search-placeholder-color; }
-.uk-offcanvas .uk-search-field::-webkit-input-placeholder { color: $offcanvas-search-placeholder-color; }
+.uk-offcanvas .uk-search-field:-ms-input-placeholder {
+  color: $offcanvas-search-placeholder-color !important;
+}
 
+.uk-offcanvas .uk-search-field::-moz-placeholder {
+  color: $offcanvas-search-placeholder-color;
+}
+
+.uk-offcanvas .uk-search-field::-webkit-input-placeholder {
+  color: $offcanvas-search-placeholder-color;
+}
 
 // Hooks
 // ========================================================================

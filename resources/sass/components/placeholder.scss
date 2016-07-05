@@ -7,7 +7,6 @@
 //
 // ========================================================================
 
-
 @import "../variables";
 @import "../mixins";
 
@@ -16,36 +15,38 @@
  ========================================================================== */
 
 .uk-placeholder {
-    margin-bottom: $placeholder-margin-vertical;
-    padding: $placeholder-padding;
-    border: 1px dashed $placeholder-border;
-    background: $placeholder-background;
-    color: $placeholder-color;
-    @include hook-placeholder();
+  margin-bottom: $placeholder-margin-vertical;
+  padding: $placeholder-padding;
+  border: 1px dashed $placeholder-border;
+  background: $placeholder-background;
+  color: $placeholder-color;
+  @include hook-placeholder();
 }
 
 /*
  * Add margin if adjacent element
  */
 
-* + .uk-placeholder { margin-top: $placeholder-margin-vertical; }
+* + .uk-placeholder {
+  margin-top: $placeholder-margin-vertical;
+}
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-placeholder > :last-child { margin-bottom: 0; }
-
+.uk-placeholder > :last-child {
+  margin-bottom: 0;
+}
 
 /* Modifier: `uk-placeholder-large`
  ========================================================================== */
 
 .uk-placeholder-large {
-    padding-top: $placeholder-large-padding-vertical;
-    padding-bottom: $placeholder-large-padding-vertical;
-    @include hook-placeholder-large();
+  padding-top: $placeholder-large-padding-vertical;
+  padding-bottom: $placeholder-large-padding-vertical;
+  @include hook-placeholder-large();
 }
-
 
 // Hooks
 // ========================================================================

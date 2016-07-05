@@ -1,9 +1,9 @@
-(function(iniframe, $){
+(function (iniframe, $) {
 
     window.CustomizerForceUpdate = iniframe;
 
-    var scriptest =  document.querySelector('script[src*="_test.js"]'),
-        base      = '../'+ scriptest.attributes.src.value.replace('_test.js', '');
+    var scriptest = document.querySelector('script[src*="_test.js"]'),
+        base = '../' + scriptest.attributes.src.value.replace('_test.js', '');
 
     var styles = [
 
@@ -60,9 +60,9 @@
         'src/js/core/tab.js',
         'src/js/core/cover.js'
 
-    ]).forEach(function(script) {
-        document.writeln('<script src="'+base+script+'"></script>');
-    });
+    ]).forEach(function (script) {
+            document.writeln('<script src="' + base + script + '"></script>');
+        });
 
     if (iniframe) {
         document.writeln('<style data-compiled-css>@import url("../dist/css/uikit.css"); </style>');
@@ -72,87 +72,87 @@
 
         "::Core",
 
-            "core/alert",
-            "core/animation",
-            "core/article",
-            "core/badge",
-            "core/base",
-            "core/block",
-            "core/breadcrumb",
-            "core/button",
-            "core/close",
-            "core/column",
-            "core/comment",
-            "core/contrast",
-            "core/cover",
-            "core/description-list",
-            "core/dropdown",
-            "core/flex",
-            "core/form",
-            "core/grid",
-            "core/icon",
-            "core/list",
-            "core/modal",
-            "core/nav",
-            "core/navbar",
-            "core/offcanvas",
-            "core/overlay",
-            "core/pagination",
-            "core/panel",
-            "core/scrollspy",
-            "core/smooth-scroll",
-            "core/subnav",
-            "core/switcher",
-            "core/tab",
-            "core/table",
-            "core/text",
-            "core/thumbnail",
-            "core/thumbnav",
-            "core/toggle",
-            "core/touch",
-            "core/utility",
+        "core/alert",
+        "core/animation",
+        "core/article",
+        "core/badge",
+        "core/base",
+        "core/block",
+        "core/breadcrumb",
+        "core/button",
+        "core/close",
+        "core/column",
+        "core/comment",
+        "core/contrast",
+        "core/cover",
+        "core/description-list",
+        "core/dropdown",
+        "core/flex",
+        "core/form",
+        "core/grid",
+        "core/icon",
+        "core/list",
+        "core/modal",
+        "core/nav",
+        "core/navbar",
+        "core/offcanvas",
+        "core/overlay",
+        "core/pagination",
+        "core/panel",
+        "core/scrollspy",
+        "core/smooth-scroll",
+        "core/subnav",
+        "core/switcher",
+        "core/tab",
+        "core/table",
+        "core/text",
+        "core/thumbnail",
+        "core/thumbnav",
+        "core/toggle",
+        "core/touch",
+        "core/utility",
 
         "::Components",
 
-            "components/accordion",
-            "components/autocomplete",
-            "components/datepicker",
-            "components/dotnav",
-            "components/form-advanced",
-            "components/form-file",
-            "components/form-password",
-            "components/form-select",
-            "components/grid-js",
-            "components/grid-parallax",
-            "components/htmleditor",
-            "components/lightbox",
-            "components/nestable",
-            "components/notify",
-            "components/pagination-js",
-            "components/parallax",
-            "components/placeholder",
-            "components/progress",
-            "components/search",
-            "components/slidenav",
-            "components/slider",
-            "components/slideshow",
-            "components/slideset",
-            "components/sortable",
-            "components/sticky",
-            "components/timepicker",
-            "components/tooltip",
-            "components/upload"
+        "components/accordion",
+        "components/autocomplete",
+        "components/datepicker",
+        "components/dotnav",
+        "components/form-advanced",
+        "components/form-file",
+        "components/form-password",
+        "components/form-select",
+        "components/grid-js",
+        "components/grid-parallax",
+        "components/htmleditor",
+        "components/lightbox",
+        "components/nestable",
+        "components/notify",
+        "components/pagination-js",
+        "components/parallax",
+        "components/placeholder",
+        "components/progress",
+        "components/search",
+        "components/slidenav",
+        "components/slider",
+        "components/slideshow",
+        "components/slideset",
+        "components/sortable",
+        "components/sticky",
+        "components/timepicker",
+        "components/tooltip",
+        "components/upload"
 
     ];
 
 
-    document.addEventListener("DOMContentLoaded", function(event) {
+    document.addEventListener("DOMContentLoaded", function (event) {
 
         $ = jQuery.noConflict();
 
-        var $body      = $("body").css("visibility", "hidden"),
+        var $body = $("body").css("visibility", "hidden"),
             $scriptest = $(scriptest),
-            controls   = $('<div class="uk-form uk-margin-top uk-margin-bottom uk-container uk-container-center"></div>');
+            controls = $('<div class="uk-form uk-margin-top uk-margin-bottom uk-container uk-container-center"></div>');
 
         // test select
 
@@ -160,42 +160,42 @@
             testselect = $('<select><option value="">- Select Test -</option><option value="overview.html">Overview</option></select>').css("margin", "0 5px"),
             optgroup;
 
-        $.each(tests, function(){
+        $.each(tests, function () {
 
             var value = this, name = value.split("/").slice(-1)[0];
 
             name = name.charAt(0).toUpperCase() + name.slice(1);
 
-            if (value.indexOf('::')===0) {
-                optgroup = $('<optgroup label="'+value.replace('::', '')+'"></optgroup>').appendTo(testselect);
+            if (value.indexOf('::') === 0) {
+                optgroup = $('<optgroup label="' + value.replace('::', '') + '"></optgroup>').appendTo(testselect);
                 return;
             }
 
-            optgroup.append('<option value="'+value+'.html">'+name+'</option>');
+            optgroup.append('<option value="' + value + '.html">' + name + '</option>');
         });
 
-        testselect.val(testselect.find("option[value$='"+((location.href.match(/overview/) ? '':'/') + location.href.split("/").slice(-1)[0])+"']").attr("value")).on("change", function(){
-            if (testselect.val()) location.href = testfolder+testselect.val();
+        testselect.val(testselect.find("option[value$='" + ((location.href.match(/overview/) ? '' : '/') + location.href.split("/").slice(-1)[0]) + "']").attr("value")).on("change", function () {
+            if (testselect.val()) location.href = testfolder + testselect.val();
         });
 
         controls.prepend(testselect);
 
         if (!iniframe) {
 
-            $.get(base+"themes.json", {nocache:Math.random()}).always(function(data, type){
+            $.get(base + "themes.json", {nocache: Math.random()}).always(function (data, type) {
 
-                var theme  = localStorage["uikit.theme"] || 'default',
+                var theme = localStorage["uikit.theme"] || 'default',
                     themes = {
-                        "default"      : {"name": "Default", "url":"themes/default"},
-                        "almost-flat"  : {"name": "Almost Flat", "url":"themes/default"},
-                        "gradient"     : {"name": "Gradient", "url":"themes/default"}
+                        "default": {"name": "Default", "url": "themes/default"},
+                        "almost-flat": {"name": "Almost Flat", "url": "themes/default"},
+                        "gradient": {"name": "Gradient", "url": "themes/default"}
                     };
 
-                if (type==="success") {
+                if (type === "success") {
 
                     themes = {};
 
-                    data.forEach(function(item){
+                    data.forEach(function (item) {
                         themes[item.id] = {"name": item.name, "url": item.url};
                     });
                 }
@@ -206,11 +206,11 @@
                 // themes
                 var themeselect = $('<select><option value="">Select a theme...</option></select>');
 
-                $.each(themes, function(key){
-                    themeselect.append('<option value="'+key+'">'+themes[key].name+'</option>');
+                $.each(themes, function (key) {
+                    themeselect.append('<option value="' + key + '">' + themes[key].name + '</option>');
                 });
 
-                themeselect.val(theme).on("change", function(){
+                themeselect.val(theme).on("change", function () {
 
                     if (!themeselect.val()) return;
 
@@ -222,19 +222,25 @@
 
                 var $style = $scriptest, style;
 
-                styles.forEach(function(style) {
+                styles.forEach(function (style) {
 
-                    style = $('<link rel="stylesheet" href="'+base+(style.replace('{style}', theme=='default' ? '':'.'+theme))+'">');
+                    style = $('<link rel="stylesheet" href="' + base + (style.replace('{style}', theme == 'default' ? '' : '.' + theme)) + '">');
                     $style.after(style);
                     $style = style;
                 });
 
-                setTimeout(function() { $body.css("visibility", ""); $(window).trigger("resize"); }, 500);
+                setTimeout(function () {
+                    $body.css("visibility", "");
+                    $(window).trigger("resize");
+                }, 500);
             });
 
-        } else  {
+        } else {
 
-            setTimeout(function() { $body.css("visibility", ""); $(window).trigger("resize"); }, 500);
+            setTimeout(function () {
+                $body.css("visibility", "");
+                $(window).trigger("resize");
+            }, 500);
         }
 
         $body.prepend(controls);

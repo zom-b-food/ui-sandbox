@@ -8,6 +8,7 @@
 // ========================================================================
 @import "../variables";
 @import "../mixins";
+
 /* ========================================================================
    Component: Base
  ========================================================================== */
@@ -19,22 +20,22 @@
  */
 
 html {
-    margin: 0;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    color: $base-body-color;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  color: $base-body-color;
 
-    @include hook-base-body();
+  @include hook-base-body();
 
 }
-
 
 /*
  * Removes default margin.
  */
 
-body { margin: 0; }
-
+body {
+  margin: 0;
+}
 
 /* Links
  ========================================================================== */
@@ -43,14 +44,18 @@ body { margin: 0; }
  * Remove the gray background color from active links in IE 10.
  */
 
-a { background: transparent; }
+a {
+  background: transparent;
+}
 
 /*
  * Improve readability of focused elements when they are also in an active/hover state.
  */
 
 a:active,
-a:hover { outline: 0; }
+a:hover {
+  outline: 0;
+}
 
 /*
  * Style
@@ -58,19 +63,18 @@ a:hover { outline: 0; }
 
 a,
 .uk-link {
-    color: $base-link-color;
-    text-decoration: $base-link-text-decoration;
-    cursor: pointer;
-    @include hook-base-link();
+  color: $base-link-color;
+  text-decoration: $base-link-text-decoration;
+  cursor: pointer;
+  @include hook-base-link();
 }
 
 a:hover,
 .uk-link:hover {
-    color: $base-link-hover-color;
-    text-decoration: $base-link-hover-text-decoration;
-    @include hook-base-link-hover();
+  color: $base-link-hover-color;
+  text-decoration: $base-link-hover-text-decoration;
+  @include hook-base-link-hover();
 }
-
 
 /* Text-level semantics
  ========================================================================== */
@@ -79,14 +83,18 @@ a:hover,
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
 
-abbr[title] { border-bottom: 1px dotted; }
+abbr[title] {
+  border-bottom: 1px dotted;
+}
 
 /*
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
 
 b,
-strong { font-weight: bold; }
+strong {
+  font-weight: bold;
+}
 
 /*
  * 1. Address odd `em`-unit font size rendering in all browsers.
@@ -96,30 +104,32 @@ strong { font-weight: bold; }
 :not(pre) > code,
 :not(pre) > kbd,
 :not(pre) > samp {
-    /* 1 */
-    font-size: $base-code-font-size;
-    /* 2 */
-    font-family: $base-code-font-family;
-    /* 3 */
-    color: $base-code-color;
-    white-space: nowrap;
-    @include hook-base-code();
+  /* 1 */
+  font-size: $base-code-font-size;
+  /* 2 */
+  font-family: $base-code-font-family;
+  /* 3 */
+  color: $base-code-color;
+  white-space: nowrap;
+  @include hook-base-code();
 }
 
 /*
  * Emphasize
  */
 
-em { color: $base-em-color; }
+em {
+  color: $base-em-color;
+}
 
 /*
  * Insert
  */
 
 ins {
-    background: $base-ins-background;
-    color: $base-ins-color;
-    text-decoration: none;
+  background: $base-ins-background;
+  color: $base-ins-color;
+  text-decoration: none;
 }
 
 /*
@@ -128,21 +138,25 @@ ins {
  */
 
 mark {
-    background: $base-mark-background;
-    color: $base-mark-color;
+  background: $base-mark-background;
+  color: $base-mark-color;
 }
 
 /*
  * Quote
  */
 
-q { font-style: $base-quote-font-style; }
+q {
+  font-style: $base-quote-font-style;
+}
 
 /*
  * Addresses inconsistent and variable font size in all browsers.
  */
 
-small { font-size: 80%; }
+small {
+  font-size: 80%;
+}
 
 /*
  * Prevents `sub` and `sup` affecting `line-height` in all browsers.
@@ -150,15 +164,19 @@ small { font-size: 80%; }
 
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
+sup {
+  top: -0.5em;
+}
 
+sub {
+  bottom: -0.25em;
+}
 
 /* Embedded content
  ========================================================================== */
@@ -172,7 +190,9 @@ canvas,
 iframe,
 img,
 svg,
-video { vertical-align: middle; }
+video {
+  vertical-align: middle;
+}
 
 /*
  * Responsiveness
@@ -185,11 +205,11 @@ canvas,
 img,
 svg,
 video {
-    /* 1 */
-    max-width: 100%;
-    height: auto;
-    /* 2 */
-    box-sizing: border-box;
+  /* 1 */
+  max-width: 100%;
+  height: auto;
+  /* 2 */
+  box-sizing: border-box;
 }
 
 /*
@@ -201,20 +221,25 @@ video {
 .uk-img-preserve canvas,
 .uk-img-preserve img,
 .uk-img-preserve svg,
-.uk-img-preserve video { max-width: none; }
+.uk-img-preserve video {
+  max-width: none;
+}
 
 /*
  * Remove border when inside `a` element in IE 8/9/10.
  */
 
-img { border: 0; }
+img {
+  border: 0;
+}
 
 /*
  * Correct overflow not hidden in IE 9/10/11.
  */
 
-svg:not(:root) { overflow: hidden; }
-
+svg:not(:root) {
+  overflow: hidden;
+}
 
 /* Block elements
  ========================================================================== */
@@ -224,7 +249,9 @@ svg:not(:root) { overflow: hidden; }
  */
 
 blockquote,
-figure { margin: 0; }
+figure {
+  margin: 0;
+}
 
 /*
  * Margins
@@ -238,7 +265,9 @@ blockquote,
 pre,
 address,
 fieldset,
-figure { margin: 0 0 $base-margin-vertical 0; }
+figure {
+  margin: 0 0 $base-margin-vertical 0;
+}
 
 * + p,
 * + ul,
@@ -248,19 +277,20 @@ figure { margin: 0 0 $base-margin-vertical 0; }
 * + pre,
 * + address,
 * + fieldset,
-* + figure { margin-top: $base-margin-vertical; }
-
+* + figure {
+  margin-top: $base-margin-vertical;
+}
 
 /* Headings
  ========================================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0 0 $base-margin-vertical 0;
-    font-family:  $base-heading-font-family;
-    font-weight: $base-heading-font-weight;
-    color: $base-heading-color;
-    text-transform: $base-heading-text-transform;
-    @include hook-base-h();
+  margin: 0 0 $base-margin-vertical 0;
+  font-family: $base-heading-font-family;
+  font-weight: $base-heading-font-weight;
+  color: $base-heading-color;
+  text-transform: $base-heading-text-transform;
+  @include hook-base-h();
 }
 
 /*
@@ -272,7 +302,9 @@ h1, h2, h3, h4, h5, h6 {
 * + h3,
 * + h4,
 * + h5,
-* + h6 { margin-top: $base-heading-margin-top; }
+* + h6 {
+  margin-top: $base-heading-margin-top;
+}
 
 /*
  * Sizes
@@ -280,46 +312,47 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, .uk-h1 {
 
-    line-height: $base-h1-line-height;
-    @include hook-base-h1();
+  line-height: $base-h1-line-height;
+  @include hook-base-h1();
 }
 
 h2, .uk-h2 {
 
-    line-height: $base-h2-line-height;
-    @include hook-base-h2();
+  line-height: $base-h2-line-height;
+  @include hook-base-h2();
 }
 
 h3, .uk-h3 {
 
-    line-height: $base-h3-line-height;
-    @include hook-base-h3();
+  line-height: $base-h3-line-height;
+  @include hook-base-h3();
 }
 
 h4, .uk-h4 {
 
-    line-height: $base-h4-line-height;
-    @include hook-base-h4();
+  line-height: $base-h4-line-height;
+  @include hook-base-h4();
 }
 
 h5, .uk-h5 {
 
-    line-height: $base-h5-line-height;
-    @include hook-base-h5();
+  line-height: $base-h5-line-height;
+  @include hook-base-h5();
 }
 
 h6, .uk-h6 {
 
-    line-height: $base-h6-line-height;
-    @include hook-base-h6();
+  line-height: $base-h6-line-height;
+  @include hook-base-h6();
 }
-
 
 /* Lists
  ========================================================================== */
 
 ul,
-ol { padding-left: $base-list-padding-left; }
+ol {
+  padding-left: $base-list-padding-left;
+}
 
 /*
  * Reset margin for nested lists
@@ -328,15 +361,20 @@ ol { padding-left: $base-list-padding-left; }
 ul > li > ul,
 ul > li > ol,
 ol > li > ol,
-ol > li > ul { margin: 0; }
-
+ol > li > ul {
+  margin: 0;
+}
 
 /* Description lists
  ========================================================================== */
 
-dt { font-weight: bold; }
-dd { margin-left: 0; }
+dt {
+  font-weight: bold;
+}
 
+dd {
+  margin-left: 0;
+}
 
 /* Horizontal rules
  ========================================================================== */
@@ -347,35 +385,34 @@ dd { margin-left: 0; }
  */
 
 hr {
-    /* 1 */
-    box-sizing: content-box;
-    height: 0;
-    /* 2 */
-    margin: $base-hr-margin-vertical 0;
-    border: 0;
-    border-top: $base-hr-border-width solid $base-hr-border;
-    @include hook-base-hr();
+  /* 1 */
+  box-sizing: content-box;
+  height: 0;
+  /* 2 */
+  margin: $base-hr-margin-vertical 0;
+  border: 0;
+  border-top: $base-hr-border-width solid $base-hr-border;
+  @include hook-base-hr();
 }
-
 
 /* Address
  ========================================================================== */
 
-address { font-style: normal; }
-
+address {
+  font-style: normal;
+}
 
 /* Blockquotes
  ========================================================================== */
 
 blockquote {
-    padding-left: $base-blockquote-padding-left;
-    border-left: $base-blockquote-border-width solid $base-blockquote-border;
-    font-size: $base-blockquote-font-size;
-    line-height: $base-blockquote-line-height;
-    font-style: $base-blockquote-font-style;
-    @include hook-base-blockquote();
+  padding-left: $base-blockquote-padding-left;
+  border-left: $base-blockquote-border-width solid $base-blockquote-border;
+  font-size: $base-blockquote-font-size;
+  line-height: $base-blockquote-line-height;
+  font-style: $base-blockquote-font-style;
+  @include hook-base-blockquote();
 }
-
 
 /* Preformatted text
  ========================================================================== */
@@ -385,33 +422,31 @@ blockquote {
  */
 
 pre {
-    padding: $base-pre-padding;
-    background: $base-pre-background;
-    font: $base-pre-font-size unquote("/") $base-pre-line-height $base-pre-font-family;
-    color: $base-pre-color;
-    -moz-tab-size: 4;
-    tab-size: 4;
-    /* 1 */
-    overflow: auto;
-    @include hook-base-pre();
+  padding: $base-pre-padding;
+  background: $base-pre-background;
+  font: $base-pre-font-size unquote("/") $base-pre-line-height $base-pre-font-family;
+  color: $base-pre-color;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  /* 1 */
+  overflow: auto;
+  @include hook-base-pre();
 }
-
 
 /* Selection pseudo-element
  ========================================================================== */
 
 ::-moz-selection {
-    background: $base-selection-background;
-    color: $base-selection-color;
-    text-shadow: none;
+  background: $base-selection-background;
+  color: $base-selection-color;
+  text-shadow: none;
 }
 
 ::selection {
-    background: $base-selection-background;
-    color: $base-selection-color;
-    text-shadow: none;
+  background: $base-selection-background;
+  color: $base-selection-color;
+  text-shadow: none;
 }
-
 
 /* HTML5 elements
  ========================================================================== */
@@ -432,19 +467,25 @@ header,
 main,
 nav,
 section,
-summary { display: block; }
+summary {
+  display: block;
+}
 
 /*
  * Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
 
-progress { vertical-align: baseline; }
+progress {
+  vertical-align: baseline;
+}
 
 /*
  * Prevent displaying `audio` without controls in Chrome, Safari and Opera
  */
 
-audio:not([controls]) { display: none; }
+audio:not([controls]) {
+  display: none;
+}
 
 /*
  * Address `[hidden]` styling not present in IE 8/9/10.
@@ -452,14 +493,16 @@ audio:not([controls]) { display: none; }
  */
 
 [hidden],
-template { display: none; }
-
+template {
+  display: none;
+}
 
 /* Iframe
  ========================================================================== */
 
-iframe { border: 0; }
-
+iframe {
+  border: 0;
+}
 
 /* Fix viewport for IE10 snap mode
  ========================================================================== */
@@ -469,7 +512,6 @@ iframe { border: 0; }
         width: device-width;
     }
 }*/
-
 
 // Hooks
 // ========================================================================

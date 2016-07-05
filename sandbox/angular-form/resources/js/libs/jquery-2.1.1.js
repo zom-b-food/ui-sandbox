@@ -252,7 +252,8 @@
             throw new Error(msg);
         },
 
-        noop: function () {},
+        noop: function () {
+        },
 
         // See test/unit/core.js for details concerning isFunction.
         // Since version 1.3, DOM methods and functions like alert
@@ -737,7 +738,8 @@
                         var j = target.length,
                             i = 0;
                         // Can't trust NodeList.length
-                        while ((target[j++] = els[i++])) {}
+                        while ((target[j++] = els[i++])) {
+                        }
                         target.length = j - 1;
                     }
                 };
@@ -1421,7 +1423,8 @@
                             return ret;
                         }
                     }
-                    catch (e) {}
+                    catch (e) {
+                    }
                 }
 
                 return Sizzle(expr, document, null, [ elem ]).length > 0;
@@ -1633,7 +1636,9 @@
                     "TAG": function (nodeNameSelector) {
                         var nodeName = nodeNameSelector.replace(runescape, funescape).toLowerCase();
                         return nodeNameSelector === "*" ?
-                            function () { return true; } :
+                            function () {
+                                return true;
+                            } :
                             function (elem) {
                                 return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
                             };
@@ -2012,7 +2017,8 @@
             }
 
 // Easy API for creating new setFilters
-            function setFilters() {}
+            function setFilters() {
+            }
 
             setFilters.prototype = Expr.filters = Expr.pseudos;
             Expr.setFilters = new setFilters();
@@ -2972,7 +2978,8 @@
     });
 
     function sibling(cur, dir) {
-        while ((cur = cur[dir]) && cur.nodeType !== 1) {}
+        while ((cur = cur[dir]) && cur.nodeType !== 1) {
+        }
         return cur;
     }
 
@@ -3773,7 +3780,8 @@
                                     rbrace.test(data) ? jQuery.parseJSON(data) :
                                         data;
                 }
-                catch (e) {}
+                catch (e) {
+                }
 
                 // Make sure we set the data so it isn't changed later
                 data_user.set(elem, key, data);
@@ -4106,7 +4114,8 @@
         try {
             return document.activeElement;
         }
-        catch (err) { }
+        catch (err) {
+        }
     }
 
     /*
@@ -5373,7 +5382,8 @@
 
                         // If using innerHTML throws an exception, use the fallback method
                     }
-                    catch (e) {}
+                    catch (e) {
+                    }
                 }
 
                 if (elem) {
@@ -8625,7 +8635,8 @@
         try {
             return new XMLHttpRequest();
         }
-        catch (e) {}
+        catch (e) {
+        }
     };
 
     var xhrId = 0,

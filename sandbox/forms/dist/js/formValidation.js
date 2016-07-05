@@ -60,7 +60,8 @@ if (typeof jQuery === 'undefined') {
         // https://gist.github.com/padolsey/527683/#comment-7595
         var ieVersion = (function () {
             var v = 3, div = document.createElement('div'), a = div.all || [];
-            while (div.innerHTML = '<!--[if gt IE ' + (++v) + ']><br><![endif]-->', a[0]) {}
+            while (div.innerHTML = '<!--[if gt IE ' + (++v) + ']><br><![endif]-->', a[0]) {
+            }
             return v > 4 ? v : !v;
         }());
 

@@ -45,7 +45,8 @@
             s = decodeURIComponent(s.replace(pluses, ' '));
             return config.json ? JSON.parse(s) : s;
         }
-        catch (e) {}
+        catch (e) {
+        }
     }
 
     function read(s, converter) {

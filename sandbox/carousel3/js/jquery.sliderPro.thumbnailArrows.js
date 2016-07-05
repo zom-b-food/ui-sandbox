@@ -1,121 +1,122 @@
 // Thumbnail Arrows module for Slider Pro.
 // 
 // Adds thumbnail arrows for moving the thumbnail scroller.
-;(function( window, $ ) {
+;
+(function (window, $) {
 
-	"use strict";
-	
-	var NS = 'ThumbnailArrows.' + $.SliderPro.namespace;
+    "use strict";
 
-	var ThumbnailArrows = {
+    var NS = 'ThumbnailArrows.' + $.SliderPro.namespace;
 
-		// Reference to the arrows container
-		$thumbnailArrows: null,
+    var ThumbnailArrows = {
 
-		// Reference to the 'previous' thumbnail arrow
-		$previousThumbnailArrow: null,
+        // Reference to the arrows container
+        $thumbnailArrows: null,
 
-		// Reference to the 'next' thumbnail arrow
-		$nextThumbnailArrow: null,
+        // Reference to the 'previous' thumbnail arrow
+        $previousThumbnailArrow: null,
 
-		initThumbnailArrows: function() {
-			var that = this;
+        // Reference to the 'next' thumbnail arrow
+        $nextThumbnailArrow: null,
 
-			this.on( 'update.' + NS, $.proxy( this._thumbnailArrowsOnUpdate, this ) );
-			
-			// Check if the arrows need to be visible or invisible when the thumbnail scroller
-			// resizes and when the thumbnail scroller moves.
-			this.on( 'sliderResize.' + NS + ' ' + 'thumbnailsMoveComplete.' + NS, function() {
-				if ( that.isThumbnailScroller === true && that.settings.thumbnailArrows === true ) {
-					that._checkThumbnailArrowsVisibility();
-				}
-			});
-		},
-		
-		// Called when the slider is updated
-		_thumbnailArrowsOnUpdate: function() {
-			var that = this;
-			
-			if ( this.isThumbnailScroller === false ) {
-				return;
-			}
+        initThumbnailArrows: function () {
+            var that = this;
 
-			// Create or remove the thumbnail scroller arrows
-			if ( this.settings.thumbnailArrows === true && this.$thumbnailArrows === null ) {
-				this.$thumbnailArrows = $( '<div class="sp-thumbnail-arrows"></div>' ).appendTo( this.$thumbnailsContainer );
-				
-				this.$previousThumbnailArrow = $( '<div class="sp-thumbnail-arrow sp-previous-thumbnail-arrow"></div>' ).appendTo( this.$thumbnailArrows );
-				this.$nextThumbnailArrow = $( '<div class="sp-thumbnail-arrow sp-next-thumbnail-arrow"></div>' ).appendTo( this.$thumbnailArrows );
+            this.on('update.' + NS, $.proxy(this._thumbnailArrowsOnUpdate, this));
 
-				this.$previousThumbnailArrow.on( 'click.' + NS, function() {
-					var previousPosition = Math.min( 0, that.thumbnailsPosition + that.thumbnailsContainerSize );
-					that._moveThumbnailsTo( previousPosition );
-				});
+            // Check if the arrows need to be visible or invisible when the thumbnail scroller
+            // resizes and when the thumbnail scroller moves.
+            this.on('sliderResize.' + NS + ' ' + 'thumbnailsMoveComplete.' + NS, function () {
+                if (that.isThumbnailScroller === true && that.settings.thumbnailArrows === true) {
+                    that._checkThumbnailArrowsVisibility();
+                }
+            });
+        },
 
-				this.$nextThumbnailArrow.on( 'click.' + NS, function() {
-					var nextPosition = Math.max( that.thumbnailsContainerSize - that.thumbnailsSize, that.thumbnailsPosition - that.thumbnailsContainerSize );
-					that._moveThumbnailsTo( nextPosition );
-				});
-			} else if ( this.settings.thumbnailArrows === false && this.$thumbnailArrows !== null ) {
-				this._removeThumbnailArrows();
-			}
+        // Called when the slider is updated
+        _thumbnailArrowsOnUpdate: function () {
+            var that = this;
 
-			// Add fading functionality and check if the arrows need to be visible or not
-			if ( this.settings.thumbnailArrows === true ) {
-				if ( this.settings.fadeThumbnailArrows === true ) {
-					this.$thumbnailArrows.addClass( 'sp-fade-thumbnail-arrows' );
-				} else if ( this.settings.fadeThumbnailArrows === false ) {
-					this.$thumbnailArrows.removeClass( 'sp-fade-thumbnail-arrows' );
-				}
+            if (this.isThumbnailScroller === false) {
+                return;
+            }
 
-				this._checkThumbnailArrowsVisibility();
-			}
-		},
+            // Create or remove the thumbnail scroller arrows
+            if (this.settings.thumbnailArrows === true && this.$thumbnailArrows === null) {
+                this.$thumbnailArrows = $('<div class="sp-thumbnail-arrows"></div>').appendTo(this.$thumbnailsContainer);
 
-		// Checks if the 'next' or 'previous' arrows need to be visible or hidden,
-		// based on the position of the thumbnail scroller
-		_checkThumbnailArrowsVisibility: function() {
-			if ( this.thumbnailsPosition === 0 ) {
-				this.$previousThumbnailArrow.css( 'display', 'none' );
-			} else {
-				this.$previousThumbnailArrow.css( 'display', 'block' );
-			}
+                this.$previousThumbnailArrow = $('<div class="sp-thumbnail-arrow sp-previous-thumbnail-arrow"></div>').appendTo(this.$thumbnailArrows);
+                this.$nextThumbnailArrow = $('<div class="sp-thumbnail-arrow sp-next-thumbnail-arrow"></div>').appendTo(this.$thumbnailArrows);
 
-			if ( this.thumbnailsPosition === this.thumbnailsContainerSize - this.thumbnailsSize ) {
-				this.$nextThumbnailArrow.css( 'display', 'none' );
-			} else {
-				this.$nextThumbnailArrow.css( 'display', 'block' );
-			}
-		},
+                this.$previousThumbnailArrow.on('click.' + NS, function () {
+                    var previousPosition = Math.min(0, that.thumbnailsPosition + that.thumbnailsContainerSize);
+                    that._moveThumbnailsTo(previousPosition);
+                });
 
-		// Remove the thumbnail arrows
-		_removeThumbnailArrows: function() {
-			if ( this.$thumbnailArrows !== null ) {
-				this.$previousThumbnailArrow.off( 'click.' + NS );
-				this.$nextThumbnailArrow.off( 'click.' + NS );
-				this.$thumbnailArrows.remove();
-				this.$thumbnailArrows = null;
-			}
-		},
+                this.$nextThumbnailArrow.on('click.' + NS, function () {
+                    var nextPosition = Math.max(that.thumbnailsContainerSize - that.thumbnailsSize, that.thumbnailsPosition - that.thumbnailsContainerSize);
+                    that._moveThumbnailsTo(nextPosition);
+                });
+            } else if (this.settings.thumbnailArrows === false && this.$thumbnailArrows !== null) {
+                this._removeThumbnailArrows();
+            }
 
-		// Destroy the module
-		destroyThumbnailArrows: function() {
-			this._removeThumbnailArrows();
-			this.off( 'update.' + NS );
-			this.off( 'sliderResize.' + NS );
-			this.off( 'thumbnailsMoveComplete.' + NS );
-		},
+            // Add fading functionality and check if the arrows need to be visible or not
+            if (this.settings.thumbnailArrows === true) {
+                if (this.settings.fadeThumbnailArrows === true) {
+                    this.$thumbnailArrows.addClass('sp-fade-thumbnail-arrows');
+                } else if (this.settings.fadeThumbnailArrows === false) {
+                    this.$thumbnailArrows.removeClass('sp-fade-thumbnail-arrows');
+                }
 
-		thumbnailArrowsDefaults: {
+                this._checkThumbnailArrowsVisibility();
+            }
+        },
 
-			// Indicates whether the thumbnail arrows will be enabled
-			thumbnailArrows: false,
+        // Checks if the 'next' or 'previous' arrows need to be visible or hidden,
+        // based on the position of the thumbnail scroller
+        _checkThumbnailArrowsVisibility: function () {
+            if (this.thumbnailsPosition === 0) {
+                this.$previousThumbnailArrow.css('display', 'none');
+            } else {
+                this.$previousThumbnailArrow.css('display', 'block');
+            }
 
-			// Indicates whether the thumbnail arrows will be faded
-			fadeThumbnailArrows: true
-		}
-	};
+            if (this.thumbnailsPosition === this.thumbnailsContainerSize - this.thumbnailsSize) {
+                this.$nextThumbnailArrow.css('display', 'none');
+            } else {
+                this.$nextThumbnailArrow.css('display', 'block');
+            }
+        },
 
-	$.SliderPro.addModule( 'ThumbnailArrows', ThumbnailArrows );
+        // Remove the thumbnail arrows
+        _removeThumbnailArrows: function () {
+            if (this.$thumbnailArrows !== null) {
+                this.$previousThumbnailArrow.off('click.' + NS);
+                this.$nextThumbnailArrow.off('click.' + NS);
+                this.$thumbnailArrows.remove();
+                this.$thumbnailArrows = null;
+            }
+        },
 
-})( window, jQuery );
+        // Destroy the module
+        destroyThumbnailArrows: function () {
+            this._removeThumbnailArrows();
+            this.off('update.' + NS);
+            this.off('sliderResize.' + NS);
+            this.off('thumbnailsMoveComplete.' + NS);
+        },
+
+        thumbnailArrowsDefaults: {
+
+            // Indicates whether the thumbnail arrows will be enabled
+            thumbnailArrows: false,
+
+            // Indicates whether the thumbnail arrows will be faded
+            fadeThumbnailArrows: true
+        }
+    };
+
+    $.SliderPro.addModule('ThumbnailArrows', ThumbnailArrows);
+
+})(window, jQuery);

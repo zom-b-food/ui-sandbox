@@ -2,172 +2,173 @@
 // 
 // Adds the possibility to load a different image when the slider is
 // viewed on a retina screen.
-;(function( window, $ ) {
+;
+(function (window, $) {
 
-	"use strict";
-	
-	var NS = 'Retina.' + $.SliderPro.namespace;
+    "use strict";
 
-	var Retina = {
+    var NS = 'Retina.' + $.SliderPro.namespace;
 
-		initRetina: function() {
-			var that = this;
+    var Retina = {
 
-			// Return if it's not a retina screen
-			if ( this._isRetina() === false ) {
-				return;
-			}
-			
-			this.on( 'update.' + NS, $.proxy( this._checkRetinaImages, this ) );
+        initRetina: function () {
+            var that = this;
 
-			if ( this.$slider.find( '.sp-thumbnail' ).length !== 0 ) {
-				this.on( 'update.Thumbnails.' + NS, $.proxy( this._checkRetinaThumbnailImages, this ) );
-			}
-		},
+            // Return if it's not a retina screen
+            if (this._isRetina() === false) {
+                return;
+            }
 
-		// Checks if the current display supports high PPI
-		_isRetina: function() {
-			if ( window.devicePixelRatio >= 2 ) {
-				return true;
-			}
+            this.on('update.' + NS, $.proxy(this._checkRetinaImages, this));
 
-			if ( window.matchMedia && ( window.matchMedia( "(-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx)" ).matches ) ) {
-				return true;
-			}
+            if (this.$slider.find('.sp-thumbnail').length !== 0) {
+                this.on('update.Thumbnails.' + NS, $.proxy(this._checkRetinaThumbnailImages, this));
+            }
+        },
 
-			return false;
-		},
+        // Checks if the current display supports high PPI
+        _isRetina: function () {
+            if (window.devicePixelRatio >= 2) {
+                return true;
+            }
 
-		// Loop through the slides and replace the images with their retina version
-		_checkRetinaImages: function() {
-			var that = this;
+            if (window.matchMedia && ( window.matchMedia("(-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx)").matches )) {
+                return true;
+            }
 
-			$.each( this.slides, function( index, element ) {
-				var $slide = element.$slide;
+            return false;
+        },
 
-				if ( typeof $slide.attr( 'data-retina-loaded' ) === 'undefined' ) {
-					$slide.attr( 'data-retina-loaded', true );
+        // Loop through the slides and replace the images with their retina version
+        _checkRetinaImages: function () {
+            var that = this;
 
-					$slide.find( 'img[data-retina]' ).each(function() {
-						var $image = $( this );
+            $.each(this.slides, function (index, element) {
+                var $slide = element.$slide;
 
-						if ( typeof $image.attr( 'data-src' ) !== 'undefined' ) {
-							$image.attr( 'data-src', $image.attr( 'data-retina' ) );
-						} else {
-							that._loadRetinaImage( $image, function( newImage ) {
-								if ( newImage.hasClass( 'sp-image' ) ) {
-									element.$mainImage = newImage;
-									element.resizeMainImage( true );
-								}
-							});
-						}
-					});
-				}
-			});
-		},
+                if (typeof $slide.attr('data-retina-loaded') === 'undefined') {
+                    $slide.attr('data-retina-loaded', true);
 
-		// Loop through the thumbnails and replace the images with their retina version
-		_checkRetinaThumbnailImages: function() {
-			var that = this;
+                    $slide.find('img[data-retina]').each(function () {
+                        var $image = $(this);
 
-			$.each( this.thumbnails, function( index, element ) {
-				var $thumbnail = element.$thumbnailContainer;
+                        if (typeof $image.attr('data-src') !== 'undefined') {
+                            $image.attr('data-src', $image.attr('data-retina'));
+                        } else {
+                            that._loadRetinaImage($image, function (newImage) {
+                                if (newImage.hasClass('sp-image')) {
+                                    element.$mainImage = newImage;
+                                    element.resizeMainImage(true);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        },
 
-				if ( typeof $thumbnail.attr( 'data-retina-loaded' ) === 'undefined' ) {
-					$thumbnail.attr( 'data-retina-loaded', true );
+        // Loop through the thumbnails and replace the images with their retina version
+        _checkRetinaThumbnailImages: function () {
+            var that = this;
 
-					$thumbnail.find( 'img[data-retina]' ).each(function() {
-						var $image = $( this );
+            $.each(this.thumbnails, function (index, element) {
+                var $thumbnail = element.$thumbnailContainer;
 
-						if ( typeof $image.attr( 'data-src' ) !== 'undefined' ) {
-							$image.attr( 'data-src', $image.attr( 'data-retina' ) );
-						} else {
-							that._loadRetinaImage( $image, function( newImage ) {
-								if ( newImage.hasClass( 'sp-thumbnail' ) ) {
-									element.resizeImage();
-								}
-							});
-						}
-					});
-				}
-			});
-		},
+                if (typeof $thumbnail.attr('data-retina-loaded') === 'undefined') {
+                    $thumbnail.attr('data-retina-loaded', true);
 
-		// Load the retina image
-		_loadRetinaImage: function( image, callback ) {
-			var retinaFound = false,
-				newImagePath = '';
+                    $thumbnail.find('img[data-retina]').each(function () {
+                        var $image = $(this);
 
-			// Check if there is a retina image specified
-			if ( typeof image.attr( 'data-retina' ) !== 'undefined' ) {
-				retinaFound = true;
+                        if (typeof $image.attr('data-src') !== 'undefined') {
+                            $image.attr('data-src', $image.attr('data-retina'));
+                        } else {
+                            that._loadRetinaImage($image, function (newImage) {
+                                if (newImage.hasClass('sp-thumbnail')) {
+                                    element.resizeImage();
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        },
 
-				newImagePath = image.attr( 'data-retina' );
-			}
+        // Load the retina image
+        _loadRetinaImage: function (image, callback) {
+            var retinaFound = false,
+                newImagePath = '';
 
-			// Check if there is a lazy loaded, non-retina, image specified
-			if ( typeof image.attr( 'data-src' ) !== 'undefined' ) {
-				if ( retinaFound === false ) {
-					newImagePath = image.attr( 'data-src') ;
-				}
+            // Check if there is a retina image specified
+            if (typeof image.attr('data-retina') !== 'undefined') {
+                retinaFound = true;
 
-				image.removeAttr('data-src');
-			}
+                newImagePath = image.attr('data-retina');
+            }
 
-			// Return if there isn't a retina or lazy loaded image
-			if ( newImagePath === '' ) {
-				return;
-			}
+            // Check if there is a lazy loaded, non-retina, image specified
+            if (typeof image.attr('data-src') !== 'undefined') {
+                if (retinaFound === false) {
+                    newImagePath = image.attr('data-src');
+                }
 
-			// Create a new image element
-			var newImage = $( new Image() );
+                image.removeAttr('data-src');
+            }
 
-			// Copy the class(es) and inline style
-			newImage.attr( 'class', image.attr('class') );
-			newImage.attr( 'style', image.attr('style') );
+            // Return if there isn't a retina or lazy loaded image
+            if (newImagePath === '') {
+                return;
+            }
 
-			// Copy the data attributes
-			$.each( image.data(), function( name, value ) {
-				newImage.attr( 'data-' + name, value );
-			});
+            // Create a new image element
+            var newImage = $(new Image());
 
-			// Copy the width and height attributes if they exist
-			if ( typeof image.attr( 'width' ) !== 'undefined' ) {
-				newImage.attr( 'width', image.attr( 'width' ) );
-			}
+            // Copy the class(es) and inline style
+            newImage.attr('class', image.attr('class'));
+            newImage.attr('style', image.attr('style'));
 
-			if ( typeof image.attr( 'height' ) !== 'undefined' ) {
-				newImage.attr( 'height', image.attr( 'height' ) );
-			}
+            // Copy the data attributes
+            $.each(image.data(), function (name, value) {
+                newImage.attr('data-' + name, value);
+            });
 
-			if ( typeof image.attr( 'alt' ) !== 'undefined' ) {
-				newImage.attr( 'alt', image.attr( 'alt' ) );
-			}
+            // Copy the width and height attributes if they exist
+            if (typeof image.attr('width') !== 'undefined') {
+                newImage.attr('width', image.attr('width'));
+            }
 
-			if ( typeof image.attr( 'title' ) !== 'undefined' ) {
-				newImage.attr( 'title', image.attr( 'title' ) );
-			}
+            if (typeof image.attr('height') !== 'undefined') {
+                newImage.attr('height', image.attr('height'));
+            }
 
-			// Add the new image in the same container and remove the older image
-			newImage.insertAfter( image );
-			image.remove();
-			image = null;
+            if (typeof image.attr('alt') !== 'undefined') {
+                newImage.attr('alt', image.attr('alt'));
+            }
 
-			// Assign the source of the image
-			newImage.attr( 'src', newImagePath );
+            if (typeof image.attr('title') !== 'undefined') {
+                newImage.attr('title', image.attr('title'));
+            }
 
-			if ( typeof callback === 'function' ) {
-				callback( newImage );
-			}
-		},
+            // Add the new image in the same container and remove the older image
+            newImage.insertAfter(image);
+            image.remove();
+            image = null;
 
-		// Destroy the module
-		destroyRetina: function() {
-			this.off( 'update.' + NS );
-			this.off( 'update.Thumbnails.' + NS );
-		}
-	};
+            // Assign the source of the image
+            newImage.attr('src', newImagePath);
 
-	$.SliderPro.addModule( 'Retina', Retina );
-	
-})( window, jQuery );
+            if (typeof callback === 'function') {
+                callback(newImage);
+            }
+        },
+
+        // Destroy the module
+        destroyRetina: function () {
+            this.off('update.' + NS);
+            this.off('update.Thumbnails.' + NS);
+        }
+    };
+
+    $.SliderPro.addModule('Retina', Retina);
+
+})(window, jQuery);

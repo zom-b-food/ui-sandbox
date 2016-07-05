@@ -1,79 +1,85 @@
 body.cf2 {
-	margin:0;
-	padding:0;
-	border:0;			/* This removes the border around the viewport in old versions of IE */
-	width:100%;
-	background:#fff;
-	/*min-width:600px;    	/* Minimum width of layout - remove line if not required */
-					/* The min-width property does not work in old versions of Internet Explorer */
-	font-size:90%;
+    margin: 0;
+    padding: 0;
+    border: 0; /* This removes the border around the viewport in old versions of IE */
+    width: 100%;
+    background: #fff;
+    /*min-width:600px;    	/* Minimum width of layout - remove line if not required */
+    /* The min-width property does not work in old versions of Internet Explorer */
+    font-size: 90%;
 }
+
 /* column container */
 .contentwrapper {
-	position:relative;	/* This fixes the IE7 overflow hidden bug */
-	clear:both;
-	float:left;
-	width:100%;			/* width of whole page */
-	overflow:hidden;		/* This chops off any overhanging divs */
+    position: relative; /* This fixes the IE7 overflow hidden bug */
+    clear: both;
+    float: left;
+    width: 100%; /* width of whole page */
+    overflow: hidden; /* This chops off any overhanging divs */
 }
+
 /* common column settings */
 
 .colleft {
-	float:left;
-	width:100%;
-	position:relative;
+    float: left;
+    width: 100%;
+    position: relative;
 }
+
 .rColContent,
 .lColContent {
-	float:left;
-	position:relative;
-	padding:0 0 1em 0;
-	overflow:hidden;
+    float: left;
+    position: relative;
+    padding: 0 0 1em 0;
+    overflow: hidden;
 }
+
 /* 2 Column (left menu) settings */
 .menu {
-	background:#fff;		/* right column background colour */
+    background: #fff; /* right column background colour */
 }
+
 .menu .colleft {
-	right:76%;			/* right column width */
-		/* left column background colour */
-
+    right: 76%; /* right column width */
+    /* left column background colour */
 
 }
+
 .menu .rColContent {
-	width:73%;			/* right column content width */
-	left:103%;			/* 100% plus left column left padding */
+    width: 73%; /* right column content width */
+    left: 103%; /* 100% plus left column left padding */
 }
+
 .menu .lColContent {
-	width:26%;			/* 17.50%   left column content width (column width minus left and right padding) */
-	left:3%;
+    width: 26%; /* 17.50%   left column content width (column width minus left and right padding) */
+    left: 3%;
     padding: 4px 8px;
 
-    overflow:hidden;
+    overflow: hidden;
     border: 1px solid #dbb98c;
     -webkit-border-radius: 4px 4px 4px 4px !important;
     -moz-border-radius: 4px 4px 4px 4px !important;
     border-radius: 4px 4px 4px 4px !important;
-    background: #FFFBF5;			/* (right column left and right padding) plus (left column left padding) */
+    background: #FFFBF5; /* (right column left and right padding) plus (left column left padding) */
 }
 
 .messages {
-	padding-left:27px !important;
-	padding-top:8px !important;
-	width:21%;			/* 17.50%   left column content width (column width minus left and right padding) */
-	left:6%;
-	overflow:hidden;
-	border: 1px solid #dbb98c;
-	-webkit-border-radius: 4px 4px 4px 4px !important;
-	-moz-border-radius: 4px 4px 4px 4px !important;
-	border-radius: 4px 4px 4px 4px !important;
-	background: #FFFBF5;
+    padding-left: 27px !important;
+    padding-top: 8px !important;
+    width: 21%; /* 17.50%   left column content width (column width minus left and right padding) */
+    left: 6%;
+    overflow: hidden;
+    border: 1px solid #dbb98c;
+    -webkit-border-radius: 4px 4px 4px 4px !important;
+    -moz-border-radius: 4px 4px 4px 4px !important;
+    border-radius: 4px 4px 4px 4px !important;
+    background: #FFFBF5;
 }
 
 .rufus {
     padding: 8px;
 
-    overflow:hidden;
+    overflow: hidden;
     border: 1px solid #dbb98c;
     -webkit-border-radius: 4px 4px 4px 4px !important;
     -moz-border-radius: 4px 4px 4px 4px !important;

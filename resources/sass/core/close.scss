@@ -24,8 +24,8 @@
  */
 
 .uk-close::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 /*
@@ -40,38 +40,38 @@
  */
 
 .uk-close {
-    /* 1 */
-    -webkit-appearance: none;
-    /* 2 */
-    margin: 0;
-    /* 3 */
-    border: none;
-    /* 4 */
-    overflow: visible;
-    /* 5 */
-    font: inherit;
-    color: inherit;
-    /* 6 */
-    text-transform: none;
-    /* 7. */
-    padding: 0;
-    background: transparent;
-    /* 8 */
-    display: inline-block;
-    box-sizing: content-box;
-    width: $close-size;
-    line-height: $close-size;
-    text-align: center;
-    vertical-align: middle;
-    opacity: 0.3;
-    @include hook-close();
+  /* 1 */
+  -webkit-appearance: none;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+  border: none;
+  /* 4 */
+  overflow: visible;
+  /* 5 */
+  font: inherit;
+  color: inherit;
+  /* 6 */
+  text-transform: none;
+  /* 7. */
+  padding: 0;
+  background: transparent;
+  /* 8 */
+  display: inline-block;
+  box-sizing: content-box;
+  width: $close-size;
+  line-height: $close-size;
+  text-align: center;
+  vertical-align: middle;
+  opacity: 0.3;
+  @include hook-close();
 }
 
 /* Icon */
 .uk-close:after {
-    display: block;
-    content: "\f00d";
-    font-family: FontAwesome;
+  display: block;
+  content: "\f00d";
+  font-family: FontAwesome;
 }
 
 /*
@@ -82,38 +82,43 @@
  */
 
 .uk-close:hover,
-.uk-close:focus { // 1
-    opacity: 0.5;
-    /* 2 */
-    outline: none;
-    /* 3 */
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
+.uk-close:focus {
+  // 1
+  opacity: 0.5;
+  /* 2 */
+  outline: none;
+  /* 3 */
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
-
 
 /* Modifier
  ========================================================================== */
 
 .uk-close-alt {
-    padding: $close-alt-padding;
-    border-radius: 50%;
-    background: $close-alt-background;
-    opacity: 1;
-    @include hook-close-alt();
+  padding: $close-alt-padding;
+  border-radius: 50%;
+  background: $close-alt-background;
+  opacity: 1;
+  @include hook-close-alt();
 }
 
 /* Hover */
 .uk-close-alt:hover,
-.uk-close-alt:focus { opacity: 1; }
+.uk-close-alt:focus {
+  opacity: 1;
+}
 
 /* Icon */
-.uk-close-alt:after { opacity: 0.5; }
+.uk-close-alt:after {
+  opacity: 0.5;
+}
 
 .uk-close-alt:hover:after,
-.uk-close-alt:focus:after { opacity: 0.8; }
-
+.uk-close-alt:focus:after {
+  opacity: 0.8;
+}
 
 // Hooks
 // ========================================================================

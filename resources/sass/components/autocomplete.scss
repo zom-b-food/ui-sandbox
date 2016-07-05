@@ -9,9 +9,9 @@
 //
 // ========================================================================
 
-
 @import "../variables";
 @import "../mixins";
+
 /* ========================================================================
    Component: Autocomplete
  ========================================================================== */
@@ -24,20 +24,20 @@
  */
 
 .uk-autocomplete {
-    /* 1 */
-    display: inline-block;
-    /* 2 */
-    position: relative;
-    /* 3 */
-    max-width: 100%;
-    /* 4 */
-    vertical-align: middle;
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  position: relative;
+  /* 3 */
+  max-width: 100%;
+  /* 4 */
+  vertical-align: middle;
 }
 
 /* Legacy dropdown modifier */
 .uk-dropdown-flip {
-    left: auto;
-    right: 0;
+  left: auto;
+  right: 0;
 }
 
 /* Nav modifier `uk-nav-autocomplete`
@@ -48,8 +48,8 @@
  */
 
 .uk-nav-autocomplete > li > a {
-    color: $nav-autocomplete-color;
-    @include hook-nav-autocomplete();
+  color: $nav-autocomplete-color;
+  @include hook-nav-autocomplete();
 }
 
 /*
@@ -58,11 +58,11 @@
  */
 
 .uk-nav-autocomplete > li.uk-active > a {
-    background: $nav-autocomplete-active-background;
-    color: $nav-autocomplete-active-color;
-    /* 1 */
-    outline: none;
-    @include hook-nav-autocomplete-active();
+  background: $nav-autocomplete-active-background;
+  color: $nav-autocomplete-active-color;
+  /* 1 */
+  outline: none;
+  @include hook-nav-autocomplete-active();
 }
 
 /*
@@ -70,8 +70,8 @@
  */
 
 .uk-nav-autocomplete .uk-nav-header {
-    color: $nav-autocomplete-header-color;
-    @include hook-nav-autocomplete-header();
+  color: $nav-autocomplete-header-color;
+  @include hook-nav-autocomplete-header();
 }
 
 /*
@@ -79,10 +79,9 @@
  */
 
 .uk-nav-autocomplete .uk-nav-divider {
-    border-top: $nav-autocomplete-divider-border-width solid $nav-autocomplete-divider-border;
-    @include hook-nav-autocomplete-divider();
+  border-top: $nav-autocomplete-divider-border-width solid $nav-autocomplete-divider-border;
+  @include hook-nav-autocomplete-divider();
 }
-
 
 // Hooks
 // ========================================================================

@@ -1,8 +1,6 @@
-﻿
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-
 	<!-- Meta -->
 	<%@ include file="_dependencies.html" %>
 	<title>partSummary</title>
@@ -103,7 +101,6 @@
 			background: #FFFBF5;
 			margin-bottom: 20px;
 		}
-
 	</style>
 </head>
 <body class="cf2">
@@ -113,8 +110,6 @@
 <div id="wrapper">
 <div id="main-content" class="container">
 <!-- Content -->
-
-
 <div class="innerLR">
 <div class="heading-buttons">
 	<h3>Warren Cross
@@ -125,21 +120,15 @@
 <div class="widget widget-tabs">
 <!-- Tabs Heading -->
 <%@ include file="_partTabs.html" %>
-
-
 <!-- // Tabs Heading END -->
 <div class="widget-body tabsBorder">
 <div class="tab-content">
 <div class="heading-buttons">
 	<h3>Summary</h3>
 
-
 	<div class="clearfix"></div>
-
 </div>
-
 <div class="col-md-3 sidebar">
-
 	<h4>Met Needs</h4>
 
 	<div id="accordion">
@@ -220,16 +209,10 @@
 	</div>
 	<!-- Accordions End -->
 	<!-- Column 2 end -->
-
-
 </div>
-
 <div class="col-md-9">
-
-
 <div class="clearfix"></div>
 <div class="widget-body greyBg">
-
 	<h4>General Information</h4>
 
 	<div class="littlePush"></div>
@@ -241,15 +224,14 @@
 		<div class="col-md-3 alignR"><strong>Description:</strong></div>
 		<div class="col-md-8">
 			<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus laborum eiusmod. Brunch 3 wolf moon
-			   tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil
-			   anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+				tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil
+				anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-3 alignR"><strong>Address:</strong></div>
 		<div class="col-md-5">123 South Braille Street<br/>Apt 433<br/>San Jose, CA 95126</div>
 	</div>
-
 </div>
 <div class="littlePush"></div>
 <div class="col-md-12 noPd">
@@ -302,16 +284,15 @@
 			<div class="row">
 				<div class="col-md-2 alignR">Income:</div>
 				<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-						                                                                                class="green">[$9,900]</span></div>
+						class="green">[$9,900]</span></div>
 			</div>
 			<div class="row">
 				<div class="col-md-2 alignR">Comments:</div>
 				<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-				                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-				                      architecto beatae vitae dicta sunt explicabo.
+					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+					architecto beatae vitae dicta sunt explicabo.
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div class="cbp-ntcontent sub noBorder">
@@ -352,22 +333,18 @@
 			<div class="row">
 				<div class="col-md-2 alignR">Income:</div>
 				<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-						                                                                                class="green">[$9,900]</span></div>
+						class="green">[$9,900]</span></div>
 			</div>
 			<div class="row">
 				<div class="col-md-2 alignR">Comments:</div>
 				<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-				                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-				                      architecto beatae vitae dicta sunt explicabo.
+					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+					architecto beatae vitae dicta sunt explicabo.
 				</div>
 			</div>
-
 		</div>
-
 	</div>
-
 </li>
-
 <li>
 	<h4 class="cbp-nttrigger list">Uptown Jasper<span class="floatRight"><strong>Sent</strong>&nbsp;10/02/2013</span>
 	</h4>
@@ -411,16 +388,15 @@
 			<div class="row">
 				<div class="col-md-2 alignR">Income:</div>
 				<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-						                                                                                class="green">[$9,900]</span></div>
+						class="green">[$9,900]</span></div>
 			</div>
 			<div class="row">
 				<div class="col-md-2 alignR">Comments:</div>
 				<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-				                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-				                      architecto beatae vitae dicta sunt explicabo.
+					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+					architecto beatae vitae dicta sunt explicabo.
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<div class="cbp-ntcontent sub noBorder">
@@ -461,16 +437,15 @@
 			<div class="row">
 				<div class="col-md-2 alignR">Income:</div>
 				<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-						                                                                                class="green">[$9,900]</span></div>
+						class="green">[$9,900]</span></div>
 			</div>
 			<div class="row">
 				<div class="col-md-2 alignR">Comments:</div>
 				<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-				                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-				                      architecto beatae vitae dicta sunt explicabo.
+					laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+					architecto beatae vitae dicta sunt explicabo.
 				</div>
 			</div>
-
 		</div>
 		<hr/>
 	</div>
@@ -526,22 +501,18 @@
 						<div class="row">
 							<div class="col-md-2 alignR">Income:</div>
 							<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-									                                                                                class="green">[$9,900]</span></div>
+									class="green">[$9,900]</span></div>
 						</div>
 						<div class="row">
 							<div class="col-md-2 alignR">Comments:</div>
 							<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-							                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-							                      architecto beatae vitae dicta sunt explicabo.
+								laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+								architecto beatae vitae dicta sunt explicabo.
 							</div>
 						</div>
-
 					</div>
 				</div>
-
 			</li>
-
-
 		</ul>
 	</div>
 </li>
@@ -551,7 +522,8 @@
 	<div class="cbp-ntcontent">
 		<ul class="cbp-ntsubaccordion">
 			<li>
-				<h4 class="cbp-nttrigger list">Central Campus<span class="floatRight"><strong>Sent</strong>&nbsp;12/12/2014</span></h4>
+				<h4 class="cbp-nttrigger list">Central Campus<span class="floatRight"><strong>Sent</strong>&nbsp;12/12/2014</span>
+				</h4>
 
 				<div class="cbp-ntcontent sub noBorder">
 					<hr/>
@@ -592,16 +564,15 @@
 						<div class="row">
 							<div class="col-md-2 alignR">Income:</div>
 							<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-									                                                                                class="green">[$9,900]</span></div>
+									class="green">[$9,900]</span></div>
 						</div>
 						<div class="row">
 							<div class="col-md-2 alignR">Comments:</div>
 							<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-							                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-							                      architecto beatae vitae dicta sunt explicabo.
+								laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+								architecto beatae vitae dicta sunt explicabo.
 							</div>
 						</div>
-
 					</div>
 				</div>
 				<div class="cbp-ntcontent sub noBorder">
@@ -642,22 +613,19 @@
 						<div class="row">
 							<div class="col-md-2 alignR">Income:</div>
 							<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-									                                                                                class="green">[$9,900]</span></div>
+									class="green">[$9,900]</span></div>
 						</div>
 						<div class="row">
 							<div class="col-md-2 alignR">Comments:</div>
 							<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-							                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-							                      architecto beatae vitae dicta sunt explicabo.
+								laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+								architecto beatae vitae dicta sunt explicabo.
 							</div>
 						</div>
-
 					</div>
 					<hr/>
 				</div>
-
 			</li>
-
 			<li>
 				<h4 class="cbp-nttrigger list">South Campus<span class="floatRight"><strong>Canceled</strong>&nbsp;02/25/2014</span>
 				</h4>
@@ -701,19 +669,17 @@
 						<div class="row">
 							<div class="col-md-2 alignR">Income:</div>
 							<div class="col-md-9">$10,000 Limit (80% of AMI, Houshold of 2, Alameda County) <span
-									                                                                                class="green">[$9,900]</span></div>
+									class="green">[$9,900]</span></div>
 						</div>
 						<div class="row">
 							<div class="col-md-2 alignR">Comments:</div>
 							<div class="col-md-9">Lorem iste natus error sit voluptatem accusantium doloremque
-							                      laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-							                      architecto beatae vitae dicta sunt explicabo.
+								laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+								architecto beatae vitae dicta sunt explicabo.
 							</div>
 						</div>
-
 					</div>
 				</div>
-
 			</li>
 		</ul>
 	</div>
@@ -728,23 +694,15 @@
 				<input type="button" id="backButton" class="cancel floatLeft"
 				       value="Back"/>
 				<input type="submit" id="saveButton" class="submit floatLeft" value="Save & Continue"/>
-
 			</div>
 		</div>
 	</div>
 </div>
-
-
 </div>
-
-
 <div class="push"></div>
-
-</div>
-
 </div>
 </div>
-
+</div>
 </div>
 </div>
 </div>
@@ -758,18 +716,15 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
 			</div>
 			<div class="modal-body">
 				<img src="pop.jpg"/>
 			</div>
 		</div>
-
 	</div>
 </div>
 <br/>
 <%@ include file="_footer.html" %>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		var content = $(document).attr('title');

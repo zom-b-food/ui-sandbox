@@ -1,27 +1,27 @@
 /*!
-  * A CSS LTR 2 RTL converter, part of UIkit and WARP framework.
-  * http://getuikit.com/
-  * http://www.yootheme.com/warp
-  *
-  * Based on R2 - a CSS LTR 2 RTL converter (https://github.com/ded/r2, Dustin Diaz, MIT License)
-  */
+ * A CSS LTR 2 RTL converter, part of UIkit and WARP framework.
+ * http://getuikit.com/
+ * http://www.yootheme.com/warp
+ *
+ * Based on R2 - a CSS LTR 2 RTL converter (https://github.com/ded/r2, Dustin Diaz, MIT License)
+ */
 
-(function() {
+(function () {
 
-    if(!String.prototype.trim) {
+    if (!String.prototype.trim) {
         String.prototype.trim = function () {
-            return this.replace(/^\s+|\s+$/g,'');
+            return this.replace(/^\s+|\s+$/g, '');
         };
     }
 
-    if(!String.prototype.trimComma) {
-        String.prototype.trimComma = function() {
+    if (!String.prototype.trimComma) {
+        String.prototype.trimComma = function () {
             return this.replace(/^,+|,+$/g, '');
         };
     }
 
-    if(!String.prototype.trimSemicolon) {
-        String.prototype.trimSemicolon = function() {
+    if (!String.prototype.trimSemicolon) {
+        String.prototype.trimSemicolon = function () {
             return this.replace(/^;+|;+$/g, '');
         };
     }
@@ -183,7 +183,7 @@
 
         // check all possible icons
         for (var key in iconMap) {
-            if(v.indexOf(key) > -1) {
+            if (v.indexOf(key) > -1) {
                 return v.replace(key, iconMap[key]);
             }
         }
@@ -221,13 +221,13 @@
         /* <prop1>(<args1>), <prop2>(<args2>) -> ["<prop1>(<args1>)", "<prop2>(<args2>)"]*/
         var parenthesisCount = 0,
             lastSplit = 0;
-            arr = [];
-        for(var i = 0; i<str.length; ++i) {
+        arr = [];
+        for (var i = 0; i < str.length; ++i) {
             var c = str[i];
             parenthesisCount += (c == '(' ? 1 : ( c == ')' ? -1 : 0));
-            if ((c==',' && parenthesisCount===0) || i==str.length-1) {
-                arr.push(str.substr(lastSplit, i-lastSplit+1).trim().trimComma().trim());
-                lastSplit = i+1; // +1 to get rid of the comma
+            if ((c == ',' && parenthesisCount === 0) || i == str.length - 1) {
+                arr.push(str.substr(lastSplit, i - lastSplit + 1).trim().trimComma().trim());
+                lastSplit = i + 1; // +1 to get rid of the comma
             }
         }
         return arr;
@@ -254,23 +254,23 @@
             v = (100 - parseInt(m[0], 10)) + '% ' + m[1];
         }
         pxmatch = m[0].match(/(\-?\d+)px/);
-        if(m && m.length == 2 && (pxmatch)) {
+        if (m && m.length == 2 && (pxmatch)) {
             var x = pxmatch[1];
-            var minuxX = (x=='0' ? '0' : (parseInt(x, 10) < 0 ? x.substr(1)+'px' : '-'+x+'px'));
+            var minuxX = (x == '0' ? '0' : (parseInt(x, 10) < 0 ? x.substr(1) + 'px' : '-' + x + 'px'));
             v = minuxX + ' ' + m[1];
         }
         return v;
     }
 
     function boxShadow(v) {
-        var shadowRtl = function(shadow) {
+        var shadowRtl = function (shadow) {
             // multiplies <left> offset with -1
             var found = false;
             var parts = shadow.split(" ");
-            parts.forEach(function(el, i, arr) {
+            parts.forEach(function (el, i, arr) {
                 if (!found && el.match(/\d/)) {
                     found = true;
-                    arr[i] = (el[0] == "0" ? 0 : (el[0] == "-" ? el.substr(1) : "-"+el));
+                    arr[i] = (el[0] == "0" ? 0 : (el[0] == "-" ? el.substr(1) : "-" + el));
                 }
             });
             return parts.join(" ");
@@ -282,18 +282,18 @@
     }
 
     function backgroundImage(val) {
-        var parseSingle = function(v) {
-            if(v.substr(0,4) == "url(") {
+        var parseSingle = function (v) {
+            if (v.substr(0, 4) == "url(") {
                 // don't mess with background image paths for now
                 return v;
             }
             if (v.indexOf("gradient") != -1) {
-                v = v.replace(/(left|right)/g, function($1) {
+                v = v.replace(/(left|right)/g, function ($1) {
                     return $1 === 'left' ? 'right' : 'left';
                 });
-                v = v.replace(/(\d+deg)/, function(el) {
+                v = v.replace(/(\d+deg)/, function (el) {
                     var num = parseInt(el.replace('deg', ''), 10);
-                    return (180-num) + 'deg';
+                    return (180 - num) + 'deg';
                 });
             }
             return v;
@@ -304,12 +304,12 @@
     function background(v) {
         // TODO: split several background layers (divided by comma)
 
-        var parseSingle = function(v) {
+        var parseSingle = function (v) {
             // background-image
-            v = v.replace(/url\((.*?)\)|none|([^\s]*?gradient.*?\(.+\))/i, backgroundImage );
+            v = v.replace(/url\((.*?)\)|none|([^\s]*?gradient.*?\(.+\))/i, backgroundImage);
 
             // background-position
-            v = v.replace(/\s(left|right|center|top|bottom|-?\d+([a-zA-Z]{2}|%?))\s(left|right|center|top|bottom|-?\d+([a-zA-Z]{2}|%?))[;\s]?/i, function(el) {
+            v = v.replace(/\s(left|right|center|top|bottom|-?\d+([a-zA-Z]{2}|%?))\s(left|right|center|top|bottom|-?\d+([a-zA-Z]{2}|%?))[;\s]?/i, function (el) {
                 var hadSemicolon = (el.indexOf(';') >= 0);
                 el = el.trimSemicolon();
                 return ' ' + bgPosition(el) + (hadSemicolon ? ';' : ' ');
@@ -323,26 +323,26 @@
 
     function transform(v) {
 
-        var negateValue = function(valString) {
-            return (valString[0] == "0" ? 0 : (valString[0] == "-" ? valString.substr(1) : "-"+valString));
+        var negateValue = function (valString) {
+            return (valString[0] == "0" ? 0 : (valString[0] == "-" ? valString.substr(1) : "-" + valString));
         }
 
         var matches,
             res = '';
 
         // translate, translateX, translate3D
-        if(matches = v.match(/(translate(X|x|3D|3d)?)\(([^,\)]*)([^\)]*)\)/)) {
-            var value     = matches[3].trim(),
+        if (matches = v.match(/(translate(X|x|3D|3d)?)\(([^,\)]*)([^\)]*)\)/)) {
+            var value = matches[3].trim(),
                 remainder = matches[4];
-            res  = matches[1]+'('+negateValue(value)+(remainder ? remainder : '')+')';
+            res = matches[1] + '(' + negateValue(value) + (remainder ? remainder : '') + ')';
             v = v.replace(matches[0], res);
         }
 
         // rotate
-        if(matches = v.match(/rotate\(\s*(\d+)\s*deg\s*\)/)) {
-            var angle    = parseInt(matches[1], 10),
-                mirrored = 180-angle;
-            res = ' rotate('+mirrored+'deg)';
+        if (matches = v.match(/rotate\(\s*(\d+)\s*deg\s*\)/)) {
+            var angle = parseInt(matches[1], 10),
+                mirrored = 180 - angle;
+            res = ' rotate(' + mirrored + 'deg)';
             v = v.replace(matches[0], res);
         }
 
@@ -351,7 +351,9 @@
 
     function transition(v) {
         var parts = v.split(' ');
-        parts = parts.map(function(part) { return propertyMap[part] || part; });
+        parts = parts.map(function (part) {
+            return propertyMap[part] || part;
+        });
         return parts.join(' ');
     }
 
@@ -363,14 +365,14 @@
             .replace(/[\n\r]/g, '')                // line breaks and carriage returns
             .replace(/\s*([:;,{}])\s*/g, '$1')     // space between selectors, declarations, properties and values
             .replace(/\s+/g, ' ')                  // replace multiple spaces with single spaces
-            .replace(/([^;:\{\}]+?)\:([^;:\{\}]+?)([;}])/gi, function(el, prop, val, end) {
+            .replace(/([^;:\{\}]+?)\:([^;:\{\}]+?)([;}])/gi, function (el, prop, val, end) {
                 var important = /!important/,
                     isImportant = val.match(important);
 
                 if (!prop || !val) return '';
 
                 prop = propertyMap[prop] || prop;
-                val  = valueMap[prop] ? valueMap[prop](val) : val;
+                val = valueMap[prop] ? valueMap[prop](val) : val;
 
                 if (!val.match(important) && isImportant) val += '!important';
 
@@ -380,7 +382,9 @@
 
     // AMD support
     if (typeof define === 'function' && define.amd) {
-        define(function () { return convert2RTL; });
+        define(function () {
+            return convert2RTL;
+        });
         // CommonJS and Node.js module support.
     } else if (typeof exports !== 'undefined') {
         // Support Node.js specific `module.exports` (which can be a function)
@@ -391,7 +395,7 @@
         exports.convert2RTL = convert2RTL;
     } else {
 
-        jQuery.rtl = jQuery.rtl || (function() {
+        jQuery.rtl = jQuery.rtl || (function () {
             return {
                 'convert2RTL': convert2RTL
             };

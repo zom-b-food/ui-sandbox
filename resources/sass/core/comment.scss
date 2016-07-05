@@ -30,22 +30,20 @@
 @import "../variables";
 @import "../mixins";
 
-
 /* ========================================================================
    Component: Comment
  ========================================================================== */
 
 .uk-comment {
-    @include hook-comment();
+  @include hook-comment();
 }
-
 
 /* Sub-object `uk-comment-header`
  ========================================================================== */
 
 .uk-comment-header {
-    margin-bottom: $comment-header-margin-bottom;
-    @include hook-comment-header();
+  margin-bottom: $comment-header-margin-bottom;
+  @include hook-comment-header();
 }
 
 /*
@@ -54,91 +52,92 @@
 
 .uk-comment-header:before,
 .uk-comment-header:after {
-    content: "";
-    display: table;
+  content: "";
+  display: table;
 }
 
-.uk-comment-header:after { clear: both; }
-
+.uk-comment-header:after {
+  clear: both;
+}
 
 /* Sub-object `uk-comment-avatar`
  ========================================================================== */
 
 .uk-comment-avatar {
-    margin-right: $comment-avatar-margin-right;
-    float: left;
-    @include hook-comment-avatar();
+  margin-right: $comment-avatar-margin-right;
+  float: left;
+  @include hook-comment-avatar();
 }
-
 
 /* Sub-object `uk-comment-title`
  ========================================================================== */
 
 .uk-comment-title {
-    margin: $comment-title-margin-top 0 0 0;
-    font-size: $comment-title-font-size;
-    line-height: $comment-title-line-height;
-    @include hook-comment-title();
+  margin: $comment-title-margin-top 0 0 0;
+  font-size: $comment-title-font-size;
+  line-height: $comment-title-line-height;
+  @include hook-comment-title();
 }
-
 
 /* Sub-object `uk-comment-meta`
  ========================================================================== */
 
 .uk-comment-meta {
-    margin: $comment-meta-margin-top 0 0 0;
-    font-size: $comment-meta-font-size;
-    line-height: $comment-meta-line-height;
-    color: $comment-meta-color;
-    @include hook-comment-meta();
+  margin: $comment-meta-margin-top 0 0 0;
+  font-size: $comment-meta-font-size;
+  line-height: $comment-meta-line-height;
+  color: $comment-meta-color;
+  @include hook-comment-meta();
 }
-
 
 /* Sub-object `uk-comment-body`
  ========================================================================== */
 
 .uk-comment-body {
-    @include hook-comment-body();
+  @include hook-comment-body();
 }
 
 /*
  * Remove margin from the last-child
  */
 
- .uk-comment-body > :last-child { margin-bottom: 0; }
-
+.uk-comment-body > :last-child {
+  margin-bottom: 0;
+}
 
 /* Sub-object `uk-comment-list`
  ========================================================================== */
 
 .uk-comment-list {
-    padding: 0;
-    list-style: none;
+  padding: 0;
+  list-style: none;
 }
 
 .uk-comment-list .uk-comment + ul {
-    margin: $comment-list-margin-top 0 0 0;
-    list-style: none;
+  margin: $comment-list-margin-top 0 0 0;
+  list-style: none;
 }
 
 .uk-comment-list > li:nth-child(n+2),
-.uk-comment-list .uk-comment + ul > li:nth-child(n+2) { margin-top: $comment-list-margin-top; }
+.uk-comment-list .uk-comment + ul > li:nth-child(n+2) {
+  margin-top: $comment-list-margin-top;
+}
 
 /* Tablet and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    .uk-comment-list .uk-comment + ul { padding-left: $comment-list-padding-left; }
+  .uk-comment-list .uk-comment + ul {
+    padding-left: $comment-list-padding-left;
+  }
 
 }
-
 
 /* Modifier `uk-comment-primary`
  ========================================================================== */
 
 .uk-comment-primary {
-    @include hook-comment-primary();
+  @include hook-comment-primary();
 }
-
 
 // Hooks
 // ========================================================================

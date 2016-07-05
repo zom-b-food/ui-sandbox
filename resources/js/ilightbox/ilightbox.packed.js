@@ -9,11 +9,17 @@
  *
  */
 eval(function (d, e, a, c, b, f) {
-    b = function (a) {return (a < e ? "" : b(parseInt(a / e))) + (35 < (a %= e) ? String.fromCharCode(a + 29) : a.toString(36))};
+    b = function (a) {
+        return (a < e ? "" : b(parseInt(a / e))) + (35 < (a %= e) ? String.fromCharCode(a + 29) : a.toString(36))
+    };
     if (!"".replace(/^/, String)) {
         for (; a--;)f[b(a)] = c[a] || b(a);
-        c = [function (a) {return f[a]}];
-        b = function () {return "\\w+"};
+        c = [function (a) {
+            return f[a]
+        }];
+        b = function () {
+            return "\\w+"
+        };
         a = 1
     }
     for (; a--;)c[a] && (d = d.replace(new RegExp("\\b" + b(a) + "\\b", "g"), c[a]));

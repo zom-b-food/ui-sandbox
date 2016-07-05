@@ -21,7 +21,6 @@
 //
 // ========================================================================
 
-
 @import "../variables";
 @import "../mixins";
 
@@ -38,19 +37,19 @@
  */
 
 .uk-thumbnail {
-    /* 1 */
-    display: inline-block;
-    /* 2 */
-    max-width: 100%;
-    /* 3 */
-    box-sizing: border-box;
-    /* 3 */
-    margin: 0;
-    /* 4 */
-    padding: $thumbnail-padding;
-    border: $thumbnail-border-width solid $thumbnail-border;
-    background: $thumbnail-background;
-    @include hook-thumbnail();
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  max-width: 100%;
+  /* 3 */
+  box-sizing: border-box;
+  /* 3 */
+  margin: 0;
+  /* 4 */
+  padding: $thumbnail-padding;
+  border: $thumbnail-border-width solid $thumbnail-border;
+  background: $thumbnail-background;
+  @include hook-thumbnail();
 }
 
 /*
@@ -61,39 +60,50 @@
  */
 
 a.uk-thumbnail:hover,
-a.uk-thumbnail:focus { // 1
-    border-color: $thumbnail-hover-border;
-    background-color: $thumbnail-hover-background;
-    /* 2 */
-    text-decoration: none;
-    /* 3 */
-    outline: none;
-    @include hook-thumbnail-hover();
+a.uk-thumbnail:focus {
+  // 1
+  border-color: $thumbnail-hover-border;
+  background-color: $thumbnail-hover-background;
+  /* 2 */
+  text-decoration: none;
+  /* 3 */
+  outline: none;
+  @include hook-thumbnail-hover();
 }
-
 
 /* Caption
  ========================================================================== */
 
 .uk-thumbnail-caption {
-    padding-top: $thumbnail-caption-padding;
-    text-align: center;
-    color: $thumbnail-caption-color;
-    @include hook-thumbnail-caption();
+  padding-top: $thumbnail-caption-padding;
+  text-align: center;
+  color: $thumbnail-caption-color;
+  @include hook-thumbnail-caption();
 }
-
 
 /* Sizes
  ========================================================================== */
 
-.uk-thumbnail-mini { width: $thumbnail-mini-width; }
-.uk-thumbnail-small { width: $thumbnail-small-width; }
-.uk-thumbnail-medium { width: $thumbnail-medium-width; }
-.uk-thumbnail-large { width: $thumbnail-large-width; }
+.uk-thumbnail-mini {
+  width: $thumbnail-mini-width;
+}
+
+.uk-thumbnail-small {
+  width: $thumbnail-small-width;
+}
+
+.uk-thumbnail-medium {
+  width: $thumbnail-medium-width;
+}
+
+.uk-thumbnail-large {
+  width: $thumbnail-large-width;
+}
 
 .uk-thumbnail-expand,
-.uk-thumbnail-expand > img { width: 100%; }
-
+.uk-thumbnail-expand > img {
+  width: 100%;
+}
 
 // Hooks
 // ========================================================================

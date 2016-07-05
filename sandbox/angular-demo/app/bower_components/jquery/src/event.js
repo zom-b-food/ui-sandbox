@@ -30,7 +30,8 @@ define([
         try {
             return document.activeElement;
         }
-        catch (err) { }
+        catch (err) {
+        }
     }
 
     /*

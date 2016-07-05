@@ -1,374 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>More Demo - UtilCaousel</title>
-		<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
-		<!-- Bootstrap -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
-		<link rel="stylesheet" href="utilcarousel-files/utilcarousel/util.carousel.css" />
-		<link rel="stylesheet" href="utilcarousel-files/utilcarousel/util.animate.css" />
-		<link href="assets/css/main.css" rel="stylesheet">
-		<style>
-			.demo-carousel h2 {
-				font-size: 50px;
-				background-color: #444;
-				padding: 80px 10px;
-				text-align: center;
-				margin: 5px;
-				font-weight: bold;
-				border-radius: 5px;
-				color: #eee;
-				transition: background-color 0.2s;
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>More Demo - UtilCaousel</title>
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico"/>
+	<!-- Bootstrap -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="utilcarousel-files/utilcarousel/util.carousel.css"/>
+	<link rel="stylesheet" href="utilcarousel-files/utilcarousel/util.animate.css"/>
+	<link href="assets/css/main.css" rel="stylesheet">
+	<style>
+		.demo-carousel h2 {
+			font-size: 50px;
+			background-color: #444;
+			padding: 80px 10px;
+			text-align: center;
+			margin: 5px;
+			font-weight: bold;
+			border-radius: 5px;
+			color: #eee;
+			transition: background-color 0.2s;
+		}
+
+		.demo-carousel .item img {
+			width: 100%;
+			height: auto;
+			vertical-align: middle;
+		}
+
+		.demo-carousel .item {
+			margin: 5px;
+		}
+
+		.demo-carousel .item-active {
+			background-color: #48A043;
+			color: #fff;
+		}
+
+		#log {
+			background: #fff;
+			height: 300px;
+			overflow: auto;
+			padding: 15px;
+			border: 1px solid #ddd;
+			margin-top: 30px;
+			color: #49A344;
+		}
+	</style>
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+	<script src="utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js"></script>
+	<!--Boostrap js file, just for the demo page menu, not a part of utilcarousel. -->
+	<script src="assets/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="headr-bar navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+			        data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="logo" href="#"><img src="assets/images/logo.png" alt=""/></a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="index.html#hello">Features</a>
+				</li>
+				<li>
+					<a href="index.html#skins">Skin / Template</a>
+				</li>
+				<li>
+					<a href="#">More Demo</a>
+				</li>
+				<li>
+					<a href="index.html#options">Options</a>
+				</li>
+				<!-- <li >
+					<a href="#" class="buy"><span>Buy This Item</span></a>
+				</li> -->
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="api" class="sp-title">
+	<h1>UtilCarousel Method and Callbacks</h1>
+
+	<p>Control UtilCarouse use Method and Callbacks!</p>
+</div>
+<div class="container">
+	<div id="api-demo" class="util-carousel demo-carousel">
+		<h2>1</h2>
+
+		<h2>2</h2>
+
+		<h2>3</h2>
+
+		<h2>4</h2>
+
+		<h2>5</h2>
+
+		<h2>6</h2>
+
+		<h2>7</h2>
+
+		<h2>8</h2>
+
+		<h2>9</h2>
+	</div>
+	<div class="text-center">
+		<button id="prev" type="button" class="btn btn-success">
+			Prev
+		</button>
+		<button id="next" type="button" class="btn btn-success">
+			Next
+		</button>
+		<button id="play" type="button" class="btn btn-success">
+			Play
+		</button>
+		<button id="stop" type="button" class="btn btn-success">
+			Stop
+		</button>
+		<button id="toStart" type="button" class="btn btn-success">
+			toStart
+		</button>
+		<button id="toEnd" type="button" class="btn btn-success">
+			toEnd
+		</button>
+		<button id="goTo" type="button" class="btn btn-success">
+			goTo(3)
+		</button>
+		<button id="destroy" type="button" class="btn btn-success hidden">
+			destroy
+		</button>
+	</div>
+	<div id="log"></div>
+</div>
+<script>
+	function log(msg) {
+		$('#log').append('<p>' + msg + '</p>').scrollTop(100000);
+	}
+
+	$(function () {
+		$('#api-demo').utilCarousel({
+			beforeInit: function () {
+				log('beforeInit callback');
+			},
+			afterInit: function () {
+				log('afterInit callback');
+			},
+			beforeUpdate: function () {
+				log('beforeUpdate callback');
+			},
+			afterUpdate: function () {
+				log('afterUpdate callback');
+			},
+			indexChanged: function (index) {
+				log('indexChanged callback: index changed to ' + index);
+			},
+			beforeDrag: function () {
+				log('beforeDrag callback');
+			},
+			afterDrag: function () {
+				log('afterDrag callback');
 			}
-			.demo-carousel .item img
-			{
-				width:100%;
-				height:auto;
-				vertical-align: middle;	
-			}
-			.demo-carousel .item
-			{
-				margin:5px;
-			}
-			.demo-carousel .item-active
-			{
-				background-color:#48A043;
-				color:#fff;
-			}
-			#log {
-				background: #fff;
-				height: 300px;
-				overflow: auto;
-				padding: 15px;
-				border: 1px solid #ddd;
-				margin-top: 30px;
-				color: #49A344;
-			}
-		</style>
-		<script src="assets/js/jquery-1.11.0.min.js"></script>
-		<script src="utilcarousel-files/utilcarousel/jquery.utilcarousel.min.js"></script>
-		
-		<!--Boostrap js file, just for the demo page menu, not a part of utilcarousel. -->
-		<script src="assets/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<div class="headr-bar navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="logo" href="#"><img src="assets/images/logo.png" alt="" /></a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="index.html#hello">Features</a>
-						</li>
-						<li>
-							<a href="index.html#skins">Skin / Template</a>
-						</li>
-						<li>
-							<a href="#">More Demo</a>
-						</li>
-						<li>
-							<a href="index.html#options">Options</a>
-						</li>
-						<!-- <li >
-							<a href="#" class="buy"><span>Buy This Item</span></a>
-						</li> -->
-					</ul>
-				</div>
+		});
 
-			</div>
-		</div>
-		<div id="api" class="sp-title">
-			<h1>UtilCarousel Method and Callbacks</h1>
-			<p>Control UtilCarouse use Method and Callbacks!</p>
-		</div>
-		<div class="container">
-			<div id="api-demo" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-				<h2>3</h2>
-				<h2>4</h2>
-				<h2>5</h2>
-				<h2>6</h2>
-				<h2>7</h2>
-				<h2>8</h2>
-				<h2>9</h2>
-			</div>
-			<div class="text-center">
-				<button id="prev" type="button" class="btn btn-success">
-					Prev
-				</button>
-				<button id="next" type="button" class="btn btn-success">
-					Next
-				</button>
+		//Get UtilCarousel Instance
+		var utilCarouselObj = $('#api-demo').data('utilCarousel');
 
-				<button id="play" type="button" class="btn btn-success">
-					Play
-				</button>
-				<button id="stop" type="button" class="btn btn-success">
-					Stop
-				</button>
+		//Go to previous item
+		$('#prev').on('click', function () {
+			utilCarouselObj.prev();
+		});
 
-				<button id="toStart" type="button" class="btn btn-success">
-					toStart
-				</button>
-				<button id="toEnd" type="button" class="btn btn-success">
-					toEnd
-				</button>
-				<button id="goTo" type="button" class="btn btn-success">
-					goTo(3)
-				</button>
-				<button id="destroy" type="button" class="btn btn-success hidden">
-					destroy
-				</button>
-			</div>
-			<div id="log" ></div>
-		</div>
-		<script>
-			function log(msg) {
-				$('#log').append('<p>' + msg + '</p>').scrollTop(100000);
-			}
+		//Go to next item
+		$('#next').on('click', function () {
+			utilCarouselObj.next();
+		});
 
-			$(function() {
-				$('#api-demo').utilCarousel({
-					beforeInit : function() {
-						log('beforeInit callback');
-					},
-					afterInit : function() {
-						log('afterInit callback');
-					},
-					beforeUpdate : function() {
-						log('beforeUpdate callback');
-					},
-					afterUpdate : function() {
-						log('afterUpdate callback');
-					},
-					indexChanged : function(index) {
-						log('indexChanged callback: index changed to ' + index);
-					},
-					beforeDrag : function() {
-						log('beforeDrag callback');
-					},
-					afterDrag : function() {
-						log('afterDrag callback');
-					}
-				});
+		//Start autoplay
+		$('#play').on('click', function () {
+			utilCarouselObj.play();
+		});
 
-				//Get UtilCarousel Instance
-				var utilCarouselObj = $('#api-demo').data('utilCarousel');
+		//Stop autoplay
+		$('#stop').on('click', function () {
+			utilCarouselObj.stop();
+		});
 
-				//Go to previous item
-				$('#prev').on('click', function() {
-					utilCarouselObj.prev();
-				});
+		//Go to start item
+		$('#toStart').on('click', function () {
+			utilCarouselObj.toStart();
+		});
 
-				//Go to next item
-				$('#next').on('click', function() {
-					utilCarouselObj.next();
-				});
+		//Go to end item
+		$('#toEnd').on('click', function () {
+			utilCarouselObj.toEnd();
+		});
 
-				//Start autoplay
-				$('#play').on('click', function() {
-					utilCarouselObj.play();
-				});
+		//Go to the specified index, index start with 0
+		$('#goTo').on('click', function () {
+			utilCarouselObj.goTo(3);
+		});
+		$('#destroy').on('click', function () {
+			utilCarouselObj.destroy();
+		});
+	});
+</script>
+<hr/>
+<div class="sp-title">
+	<h1>Click To Add Active Class</h1>
 
-				//Stop autoplay
-				$('#stop').on('click', function() {
-					utilCarouselObj.stop();
-				});
+	<p>Try click on the item!</p>
+</div>
+<div class="container">
+	<div id="click-demo" class="util-carousel demo-carousel">
+		<h2>1</h2>
 
-				//Go to start item
-				$('#toStart').on('click', function() {
-					utilCarouselObj.toStart();
-				});
+		<h2>2</h2>
 
-				//Go to end item
-				$('#toEnd').on('click', function() {
-					utilCarouselObj.toEnd();
-				});
+		<h2>3</h2>
 
-				//Go to the specified index, index start with 0
-				$('#goTo').on('click', function() {
-					utilCarouselObj.goTo(3);
-				});
-				$('#destroy').on('click', function() {
-					utilCarouselObj.destroy();
-				});
-			});
-			
-		
-		</script>
-		<hr />
-		<div class="sp-title">
-			<h1>Click To Add Active Class</h1>
-			<p>Try click on the item!</p>
+		<h2>4</h2>
+
+		<h2>5</h2>
+
+		<h2>6</h2>
+
+		<h2>7</h2>
+
+		<h2>8</h2>
+
+		<h2>9</h2>
+	</div>
+</div>
+<hr/>
+<script>
+	$(function () {
+		$('#click-demo').utilCarousel();
+
+		//click event
+		$('#click-demo h2').on('click', function () {
+			//remove class active on other item
+			//don't use $('#click-demo>h2.active') or $(this).siblings('.active') selector
+			//because utilCarousel add some wrap to the item
+
+			$('#click-demo h2.item-active').removeClass('item-active');
+			$(this).addClass('item-active');
+		});
+	});
+</script>
+<div id="animation" class="sp-title">
+	<h1>itemAnimation</h1>
+
+	<p>Add css3 animations to visable item ! 4 built-in animation , and you can use the great <a
+			href="http://daneden.github.io/animate.css/">Animate.css</a> or build you own. </p>
+</div>
+<div class="container">
+	<div id="animation-demo" class="util-carousel demo-carousel">
+		<h2>1</h2>
+
+		<h2>2</h2>
+
+		<h2>3</h2>
+
+		<h2>4</h2>
+
+		<h2>5</h2>
+
+		<h2>6</h2>
+
+		<h2>7</h2>
+
+		<h2>8</h2>
+
+		<h2>9</h2>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('#animation-demo').utilCarousel({itemAnimation: 'util-flip-in-y'});
+	});
+</script>
+<hr/>
+<div id="lazyload" class="sp-title">
+	<h1>lazyLoad Images</h1>
+	Lazy load images when it is in viewport !
+</div>
+<div class="container">
+	<div id="lazyload-demo" class="util-carousel demo-carousel">
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t1.jpg"
+			     alt=""/>
 		</div>
-		<div class="container">
-			<div id="click-demo" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-				<h2>3</h2>
-				<h2>4</h2>
-				<h2>5</h2>
-				<h2>6</h2>
-				<h2>7</h2>
-				<h2>8</h2>
-				<h2>9</h2>
-			</div>
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t2.jpg"
+			     alt=""/>
 		</div>
-		<hr />
-		
-		<script>
-			$(function(){
-				$('#click-demo').utilCarousel();
-				
-				//click event 
-				$('#click-demo h2').on('click',function(){
-					//remove class active on other item
-					//don't use $('#click-demo>h2.active') or $(this).siblings('.active') selector
-					//because utilCarousel add some wrap to the item 
-					
-					$('#click-demo h2.item-active').removeClass('item-active');
-					$(this).addClass('item-active');
-				});
-			});
-		</script>
-		<div id="animation" class="sp-title">
-			<h1>itemAnimation</h1>
-			<p>Add css3 animations to visable item ! 4 built-in animation , and you can use the great <a href="http://daneden.github.io/animate.css/">Animate.css</a> or build you own. </p>
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t3.jpg"
+			     alt=""/>
 		</div>
-		<div class="container">
-			<div id="animation-demo" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-				<h2>3</h2>
-				<h2>4</h2>
-				<h2>5</h2>
-				<h2>6</h2>
-				<h2>7</h2>
-				<h2>8</h2>
-				<h2>9</h2>
-			</div>
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t4.jpg"
+			     alt=""/>
 		</div>
-		<script>
-			$(function(){
-				$('#animation-demo').utilCarousel({itemAnimation:'util-flip-in-y'});
-			});
-		</script>
-		<hr />
-		<div id="lazyload" class="sp-title">
-			<h1>lazyLoad Images</h1>
-			Lazy load images when it is in viewport !
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t5.jpg"
+			     alt=""/>
 		</div>
-		<div class="container">
-			<div id="lazyload-demo" class="util-carousel demo-carousel">
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t1.jpg" alt="" />
-				</div>
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t2.jpg" alt="" />
-				</div>
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t3.jpg" alt="" />
-				</div>
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t4.jpg" alt="" />
-				</div>
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t5.jpg" alt="" />
-				</div>
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t6.jpg" alt="" />
-				</div>
-				<div class="item">
-					<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t7.jpg" alt="" />
-				</div>
-			</div>
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t6.jpg"
+			     alt=""/>
 		</div>
-		<hr />
-		<script>
-			$(function(){
-				$('#lazyload-demo').utilCarousel({lazyLoad:true});
-			});
-		</script>
-		<div id="itemless" class="sp-title">
-			<h1>'itemLess' options</h1>
-			<p>On Desktop the viewport can show 4 item ,but there are just 2.</p>
+		<div class="item">
+			<img class="img-lazy" src="http://placehold.it/720x640.png&text=Loading" data-src="assets/images/t7.jpg"
+			     alt=""/>
 		</div>
-		<div class="container">
-			<h3 class="text-center"> itemLess:'margin'</h3>
-			<div id="itemless-demo1" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-			</div>
-			<h3 class="text-center"> itemLess:'scaleUp'</h3> 
-			<div id="itemless-demo2" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-			</div>
-		</div>
-		<hr />
-		<script>
-			$(function(){
-				$('#itemless-demo1').utilCarousel({itemLess:'margin'});
-				$('#itemless-demo2').utilCarousel({itemLess:'scaleUp'});
-			});
-		</script>
-		<div id="rangecaculate" class="sp-title">
-			<h1>'rangeCaculate' options</h1>
-			<p>The bellow two demo are in <b>responsiveMode : 'itemWidthRange'</b> use the same <b>itemWidthRange : [200, 400]</b> , but different value of 'rangeCaculate'</p>
-		</div>
-		<div class="container">
-			<h3 class="text-center">itemWidthRange : [200, 400], rangeCaculate:<b>maxFirst</b></h3>
-			<div id="rangecaculate-demo1" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-				<h2>3</h2>
-				<h2>4</h2>
-				<h2>5</h2>
-				<h2>6</h2>
-				<h2>7</h2>
-				<h2>8</h2>
-				<h2>9</h2>
-			</div>
-			<h3 class="text-center">itemWidthRange : [200, 400], rangeCaculate:<b>minFirst</b></h3>
-			<div id="rangecaculate-demo2" class="util-carousel demo-carousel">
-				<h2>1</h2>
-				<h2>2</h2>
-				<h2>3</h2>
-				<h2>4</h2>
-				<h2>5</h2>
-				<h2>6</h2>
-				<h2>7</h2>
-				<h2>8</h2>
-				<h2>9</h2>
-			</div>
-		</div>
-		<hr />
-		<div class="footer">
-			Copyright © 2014 <a href="http://codecanyon.net/user/hkeyjun">Hkeyjun</a>
-		</div>
-		<script>
-			$(function(){
-				$('#rangecaculate-demo1').utilCarousel({responsiveMode : 'itemWidthRange',itemWidthRange : [200, 400],rangeCaculate:'maxFirst'});
-				$('#rangecaculate-demo2').utilCarousel({responsiveMode : 'itemWidthRange',itemWidthRange : [200, 400],rangeCaculate:'minFirst'});
-			});
-		</script>
-	</body>
+	</div>
+</div>
+<hr/>
+<script>
+	$(function () {
+		$('#lazyload-demo').utilCarousel({lazyLoad: true});
+	});
+</script>
+<div id="itemless" class="sp-title">
+	<h1>'itemLess' options</h1>
+
+	<p>On Desktop the viewport can show 4 item ,but there are just 2.</p>
+</div>
+<div class="container">
+	<h3 class="text-center"> itemLess:'margin'</h3>
+
+	<div id="itemless-demo1" class="util-carousel demo-carousel">
+		<h2>1</h2>
+
+		<h2>2</h2>
+	</div>
+	<h3 class="text-center"> itemLess:'scaleUp'</h3>
+
+	<div id="itemless-demo2" class="util-carousel demo-carousel">
+		<h2>1</h2>
+
+		<h2>2</h2>
+	</div>
+</div>
+<hr/>
+<script>
+	$(function () {
+		$('#itemless-demo1').utilCarousel({itemLess: 'margin'});
+		$('#itemless-demo2').utilCarousel({itemLess: 'scaleUp'});
+	});
+</script>
+<div id="rangecaculate" class="sp-title">
+	<h1>'rangeCaculate' options</h1>
+
+	<p>The bellow two demo are in <b>responsiveMode : 'itemWidthRange'</b> use the same <b>itemWidthRange : [200,
+		400]</b> , but different value of 'rangeCaculate'</p>
+</div>
+<div class="container">
+	<h3 class="text-center">itemWidthRange : [200, 400], rangeCaculate:<b>maxFirst</b></h3>
+
+	<div id="rangecaculate-demo1" class="util-carousel demo-carousel">
+		<h2>1</h2>
+
+		<h2>2</h2>
+
+		<h2>3</h2>
+
+		<h2>4</h2>
+
+		<h2>5</h2>
+
+		<h2>6</h2>
+
+		<h2>7</h2>
+
+		<h2>8</h2>
+
+		<h2>9</h2>
+	</div>
+	<h3 class="text-center">itemWidthRange : [200, 400], rangeCaculate:<b>minFirst</b></h3>
+
+	<div id="rangecaculate-demo2" class="util-carousel demo-carousel">
+		<h2>1</h2>
+
+		<h2>2</h2>
+
+		<h2>3</h2>
+
+		<h2>4</h2>
+
+		<h2>5</h2>
+
+		<h2>6</h2>
+
+		<h2>7</h2>
+
+		<h2>8</h2>
+
+		<h2>9</h2>
+	</div>
+</div>
+<hr/>
+<div class="footer">
+	Copyright © 2014 <a href="http://codecanyon.net/user/hkeyjun">Hkeyjun</a>
+</div>
+<script>
+	$(function () {
+		$('#rangecaculate-demo1').utilCarousel({responsiveMode: 'itemWidthRange', itemWidthRange: [200, 400], rangeCaculate: 'maxFirst'});
+		$('#rangecaculate-demo2').utilCarousel({responsiveMode: 'itemWidthRange', itemWidthRange: [200, 400], rangeCaculate: 'minFirst'});
+	});
+</script>
+</body>
 </html>

@@ -2293,7 +2293,9 @@
                 // all of the remote templates being currently downloaded. If there are no
                 // templates currently downloading then the watcher will still fire anyway.
                 var deregisterWatch = $rootScope.$watch(
-                    function () { return $templateRequest.totalPendingRequests === 0; },
+                    function () {
+                        return $templateRequest.totalPendingRequests === 0;
+                    },
                     function (isEmpty) {
                         if (!isEmpty) return;
                         deregisterWatch();
@@ -2323,7 +2325,9 @@
                 // stage therefore we can optimize here and setup a helper function
                 var classNameFilter = $animateProvider.classNameFilter();
                 var isAnimatableClassName = !classNameFilter
-                    ? function () { return true; }
+                    ? function () {
+                    return true;
+                }
                     : function (className) {
                     return classNameFilter.test(className);
                 };
@@ -2972,8 +2976,12 @@
                     // methods leading into the driver's end/cancel methods
                     // for now they just stop the animation from starting
                     var runner = new $$AnimateRunner({
-                        end: function () { close(); },
-                        cancel: function () { close(true); }
+                        end: function () {
+                            close();
+                        },
+                        cancel: function () {
+                            close(true);
+                        }
                     });
 
                     if (!drivers.length) {

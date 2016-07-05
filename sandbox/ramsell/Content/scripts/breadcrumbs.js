@@ -1,11 +1,11 @@
 /* This script and many more are available free online at
-The JavaScript Source :: http://www.javascriptsource.com
-Created by: Copperfield Publishing :: http://www.copperfieldpub.com/ */
+ The JavaScript Source :: http://www.javascriptsource.com
+ Created by: Copperfield Publishing :: http://www.copperfieldpub.com/ */
 
 function Crumb(Path, Name, Url) {
- 	this.Path	= Path;
- 	this.Name	= Name;
- 	this.Url	= Url;
+    this.Path = Path;
+    this.Name = Name;
+    this.Url = Url;
 }
 
 BagOCrumbs = new Array();
@@ -28,13 +28,13 @@ strUrl = document.location.href;
 strList = "<a href='/'>home</a>";
 strDebug = "";
 aryDirs = strUrl.split("/");
-for (x=0; x < aryDirs.length; x++) {
-	 for(i = 0; i < BagOCrumbs.length; i++) {
-			 if (BagOCrumbs[i].Path.toLowerCase() == aryDirs[x].toLowerCase()) {
-	                      strList += strConcat + "<a href='" + BagOCrumbs[i].Url + "'>" + BagOCrumbs[i].Name + "</a>";
-			 i = BagOCrumbs.length;
-		}
-}
+for (x = 0; x < aryDirs.length; x++) {
+    for (i = 0; i < BagOCrumbs.length; i++) {
+        if (BagOCrumbs[i].Path.toLowerCase() == aryDirs[x].toLowerCase()) {
+            strList += strConcat + "<a href='" + BagOCrumbs[i].Url + "'>" + BagOCrumbs[i].Name + "</a>";
+            i = BagOCrumbs.length;
+        }
+    }
 }
 
 // comment out the next line to eliminate the display of the document's title

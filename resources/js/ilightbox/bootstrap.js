@@ -413,7 +413,9 @@
                     ;
                     that.sliding = false;
                     ;
-                    setTimeout(function () { that.$element.trigger('slid') }, 0)
+                    setTimeout(function () {
+                        that.$element.trigger('slid')
+                    }, 0)
                 })
             }
             else {
@@ -839,7 +841,9 @@
 
     $(document)
         .on('click.dropdown.data-api touchstart.dropdown.data-api', clearMenus)
-        .on('click.dropdown touchstart.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+        .on('click.dropdown touchstart.dropdown.data-api', '.dropdown form', function (e) {
+            e.stopPropagation()
+        })
         .on('click.dropdown.data-api touchstart.dropdown.data-api', toggle, Dropdown.prototype.toggle)
         .on('keydown.dropdown.data-api touchstart.dropdown.data-api', toggle + ', [role=menu]', Dropdown.prototype.keydown)
 
@@ -930,7 +934,9 @@
                 ;
 
                 transition ?
-                    that.$element.one($.support.transition.end, function () { that.$element.focus().trigger('shown') }) :
+                    that.$element.one($.support.transition.end, function () {
+                        that.$element.focus().trigger('shown')
+                    }) :
                     that.$element.focus().trigger('shown')
 
             })
@@ -1566,7 +1572,9 @@
                         [$href.position().top, href]
                     ] ) || null
                 })
-                .sort(function (a, b) { return a[0] - b[0] })
+                .sort(function (a, b) {
+                    return a[0] - b[0]
+                })
                 .each(function () {
                     self.offsets.push(this[0]);
                     ;
@@ -2094,7 +2102,9 @@
         }, blur: function (e) {
             var that = this;
             ;
-            setTimeout(function () { that.hide() }, 150)
+            setTimeout(function () {
+                that.hide()
+            }, 150)
         }, click: function (e) {
             e.stopPropagation();
             ;
@@ -2183,7 +2193,9 @@
         ;
         this.$window = $(window)
             .on('scroll.affix.data-api', $.proxy(this.checkPosition, this))
-            .on('click.affix.data-api', $.proxy(function () { setTimeout($.proxy(this.checkPosition, this), 1) }, this));
+            .on('click.affix.data-api', $.proxy(function () {
+                setTimeout($.proxy(this.checkPosition, this), 1)
+            }, this));
         ;
         this.$element = $(element);
         ;

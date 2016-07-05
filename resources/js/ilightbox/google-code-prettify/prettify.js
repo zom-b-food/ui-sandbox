@@ -323,7 +323,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
 
             // [[1, 10], [3, 4], [8, 12], [14, 14], [16, 16], [17, 17]]
             // -> [[1, 12], [14, 14], [16, 17]]
-            ranges.sort(function (a, b) { return (a[0] - b[0]) || (b[1] - a[1]); });
+            ranges.sort(function (a, b) {
+                return (a[0] - b[0]) || (b[1] - a[1]);
+            });
             var consolidatedRanges = [];
             var lastRange = [NaN, NaN];
             for (var i = 0; i < ranges.length; ++i) {
@@ -337,13 +339,17 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
             }
 
             var out = ['['];
-            if (inverse) { out.push('^'); }
+            if (inverse) {
+                out.push('^');
+            }
             out.push.apply(out, groups);
             for (var i = 0; i < consolidatedRanges.length; ++i) {
                 var range = consolidatedRanges[i];
                 out.push(encodeEscape(range[0]));
                 if (range[1] > range[0]) {
-                    if (range[1] + 1 > range[0]) { out.push('-'); }
+                    if (range[1] + 1 > range[0]) {
+                        out.push('-');
+                    }
                     out.push(encodeEscape(range[1]));
                 }
             }
@@ -417,7 +423,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
             // Remove any prefix anchors so that the output will match anywhere.
             // ^^ really does mean an anchored match though.
             for (var i = 0, groupIndex = 0; i < n; ++i) {
-                if ('^' === parts[i] && '^' !== parts[i + 1]) { parts[i] = ''; }
+                if ('^' === parts[i] && '^' !== parts[i + 1]) {
+                    parts[i] = '';
+                }
             }
 
             // Expand letters to groups to handle mixing of case-sensitive and
@@ -447,7 +455,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
         var rewritten = [];
         for (var i = 0, n = regexs.length; i < n; ++i) {
             var regex = regexs[i];
-            if (regex.global || regex.multiline) { throw new Error('' + regex); }
+            if (regex.global || regex.multiline) {
+                throw new Error('' + regex);
+            }
             rewritten.push(
                 '(?:' + allowAnywhereFoldCaseAndRenumberGroups(regex) + ')');
         }
@@ -520,7 +530,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
         function walk(node) {
             switch (node.nodeType) {
                 case 1:  // Element
-                    if (nocode.test(node.className)) { return; }
+                    if (nocode.test(node.className)) {
+                        return;
+                    }
                     for (var child = node.firstChild; child; child = child.nextSibling) {
                         walk(child);
                     }
@@ -567,7 +579,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
      *    whose decorations are already present on out.
      */
     function appendDecorations(basePos, sourceCode, langHandler, out) {
-        if (!sourceCode) { return; }
+        if (!sourceCode) {
+            return;
+        }
         var job = {
             sourceCode: sourceCode,
             basePos: basePos
@@ -735,7 +749,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
                         style = PR_SOURCE;
                     }
 
-                    if (!isEmbedded) { styleCache[token] = style; }
+                    if (!isEmbedded) {
+                        styleCache[token] = style;
+                    }
                 }
 
                 var tokenStart = pos;
@@ -955,7 +971,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
         function walk(node) {
             switch (node.nodeType) {
                 case 1:  // Element
-                    if (nocode.test(node.className)) { break; }
+                    if (nocode.test(node.className)) {
+                        break;
+                    }
                     if ('BR' === node.nodeName) {
                         breakAfter(node);
                         // Discard the <BR> since it is now flush against a </LI>.
@@ -1001,7 +1019,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
             // would require us to create a bunch of empty copies.
             while (!lineEndNode.nextSibling) {
                 lineEndNode = lineEndNode.parentNode;
-                if (!lineEndNode) { return; }
+                if (!lineEndNode) {
+                    return;
+                }
             }
 
             function breakLeftOf(limit, copy) {
@@ -1151,7 +1171,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
                 // Emitting Windows standard issue linebreaks (CRLF) causes a blank
                 // space to appear at the beginning of every line but the first.
                 // Emitting an old Mac OS 9 line separator makes everything spiffy.
-                if (isIE) { styledText = styledText.replace(newlineRe, '\r'); }
+                if (isIE) {
+                    styledText = styledText.replace(newlineRe, '\r');
+                }
                 textNode.nodeValue = styledText;
                 var document = textNode.ownerDocument;
                 var span = document.createElement('SPAN');
@@ -1377,7 +1399,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
     }
 
     function prettyPrint(opt_whenDone) {
-        function byTagName(tn) { return document.getElementsByTagName(tn); }
+        function byTagName(tn) {
+            return document.getElementsByTagName(tn);
+        }
 
         // fetch a list of nodes to rewrite
         var codeSegments = [byTagName('pre'), byTagName('code'), byTagName('xmp')];
@@ -1391,7 +1415,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
 
         var clock = Date;
         if (!clock['now']) {
-            clock = {'now': function () { return +(new Date); }};
+            clock = {'now': function () {
+                return +(new Date);
+            }};
         }
 
         // The loop is broken into a series of continuations to make sure that we
@@ -1447,7 +1473,9 @@ window['PR_SHOULD_USE_CONTINUATION'] = true;
                         lineNums = lineNums
                             ? lineNums[1] && lineNums[1].length ? +lineNums[1] : true
                             : false;
-                        if (lineNums) { numberLines(cs, lineNums); }
+                        if (lineNums) {
+                            numberLines(cs, lineNums);
+                        }
 
                         // do the pretty printing
                         prettyPrintingJob = {

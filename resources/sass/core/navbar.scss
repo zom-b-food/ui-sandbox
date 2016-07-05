@@ -32,7 +32,6 @@
 //
 // ========================================================================
 
-
 @import "../variables";
 @import "../mixins";
 
@@ -41,9 +40,9 @@
  ========================================================================== */
 
 .uk-navbar {
-    background: $navbar-background;
-    color: $navbar-color;
-    @include hook-navbar();
+  background: $navbar-background;
+  color: $navbar-color;
+  @include hook-navbar();
 }
 
 /*
@@ -52,20 +51,21 @@
 
 .uk-navbar:before,
 .uk-navbar:after {
-    content: "";
-    display: table;
+  content: "";
+  display: table;
 }
 
-.uk-navbar:after { clear: both; }
-
+.uk-navbar:after {
+  clear: both;
+}
 
 /* Sub-object: `uk-navbar-nav`
  ========================================================================== */
 
 .uk-navbar-nav {
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
 
 }
 
@@ -74,9 +74,9 @@
  */
 
 .uk-navbar-nav > li {
-    float: left;
-    /* 1 */
-    position: relative;
+  float: left;
+  /* 1 */
+  position: relative;
 }
 
 /*
@@ -85,23 +85,25 @@
  */
 
 .uk-navbar-nav > li > a {
-    display: block;
-    box-sizing: border-box;
-    text-decoration: none;
-    /* 1 */
-    height: $navbar-nav-height;
-    padding: 0 $navbar-nav-padding-horizontal;
-    line-height: $navbar-nav-line-height;
-    /* 2 */
-    color: $navbar-nav-color;
-    font-size: $navbar-nav-font-size;
-    font-family: $navbar-nav-font-family;
-    font-weight: $navbar-nav-font-weight;
-    @include hook-navbar-nav();
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  /* 1 */
+  height: $navbar-nav-height;
+  padding: 0 $navbar-nav-padding-horizontal;
+  line-height: $navbar-nav-line-height;
+  /* 2 */
+  color: $navbar-nav-color;
+  font-size: $navbar-nav-font-size;
+  font-family: $navbar-nav-font-family;
+  font-weight: $navbar-nav-font-weight;
+  @include hook-navbar-nav();
 }
 
 /* Appear not as link */
-.uk-navbar-nav > li > a[href='#'] { cursor: text; }
+.uk-navbar-nav > li > a[href='#'] {
+  cursor: text;
+}
 
 /*
  * Hover
@@ -112,40 +114,41 @@
 
 .uk-navbar-nav > li:hover > a,
 .uk-navbar-nav > li > a:focus, // 1
-.uk-navbar-nav > li.uk-open > a { // 2
-    background-color: $navbar-nav-hover-background;
-    color: $navbar-nav-hover-color;
-    /* 3 */
-    outline: none;
-    @include hook-navbar-nav-hover();
+.uk-navbar-nav > li.uk-open > a {
+  // 2
+  background-color: $navbar-nav-hover-background;
+  color: $navbar-nav-hover-color;
+  /* 3 */
+  outline: none;
+  @include hook-navbar-nav-hover();
 }
 
 /* OnClick */
 .uk-navbar-nav > li > a:active {
-    background-color: $navbar-nav-onclick-background;
-    color: $navbar-nav-onclick-color;
-    @include hook-navbar-nav-onclick();
+  background-color: $navbar-nav-onclick-background;
+  color: $navbar-nav-onclick-color;
+  @include hook-navbar-nav-onclick();
 }
 
 /* Active */
 .uk-navbar-nav > li.uk-active > a {
-    background-color: $navbar-nav-active-background;
-    color: $navbar-nav-active-color;
-    @include hook-navbar-nav-active();
+  background-color: $navbar-nav-active-background;
+  color: $navbar-nav-active-color;
+  @include hook-navbar-nav-active();
 }
-
 
 /* Sub-objects: `uk-navbar-nav-subtitle`
  ========================================================================== */
 
-.uk-navbar-nav .uk-navbar-nav-subtitle { line-height: $navbar-nav-line-height - $navbar-nav-subtitle-font-size - $navbar-nav-subtitle-offset; }
-
-.uk-navbar-nav-subtitle > div {
-    margin-top: (($navbar-nav-line-height - $navbar-nav-subtitle-font-size - $navbar-nav-font-size) / -2) + $navbar-nav-subtitle-offset;
-    font-size: $navbar-nav-subtitle-font-size;
-    line-height: $navbar-nav-subtitle-font-size + $navbar-nav-subtitle-offset;
+.uk-navbar-nav .uk-navbar-nav-subtitle {
+  line-height: $navbar-nav-line-height - $navbar-nav-subtitle-font-size - $navbar-nav-subtitle-offset;
 }
 
+.uk-navbar-nav-subtitle > div {
+  margin-top: (($navbar-nav-line-height - $navbar-nav-subtitle-font-size - $navbar-nav-font-size) / -2) + $navbar-nav-subtitle-offset;
+  font-size: $navbar-nav-subtitle-font-size;
+  line-height: $navbar-nav-subtitle-font-size + $navbar-nav-subtitle-offset;
+}
 
 /* Sub-objects: `uk-navbar-content`, `uk-navbar-brand`, `uk-navbar-toggle`
  ========================================================================== */
@@ -157,12 +160,12 @@
 .uk-navbar-content,
 .uk-navbar-brand,
 .uk-navbar-toggle {
-    box-sizing: border-box;
-    display: block;
-    height: $navbar-nav-height;
-    padding: 0 $navbar-nav-padding-horizontal;
-    float: left;
-    @include hook-navbar-content();
+  box-sizing: border-box;
+  display: block;
+  height: $navbar-nav-height;
+  padding: 0 $navbar-nav-padding-horizontal;
+  float: left;
+  @include hook-navbar-content();
 }
 
 /*
@@ -172,12 +175,11 @@
 .uk-navbar-content:before,
 .uk-navbar-brand:before,
 .uk-navbar-toggle:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
-
 
 /* Sub-objects: `uk-navbar-content`
  ========================================================================== */
@@ -186,26 +188,29 @@
  * Better sibling spacing
  */
 
-.uk-navbar-content + .uk-navbar-content:not(.uk-navbar-center) { padding-left: 0; }
+.uk-navbar-content + .uk-navbar-content:not(.uk-navbar-center) {
+  padding-left: 0;
+}
 
 /*
  * Link colors
  */
 
-.uk-navbar-content > a:not([class]) { color: $navbar-link-color; }
-.uk-navbar-content > a:not([class]):hover { color: $navbar-link-hover-color; }
+.uk-navbar-content > a:not([class]) {
+  color: $navbar-link-color;
+}
 
-
-
-
+.uk-navbar-content > a:not([class]):hover {
+  color: $navbar-link-hover-color;
+}
 
 /* Sub-object: `uk-navbar-toggle`
  ========================================================================== */
 
 .uk-navbar-toggle {
-    font-size: $navbar-toggle-font-size;
-    color: $navbar-toggle-color;
-    text-decoration: none;
+  font-size: $navbar-toggle-font-size;
+  color: $navbar-toggle-color;
+  text-decoration: none;
 }
 
 /*
@@ -214,11 +219,12 @@
  */
 
 .uk-navbar-toggle:hover,
-.uk-navbar-toggle:focus { // 1
-    color: $navbar-toggle-hover-color;
-    text-decoration: none;
-    /* 2 */
-    outline: none;
+.uk-navbar-toggle:focus {
+  // 1
+  color: $navbar-toggle-hover-color;
+  text-decoration: none;
+  /* 2 */
+  outline: none;
 }
 
 /*
@@ -226,14 +232,15 @@
  */
 
 .uk-navbar-toggle:after {
-    content: $navbar-toggle-icon;
-    font-family: FontAwesome;
-    /* 1 */
-    vertical-align: middle;
+  content: $navbar-toggle-icon;
+  font-family: FontAwesome;
+  /* 1 */
+  vertical-align: middle;
 }
 
-.uk-navbar-toggle-alt:after { content: $navbar-toggle-icon-alt; }
-
+.uk-navbar-toggle-alt:after {
+  content: $navbar-toggle-icon-alt;
+}
 
 /* Sub-object: `uk-navbar-center`
  ========================================================================== */
@@ -244,20 +251,20 @@
  */
 
 .uk-navbar-center {
-    float: none;
-    text-align: center;
-    /* 1 */
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+  float: none;
+  text-align: center;
+  /* 1 */
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 
 /* Sub-object: `uk-navbar-flip`
  ========================================================================== */
 
-.uk-navbar-flip { float: right; }
-
+.uk-navbar-flip {
+  float: right;
+}
 
 // Hooks
 // ========================================================================

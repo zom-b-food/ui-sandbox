@@ -9,11 +9,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
     <description>UI-SANDBOX (UIKIT)</description>
     <display-name>UI-SANDBOX (UIKIT)</display-name>
 
-    
- <context-param>
-    <param-name>context-root</param-name>
-    <param-value>UI-SANDBOX</param-value>
-  </context-param>
+
+    <context-param>
+        <param-name>context-root</param-name>
+        <param-value>UI-SANDBOX</param-value>
+    </context-param>
     <servlet>
         <servlet-name>XmlServlet</servlet-name>
         <servlet-class>xml.XmlServlet</servlet-class>

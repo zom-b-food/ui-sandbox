@@ -199,7 +199,8 @@ define([
             throw new Error(msg);
         },
 
-        noop: function () {},
+        noop: function () {
+        },
 
         isFunction: function (obj) {
             return jQuery.type(obj) === "function";

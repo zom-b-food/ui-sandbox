@@ -37,14 +37,18 @@ getJasmineRequireObj().console = function (jRequire, j$) {
 getJasmineRequireObj().ConsoleReporter = function () {
 
     var noopTimer = {
-        start: function () {},
-        elapsed: function () { return 0; }
+        start: function () {
+        },
+        elapsed: function () {
+            return 0;
+        }
     };
 
     function ConsoleReporter(options) {
         var print = options.print,
             showColors = options.showColors || false,
-            onComplete = options.onComplete || function () {},
+            onComplete = options.onComplete || function () {
+            },
             timer = options.timer || noopTimer,
             specCount,
             failureCount,

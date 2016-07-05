@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     var scroll, wresize, mobile;
     var headerPos = $('.header-content').offset().top;
@@ -6,7 +6,7 @@ $(document).ready(function() {
     var init = false;
     var show, go;
 
-    (scroll = function() {
+    (scroll = function () {
 
         if (mobile != true && $('.header-content').css('position') != 'fixed') {
             var scrollPos = $(document).scrollTop();
@@ -17,7 +17,7 @@ $(document).ready(function() {
                 if (once === true) {
                     once = false;
                     $('.header .cover').hide();
-                    go = setTimeout(function() {
+                    go = setTimeout(function () {
                         $('.header .cover').show();
                     }, 400);
                 }
@@ -35,7 +35,7 @@ $(document).ready(function() {
                 });
                 once = true;
                 $('.header .cover').hide();
-                show = setTimeout(function() {
+                show = setTimeout(function () {
                     $('.header .cover').show();
                 }, 400);
 
@@ -45,11 +45,11 @@ $(document).ready(function() {
 
     })();
 
-    window.addEventListener('touchstart', function() {
+    window.addEventListener('touchstart', function () {
         mobile = true;
     });
 
-    (wresize = function() {
+    (wresize = function () {
         msize = $('.header').width();
         $('.attached').width(msize);
     });

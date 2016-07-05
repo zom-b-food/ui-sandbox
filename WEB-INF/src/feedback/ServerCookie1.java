@@ -16,7 +16,7 @@ public class ServerCookie1 extends HttpServlet {
 
         String clientIP = request.getRemoteAddr();
         String clientHost = request.getRemoteHost();
-        String localName  = request.getLocalName();
+        String localName = request.getLocalName();
 
         HttpSession session = request.getSession();
         Reporter1 reporter1 = (Reporter1) session.getAttribute("reporter1");
@@ -30,8 +30,8 @@ public class ServerCookie1 extends HttpServlet {
 
 
         ReporterIO1.addRecord(reporter1,
-        //   "/home/toshi/public_html/ui-design-engineering.com/HHIT/samples.txt");
-      	 "C:/Tomcat-7/webapps/ui-design-engineering/HHIT/samples.txt");
+                //   "/home/toshi/public_html/ui-design-engineering.com/HHIT/samples.txt");
+                "C:/Tomcat-7/webapps/ui-design-engineering/HHIT/samples.txt");
 
         session.setAttribute("reporter1", reporter1);
 

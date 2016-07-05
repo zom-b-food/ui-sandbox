@@ -16,24 +16,24 @@ import javax.mail.Authenticator;
 
 public class SMTP2Authenticator extends javax.mail.Authenticator {
 
-	String password = "";
-	String username = "";
+    String password = "";
+    String username = "";
 
-	public SMTP2Authenticator() {
-		super();
-	}
+    public SMTP2Authenticator() {
+        super();
+    }
 
-	public SMTP2Authenticator(String login, String pass) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
+    public SMTP2Authenticator(String login, String pass) {
+        super();
+        this.username = username;
+        this.password = password;
+    }
 
-	public PasswordAuthentication getPasswordAuthentication() {
-		if (password.equals(""))
-			return null;
-		else
-			return new PasswordAuthentication(username, password);
-	}
+    public PasswordAuthentication getPasswordAuthentication() {
+        if (password.equals(""))
+            return null;
+        else
+            return new PasswordAuthentication(username, password);
+    }
 
 }

@@ -61,8 +61,12 @@
         event.type = "mousewheel";
 
         // Old school scrollwheel delta
-        if (orgEvent.wheelDelta) { delta = orgEvent.wheelDelta / 120; }
-        if (orgEvent.detail) { delta = -orgEvent.detail / 3; }
+        if (orgEvent.wheelDelta) {
+            delta = orgEvent.wheelDelta / 120;
+        }
+        if (orgEvent.detail) {
+            delta = -orgEvent.detail / 3;
+        }
 
         // New school multidimensional scroll (touchpads) deltas
         deltaY = delta;
@@ -74,8 +78,12 @@
         }
 
         // Webkit
-        if (orgEvent.wheelDeltaY !== undefined) { deltaY = orgEvent.wheelDeltaY / 120; }
-        if (orgEvent.wheelDeltaX !== undefined) { deltaX = -1 * orgEvent.wheelDeltaX / 120; }
+        if (orgEvent.wheelDeltaY !== undefined) {
+            deltaY = orgEvent.wheelDeltaY / 120;
+        }
+        if (orgEvent.wheelDeltaX !== undefined) {
+            deltaX = -1 * orgEvent.wheelDeltaX / 120;
+        }
 
         // Add event and delta to the front of the arguments
         args.unshift(event, delta, deltaX, deltaY);

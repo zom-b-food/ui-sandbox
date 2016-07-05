@@ -2,254 +2,302 @@ package com.activation;
 
 
 public class Activate2 {
-	private String billcompanyname;
-	private String billadd1;
-	private String billadd2;
-	private String billcity;
-	private String billstate;
-	private String billzip;
-	private String servicecompanyname;
-	private String serviceadd1;
-	private String serviceadd2;
-	private String servicecity;
-	private String servicestate;
-	private String servicezip;
-	private String primaryfirstname;
-	private String primarylastname;
-	private String primaryemail;
-	private String primaryphone1;
-	private String primaryphone2;
-	private String primaryphone3;
-	private String nameoncard;
-	private String cctype;
-	private String ccnumber;
-	private String scode;
-	private String expmonth;
-	private String expyear;
-
-
-	public Activate2() {
-		billcompanyname = "";
-		billadd1 = "";
-		billadd2 = "";
-		billcity = "";
-		billstate = "";
-		billzip = "";
-		servicecompanyname = "";
-		serviceadd1 = "";
-		serviceadd2 = "";
-		servicecity = "";
-		servicestate = "";
-		servicezip = "";
-		primaryfirstname = "";
-		primarylastname = "";
-		primaryemail = "";
-		primaryphone1 = "";
-		primaryphone2 = "";
-		primaryphone3 = "";
-		nameoncard = "";
-		cctype = "";
-		ccnumber = "";
-		scode = "";
-		expmonth = "";
-		expyear = "";
-
-	}
-
-	public Activate2(String pbillcompanyname, String pbilladd1, String pbilladd2, String pbillcity, String pbillstate, String pbillzip,
-			                String pservicecompanyname, String pserviceadd1, String pserviceadd2, String pservicecity, String pservicestate, String pservicezip,
-			                String pprimaryfirstname, String pprimarylastname, String pprimaryemail, String pprimaryphone1, String pprimaryphone2, String pprimaryphone3,
-			                String pnameoncard, String pcctype, String pccnumber, String pscode, String pexpmonth, String pexpyear
-
-	) {
-		billcompanyname = pbillcompanyname;
-		billadd1 = pbilladd1;
-		billadd2 = pbilladd2;
-		billcity = pbillcity;
-		billstate = pbillstate;
-		billzip = pbillzip;
-		servicecompanyname = pservicecompanyname;
-		serviceadd1 = pserviceadd1;
-		serviceadd2 = pserviceadd2;
-		servicecity = pservicecity;
-		servicestate = pservicestate;
-		servicezip = pservicezip;
-		primaryfirstname = pprimaryfirstname;
-		primarylastname = pprimarylastname;
-		primaryemail = pprimaryemail;
-		primaryphone1 = pprimaryphone1;
-		primaryphone2 = pprimaryphone2;
-		primaryphone3 = pprimaryphone3;
-		nameoncard = pnameoncard;
-		cctype = pcctype;
-		ccnumber = pccnumber;
-		scode = pscode;
-		expmonth = pexpmonth;
-		expyear = pexpyear;
+    private String billcompanyname;
+    private String billadd1;
+    private String billadd2;
+    private String billcity;
+    private String billstate;
+    private String billzip;
+    private String servicecompanyname;
+    private String serviceadd1;
+    private String serviceadd2;
+    private String servicecity;
+    private String servicestate;
+    private String servicezip;
+    private String primaryfirstname;
+    private String primarylastname;
+    private String primaryemail;
+    private String primaryphone1;
+    private String primaryphone2;
+    private String primaryphone3;
+    private String nameoncard;
+    private String cctype;
+    private String ccnumber;
+    private String scode;
+    private String expmonth;
+    private String expyear;
+
+
+    public Activate2() {
+        billcompanyname = "";
+        billadd1 = "";
+        billadd2 = "";
+        billcity = "";
+        billstate = "";
+        billzip = "";
+        servicecompanyname = "";
+        serviceadd1 = "";
+        serviceadd2 = "";
+        servicecity = "";
+        servicestate = "";
+        servicezip = "";
+        primaryfirstname = "";
+        primarylastname = "";
+        primaryemail = "";
+        primaryphone1 = "";
+        primaryphone2 = "";
+        primaryphone3 = "";
+        nameoncard = "";
+        cctype = "";
+        ccnumber = "";
+        scode = "";
+        expmonth = "";
+        expyear = "";
+
+    }
+
+    public Activate2(String pbillcompanyname, String pbilladd1, String pbilladd2, String pbillcity, String pbillstate, String pbillzip,
+                     String pservicecompanyname, String pserviceadd1, String pserviceadd2, String pservicecity, String pservicestate, String pservicezip,
+                     String pprimaryfirstname, String pprimarylastname, String pprimaryemail, String pprimaryphone1, String pprimaryphone2, String pprimaryphone3,
+                     String pnameoncard, String pcctype, String pccnumber, String pscode, String pexpmonth, String pexpyear
+
+    ) {
+        billcompanyname = pbillcompanyname;
+        billadd1 = pbilladd1;
+        billadd2 = pbilladd2;
+        billcity = pbillcity;
+        billstate = pbillstate;
+        billzip = pbillzip;
+        servicecompanyname = pservicecompanyname;
+        serviceadd1 = pserviceadd1;
+        serviceadd2 = pserviceadd2;
+        servicecity = pservicecity;
+        servicestate = pservicestate;
+        servicezip = pservicezip;
+        primaryfirstname = pprimaryfirstname;
+        primarylastname = pprimarylastname;
+        primaryemail = pprimaryemail;
+        primaryphone1 = pprimaryphone1;
+        primaryphone2 = pprimaryphone2;
+        primaryphone3 = pprimaryphone3;
+        nameoncard = pnameoncard;
+        cctype = pcctype;
+        ccnumber = pccnumber;
+        scode = pscode;
+        expmonth = pexpmonth;
+        expyear = pexpyear;
+
+    }
+
+    public void setbillcompanyname(String f) {
+        billcompanyname = f;
+    }
+
+    public String getbillcompanyname() {
+        return billcompanyname;
+    }
+
+
+    public void setbilladd1(String g) {
+        billadd1 = g;
+    }
+
+    public String getbilladd1() {
+        return billadd1;
+    }
 
-	}
 
-	public void setbillcompanyname(String f) {
-		billcompanyname = f;
-	}
+    public void setbilladd2(String h) {
+        billadd2 = h;
+    }
 
-	public String getbillcompanyname() { return billcompanyname; }
+    public String getbilladd2() {
+        return billadd2;
+    }
 
 
-	public void setbilladd1(String g) {
-		billadd1 = g;
-	}
+    public void setbillcity(String j) {
+        billcity = j;
+    }
 
-	public String getbilladd1() { return billadd1; }
+    public String getbillcity() {
+        return billcity;
+    }
 
+    public void setbillstate(String keep) {
+        billstate = keep;
+    }
 
-	public void setbilladd2(String h) {
-		billadd2 = h;
-	}
+    public String getbillstate() {
+        return billstate;
+    }
 
-	public String getbilladd2() { return billadd2; }
 
+    public void setbillzip(String l) {
+        billzip = l;
+    }
 
-	public void setbillcity(String j) {
-		billcity = j;
-	}
+    public String getbillzip() {
+        return billzip;
+    }
 
-	public String getbillcity() { return billcity; }
 
-	public void setbillstate(String keep) {
-		billstate = keep;
-	}
+    public void setservicecompanyname(String ff) {
+        servicecompanyname = ff;
+    }
 
-	public String getbillstate() { return billstate; }
+    public String getservicecompanyname() {
+        return servicecompanyname;
+    }
 
 
-	public void setbillzip(String l) {
-		billzip = l;
-	}
+    public void setserviceadd1(String gg) {
+        serviceadd1 = gg;
+    }
 
-	public String getbillzip() { return billzip; }
+    public String getserviceadd1() {
+        return serviceadd1;
+    }
 
 
-	public void setservicecompanyname(String ff) {
-		servicecompanyname = ff;
-	}
+    public void setserviceadd2(String hh) {
+        serviceadd2 = hh;
+    }
 
-	public String getservicecompanyname() { return servicecompanyname; }
+    public String getserviceadd2() {
+        return serviceadd2;
+    }
 
 
-	public void setserviceadd1(String gg) {
-		serviceadd1 = gg;
-	}
+    public void setservicecity(String jj) {
+        servicecity = jj;
+    }
 
-	public String getserviceadd1() { return serviceadd1; }
+    public String getservicecity() {
+        return servicecity;
+    }
 
+    public void setservicestate(String kk) {
+        servicestate = kk;
+    }
 
-	public void setserviceadd2(String hh) {
-		serviceadd2 = hh;
-	}
+    public String getservicestate() {
+        return servicestate;
+    }
 
-	public String getserviceadd2() { return serviceadd2; }
 
+    public void setservicezip(String ll) {
+        servicezip = ll;
+    }
 
-	public void setservicecity(String jj) {
-		servicecity = jj;
-	}
+    public String getservicezip() {
+        return servicezip;
+    }
 
-	public String getservicecity() { return servicecity; }
 
-	public void setservicestate(String kk) {
-		servicestate = kk;
-	}
+    public void setprimaryfirstname(String fff) {
+        primaryfirstname = fff;
+    }
 
-	public String getservicestate() { return servicestate; }
+    public String getprimaryfirstname() {
+        return primaryfirstname;
+    }
 
 
-	public void setservicezip(String ll) {
-		servicezip = ll;
-	}
+    public void setprimarylastname(String ggg) {
+        primarylastname = ggg;
+    }
 
-	public String getservicezip() { return servicezip; }
+    public String getprimarylastname() {
+        return primarylastname;
+    }
 
 
-	public void setprimaryfirstname(String fff) {
-		primaryfirstname = fff;
-	}
+    public void setprimaryemail(String hhh) {
+        primaryemail = hhh;
+    }
 
-	public String getprimaryfirstname() { return primaryfirstname; }
+    public String getprimaryemail() {
+        return primaryemail;
+    }
 
 
-	public void setprimarylastname(String ggg) {
-		primarylastname = ggg;
-	}
+    public void setprimaryphone1(String jjj) {
+        primaryphone1 = jjj;
+    }
 
-	public String getprimarylastname() { return primarylastname; }
+    public String getprimaryphone1() {
+        return primaryphone1;
+    }
 
+    public void setprimaryphone2(String kkk) {
+        primaryphone2 = kkk;
+    }
 
-	public void setprimaryemail(String hhh) {
-		primaryemail = hhh;
-	}
+    public String getprimaryphone2() {
+        return primaryphone2;
+    }
 
-	public String getprimaryemail() { return primaryemail; }
 
+    public void setprimaryphone3(String lll) {
+        primaryphone3 = lll;
+    }
 
-	public void setprimaryphone1(String jjj) {
-		primaryphone1 = jjj;
-	}
+    public String getprimaryphone3() {
+        return primaryphone3;
+    }
 
-	public String getprimaryphone1() { return primaryphone1; }
+    public void setnameoncard(String ffff) {
+        nameoncard = ffff;
+    }
 
-	public void setprimaryphone2(String kkk) {
-		primaryphone2 = kkk;
-	}
+    public String getnameoncard() {
+        return nameoncard;
+    }
 
-	public String getprimaryphone2() { return primaryphone2; }
 
+    public void setcctype(String gggg) {
+        cctype = gggg;
+    }
 
-	public void setprimaryphone3(String lll) {
-		primaryphone3 = lll;
-	}
+    public String getcctype() {
+        return cctype;
+    }
 
-	public String getprimaryphone3() { return primaryphone3; }
 
-	public void setnameoncard(String ffff) {
-		nameoncard = ffff;
-	}
+    public void setccnumber(String hhhh) {
+        ccnumber = hhhh;
+    }
 
-	public String getnameoncard() { return nameoncard; }
+    public String getccnumber() {
+        return ccnumber;
+    }
 
 
-	public void setcctype(String gggg) {
-		cctype = gggg;
-	}
+    public void setscode(String jjjj) {
+        scode = jjjj;
+    }
 
-	public String getcctype() { return cctype; }
+    public String getscode() {
+        return scode;
+    }
 
+    public void setexpmonth(String kkkk) {
+        expmonth = kkkk;
+    }
 
-	public void setccnumber(String hhhh) {
-		ccnumber = hhhh;
-	}
+    public String getexpmonth() {
+        return expmonth;
+    }
 
-	public String getccnumber() { return ccnumber; }
 
+    public void setexpyear(String llll) {
+        expyear = llll;
+    }
 
-	public void setscode(String jjjj) {
-		scode = jjjj;
-	}
-
-	public String getscode() { return scode; }
-
-	public void setexpmonth(String kkkk) {
-		expmonth = kkkk;
-	}
-
-	public String getexpmonth() { return expmonth; }
-
-
-	public void setexpyear(String llll) {
-		expyear = llll;
-	}
-
-	public String getexpyear() { return expyear; }
+    public String getexpyear() {
+        return expyear;
+    }
 
 
 }

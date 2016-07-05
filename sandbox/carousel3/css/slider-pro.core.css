@@ -1,42 +1,42 @@
 /* Core
 --------------------------------------------------*/
 .slider-pro {
-	position: relative;
-	margin: 0 auto;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
+    position: relative;
+    margin: 0 auto;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 .sp-slides-container {
-	position: relative;
+    position: relative;
 }
 
 .sp-mask {
-	position: relative;
-	overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .sp-slides {
-	position: relative;
-	-webkit-backface-visibility: hidden;
-	-webkit-perspective: 1000;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
 }
 
 .sp-slide {
-	position: absolute;
+    position: absolute;
 }
 
 .sp-image-container {
-	overflow: hidden;
+    overflow: hidden;
 }
 
 .sp-image {
-	position: relative;
-	display: block;
-	border: none;
+    position: relative;
+    display: block;
+    border: none;
 }
 
 .sp-no-js {
-	overflow: hidden;
-	max-width: 100%;
+    overflow: hidden;
+    max-width: 100%;
 }

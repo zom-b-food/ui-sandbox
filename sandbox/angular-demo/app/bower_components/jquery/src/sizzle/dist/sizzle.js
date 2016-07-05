@@ -189,7 +189,8 @@
                 var j = target.length,
                     i = 0;
                 // Can't trust NodeList.length
-                while ((target[j++] = els[i++])) {}
+                while ((target[j++] = els[i++])) {
+                }
                 target.length = j - 1;
             }
         };
@@ -882,7 +883,8 @@
                     return ret;
                 }
             }
-            catch (e) {}
+            catch (e) {
+            }
         }
 
         return Sizzle(expr, document, null, [ elem ]).length > 0;
@@ -1094,7 +1096,9 @@
             "TAG": function (nodeNameSelector) {
                 var nodeName = nodeNameSelector.replace(runescape, funescape).toLowerCase();
                 return nodeNameSelector === "*" ?
-                    function () { return true; } :
+                    function () {
+                        return true;
+                    } :
                     function (elem) {
                         return elem.nodeName && elem.nodeName.toLowerCase() === nodeName;
                     };
@@ -1476,7 +1480,8 @@
     }
 
 // Easy API for creating new setFilters
-    function setFilters() {}
+    function setFilters() {
+    }
 
     setFilters.prototype = Expr.filters = Expr.pseudos;
     Expr.setFilters = new setFilters();
@@ -2086,7 +2091,9 @@
 
 // EXPOSE
     if (typeof define === "function" && define.amd) {
-        define(function () { return Sizzle; });
+        define(function () {
+            return Sizzle;
+        });
 // Sizzle requires that there be a global window in Common-JS like environments
     }
     else if (typeof module !== "undefined" && module.exports) {

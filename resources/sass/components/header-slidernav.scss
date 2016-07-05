@@ -1,7 +1,6 @@
 @import "../variables";
 @import "../mixins";
 
-
 /* --------------------------------
 
 Modules - reusable parts of our design
@@ -21,7 +20,8 @@ Modules - reusable parts of our design
 }
 
 .has-top-margin {
-  /* this class is given - using jQuery - to the .am-main-content following the .am-fixed-nav when it becomes fixed */ }
+  /* this class is given - using jQuery - to the .am-main-content following the .am-fixed-nav when it becomes fixed */
+}
 
 @media only screen and (min-width: 970px) {
   .has-top-margin {
@@ -31,6 +31,7 @@ Modules - reusable parts of our design
     margin-top: 70px;
   }
 }
+
 @-webkit-keyframes animate-margin-top {
   0% {
     margin-top: 100px;
@@ -39,6 +40,7 @@ Modules - reusable parts of our design
     margin-top: 70px;
   }
 }
+
 @-moz-keyframes animate-margin-top {
   0% {
     margin-top: 100px;
@@ -47,6 +49,7 @@ Modules - reusable parts of our design
     margin-top: 70px;
   }
 }
+
 @keyframes animate-margin-top {
   0% {
     margin-top: 100px;
@@ -55,6 +58,7 @@ Modules - reusable parts of our design
     margin-top: 70px;
   }
 }
+
 /* --------------------------------
 
 Header and Navigation
@@ -66,19 +70,21 @@ Header and Navigation
 }
 
 #cd-linkedin {
-  float:left;
+  float: left;
 
   z-index: 1;
   margin-top: 20px;
 }
-#cd-res {
-    float:right;
 
-    z-index: 2;
-    margin-top: 20px;
-  }
+#cd-res {
+  float: right;
+
+  z-index: 2;
+  margin-top: 20px;
+}
+
 .am-btn1, .am-btn2 {
-  opacity:.7;
+  opacity: .7;
   border: 1px solid #4da9c7;
   background: -moz-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #74adb2), color-stop(44%, #328ba8), color-stop(100%, #74adb2));
@@ -93,7 +99,7 @@ Header and Navigation
 }
 
 .am-btn1:hover, .am-btn2:hover {
-  opacity:1;
+  opacity: 1;
   border: 1px solid #4da9c7;
   background: -moz-linear-gradient(top, #428fdf 0, #328ba8 44%, #428fdf 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #428fdf), color-stop(44%, #328ba8), color-stop(100%, #428fdf));
@@ -108,21 +114,21 @@ Header and Navigation
 }
 
 @media only screen and (min-width: 961px) {
-.am-btn1.is-hidden.slide-in {
-  filter: alpha(opacity=70);
-  border: 1px solid #4da9c7;
-  background: -moz-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #74adb2), color-stop(44%, #328ba8), color-stop(100%, #74adb2));
-  background: -webkit-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
-  background: -o-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#74adb2', endColorstr='#328ba8', GradientType=0);
-  background: linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
-  border-radius: .5em;
-  padding: 4px 6px;
-  color: #ffffff;
-  right: 6%;
-  opacity: 1;
-}
+  .am-btn1.is-hidden.slide-in {
+    filter: alpha(opacity=70);
+    border: 1px solid #4da9c7;
+    background: -moz-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #74adb2), color-stop(44%, #328ba8), color-stop(100%, #74adb2));
+    background: -webkit-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
+    background: -o-linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#74adb2', endColorstr='#328ba8', GradientType=0);
+    background: linear-gradient(top, #74adb2 0, #328ba8 44%, #74adb2 100%);
+    border-radius: .5em;
+    padding: 4px 6px;
+    color: #ffffff;
+    right: 6%;
+    opacity: 1;
+  }
   .am-btn2.is-hidden.slide-in {
     filter: alpha(opacity=70);
     border: 1px solid #4da9c7;
@@ -139,18 +145,19 @@ Header and Navigation
     opacity: 1;
   }
 }
+
 @media only screen and (min-width: 961px) {
-.am-btn1.is-hidden {
-  opacity: 0;
-  position: fixed;
-  right: -20%;
-  top: 0;
-  padding: .3em .8em;
-  margin: 14px 0 0;
-  -webkit-transition: right .3s, opacity .3s;
-  -moz-transition: right .3s, opacity .3s;
-  transition: right .3s, opacity .3s;
-}
+  .am-btn1.is-hidden {
+    opacity: 0;
+    position: fixed;
+    right: -20%;
+    top: 0;
+    padding: .3em .8em;
+    margin: 14px 0 0;
+    -webkit-transition: right .3s, opacity .3s;
+    -moz-transition: right .3s, opacity .3s;
+    transition: right .3s, opacity .3s;
+  }
   .am-btn2.is-hidden {
     opacity: 0;
     position: fixed;
@@ -163,9 +170,10 @@ Header and Navigation
     transition: right .3s, opacity .3s;
   }
 }
+
 table.rufus {
-  width:100%;
-  margin:0 auto;
+  width: 100%;
+  margin: 0 auto;
   border: none;
   tr {
 
@@ -176,36 +184,37 @@ table.rufus {
 }
 
 div.white * {
-  color:$cream;
+  color: $cream;
   opacity: .8;
 
 }
+
 .title {
-  float:right;
+  float: right;
   text-align: right;
   .iconset * {
-    text-align:center;
+    text-align: center;
   }
 }
 
 .responsive {
-  width:110px;
-  float:left;
-  padding-left:10px;
+  width: 110px;
+  float: left;
+  padding-left: 10px;
 }
 
 .modular {
-  width:110px;
-  float:right;
-  padding-right:10px;
+  width: 110px;
+  float: right;
+  padding-right: 10px;
 }
 
 #am-logo, .am-btn {
   display: inline-block;
   padding: 2px;
   margin: 0 0 0 5%;
-  width:223px !important;
-  height:46px !important;
+  width: 223px !important;
+  height: 46px !important;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -214,8 +223,8 @@ div.white * {
 
 #am-logo img, .am-btn img {
   display: block;
-  min-width:223px !important;
-  min-height:46px !important;
+  min-width: 223px !important;
+  min-height: 46px !important;
 }
 
 .am-anchors-nav ul {
@@ -231,7 +240,7 @@ div.white * {
 }
 
 .am-anchors-nav ul.is-visible {
-  margin-top:70px;
+  margin-top: 70px;
   -webkit-transform: translateY(50px);
   -moz-transform: translateY(50px);
   -ms-transform: translateY(50px);
@@ -259,12 +268,12 @@ div.white * {
 }
 
 div.header {
-  background-color:$blackish;
-  opacity:.8;
-  height:60px;
+  background-color: $blackish;
+  opacity: .8;
+  height: 60px;
   border-bottom: 1px solid $cream;
-  padding:0;
-  margin:0 auto;
+  padding: 0;
+  margin: 0 auto;
 }
 
 .no-touch .am-btn:hover {
@@ -280,12 +289,12 @@ section#overlay {
 .am-fixed-nav {
   position: relative;
   z-index: 3;
-  height:54px;
+  height: 54px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  top:310px;
-  background-color:$nightblue;
-  border-top:1px solid $camel;
+  top: 310px;
+  background-color: $nightblue;
+  border-top: 1px solid $camel;
 }
 
 .am-fixed-nav ul {
@@ -346,11 +355,12 @@ MQ's
 -------------------------------- */
 @media only screen and (min-width: 768px) and (max-width: 960px) {
   .am-anchors-nav {
-    position:fixed;
+    position: fixed;
     top: 95px;
     right: 5%;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .am-anchors-nav {
     /* reset navigation values */
@@ -371,7 +381,7 @@ MQ's
   }
 
   .am-anchors-nav ul.is-visible {
-    margin-top:80px;
+    margin-top: 80px;
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
@@ -394,11 +404,13 @@ MQ's
     color: #030d18;
   }
 }
+
 @media only screen and (max-width: 960px) {
   #am-header, #am-fixed {
-    position:fixed;
+    position: fixed;
   }
 }
+
 @media only screen and (min-width: 970px) {
   .am-btn.is-hidden {
     /* assign a position fixed and move outside the viewport (on the right) */
@@ -420,10 +432,11 @@ MQ's
     margin: 0;
   }
 }
+
 @media only screen and (min-width: 970px) {
   .am-fixed-nav {
     z-index: 1;
-    top:310px;
+    top: 310px;
   }
 
   .am-fixed-nav nav, .am-fixed-nav ul, .am-fixed-nav li, .am-fixed-nav a {
@@ -463,7 +476,7 @@ MQ's
     font-family: Candara, Candara, Verdana, sans-serif;
     text-transform: uppercase;
     span {
-      margin-top:5px;
+      margin-top: 5px;
     }
   }
 
@@ -523,28 +536,33 @@ MQ's
     opacity: 0;
   }
 }
+
 @media only screen and (min-width: 970px) {
   .am-section {
     margin: 0 auto;
     padding: 4em 0;
   }
 }
+
 @media only screen and (max-width: 768px) {
   header {
     box-shadow: none;
     height: 200px;
   }
 }
+
 @media only screen and (min-width: 970px) {
   .am-fixed-nav-trigger {
     display: none;
   }
 }
+
 @media only screen and (min-width: 768px) {
   #am-logo, .am-btn {
     margin: 0 0 0 5%;
   }
 }
+
 @media only screen and (min-width: 970px) {
   #am-logo.is-hidden {
     /* assign a position fixed and move outside the viewport (on the left) */

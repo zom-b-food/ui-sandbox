@@ -1,1 +1,3 @@
-(function () {return {resp: "OK"};})();
+(function () {
+    return {resp: "OK"};
+})();

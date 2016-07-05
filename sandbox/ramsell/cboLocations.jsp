@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,7 +13,6 @@
 	</script>
 </head>
 <body>
-
 <!-- Main Container Fluid -->
 <div class="container fluid menu-left">
 <%@ include file="_headerNav.html" %>
@@ -32,7 +30,6 @@
 			<!-- Tabs Heading -->
 			<%@ include file="_partTabs.html" %>
 			<!-- Tabs Heading -->
-
 			<div class="widget-body tabsBorder">
 				<div class="tab-content">
 					<!-- Tab content -->
@@ -40,7 +37,8 @@
 						<h3>All Locations</h3>
 
 						<div class="buttons pull-right"><a data-target="#blank" data-toggle="modal" href=""
-						                                   class="specLink glyphicons circle_plus btn-icon">Add a Location</a></div>
+						                                   class="specLink glyphicons circle_plus btn-icon">Add a
+							Location</a></div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="col-md-12 noPd">
@@ -52,12 +50,15 @@
 								<div class="col-md-2 alignR">
 									<label class="blockRight">Description:</label>
 								</div>
-								<div class="buttons pull-right"><a data-target="#blank" data-toggle="modal" class="btn btn-default glyphicons edit btn-icon"
+								<div class="buttons pull-right"><a data-target="#blank" data-toggle="modal"
+								                                   class="btn btn-default glyphicons edit btn-icon"
 								                                   href="">Edit Location</a>
 									<br/>
-									</div>
+								</div>
 								<div class="col-md-8">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aperiam culpa deleniti dolores earum excepturi facilis harum incidunt maiores molestias nostrum, odit quo rerum sunt. Aliquid hic labore quibusdam!</p>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aperiam
+										culpa deleniti dolores earum excepturi facilis harum incidunt maiores molestias
+										nostrum, odit quo rerum sunt. Aliquid hic labore quibusdam!</p>
 								</div>
 							</div>
 							<!-- Address -->
@@ -77,7 +78,8 @@
 								<div class="heading-buttons">
 									<h4>Services for Maryland Health Clinic</h4>
 
-									<div class="buttons pull-right"><a data-target="#blank" data-toggle="modal" class="specLink glyphicons circle_plus btn-icon"
+									<div class="buttons pull-right"><a data-target="#blank" data-toggle="modal"
+									                                   class="specLink glyphicons circle_plus btn-icon"
 									                                   href="">Add a Service</a></div>
 									<div class="clearfix"></div>
 								</div>
@@ -93,7 +95,10 @@
 														<label class="blockRight">Description:</label>
 													</div>
 													<div class="col-md-8">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aperiam culpa deleniti dolores earum excepturi facilis harum incidunt maiores molestias nostrum, odit quo rerum sunt. Aliquid hic labore quibusdam!</p>
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+															accusantium aperiam culpa deleniti dolores earum excepturi
+															facilis harum incidunt maiores molestias nostrum, odit quo
+															rerum sunt. Aliquid hic labore quibusdam!</p>
 													</div>
 												</div>
 												<!-- Eligibility Requirements -->
@@ -135,7 +140,10 @@
 														<label class="blockRight">Description:</label>
 													</div>
 													<div class="col-md-8">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aperiam culpa deleniti dolores earum excepturi facilis harum incidunt maiores molestias nostrum, odit quo rerum sunt. Aliquid hic labore quibusdam!</p>
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+															accusantium aperiam culpa deleniti dolores earum excepturi
+															facilis harum incidunt maiores molestias nostrum, odit quo
+															rerum sunt. Aliquid hic labore quibusdam!</p>
 													</div>
 												</div>
 												<!-- Eligibility Requirements -->
@@ -177,7 +185,10 @@
 														<label class="blockRight">Description:</label>
 													</div>
 													<div class="col-md-8">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aperiam culpa deleniti dolores earum excepturi facilis harum incidunt maiores molestias nostrum, odit quo rerum sunt. Aliquid hic labore quibusdam!</p>
+														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+															accusantium aperiam culpa deleniti dolores earum excepturi
+															facilis harum incidunt maiores molestias nostrum, odit quo
+															rerum sunt. Aliquid hic labore quibusdam!</p>
 													</div>
 												</div>
 												<!-- Eligibility Requirements -->
@@ -227,13 +238,11 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
 			</div>
 			<div class="modal-body">
 				<img src="pop.jpg"/>
 			</div>
 		</div>
-
 	</div>
 </div>
 <br/>

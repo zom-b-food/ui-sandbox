@@ -27,86 +27,67 @@
 					<h2>&nbsp;Resources&nbsp;</h2>
 					<br class="clear"/>
 					<ul class="collapsible popout collapsible-accordion" id="popAccordion" data-collapsible="accordion">
-
 						<li class="row">
-
 							<div class="collapsible-header">Articles</div>
-
 							<div class="collapsible-body open">
 								<ul>
 									<li><a href="selectors.jsp" class="popupwindow">The 30 CSS
-									                                                Selectors You Must Memorize - by Jeffrey Way </a></li>
+										Selectors You Must Memorize - by Jeffrey Way </a></li>
 									<li><a href="CSSbestPractices.jsp" class="popupwindow">10 CSS
-									                                                       Best Practices - by Jeff Couturier </a></li>
+										Best Practices - by Jeff Couturier </a></li>
 									<li><a href="jqMethods.jsp" class="popupwindow">20
-									                                                jQuery Methods you Should be Using - by Andrew Burgess </a></li>
+										jQuery Methods you Should be Using - by Andrew Burgess </a></li>
 									<li><a href="jqPE.jsp" class="popupwindow">Extending
-									                                           jQuery - by Kevin Liew of www.queness.com </a></li>
+										jQuery - by Kevin Liew of www.queness.com </a></li>
 								</ul>
 							</div>
-
 						</li>
-
 						<li class="row">
-
 							<div class="collapsible-header">Cheatsheets</div>
-
 							<div class="collapsible-body open">
 								<ul>
 									<li><a href="CSSReference.jsp" class="popupwindow">CSS
-									                                                   Cheatsheet - by W3schools.com </a></li>
+										Cheatsheet - by W3schools.com </a></li>
 									<li><a href="xbrowserCSS.jsp" class="popupwindow">Cross-Browser
-									                                                  CSS Cheatsheet - by Paul Irish </a></li>
-
+										CSS Cheatsheet - by Paul Irish </a></li>
 								</ul>
 							</div>
-
 						</li>
-
 						<li class="row">
-
 							<div class="collapsible-header">Style Guides</div>
-
 							<div class="collapsible-body open">
 								<ul>
 									<li><a href="${contextPath}/sources/medialoot.zip">Medialoot Style Guide</a></li>
-									<li><a href="${contextPath}/sources/TypographyStyleGuide.zip">Typography Style Guide</a></li>
+									<li><a href="${contextPath}/sources/TypographyStyleGuide.zip">Typography Style
+										Guide</a></li>
 									<li><a href="${contextPath}/sources/WireframeKit.zip">Wireframe Kit</a></li>
 								</ul>
 							</div>
-
 						</li>
-
 						<li class="row">
-
 							<div class="collapsible-header">Templates</div>
-
 							<div class="collapsible-body open">
 								<ul>
-									<li><a href="${contextPath}/templates/index.html" class="popupwindow" rel="windowCenter">Bootstrap templates</a></li>
-									<li><a href="${contextPath}/sources/StarterTemplate.zip">Photoshop templates</a></li>
+									<li><a href="${contextPath}/templates/index.html" class="popupwindow"
+									       rel="windowCenter">Bootstrap templates</a></li>
+									<li><a href="${contextPath}/sources/StarterTemplate.zip">Photoshop templates</a>
+									</li>
 								</ul>
 							</div>
-
 						</li>
-
 						<li class="row">
-
 							<div class="collapsible-header">More</div>
-
 							<div class="collapsible-body open">
 								<ul>
 									<li><a href="js_questions.jsp" class="popupwindow">Javascript
-									                                                   Interview Questions - from theprofessionalspoint.blogspot.com </a></li>
+										Interview Questions - from theprofessionalspoint.blogspot.com </a></li>
 									<li><a href="FEQ.jsp" class="popupwindow">Front-end Developer
-									                                          Interview Questions - from github.com </a></li>
-									<li><a href="js_callbacks.jsp" class="popupwindow">Javascript Callback Functions </a></li>
+										Interview Questions - from github.com </a></li>
+									<li><a href="js_callbacks.jsp" class="popupwindow">Javascript Callback
+										Functions </a></li>
 								</ul>
 							</div>
-
 						</li>
-
-
 					</ul>
 					<%--<section class="ac-container">
 						<div>
@@ -173,10 +154,7 @@
 							</article>
 						</div>
 					</section>--%>
-
-
 					<br class="clear">
-
 				</section>
 				<br class="clear">
 			</div>
@@ -207,7 +185,6 @@
 
 	ga('create', 'UA-76825466-1', 'auto');
 	ga('send', 'pageview');
-
 </script>
 </body>
 </html>

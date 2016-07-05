@@ -2,182 +2,182 @@
 
 html,
 body {
-	height: auto;
-	font-size: 13px;
+  height: auto;
+  font-size: 13px;
 }
 
 p, td, th, a, li, label, body, div, ul > li, button {
 
-	@include col-xs() {
-		font-size: .9rem;
-		/*    border:1px solid palegreen;*/
-	}
-	@include col-sm-down() {
-		font-size: .9rem;
-		/*    border:1px solid blue;*/
-	}
-	@include col-md-down() {
-		font-size: .9rem;
-		/*    border:1px solid pink;*/
-	}
-	@include col-md-up() {
-		font-size: 1rem;
-		/*    border:1px solid purple;*/
-	}
-	@include col-lg() {
-		font-size: 1rem
-		/*    border:1px solid navajowhite;*/
-	}
-	@include col-xl() {
-		font-size: 1rem
-		/*    border:1px solid cyan;*/
-	}
+  @include col-xs() {
+    font-size: .9rem;
+    /*    border:1px solid palegreen;*/
+  }
+  @include col-sm-down() {
+    font-size: .9rem;
+    /*    border:1px solid blue;*/
+  }
+  @include col-md-down() {
+    font-size: .9rem;
+    /*    border:1px solid pink;*/
+  }
+  @include col-md-up() {
+    font-size: 1rem;
+    /*    border:1px solid purple;*/
+  }
+  @include col-lg() {
+    font-size: 1rem
+    /*    border:1px solid navajowhite;*/
+  }
+  @include col-xl() {
+    font-size: 1rem
+    /*    border:1px solid cyan;*/
+  }
 
 }
 
 h1 {
-	margin: 0 0 1.5rem;
-	@include col-xs() {
-		font-size: 1.25rem;
-	}
-	@include col-sm-down() {
-		font-size: 1.25rem;
-	}
-	@include col-md-down() {
-		font-size: 1.5rem;
-	}
-	@include col-md-up() {
-		font-size: 1.75rem;
-	}
-	@include col-lg() {
-		font-size: 1.75rem;
-	}
-	@include col-xl() {
-		font-size: 1.75rem;
-	}
+  margin: 0 0 1.5rem;
+  @include col-xs() {
+    font-size: 1.25rem;
+  }
+  @include col-sm-down() {
+    font-size: 1.25rem;
+  }
+  @include col-md-down() {
+    font-size: 1.5rem;
+  }
+  @include col-md-up() {
+    font-size: 1.75rem;
+  }
+  @include col-lg() {
+    font-size: 1.75rem;
+  }
+  @include col-xl() {
+    font-size: 1.75rem;
+  }
 }
 
 h2 {
-	margin: 1rem 0 1.5rem;
-	@include col-xs() {
-		font-size: 1rem;
-	}
-	@include col-sm-down() {
-		font-size: 1rem;
-	}
-	@include col-md-down() {
-		font-size: 1.25rem;
-	}
-	@include col-md-up() {
-		font-size: 1.4rem;
-	}
-	@include col-lg() {
-		font-size: 1.4rem;
-	}
-	@include col-xl() {
-		font-size: 1.5rem;
-	}
+  margin: 1rem 0 1.5rem;
+  @include col-xs() {
+    font-size: 1rem;
+  }
+  @include col-sm-down() {
+    font-size: 1rem;
+  }
+  @include col-md-down() {
+    font-size: 1.25rem;
+  }
+  @include col-md-up() {
+    font-size: 1.4rem;
+  }
+  @include col-lg() {
+    font-size: 1.4rem;
+  }
+  @include col-xl() {
+    font-size: 1.5rem;
+  }
 }
 
 h3 {
-	margin: 1rem 0 1.5rem;
-	@include col-xs() {
-		font-size: .9rem;
-	}
-	@include col-sm-down() {
-		font-size: .9rem;
-	}
-	@include col-md-down() {
-		font-size: .9rem;
-	}
-	@include col-md-up() {
-		font-size: 1.1rem;
-	}
-	@include col-lg() {
-		font-size: 1.25rem;
-	}
-	@include col-xl() {
-		font-size: 1.35rem;
-	}
+  margin: 1rem 0 1.5rem;
+  @include col-xs() {
+    font-size: .9rem;
+  }
+  @include col-sm-down() {
+    font-size: .9rem;
+  }
+  @include col-md-down() {
+    font-size: .9rem;
+  }
+  @include col-md-up() {
+    font-size: 1.1rem;
+  }
+  @include col-lg() {
+    font-size: 1.25rem;
+  }
+  @include col-xl() {
+    font-size: 1.35rem;
+  }
 }
 
 h4, legend, span.FL {
-	margin: .7rem 0 .7rem;
-	font-weight: bold;
-	@include col-xs() {
-		font-size: .8rem;
-	}
-	@include col-sm-down() {
-		font-size: .8rem;
-	}
-	@include col-md-down() {
-		font-size: .9rem;
-	}
-	@include col-md-up() {
-		font-size: 1.07rem;
-	}
-	@include col-lg() {
-		font-size: 1.2rem;
-	}
-	@include col-xl() {
-		font-size: 1.2rem;
-	}
+  margin: .7rem 0 .7rem;
+  font-weight: bold;
+  @include col-xs() {
+    font-size: .8rem;
+  }
+  @include col-sm-down() {
+    font-size: .8rem;
+  }
+  @include col-md-down() {
+    font-size: .9rem;
+  }
+  @include col-md-up() {
+    font-size: 1.07rem;
+  }
+  @include col-lg() {
+    font-size: 1.2rem;
+  }
+  @include col-xl() {
+    font-size: 1.2rem;
+  }
 }
 
 ul.hanging > li, ul > li {
-	@include col-md-down() {
-		list-style-image: url(../images/ui/bullet.png);
-		line-height: 1.5rem;
-		margin-left: 2px;
-		padding-bottom: .35rem;
-	}
+  @include col-md-down() {
+    list-style-image: url(../images/ui/bullet.png);
+    line-height: 1.5rem;
+    margin-left: 2px;
+    padding-bottom: .35rem;
+  }
 
 }
 
 .medium-up {
-	@include col-md-down() {
-		display: none;
-	}
-	@include col-sm-down() {
-		display: none;
-	}
+  @include col-md-down() {
+    display: none;
+  }
+  @include col-sm-down() {
+    display: none;
+  }
 }
 
 .hide-for-small {
-	@include col-sm-down() {
-		display: none;
-	}
+  @include col-sm-down() {
+    display: none;
+  }
 }
 
 fieldset {
-	@include col-md-up() {
-		width: 100%;
-	}
-	@include col-md-down() {
-		width: 75%;
-	}
+  @include col-md-up() {
+    width: 100%;
+  }
+  @include col-md-down() {
+    width: 75%;
+  }
 }
 
 .rightbar {
-	@include col-md-down() {
-		display: none;
-	}
+  @include col-md-down() {
+    display: none;
+  }
 }
 
 .cd-secondary-nav-trigger, .cd-secondary-nav-trigger2 {
-	@include col-md-up() {
-		display: none;
-	}
+  @include col-md-up() {
+    display: none;
+  }
 
 }
 
 a.back-to-top {
 
-	@include col-md-down() {
-		bottom: 66px !important;
-		right: 34px !important;
+  @include col-md-down() {
+    bottom: 66px !important;
+    right: 34px !important;
 
-	}
+  }
 }
 
 .table .hanging {

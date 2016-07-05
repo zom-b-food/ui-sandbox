@@ -2,68 +2,69 @@
 // 
 // Adds the possibility to navigate through slides using the keyboard arrow keys, or
 // open the link attached to the main slide image by using the Enter key.
-;(function( window, $ ) {
+;
+(function (window, $) {
 
-	"use strict";
-	
-	var NS = 'Keyboard.' + $.SliderPro.namespace;
+    "use strict";
 
-	var Keyboard = {
+    var NS = 'Keyboard.' + $.SliderPro.namespace;
 
-		initKeyboard: function() {
-			var that = this,
-				hasFocus = false;
+    var Keyboard = {
 
-			if ( this.settings.keyboard === false ) {
-				return;
-			}
+        initKeyboard: function () {
+            var that = this,
+                hasFocus = false;
 
-			// Detect when the slide is in focus and when it's not, and, optionally, make it
-			// responsive to keyboard input only when it's in focus
-			this.$slider.on( 'focus.' + NS, function() {
-				hasFocus = true;
-			});
+            if (this.settings.keyboard === false) {
+                return;
+            }
 
-			this.$slider.on( 'blur.' + NS, function() {
-				hasFocus = false;
-			});
+            // Detect when the slide is in focus and when it's not, and, optionally, make it
+            // responsive to keyboard input only when it's in focus
+            this.$slider.on('focus.' + NS, function () {
+                hasFocus = true;
+            });
 
-			$( document ).on( 'keydown.' + this.uniqueId + '.' + NS, function( event ) {
-				if ( that.settings.keyboardOnlyOnFocus === true && hasFocus === false ) {
-					return;
-				}
+            this.$slider.on('blur.' + NS, function () {
+                hasFocus = false;
+            });
 
-				// If the left arrow key is pressed, go to the previous slide.
-				// If the right arrow key is pressed, go to the next slide.
-				// If the Enter key is pressed, open the link attached to the main slide image.
-				if ( event.which === 37 ) {
-					that.previousSlide();
-				} else if ( event.which === 39 ) {
-					that.nextSlide();
-				} else if ( event.which === 13 ) {
-					that.$slider.find( '.sp-slide' ).eq( that.selectedSlideIndex ).find( '.sp-image-container a' )[0].click();
-				}
-			});
-		},
+            $(document).on('keydown.' + this.uniqueId + '.' + NS, function (event) {
+                if (that.settings.keyboardOnlyOnFocus === true && hasFocus === false) {
+                    return;
+                }
 
-		// Destroy the module
-		destroyKeyboard: function() {
-			this.$slider.off( 'focus.' + NS );
-			this.$slider.off( 'blur.' + NS );
-			$( document ).off( 'keydown.' + this.uniqueId + '.' + NS );
-		},
+                // If the left arrow key is pressed, go to the previous slide.
+                // If the right arrow key is pressed, go to the next slide.
+                // If the Enter key is pressed, open the link attached to the main slide image.
+                if (event.which === 37) {
+                    that.previousSlide();
+                } else if (event.which === 39) {
+                    that.nextSlide();
+                } else if (event.which === 13) {
+                    that.$slider.find('.sp-slide').eq(that.selectedSlideIndex).find('.sp-image-container a')[0].click();
+                }
+            });
+        },
 
-		keyboardDefaults: {
+        // Destroy the module
+        destroyKeyboard: function () {
+            this.$slider.off('focus.' + NS);
+            this.$slider.off('blur.' + NS);
+            $(document).off('keydown.' + this.uniqueId + '.' + NS);
+        },
 
-			// Indicates whether keyboard navigation will be enabled
-			keyboard: true,
+        keyboardDefaults: {
 
-			// Indicates whether the slider will respond to keyboard input only when
-			// the slider is in focus.
-			keyboardOnlyOnFocus: false
-		}
-	};
+            // Indicates whether keyboard navigation will be enabled
+            keyboard: true,
 
-	$.SliderPro.addModule( 'Keyboard', Keyboard );
-	
-})( window, jQuery );
+            // Indicates whether the slider will respond to keyboard input only when
+            // the slider is in focus.
+            keyboardOnlyOnFocus: false
+        }
+    };
+
+    $.SliderPro.addModule('Keyboard', Keyboard);
+
+})(window, jQuery);

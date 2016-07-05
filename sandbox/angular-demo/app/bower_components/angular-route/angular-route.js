@@ -717,7 +717,9 @@
      * ```
      */
     function $RouteParamsProvider() {
-        this.$get = function () { return {}; };
+        this.$get = function () {
+            return {};
+        };
     }
 
     ngRouteModule.directive('ngView', ngViewFactory);

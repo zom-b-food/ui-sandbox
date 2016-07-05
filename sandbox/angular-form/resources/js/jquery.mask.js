@@ -77,7 +77,8 @@
 
                     return pos;
                 }
-                catch (e) {}
+                catch (e) {
+                }
             },
             setCaret: function (pos) {
                 try {
@@ -98,7 +99,8 @@
                         }
                     }
                 }
-                catch (e) {}
+                catch (e) {
+                }
             },
             events: function () {
                 el
@@ -439,7 +441,8 @@
                 }
                 return typeof maskObject !== 'object' || stringify(maskObject.options) !== stringify(options) || maskObject.mask !== mask;
             }
-            catch (e) {}
+            catch (e) {
+            }
         },
         eventSupported = function (eventName) {
             var el = document.createElement('div'), isSupported;

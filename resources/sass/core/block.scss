@@ -11,30 +11,28 @@
 //
 // ========================================================================
 
-
 @import "../variables";
 @import "../mixins";
-
 
 /* ========================================================================
    Component: Block
  ========================================================================== */
 
 .uk-block {
-    position: relative;
-    box-sizing: border-box;
-    padding-top: $block-padding-vertical;
-    padding-bottom: $block-padding-vertical;
-    @include hook-block();
+  position: relative;
+  box-sizing: border-box;
+  padding-top: $block-padding-vertical;
+  padding-bottom: $block-padding-vertical;
+  @include hook-block();
 }
 
 /* Phone landscape and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    .uk-block {
-        padding-top: $block-padding-vertical-large;
-        padding-bottom: $block-padding-vertical-large;
-    }
+  .uk-block {
+    padding-top: $block-padding-vertical-large;
+    padding-bottom: $block-padding-vertical-large;
+  }
 
 }
 
@@ -44,18 +42,21 @@
 
 .uk-block:before,
 .uk-block:after {
-    content: "";
-    display: table;
+  content: "";
+  display: table;
 }
 
-.uk-block:after { clear: both; }
+.uk-block:after {
+  clear: both;
+}
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-block > :last-child { margin-bottom: 0; }
-
+.uk-block > :last-child {
+  margin-bottom: 0;
+}
 
 /* Padding Modifier
  ========================================================================== */
@@ -65,30 +66,29 @@
  */
 
 .uk-block-large {
-    padding-top: $block-large-padding-vertical;
-    padding-bottom: $block-large-padding-vertical;
+  padding-top: $block-large-padding-vertical;
+  padding-bottom: $block-large-padding-vertical;
 }
 
 /* Tablets and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    .uk-block-large {
-        padding-top: $block-large-padding-vertical-medium;
-        padding-bottom: $block-large-padding-vertical-medium;
-    }
+  .uk-block-large {
+    padding-top: $block-large-padding-vertical-medium;
+    padding-bottom: $block-large-padding-vertical-medium;
+  }
 
 }
 
 /* Desktop and bigger */
 @media (min-width: $breakpoint-large) {
 
-    .uk-block-large {
-        padding-top: $block-large-padding-vertical-large;
-        padding-bottom: $block-large-padding-vertical-large;
-    }
+  .uk-block-large {
+    padding-top: $block-large-padding-vertical-large;
+    padding-bottom: $block-large-padding-vertical-large;
+  }
 
 }
-
 
 /* Color Modifier
  ========================================================================== */
@@ -98,8 +98,8 @@
  */
 
 .uk-block-default {
-    background: $block-default-background;
-    @include hook-block-default();
+  background: $block-default-background;
+  @include hook-block-default();
 }
 
 /*
@@ -107,8 +107,8 @@
  */
 
 .uk-block-muted {
-    background: $block-muted-background;
-    @include hook-block-muted();
+  background: $block-muted-background;
+  @include hook-block-muted();
 }
 
 /*
@@ -116,8 +116,8 @@
  */
 
 .uk-block-primary {
-    background: $block-primary-background;
-    @include hook-block-primary();
+  background: $block-primary-background;
+  @include hook-block-primary();
 }
 
 /*
@@ -125,10 +125,9 @@
  */
 
 .uk-block-secondary {
-    background: $block-secondary-background;
-    @include hook-block-secondary();
+  background: $block-secondary-background;
+  @include hook-block-secondary();
 }
-
 
 // Hooks
 // ========================================================================

@@ -73,7 +73,9 @@
         self.defer = function (fn, delay) {
             delay = delay || 0;
             self.deferredFns.push({time: (self.defer.now + delay), fn: fn, id: self.deferredNextId});
-            self.deferredFns.sort(function (a, b) { return a.time - b.time;});
+            self.deferredFns.sort(function (a, b) {
+                return a.time - b.time;
+            });
             return self.deferredNextId++;
         };
 
@@ -297,10 +299,18 @@
 
         this.$get = function () {
             var $log = {
-                log: function () { $log.log.logs.push(concat([], arguments, 0)); },
-                warn: function () { $log.warn.logs.push(concat([], arguments, 0)); },
-                info: function () { $log.info.logs.push(concat([], arguments, 0)); },
-                error: function () { $log.error.logs.push(concat([], arguments, 0)); },
+                log: function () {
+                    $log.log.logs.push(concat([], arguments, 0));
+                },
+                warn: function () {
+                    $log.warn.logs.push(concat([], arguments, 0));
+                },
+                info: function () {
+                    $log.info.logs.push(concat([], arguments, 0));
+                },
+                error: function () {
+                    $log.error.logs.push(concat([], arguments, 0));
+                },
                 debug: function () {
                     if (debug) {
                         $log.debug.logs.push(concat([], arguments, 0));
@@ -493,7 +503,9 @@
                         id: nextRepeatId,
                         deferred: deferred
                     });
-                    repeatFns.sort(function (a, b) { return a.nextTime - b.nextTime;});
+                    repeatFns.sort(function (a, b) {
+                        return a.nextTime - b.nextTime;
+                    });
 
                     nextRepeatId++;
                     return promise;
@@ -542,7 +554,9 @@
                         var task = repeatFns[0];
                         task.fn();
                         task.nextTime += task.delay;
-                        repeatFns.sort(function (a, b) { return a.nextTime - b.nextTime;});
+                        repeatFns.sort(function (a, b) {
+                            return a.nextTime - b.nextTime;
+                        });
                     }
                     return millis;
                 };

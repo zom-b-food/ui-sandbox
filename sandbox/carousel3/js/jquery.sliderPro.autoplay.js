@@ -2,118 +2,119 @@
 // 
 // Adds automatic navigation through the slides by calling the
 // 'nextSlide' or 'previousSlide' methods at certain time intervals.
-;(function( window, $ ) {
+;
+(function (window, $) {
 
-	"use strict";
-	
-	var NS = 'Autoplay.' + $.SliderPro.namespace;
+    "use strict";
 
-	var Autoplay = {
+    var NS = 'Autoplay.' + $.SliderPro.namespace;
 
-		autoplayTimer: null,
+    var Autoplay = {
 
-		isTimerRunning: false,
+        autoplayTimer: null,
 
-		isTimerPaused: false,
+        isTimerRunning: false,
 
-		initAutoplay: function() {
-			this.on( 'update.' + NS, $.proxy( this._autoplayOnUpdate, this ) );
-		},
+        isTimerPaused: false,
 
-		// Start the autoplay if it's enabled, or stop it if it's disabled but running 
-		_autoplayOnUpdate: function( event ) {
-			if ( this.settings.autoplay === true ) {
-				this.on( 'gotoSlide.' + NS, $.proxy( this._autoplayOnGotoSlide, this ) );
-				this.on( 'mouseenter.' + NS, $.proxy( this._autoplayOnMouseEnter, this ) );
-				this.on( 'mouseleave.' + NS, $.proxy( this._autoplayOnMouseLeave, this ) );
+        initAutoplay: function () {
+            this.on('update.' + NS, $.proxy(this._autoplayOnUpdate, this));
+        },
 
-				this.startAutoplay();
-			} else {
-				this.off( 'gotoSlide.' + NS );
-				this.off( 'mouseenter.' + NS );
-				this.off( 'mouseleave.' + NS );
+        // Start the autoplay if it's enabled, or stop it if it's disabled but running
+        _autoplayOnUpdate: function (event) {
+            if (this.settings.autoplay === true) {
+                this.on('gotoSlide.' + NS, $.proxy(this._autoplayOnGotoSlide, this));
+                this.on('mouseenter.' + NS, $.proxy(this._autoplayOnMouseEnter, this));
+                this.on('mouseleave.' + NS, $.proxy(this._autoplayOnMouseLeave, this));
 
-				this.stopAutoplay();
-			}
-		},
+                this.startAutoplay();
+            } else {
+                this.off('gotoSlide.' + NS);
+                this.off('mouseenter.' + NS);
+                this.off('mouseleave.' + NS);
 
-		// Restart the autoplay timer when a new slide is selected
-		_autoplayOnGotoSlide: function( event ) {
-			// stop previous timers before starting a new one
-			if ( this.isTimerRunning === true ) {
-				this.stopAutoplay();
-			}
-			
-			if ( this.isTimerPaused === false ) {
-				this.startAutoplay();
-			}
-		},
+                this.stopAutoplay();
+            }
+        },
 
-		// Pause the autoplay when the slider is hovered
-		_autoplayOnMouseEnter: function( event ) {
-			if ( this.isTimerRunning && ( this.settings.autoplayOnHover === 'pause' || this.settings.autoplayOnHover === 'stop' ) ) {
-				this.stopAutoplay();
-				this.isTimerPaused = true;
-			}
-		},
+        // Restart the autoplay timer when a new slide is selected
+        _autoplayOnGotoSlide: function (event) {
+            // stop previous timers before starting a new one
+            if (this.isTimerRunning === true) {
+                this.stopAutoplay();
+            }
 
-		// Start the autoplay when the mouse moves away from the slider
-		_autoplayOnMouseLeave: function( event ) {
-			if ( this.settings.autoplay === true && this.isTimerRunning === false && this.settings.autoplayOnHover !== 'stop' ) {
-				this.startAutoplay();
-				this.isTimerPaused = false;
-			}
-		},
+            if (this.isTimerPaused === false) {
+                this.startAutoplay();
+            }
+        },
 
-		// Starts the autoplay
-		startAutoplay: function() {
-			var that = this;
-			
-			this.isTimerRunning = true;
+        // Pause the autoplay when the slider is hovered
+        _autoplayOnMouseEnter: function (event) {
+            if (this.isTimerRunning && ( this.settings.autoplayOnHover === 'pause' || this.settings.autoplayOnHover === 'stop' )) {
+                this.stopAutoplay();
+                this.isTimerPaused = true;
+            }
+        },
 
-			this.autoplayTimer = setTimeout(function() {
-				if ( that.settings.autoplayDirection === 'normal' ) {
-					that.nextSlide();
-				} else if ( that.settings.autoplayDirection === 'backwards' ) {
-					that.previousSlide();
-				}
-			}, this.settings.autoplayDelay );
-		},
+        // Start the autoplay when the mouse moves away from the slider
+        _autoplayOnMouseLeave: function (event) {
+            if (this.settings.autoplay === true && this.isTimerRunning === false && this.settings.autoplayOnHover !== 'stop') {
+                this.startAutoplay();
+                this.isTimerPaused = false;
+            }
+        },
 
-		// Stops the autoplay
-		stopAutoplay: function() {
-			this.isTimerRunning = false;
-			this.isTimerPaused = false;
+        // Starts the autoplay
+        startAutoplay: function () {
+            var that = this;
 
-			clearTimeout( this.autoplayTimer );
-		},
+            this.isTimerRunning = true;
 
-		// Destroy the module
-		destroyAutoplay: function() {
-			clearTimeout( this.autoplayTimer );
+            this.autoplayTimer = setTimeout(function () {
+                if (that.settings.autoplayDirection === 'normal') {
+                    that.nextSlide();
+                } else if (that.settings.autoplayDirection === 'backwards') {
+                    that.previousSlide();
+                }
+            }, this.settings.autoplayDelay);
+        },
 
-			this.off( 'update.' + NS );
-			this.off( 'gotoSlide.' + NS );
-			this.off( 'mouseenter.' + NS );
-			this.off( 'mouseleave.' + NS );
-		},
+        // Stops the autoplay
+        stopAutoplay: function () {
+            this.isTimerRunning = false;
+            this.isTimerPaused = false;
 
-		autoplayDefaults: {
-			// Indicates whether or not autoplay will be enabled
-			autoplay: true,
+            clearTimeout(this.autoplayTimer);
+        },
 
-			// Sets the delay/interval at which the autoplay will run
-			autoplayDelay: 5000,
+        // Destroy the module
+        destroyAutoplay: function () {
+            clearTimeout(this.autoplayTimer);
 
-			// Indicates whether autoplay will navigate to the next slide or previous slide
-			autoplayDirection: 'normal',
+            this.off('update.' + NS);
+            this.off('gotoSlide.' + NS);
+            this.off('mouseenter.' + NS);
+            this.off('mouseleave.' + NS);
+        },
 
-			// Indicates if the autoplay will be paused or stopped when the slider is hovered.
-			// Possible values are 'pause', 'stop' or 'none'.
-			autoplayOnHover: 'pause'
-		}
-	};
+        autoplayDefaults: {
+            // Indicates whether or not autoplay will be enabled
+            autoplay: true,
 
-	$.SliderPro.addModule( 'Autoplay', Autoplay );
-	
+            // Sets the delay/interval at which the autoplay will run
+            autoplayDelay: 5000,
+
+            // Indicates whether autoplay will navigate to the next slide or previous slide
+            autoplayDirection: 'normal',
+
+            // Indicates if the autoplay will be paused or stopped when the slider is hovered.
+            // Possible values are 'pause', 'stop' or 'none'.
+            autoplayOnHover: 'pause'
+        }
+    };
+
+    $.SliderPro.addModule('Autoplay', Autoplay);
+
 })(window, jQuery);

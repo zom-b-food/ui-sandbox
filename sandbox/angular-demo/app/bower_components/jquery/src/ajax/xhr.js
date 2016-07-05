@@ -8,7 +8,8 @@ define([
         try {
             return new XMLHttpRequest();
         }
-        catch (e) {}
+        catch (e) {
+        }
     };
 
     var xhrId = 0,

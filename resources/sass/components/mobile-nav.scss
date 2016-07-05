@@ -1,4 +1,3 @@
-
 @import "../mixins";
 @import "../variables";
 
@@ -17,17 +16,17 @@
 
 #toggle-menu1, #toggle-menu2 {
   position: relative;
-  height:24px;
+  height: 24px;
   width: 80px;
   cursor: pointer;
   text-indent: -99999em;
   opacity: .7;
   &:hover {
-    opacity:1;
+    opacity: 1;
   }
 }
 
-.mobile-navigation1  {
+.mobile-navigation1 {
   width: 0;
   height: 100%;
   overflow: hidden;
@@ -38,12 +37,12 @@
   z-index: 200;
 }
 
-.mobile-navigation2  {
+.mobile-navigation2 {
   width: 0;
   height: 100%;
   overflow: hidden;
   position: fixed;
-  right:0;
+  right: 0;
   top: 0;
   background: $blackish;
   z-index: 200;
@@ -58,20 +57,21 @@
 .mobile-navigation1 li, .mobile-navigation2 li {
   padding: 8px 0;
 }
+
 .mobile-navigation1 li {
-  padding:6px;
-  height:22px;
-  width:100%;
+  padding: 6px;
+  height: 22px;
+  width: 100%;
   list-style-type: none;
-  color:white;
+  color: white;
 }
 
 .mobile-navigation1 li.uk-nav-header {
-  padding:6px;
-  height:22px;
-  width:100%;
+  padding: 6px;
+  height: 22px;
+  width: 100%;
   list-style-type: none;
-  color:white;
+  color: white;
 
 }
 
@@ -79,37 +79,39 @@
   padding-top: 12px;
   height: 20px;
   padding-left: 12px;
-  border:1px solid $camel;
+  border: 1px solid $camel;
 
   border-radius: 3px;
   width: 90%;
   span {
-    float:left;
+    float: left;
   }
 }
+
 .mobile-navigation1 li span {
-  float:left;
+  float: left;
 }
+
 .mobile-navigation1 a.link1 {
   padding: 5px 10px;
   color: #fff;
 
   white-space: nowrap;
-  height:33px;
+  height: 33px;
   span {
-    float:left;
+    float: left;
   }
 }
 
 .mobile-navigation2 li.uk-nav-header {
-  color:$palegreen;
+  color: $palegreen;
   text-transform: uppercase;
 }
 
 .mobile-navigation2 li.uk-active {
   background: $slategreen;
-  border:1px solid $camel;
-  padding-left:10px;
+  border: 1px solid $camel;
+  padding-left: 10px;
   border-radius: 3px;
   width: 90%;
 }
@@ -117,7 +119,7 @@
 .mobile-navigation2 a.anchor {
   padding: 5px 0;
   color: #fff;
-  padding-left:10px;
+  padding-left: 10px;
   white-space: nowrap;
 }
 
@@ -145,6 +147,5 @@
 }
 
 .am-nav1 {
-
 
 }

@@ -18,13 +18,13 @@ package checkbox;
 
 public class CheckTest {
 
-    String b[] = new String[] { "1", "2", "3", "4", "5" };
+    String b[] = new String[]{"1", "2", "3", "4", "5"};
 
     public String[] getLocale() {
-	return b;
+        return b;
     }
 
-    public void setLocale(String [] b) {
-	this.b = b;
+    public void setLocale(String[] b) {
+        this.b = b;
     }
 }

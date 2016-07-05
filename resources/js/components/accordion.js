@@ -1,5 +1,5 @@
 /*! UIkit 2.26.2 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function(addon) {
+(function (addon) {
     var component;
 
     if (window.UIkit) {
@@ -7,39 +7,39 @@
     }
 
     if (typeof define == "function" && define.amd) {
-        define("uikit-accordion", ["uikit"], function(){
+        define("uikit-accordion", ["uikit"], function () {
             return component || addon(UIkit);
         });
     }
-})(function(UI){
+})(function (UI) {
 
     "use strict";
 
     UI.component('accordion', {
 
         defaults: {
-            showfirst  : true,
-            collapse   : true,
-            animate    : true,
-            easing     : 'swing',
-            duration   : 300,
-            toggle     : '.uk-accordion-title',
-            containers : '.uk-accordion-content',
-            clsactive  : 'uk-active'
+            showfirst: true,
+            collapse: true,
+            animate: true,
+            easing: 'swing',
+            duration: 300,
+            toggle: '.uk-accordion-title',
+            containers: '.uk-accordion-content',
+            clsactive: 'uk-active'
         },
 
-        boot:  function() {
+        boot: function () {
 
             // init code
-            UI.ready(function(context) {
+            UI.ready(function (context) {
 
-                setTimeout(function(){
+                setTimeout(function () {
 
-                    UI.$("[data-uk-accordion]", context).each(function(){
+                    UI.$("[data-uk-accordion]", context).each(function () {
 
                         var ele = UI.$(this);
 
-                        if(!ele.data("accordion")) {
+                        if (!ele.data("accordion")) {
                             UI.accordion(ele, UI.Utils.options(ele.attr('data-uk-accordion')));
                         }
                     });
@@ -48,11 +48,11 @@
             });
         },
 
-        init: function() {
+        init: function () {
 
             var $this = this;
 
-            this.element.on('click.uk.accordion', this.options.toggle, function(e) {
+            this.element.on('click.uk.accordion', this.options.toggle, function (e) {
 
                 e.preventDefault();
 
@@ -66,7 +66,7 @@
             }
         },
 
-        toggleItem: function(wrapper, animated, collapse) {
+        toggleItem: function (wrapper, animated, collapse) {
 
             var $this = this;
 
@@ -85,7 +85,7 @@
 
             if (animated) {
 
-                wrapper.animate({ height: active ? getHeight(wrapper.data('content')) : 0 }, {easing: this.options.easing, duration: this.options.duration, complete: function() {
+                wrapper.animate({ height: active ? getHeight(wrapper.data('content')) : 0 }, {easing: this.options.easing, duration: this.options.duration, complete: function () {
 
                     if (active) {
                         wrapper.css({'overflow': '', 'height': 'auto'});
@@ -113,14 +113,14 @@
             this.element.trigger('toggle.uk.accordion', [active, wrapper.data('toggle'), wrapper.data('content')]);
         },
 
-        update: function() {
+        update: function () {
 
             var $this = this, $content, $wrapper, $toggle;
 
             this.toggle = this.find(this.options.toggle);
             this.content = this.find(this.options.containers);
 
-            this.content.each(function(index) {
+            this.content.each(function (index) {
 
                 $content = UI.$(this);
 
@@ -157,9 +157,9 @@
         } else {
 
             var tmp = {
-                position   : $ele.css("position"),
-                visibility : $ele.css("visibility"),
-                display    : $ele.css("display")
+                position: $ele.css("position"),
+                visibility: $ele.css("visibility"),
+                display: $ele.css("display")
             };
 
             height = $ele.css({position: 'absolute', visibility: 'hidden', display: 'block'}).outerHeight();

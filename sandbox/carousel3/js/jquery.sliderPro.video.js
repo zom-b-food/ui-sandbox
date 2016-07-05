@@ -1,1027 +1,1043 @@
 // Video module for Slider Pro
 //
 // Adds automatic control for several video players and providers
-;(function( window, $ ) {
+;
+(function (window, $) {
 
-	"use strict";
+    "use strict";
 
-	var NS = 'Video.' + $.SliderPro.namespace;
-	
-	var Video = {
+    var NS = 'Video.' + $.SliderPro.namespace;
 
-		initVideo: function() {
-			this.on( 'update.' + NS, $.proxy( this._videoOnUpdate, this ) );
-			this.on( 'gotoSlideComplete.' + NS, $.proxy( this._videoOnGotoSlideComplete, this ) );
-		},
+    var Video = {
 
-		_videoOnUpdate: function() {
-			var that = this;
+        initVideo: function () {
+            this.on('update.' + NS, $.proxy(this._videoOnUpdate, this));
+            this.on('gotoSlideComplete.' + NS, $.proxy(this._videoOnGotoSlideComplete, this));
+        },
 
-			// Find all the inline videos and initialize them
-			this.$slider.find( '.sp-video' ).not( 'a, [data-video-init]' ).each(function() {
-				var video = $( this );
-				that._initVideo( video );
-			});
+        _videoOnUpdate: function () {
+            var that = this;
 
-			// Find all the lazy-loaded videos and preinitialize them. They will be initialized
-			// only when their play button is clicked.
-			this.$slider.find( 'a.sp-video' ).not( '[data-video-preinit]' ).each(function() {
-				var video = $( this );
-				that._preinitVideo( video );
-			});
-		},
+            // Find all the inline videos and initialize them
+            this.$slider.find('.sp-video').not('a, [data-video-init]').each(function () {
+                var video = $(this);
+                that._initVideo(video);
+            });
 
-		// Initialize the target video
-		_initVideo: function( video ) {
-			var that = this;
+            // Find all the lazy-loaded videos and preinitialize them. They will be initialized
+            // only when their play button is clicked.
+            this.$slider.find('a.sp-video').not('[data-video-preinit]').each(function () {
+                var video = $(this);
+                that._preinitVideo(video);
+            });
+        },
 
-			video.attr( 'data-video-init', true )
-				.videoController();
+        // Initialize the target video
+        _initVideo: function (video) {
+            var that = this;
 
-			// When the video starts playing, pause the autoplay if it's running
-			video.on( 'videoPlay.' + NS, function() {
-				if ( that.settings.playVideoAction === 'stopAutoplay' && typeof that.stopAutoplay !== 'undefined' ) {
-					that.stopAutoplay();
-					that.settings.autoplay = false;
-				}
+            video.attr('data-video-init', true)
+                .videoController();
 
-				// Fire the 'videoPlay' event
-				var eventObject = { type: 'videoPlay', video: video };
-				that.trigger( eventObject );
-				if ( $.isFunction( that.settings.videoPlay ) ) {
-					that.settings.videoPlay.call( that, eventObject );
-				}
-			});
+            // When the video starts playing, pause the autoplay if it's running
+            video.on('videoPlay.' + NS, function () {
+                if (that.settings.playVideoAction === 'stopAutoplay' && typeof that.stopAutoplay !== 'undefined') {
+                    that.stopAutoplay();
+                    that.settings.autoplay = false;
+                }
 
-			// When the video is paused, restart the autoplay
-			video.on( 'videoPause.' + NS, function() {
-				if ( that.settings.pauseVideoAction === 'startAutoplay' && typeof that.startAutoplay !== 'undefined' ) {
-					that.startAutoplay();
-					that.settings.autoplay = true;
-				}
+                // Fire the 'videoPlay' event
+                var eventObject = { type: 'videoPlay', video: video };
+                that.trigger(eventObject);
+                if ($.isFunction(that.settings.videoPlay)) {
+                    that.settings.videoPlay.call(that, eventObject);
+                }
+            });
 
-				// Fire the 'videoPause' event
-				var eventObject = { type: 'videoPause', video: video };
-				that.trigger( eventObject );
-				if ( $.isFunction( that.settings.videoPause ) ) {
-					that.settings.videoPause.call( that, eventObject );
-				}
-			});
+            // When the video is paused, restart the autoplay
+            video.on('videoPause.' + NS, function () {
+                if (that.settings.pauseVideoAction === 'startAutoplay' && typeof that.startAutoplay !== 'undefined') {
+                    that.startAutoplay();
+                    that.settings.autoplay = true;
+                }
 
-			// When the video ends, restart the autoplay (which was paused during the playback), or
-			// go to the next slide, or replay the video
-			video.on( 'videoEnded.' + NS, function() {
-				if ( that.settings.endVideoAction === 'startAutoplay' && typeof that.startAutoplay !== 'undefined' ) {
-					that.startAutoplay();
-					that.settings.autoplay = true;
-				} else if ( that.settings.endVideoAction === 'nextSlide' ) {
-					that.nextSlide();
-				} else if ( that.settings.endVideoAction === 'replayVideo' ) {
-					video.videoController( 'replay' );
-				}
+                // Fire the 'videoPause' event
+                var eventObject = { type: 'videoPause', video: video };
+                that.trigger(eventObject);
+                if ($.isFunction(that.settings.videoPause)) {
+                    that.settings.videoPause.call(that, eventObject);
+                }
+            });
 
-				// Fire the 'videoEnd' event
-				var eventObject = { type: 'videoEnd', video: video };
-				that.trigger( eventObject );
-				if ( $.isFunction(that.settings.videoEnd ) ) {
-					that.settings.videoEnd.call( that, eventObject );
-				}
-			});
-		},
+            // When the video ends, restart the autoplay (which was paused during the playback), or
+            // go to the next slide, or replay the video
+            video.on('videoEnded.' + NS, function () {
+                if (that.settings.endVideoAction === 'startAutoplay' && typeof that.startAutoplay !== 'undefined') {
+                    that.startAutoplay();
+                    that.settings.autoplay = true;
+                } else if (that.settings.endVideoAction === 'nextSlide') {
+                    that.nextSlide();
+                } else if (that.settings.endVideoAction === 'replayVideo') {
+                    video.videoController('replay');
+                }
 
-		// Pre-initialize the video. This is for lazy loaded videos.
-		_preinitVideo: function( video ) {
-			var that = this;
+                // Fire the 'videoEnd' event
+                var eventObject = { type: 'videoEnd', video: video };
+                that.trigger(eventObject);
+                if ($.isFunction(that.settings.videoEnd)) {
+                    that.settings.videoEnd.call(that, eventObject);
+                }
+            });
+        },
 
-			video.attr( 'data-video-preinit', true );
+        // Pre-initialize the video. This is for lazy loaded videos.
+        _preinitVideo: function (video) {
+            var that = this;
 
-			// When the video poster is clicked, remove the poster and create
-			// the inline video
-			video.on( 'click.' + NS, function( event ) {
+            video.attr('data-video-preinit', true);
 
-				// If the video is being dragged, don't start the video
-				if ( that.$slider.hasClass( 'sp-swiping' ) ) {
-					return;
-				}
+            // When the video poster is clicked, remove the poster and create
+            // the inline video
+            video.on('click.' + NS, function (event) {
 
-				event.preventDefault();
+                // If the video is being dragged, don't start the video
+                if (that.$slider.hasClass('sp-swiping')) {
+                    return;
+                }
 
-				var href = video.attr( 'href' ),
-					iframe,
-					provider,
-					regExp,
-					match,
-					id,
-					src,
-					videoAttributes,
-					videoWidth = video.children( 'img' ).attr( 'width' ),
-					videoHeight = video.children( 'img' ).attr( 'height');
+                event.preventDefault();
 
-				// Check if it's a youtube or vimeo video
-				if ( href.indexOf( 'youtube' ) !== -1 || href.indexOf( 'youtu.be' ) !== -1 ) {
-					provider = 'youtube';
-				} else if ( href.indexOf( 'vimeo' ) !== -1 ) {
-					provider = 'vimeo';
-				}
+                var href = video.attr('href'),
+                    iframe,
+                    provider,
+                    regExp,
+                    match,
+                    id,
+                    src,
+                    videoAttributes,
+                    videoWidth = video.children('img').attr('width'),
+                    videoHeight = video.children('img').attr('height');
 
-				// Get the id of the video
-				regExp = provider === 'youtube' ? /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/ : /http:\/\/(www\.)?vimeo.com\/(\d+)/;
-				match = href.match( regExp );
-				id = match[2];
+                // Check if it's a youtube or vimeo video
+                if (href.indexOf('youtube') !== -1 || href.indexOf('youtu.be') !== -1) {
+                    provider = 'youtube';
+                } else if (href.indexOf('vimeo') !== -1) {
+                    provider = 'vimeo';
+                }
 
-				// Get the source of the iframe that will be created
-				src = provider === 'youtube' ? 'http://www.youtube.com/embed/' + id + '?enablejsapi=1&wmode=opaque' : 'http://player.vimeo.com/video/'+ id +'?api=1';
-				
-				// Get the attributes passed to the video link and then pass them to the iframe's src
-				videoAttributes = href.split( '?' )[ 1 ];
+                // Get the id of the video
+                regExp = provider === 'youtube' ? /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/ : /http:\/\/(www\.)?vimeo.com\/(\d+)/;
+                match = href.match(regExp);
+                id = match[2];
 
-				if ( typeof videoAttributes !== 'undefined' ) {
-					videoAttributes = videoAttributes.split( '&' );
+                // Get the source of the iframe that will be created
+                src = provider === 'youtube' ? 'http://www.youtube.com/embed/' + id + '?enablejsapi=1&wmode=opaque' : 'http://player.vimeo.com/video/' + id + '?api=1';
 
-					$.each( videoAttributes, function( index, value ) {
-						if ( value.indexOf( id ) === -1 ) {
-							src += '&' + value;
-						}
-					});
-				}
+                // Get the attributes passed to the video link and then pass them to the iframe's src
+                videoAttributes = href.split('?')[ 1 ];
 
-				// Create the iframe
-				iframe = $( '<iframe></iframe>' )
-					.attr({
-						'src': src,
-						'width': videoWidth,
-						'height': videoHeight,
-						'class': video.attr( 'class' ),
-						'frameborder': 0
-					}).insertBefore( video );
+                if (typeof videoAttributes !== 'undefined') {
+                    videoAttributes = videoAttributes.split('&');
 
-				// Initialize the video and play it
-				that._initVideo( iframe );
-				iframe.videoController( 'play' );
+                    $.each(videoAttributes, function (index, value) {
+                        if (value.indexOf(id) === -1) {
+                            src += '&' + value;
+                        }
+                    });
+                }
 
-				// Hide the video poster
-				video.css( 'display', 'none' );
-			});
-		},
+                // Create the iframe
+                iframe = $('<iframe></iframe>')
+                    .attr({
+                        'src': src,
+                        'width': videoWidth,
+                        'height': videoHeight,
+                        'class': video.attr('class'),
+                        'frameborder': 0
+                    }).insertBefore(video);
 
-		// Called when a new slide is selected
-		_videoOnGotoSlideComplete: function( event ) {
+                // Initialize the video and play it
+                that._initVideo(iframe);
+                iframe.videoController('play');
 
-			// Get the video from the previous slide
-			var previousVideo = this.$slides.find( '.sp-slide' ).eq( event.previousIndex ).find( '.sp-video[data-video-init]' );
+                // Hide the video poster
+                video.css('display', 'none');
+            });
+        },
 
-			// Handle the video from the previous slide by stopping it, or pausing it,
-			// or remove it, depending on the value of the 'leaveVideoAction' option.
-			if ( event.previousIndex !== -1 && previousVideo.length !== 0 ) {
-				if ( this.settings.leaveVideoAction === 'stopVideo' ) {
-					previousVideo.videoController( 'stop' );
-				} else if ( this.settings.leaveVideoAction === 'pauseVideo' ) {
-					previousVideo.videoController( 'pause' );
-				} else if ( this.settings.leaveVideoAction === 'removeVideo'  ) {
-					// If the video was lazy-loaded, remove it and show the poster again. If the video
-					// was not lazy-loaded, but inline, stop the video.
-					if ( previousVideo.siblings( 'a.sp-video' ).length !== 0 ) {
-						previousVideo.siblings( 'a.sp-video' ).css( 'display', '' );
-						previousVideo.videoController( 'destroy' );
-						previousVideo.remove();
-					} else {
-						previousVideo.videoController( 'stop' );
-					}
-				}
-			}
+        // Called when a new slide is selected
+        _videoOnGotoSlideComplete: function (event) {
 
-			// Handle the video from the selected slide
-			if ( this.settings.reachVideoAction === 'playVideo' ) {
-				var loadedVideo = this.$slides.find( '.sp-slide' ).eq( event.index ).find( '.sp-video[data-video-init]' ),
-					unloadedVideo = this.$slides.find( '.sp-slide' ).eq( event.index ).find( '.sp-video[data-video-preinit]' );
+            // Get the video from the previous slide
+            var previousVideo = this.$slides.find('.sp-slide').eq(event.previousIndex).find('.sp-video[data-video-init]');
 
-				// If the video was already initialized, play it. If it's not initialized (because
-				// it's lazy loaded) initialize it and play it.
-				if ( loadedVideo.length !== 0 ) {
-					loadedVideo.videoController( 'play' );
-				} else if ( unloadedVideo.length !== 0 ) {
-					unloadedVideo.trigger( 'click.' + NS );
-				}
-			}
-		},
+            // Handle the video from the previous slide by stopping it, or pausing it,
+            // or remove it, depending on the value of the 'leaveVideoAction' option.
+            if (event.previousIndex !== -1 && previousVideo.length !== 0) {
+                if (this.settings.leaveVideoAction === 'stopVideo') {
+                    previousVideo.videoController('stop');
+                } else if (this.settings.leaveVideoAction === 'pauseVideo') {
+                    previousVideo.videoController('pause');
+                } else if (this.settings.leaveVideoAction === 'removeVideo') {
+                    // If the video was lazy-loaded, remove it and show the poster again. If the video
+                    // was not lazy-loaded, but inline, stop the video.
+                    if (previousVideo.siblings('a.sp-video').length !== 0) {
+                        previousVideo.siblings('a.sp-video').css('display', '');
+                        previousVideo.videoController('destroy');
+                        previousVideo.remove();
+                    } else {
+                        previousVideo.videoController('stop');
+                    }
+                }
+            }
 
-		// Destroy the module
-		destroyVideo: function() {
-			this.$slider.find( '.sp-video[ data-video-preinit ]' ).each(function() {
-				var video = $( this );
-				video.removeAttr( 'data-video-preinit' );
-				video.off( 'click.' + NS );
-			});
+            // Handle the video from the selected slide
+            if (this.settings.reachVideoAction === 'playVideo') {
+                var loadedVideo = this.$slides.find('.sp-slide').eq(event.index).find('.sp-video[data-video-init]'),
+                    unloadedVideo = this.$slides.find('.sp-slide').eq(event.index).find('.sp-video[data-video-preinit]');
 
-			// Loop through the all the videos and destroy them
-			this.$slider.find( '.sp-video[ data-video-init ]' ).each(function() {
-				var video = $( this );
-				video.removeAttr( 'data-video-init' );
-				video.off( 'Video' );
-				video.videoController( 'destroy' );
-			});
+                // If the video was already initialized, play it. If it's not initialized (because
+                // it's lazy loaded) initialize it and play it.
+                if (loadedVideo.length !== 0) {
+                    loadedVideo.videoController('play');
+                } else if (unloadedVideo.length !== 0) {
+                    unloadedVideo.trigger('click.' + NS);
+                }
+            }
+        },
 
-			this.off( 'update.' + NS );
-			this.off( 'gotoSlideComplete.' + NS );
-		},
+        // Destroy the module
+        destroyVideo: function () {
+            this.$slider.find('.sp-video[ data-video-preinit ]').each(function () {
+                var video = $(this);
+                video.removeAttr('data-video-preinit');
+                video.off('click.' + NS);
+            });
 
-		videoDefaults: {
+            // Loop through the all the videos and destroy them
+            this.$slider.find('.sp-video[ data-video-init ]').each(function () {
+                var video = $(this);
+                video.removeAttr('data-video-init');
+                video.off('Video');
+                video.videoController('destroy');
+            });
 
-			// Sets the action that the video will perform when its slide container is selected
-			// ( 'playVideo' and 'none' )
-			reachVideoAction: 'none',
+            this.off('update.' + NS);
+            this.off('gotoSlideComplete.' + NS);
+        },
 
-			// Sets the action that the video will perform when another slide is selected
-			// ( 'stopVideo', 'pauseVideo', 'removeVideo' and 'none' )
-			leaveVideoAction: 'pauseVideo',
+        videoDefaults: {
 
-			// Sets the action that the slider will perform when the video starts playing
-			// ( 'stopAutoplay' and 'none' )
-			playVideoAction: 'stopAutoplay',
+            // Sets the action that the video will perform when its slide container is selected
+            // ( 'playVideo' and 'none' )
+            reachVideoAction: 'none',
 
-			// Sets the action that the slider will perform when the video is paused
-			// ( 'startAutoplay' and 'none' )
-			pauseVideoAction: 'none',
+            // Sets the action that the video will perform when another slide is selected
+            // ( 'stopVideo', 'pauseVideo', 'removeVideo' and 'none' )
+            leaveVideoAction: 'pauseVideo',
 
-			// Sets the action that the slider will perform when the video ends
-			// ( 'startAutoplay', 'nextSlide', 'replayVideo' and 'none' )
-			endVideoAction: 'none',
+            // Sets the action that the slider will perform when the video starts playing
+            // ( 'stopAutoplay' and 'none' )
+            playVideoAction: 'stopAutoplay',
 
-			// Called when the video starts playing
-			videoPlay: function() {},
+            // Sets the action that the slider will perform when the video is paused
+            // ( 'startAutoplay' and 'none' )
+            pauseVideoAction: 'none',
 
-			// Called when the video is paused
-			videoPause: function() {},
+            // Sets the action that the slider will perform when the video ends
+            // ( 'startAutoplay', 'nextSlide', 'replayVideo' and 'none' )
+            endVideoAction: 'none',
 
-			// Called when the video ends
-			videoEnd: function() {}
-		}
-	};
+            // Called when the video starts playing
+            videoPlay: function () {
+            },
 
-	$.SliderPro.addModule( 'Video', Video );
-	
-})( window, jQuery );
+            // Called when the video is paused
+            videoPause: function () {
+            },
+
+            // Called when the video ends
+            videoEnd: function () {
+            }
+        }
+    };
+
+    $.SliderPro.addModule('Video', Video);
+
+})(window, jQuery);
 
 // Video Controller jQuery plugin
 // Creates a universal controller for multiple video types and providers
-;(function( $ ) {
+;
+(function ($) {
 
-	"use strict";
+    "use strict";
 
 // Check if an iOS device is used.
 // This information is important because a video can not be
 // controlled programmatically unless the user has started the video manually.
-var	isIOS = window.navigator.userAgent.match( /(iPad|iPhone|iPod)/g ) ? true : false;
+    var isIOS = window.navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false;
 
-var VideoController = function( instance, options ) {
-	this.$video = $( instance );
-	this.options = options;
-	this.settings = {};
-	this.player = null;
+    var VideoController = function (instance, options) {
+        this.$video = $(instance);
+        this.options = options;
+        this.settings = {};
+        this.player = null;
 
-	this._init();
-};
+        this._init();
+    };
 
-VideoController.prototype = {
+    VideoController.prototype = {
 
-	_init: function() {
-		this.settings = $.extend( {}, this.defaults, this.options );
+        _init: function () {
+            this.settings = $.extend({}, this.defaults, this.options);
 
-		var that = this,
-			players = $.VideoController.players,
-			videoID = this.$video.attr( 'id' );
+            var that = this,
+                players = $.VideoController.players,
+                videoID = this.$video.attr('id');
 
-		// Loop through the available video players
-		// and check if the targeted video element is supported by one of the players.
-		// If a compatible type is found, store the video type.
-		for ( var name in players ) {
-			if ( typeof players[ name ] !== 'undefined' && players[ name ].isType( this.$video ) ) {
-				this.player = new players[ name ]( this.$video );
-				break;
-			}
-		}
+            // Loop through the available video players
+            // and check if the targeted video element is supported by one of the players.
+            // If a compatible type is found, store the video type.
+            for (var name in players) {
+                if (typeof players[ name ] !== 'undefined' && players[ name ].isType(this.$video)) {
+                    this.player = new players[ name ](this.$video);
+                    break;
+                }
+            }
 
-		// Return if the player could not be instantiated
-		if ( this.player === null ) {
-			return;
-		}
+            // Return if the player could not be instantiated
+            if (this.player === null) {
+                return;
+            }
 
-		// Add event listeners
-		var events = [ 'ready', 'start', 'play', 'pause', 'ended' ];
-		
-		$.each( events, function( index, element ) {
-			var event = 'video' + element.charAt( 0 ).toUpperCase() + element.slice( 1 );
+            // Add event listeners
+            var events = [ 'ready', 'start', 'play', 'pause', 'ended' ];
 
-			that.player.on( element, function() {
-				that.trigger({ type: event, video: videoID });
-				if ( $.isFunction( that.settings[ event ] ) ) {
-					that.settings[ event ].call( that, { type: event, video: videoID } );
-				}
-			});
-		});
-	},
-	
-	play: function() {
-		if ( isIOS === true && this.player.isStarted() === false || this.player.getState() === 'playing' ) {
-			return;
-		}
+            $.each(events, function (index, element) {
+                var event = 'video' + element.charAt(0).toUpperCase() + element.slice(1);
 
-		this.player.play();
-	},
-	
-	stop: function() {
-		if ( isIOS === true && this.player.isStarted() === false || this.player.getState() === 'stopped' ) {
-			return;
-		}
+                that.player.on(element, function () {
+                    that.trigger({ type: event, video: videoID });
+                    if ($.isFunction(that.settings[ event ])) {
+                        that.settings[ event ].call(that, { type: event, video: videoID });
+                    }
+                });
+            });
+        },
 
-		this.player.stop();
-	},
-	
-	pause: function() {
-		if ( isIOS === true && this.player.isStarted() === false || this.player.getState() === 'paused' ) {
-			return;
-		}
+        play: function () {
+            if (isIOS === true && this.player.isStarted() === false || this.player.getState() === 'playing') {
+                return;
+            }
 
-		this.player.pause();
-	},
+            this.player.play();
+        },
 
-	replay: function() {
-		if ( isIOS === true && this.player.isStarted() === false ) {
-			return;
-		}
-		
-		this.player.replay();
-	},
+        stop: function () {
+            if (isIOS === true && this.player.isStarted() === false || this.player.getState() === 'stopped') {
+                return;
+            }
 
-	on: function( type, callback ) {
-		return this.$video.on( type, callback );
-	},
-	
-	off: function( type ) {
-		return this.$video.off( type );
-	},
+            this.player.stop();
+        },
 
-	trigger: function( data ) {
-		return this.$video.triggerHandler( data );
-	},
+        pause: function () {
+            if (isIOS === true && this.player.isStarted() === false || this.player.getState() === 'paused') {
+                return;
+            }
 
-	destroy: function() {
-		if ( this.player.isStarted() === true ) {
-			this.stop();
-		}
+            this.player.pause();
+        },
 
-		this.player.off( 'ready' );
-		this.player.off( 'start' );
-		this.player.off( 'play' );
-		this.player.off( 'pause' );
-		this.player.off( 'ended' );
+        replay: function () {
+            if (isIOS === true && this.player.isStarted() === false) {
+                return;
+            }
 
-		this.$video.removeData( 'videoController' );
-	},
+            this.player.replay();
+        },
 
-	defaults: {
-		videoReady: function() {},
-		videoStart: function() {},
-		videoPlay: function() {},
-		videoPause: function() {},
-		videoEnded: function() {}
-	}
-};
+        on: function (type, callback) {
+            return this.$video.on(type, callback);
+        },
 
-$.VideoController = {
-	players: {},
+        off: function (type) {
+            return this.$video.off(type);
+        },
 
-	addPlayer: function( name, player ) {
-		this.players[ name ] = player;
-	}
-};
+        trigger: function (data) {
+            return this.$video.triggerHandler(data);
+        },
 
-$.fn.videoController = function( options ) {
-	var args = Array.prototype.slice.call( arguments, 1 );
+        destroy: function () {
+            if (this.player.isStarted() === true) {
+                this.stop();
+            }
 
-	return this.each(function() {
-		// Instantiate the video controller or call a function on the current instance
-		if ( typeof $( this ).data( 'videoController' ) === 'undefined' ) {
-			var newInstance = new VideoController( this, options );
+            this.player.off('ready');
+            this.player.off('start');
+            this.player.off('play');
+            this.player.off('pause');
+            this.player.off('ended');
 
-			// Store a reference to the instance created
-			$( this ).data( 'videoController', newInstance );
-		} else if ( typeof options !== 'undefined' ) {
-			var	currentInstance = $( this ).data( 'videoController' );
+            this.$video.removeData('videoController');
+        },
 
-			// Check the type of argument passed
-			if ( typeof currentInstance[ options ] === 'function' ) {
-				currentInstance[ options ].apply( currentInstance, args );
-			} else {
-				$.error( options + ' does not exist in videoController.' );
-			}
-		}
-	});
-};
+        defaults: {
+            videoReady: function () {
+            },
+            videoStart: function () {
+            },
+            videoPlay: function () {
+            },
+            videoPause: function () {
+            },
+            videoEnded: function () {
+            }
+        }
+    };
+
+    $.VideoController = {
+        players: {},
+
+        addPlayer: function (name, player) {
+            this.players[ name ] = player;
+        }
+    };
+
+    $.fn.videoController = function (options) {
+        var args = Array.prototype.slice.call(arguments, 1);
+
+        return this.each(function () {
+            // Instantiate the video controller or call a function on the current instance
+            if (typeof $(this).data('videoController') === 'undefined') {
+                var newInstance = new VideoController(this, options);
+
+                // Store a reference to the instance created
+                $(this).data('videoController', newInstance);
+            } else if (typeof options !== 'undefined') {
+                var currentInstance = $(this).data('videoController');
+
+                // Check the type of argument passed
+                if (typeof currentInstance[ options ] === 'function') {
+                    currentInstance[ options ].apply(currentInstance, args);
+                } else {
+                    $.error(options + ' does not exist in videoController.');
+                }
+            }
+        });
+    };
 
 // Base object for the video players
-var Video = function( video ) {
-	this.$video = video;
-	this.player = null;
-	this.ready = false;
-	this.started = false;
-	this.state = '';
-	this.events = $({});
+    var Video = function (video) {
+        this.$video = video;
+        this.player = null;
+        this.ready = false;
+        this.started = false;
+        this.state = '';
+        this.events = $({});
 
-	this._init();
-};
+        this._init();
+    };
 
-Video.prototype = {
-	_init: function() {},
+    Video.prototype = {
+        _init: function () {
+        },
 
-	play: function() {},
+        play: function () {
+        },
 
-	pause: function() {},
+        pause: function () {
+        },
 
-	stop: function() {},
+        stop: function () {
+        },
 
-	replay: function() {},
+        replay: function () {
+        },
 
-	isType: function() {},
+        isType: function () {
+        },
 
-	isReady: function() {
-		return this.ready;
-	},
+        isReady: function () {
+            return this.ready;
+        },
 
-	isStarted: function() {
-		return this.started;
-	},
+        isStarted: function () {
+            return this.started;
+        },
 
-	getState: function() {
-		return this.state;
-	},
+        getState: function () {
+            return this.state;
+        },
 
-	on: function( type, callback ) {
-		return this.events.on( type, callback );
-	},
-	
-	off: function( type ) {
-		return this.events.off( type );
-	},
+        on: function (type, callback) {
+            return this.events.on(type, callback);
+        },
 
-	trigger: function( data ) {
-		return this.events.triggerHandler( data );
-	}
-};
+        off: function (type) {
+            return this.events.off(type);
+        },
+
+        trigger: function (data) {
+            return this.events.triggerHandler(data);
+        }
+    };
 
 // YouTube video
-var YoutubeVideoHelper = {
-	youtubeAPIAdded: false,
-	youtubeVideos: []
-};
+    var YoutubeVideoHelper = {
+        youtubeAPIAdded: false,
+        youtubeVideos: []
+    };
 
-var YoutubeVideo = function( video ) {
-	this.init = false;
-	var youtubeAPILoaded = window.YT && window.YT.Player;
+    var YoutubeVideo = function (video) {
+        this.init = false;
+        var youtubeAPILoaded = window.YT && window.YT.Player;
 
-	if ( typeof youtubeAPILoaded !== 'undefined' ) {
-		Video.call( this, video );
-	} else {
-		YoutubeVideoHelper.youtubeVideos.push({ 'video': video, 'scope': this });
-		
-		if ( YoutubeVideoHelper.youtubeAPIAdded === false ) {
-			YoutubeVideoHelper.youtubeAPIAdded = true;
+        if (typeof youtubeAPILoaded !== 'undefined') {
+            Video.call(this, video);
+        } else {
+            YoutubeVideoHelper.youtubeVideos.push({ 'video': video, 'scope': this });
 
-			var tag = document.createElement( 'script' );
-			tag.src = "http://www.youtube.com/player_api";
-			var firstScriptTag = document.getElementsByTagName( 'script' )[0];
-			firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
+            if (YoutubeVideoHelper.youtubeAPIAdded === false) {
+                YoutubeVideoHelper.youtubeAPIAdded = true;
 
-			window.onYouTubePlayerAPIReady = function() {
-				$.each( YoutubeVideoHelper.youtubeVideos, function( index, element ) {
-					Video.call( element.scope, element.video );
-				});
-			};
-		}
-	}
-};
+                var tag = document.createElement('script');
+                tag.src = "http://www.youtube.com/player_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-YoutubeVideo.prototype = new Video();
-YoutubeVideo.prototype.constructor = YoutubeVideo;
-$.VideoController.addPlayer( 'YoutubeVideo', YoutubeVideo );
+                window.onYouTubePlayerAPIReady = function () {
+                    $.each(YoutubeVideoHelper.youtubeVideos, function (index, element) {
+                        Video.call(element.scope, element.video);
+                    });
+                };
+            }
+        }
+    };
 
-YoutubeVideo.isType = function( video ) {
-	if ( video.is( 'iframe' ) ) {
-		var src = video.attr( 'src' );
+    YoutubeVideo.prototype = new Video();
+    YoutubeVideo.prototype.constructor = YoutubeVideo;
+    $.VideoController.addPlayer('YoutubeVideo', YoutubeVideo);
 
-		if ( src.indexOf( 'youtube.com' ) !== -1 || src.indexOf( 'youtu.be' ) !== -1 ) {
-			return true;
-		}
-	}
+    YoutubeVideo.isType = function (video) {
+        if (video.is('iframe')) {
+            var src = video.attr('src');
 
-	return false;
-};
+            if (src.indexOf('youtube.com') !== -1 || src.indexOf('youtu.be') !== -1) {
+                return true;
+            }
+        }
 
-YoutubeVideo.prototype._init = function() {
-	this.init = true;
-	this._setup();
-};
-	
-YoutubeVideo.prototype._setup = function() {
-	var that = this;
+        return false;
+    };
 
-	// Get a reference to the player
-	this.player = new YT.Player( this.$video[0], {
-		events: {
-			'onReady': function() {
-				that.trigger({ type: 'ready' });
-				that.ready = true;
-			},
-			
-			'onStateChange': function( event ) {
-				switch ( event.data ) {
-					case YT.PlayerState.PLAYING:
-						if (that.started === false) {
-							that.started = true;
-							that.trigger({ type: 'start' });
-						}
+    YoutubeVideo.prototype._init = function () {
+        this.init = true;
+        this._setup();
+    };
 
-						that.state = 'playing';
-						that.trigger({ type: 'play' });
-						break;
-					
-					case YT.PlayerState.PAUSED:
-						that.state = 'paused';
-						that.trigger({ type: 'pause' });
-						break;
-					
-					case YT.PlayerState.ENDED:
-						that.state = 'ended';
-						that.trigger({ type: 'ended' });
-						break;
-				}
-			}
-		}
-	});
-};
+    YoutubeVideo.prototype._setup = function () {
+        var that = this;
 
-YoutubeVideo.prototype.play = function() {
-	var that = this;
+        // Get a reference to the player
+        this.player = new YT.Player(this.$video[0], {
+            events: {
+                'onReady': function () {
+                    that.trigger({ type: 'ready' });
+                    that.ready = true;
+                },
 
-	if ( this.ready === true ) {
-		this.player.playVideo();
-	} else {
-		var timer = setInterval(function() {
-			if ( that.ready === true ) {
-				clearInterval( timer );
-				that.player.playVideo();
-			}
-		}, 100 );
-	}
-};
+                'onStateChange': function (event) {
+                    switch (event.data) {
+                        case YT.PlayerState.PLAYING:
+                            if (that.started === false) {
+                                that.started = true;
+                                that.trigger({ type: 'start' });
+                            }
 
-YoutubeVideo.prototype.pause = function() {
-	// On iOS, simply pausing the video can make other videos unresponsive
-	// so we stop the video instead.
-	if ( isIOS === true ) {
-		this.stop();
-	} else {
-		this.player.pauseVideo();
-	}
-};
+                            that.state = 'playing';
+                            that.trigger({ type: 'play' });
+                            break;
 
-YoutubeVideo.prototype.stop = function() {
-	this.player.seekTo( 1 );
-	this.player.stopVideo();
-	this.state = 'stopped';
-};
+                        case YT.PlayerState.PAUSED:
+                            that.state = 'paused';
+                            that.trigger({ type: 'pause' });
+                            break;
 
-YoutubeVideo.prototype.replay = function() {
-	this.player.seekTo( 1 );
-	this.player.playVideo();
-};
+                        case YT.PlayerState.ENDED:
+                            that.state = 'ended';
+                            that.trigger({ type: 'ended' });
+                            break;
+                    }
+                }
+            }
+        });
+    };
 
-YoutubeVideo.prototype.on = function( type, callback ) {
-	var that = this;
+    YoutubeVideo.prototype.play = function () {
+        var that = this;
 
-	if ( this.init === true ) {
-		Video.prototype.on.call( this, type, callback );
-	} else {
-		var timer = setInterval(function() {
-			if ( that.init === true ) {
-				clearInterval( timer );
-				Video.prototype.on.call( that, type, callback );
-			}
-		}, 100 );
-	}
-};
+        if (this.ready === true) {
+            this.player.playVideo();
+        } else {
+            var timer = setInterval(function () {
+                if (that.ready === true) {
+                    clearInterval(timer);
+                    that.player.playVideo();
+                }
+            }, 100);
+        }
+    };
+
+    YoutubeVideo.prototype.pause = function () {
+        // On iOS, simply pausing the video can make other videos unresponsive
+        // so we stop the video instead.
+        if (isIOS === true) {
+            this.stop();
+        } else {
+            this.player.pauseVideo();
+        }
+    };
+
+    YoutubeVideo.prototype.stop = function () {
+        this.player.seekTo(1);
+        this.player.stopVideo();
+        this.state = 'stopped';
+    };
+
+    YoutubeVideo.prototype.replay = function () {
+        this.player.seekTo(1);
+        this.player.playVideo();
+    };
+
+    YoutubeVideo.prototype.on = function (type, callback) {
+        var that = this;
+
+        if (this.init === true) {
+            Video.prototype.on.call(this, type, callback);
+        } else {
+            var timer = setInterval(function () {
+                if (that.init === true) {
+                    clearInterval(timer);
+                    Video.prototype.on.call(that, type, callback);
+                }
+            }, 100);
+        }
+    };
 
 // Vimeo video
-var VimeoVideoHelper = {
-	vimeoAPIAdded: false,
-	vimeoVideos: []
-};
+    var VimeoVideoHelper = {
+        vimeoAPIAdded: false,
+        vimeoVideos: []
+    };
 
-var VimeoVideo = function( video ) {
-	this.init = false;
+    var VimeoVideo = function (video) {
+        this.init = false;
 
-	if ( typeof window.Froogaloop !== 'undefined' ) {
-		Video.call( this, video );
-	} else {
-		VimeoVideoHelper.vimeoVideos.push({ 'video': video, 'scope': this });
+        if (typeof window.Froogaloop !== 'undefined') {
+            Video.call(this, video);
+        } else {
+            VimeoVideoHelper.vimeoVideos.push({ 'video': video, 'scope': this });
 
-		if ( VimeoVideoHelper.vimeoAPIAdded === false ) {
-			VimeoVideoHelper.vimeoAPIAdded = true;
+            if (VimeoVideoHelper.vimeoAPIAdded === false) {
+                VimeoVideoHelper.vimeoAPIAdded = true;
 
-			var tag = document.createElement('script');
-			tag.src = "http://a.vimeocdn.com/js/froogaloop2.min.js";
-			var firstScriptTag = document.getElementsByTagName( 'script' )[0];
-			firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-		
-			var checkVimeoAPITimer = setInterval(function() {
-				if ( typeof window.Froogaloop !== 'undefined' ) {
-					clearInterval( checkVimeoAPITimer );
-					
-					$.each( VimeoVideoHelper.vimeoVideos, function( index, element ) {
-						Video.call( element.scope, element.video );
-					});
-				}
-			}, 100 );
-		}
-	}
-};
+                var tag = document.createElement('script');
+                tag.src = "http://a.vimeocdn.com/js/froogaloop2.min.js";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-VimeoVideo.prototype = new Video();
-VimeoVideo.prototype.constructor = VimeoVideo;
-$.VideoController.addPlayer( 'VimeoVideo', VimeoVideo );
+                var checkVimeoAPITimer = setInterval(function () {
+                    if (typeof window.Froogaloop !== 'undefined') {
+                        clearInterval(checkVimeoAPITimer);
 
-VimeoVideo.isType = function( video ) {
-	if ( video.is( 'iframe' ) ) {
-		var src = video.attr('src');
+                        $.each(VimeoVideoHelper.vimeoVideos, function (index, element) {
+                            Video.call(element.scope, element.video);
+                        });
+                    }
+                }, 100);
+            }
+        }
+    };
 
-		if ( src.indexOf( 'vimeo.com' ) !== -1 ) {
-			return true;
-		}
-	}
+    VimeoVideo.prototype = new Video();
+    VimeoVideo.prototype.constructor = VimeoVideo;
+    $.VideoController.addPlayer('VimeoVideo', VimeoVideo);
 
-	return false;
-};
+    VimeoVideo.isType = function (video) {
+        if (video.is('iframe')) {
+            var src = video.attr('src');
 
-VimeoVideo.prototype._init = function() {
-	this.init = true;
-	this._setup();
-};
+            if (src.indexOf('vimeo.com') !== -1) {
+                return true;
+            }
+        }
 
-VimeoVideo.prototype._setup = function() {
-	var that = this;
+        return false;
+    };
 
-	// Get a reference to the player
-	this.player = $f( this.$video[0] );
-	
-	this.player.addEvent( 'ready', function() {
-		that.ready = true;
-		that.trigger({ type: 'ready' });
-		
-		that.player.addEvent( 'play', function() {
-			if ( that.started === false ) {
-				that.started = true;
-				that.trigger({ type: 'start' });
-			}
+    VimeoVideo.prototype._init = function () {
+        this.init = true;
+        this._setup();
+    };
 
-			that.state = 'playing';
-			that.trigger({ type: 'play' });
-		});
-		
-		that.player.addEvent( 'pause', function() {
-			that.state = 'paused';
-			that.trigger({ type: 'pause' });
-		});
-		
-		that.player.addEvent( 'finish', function() {
-			that.state = 'ended';
-			that.trigger({ type: 'ended' });
-		});
-	});
-};
+    VimeoVideo.prototype._setup = function () {
+        var that = this;
 
-VimeoVideo.prototype.play = function() {
-	var that = this;
+        // Get a reference to the player
+        this.player = $f(this.$video[0]);
 
-	if ( this.ready === true ) {
-		this.player.api( 'play' );
-	} else {
-		var timer = setInterval(function() {
-			if ( that.ready === true ) {
-				clearInterval( timer );
-				that.player.api( 'play' );
-			}
-		}, 100 );
-	}
-};
+        this.player.addEvent('ready', function () {
+            that.ready = true;
+            that.trigger({ type: 'ready' });
 
-VimeoVideo.prototype.pause = function() {
-	this.player.api( 'pause' );
-};
+            that.player.addEvent('play', function () {
+                if (that.started === false) {
+                    that.started = true;
+                    that.trigger({ type: 'start' });
+                }
 
-VimeoVideo.prototype.stop = function() {
-	this.player.api( 'seekTo', 0 );
-	this.player.api( 'pause' );
-	this.state = 'stopped';
-};
+                that.state = 'playing';
+                that.trigger({ type: 'play' });
+            });
 
-VimeoVideo.prototype.replay = function() {
-	this.player.api( 'seekTo', 0 );
-	this.player.api( 'play' );
-};
+            that.player.addEvent('pause', function () {
+                that.state = 'paused';
+                that.trigger({ type: 'pause' });
+            });
 
-VimeoVideo.prototype.on = function( type, callback ) {
-	var that = this;
+            that.player.addEvent('finish', function () {
+                that.state = 'ended';
+                that.trigger({ type: 'ended' });
+            });
+        });
+    };
 
-	if ( this.init === true ) {
-		Video.prototype.on.call( this, type, callback );
-	} else {
-		var timer = setInterval(function() {
-			if ( that.init === true ) {
-				clearInterval( timer );
-				Video.prototype.on.call( that, type, callback );
-			}
-		}, 100 );
-	}
-};
+    VimeoVideo.prototype.play = function () {
+        var that = this;
+
+        if (this.ready === true) {
+            this.player.api('play');
+        } else {
+            var timer = setInterval(function () {
+                if (that.ready === true) {
+                    clearInterval(timer);
+                    that.player.api('play');
+                }
+            }, 100);
+        }
+    };
+
+    VimeoVideo.prototype.pause = function () {
+        this.player.api('pause');
+    };
+
+    VimeoVideo.prototype.stop = function () {
+        this.player.api('seekTo', 0);
+        this.player.api('pause');
+        this.state = 'stopped';
+    };
+
+    VimeoVideo.prototype.replay = function () {
+        this.player.api('seekTo', 0);
+        this.player.api('play');
+    };
+
+    VimeoVideo.prototype.on = function (type, callback) {
+        var that = this;
+
+        if (this.init === true) {
+            Video.prototype.on.call(this, type, callback);
+        } else {
+            var timer = setInterval(function () {
+                if (that.init === true) {
+                    clearInterval(timer);
+                    Video.prototype.on.call(that, type, callback);
+                }
+            }, 100);
+        }
+    };
 
 // HTML5 video
-var HTML5Video = function( video ) {
-	Video.call( this, video );
-};
+    var HTML5Video = function (video) {
+        Video.call(this, video);
+    };
 
-HTML5Video.prototype = new Video();
-HTML5Video.prototype.constructor = HTML5Video;
-$.VideoController.addPlayer( 'HTML5Video', HTML5Video );
+    HTML5Video.prototype = new Video();
+    HTML5Video.prototype.constructor = HTML5Video;
+    $.VideoController.addPlayer('HTML5Video', HTML5Video);
 
-HTML5Video.isType = function( video ) {
-	if ( video.is( 'video' ) && video.hasClass( 'video-js' ) === false && video.hasClass( 'sublime' ) === false ) {
-		return true;
-	}
+    HTML5Video.isType = function (video) {
+        if (video.is('video') && video.hasClass('video-js') === false && video.hasClass('sublime') === false) {
+            return true;
+        }
 
-	return false;
-};
+        return false;
+    };
 
-HTML5Video.prototype._init = function() {
-	var that = this;
+    HTML5Video.prototype._init = function () {
+        var that = this;
 
-	// Get a reference to the player
-	this.player = this.$video[0];
-	this.ready = true;
+        // Get a reference to the player
+        this.player = this.$video[0];
+        this.ready = true;
 
-	this.player.addEventListener( 'play', function() {
-		if ( that.started === false ) {
-			that.started = true;
-			that.trigger({ type: 'start' });
-		}
+        this.player.addEventListener('play', function () {
+            if (that.started === false) {
+                that.started = true;
+                that.trigger({ type: 'start' });
+            }
 
-		that.state = 'playing';
-		that.trigger({ type: 'play' });
-	});
-	
-	this.player.addEventListener( 'pause', function() {
-		that.state = 'paused';
-		that.trigger({ type: 'pause' });
-	});
-	
-	this.player.addEventListener( 'ended', function() {
-		that.state = 'ended';
-		that.trigger({ type: 'ended' });
-	});
-};
+            that.state = 'playing';
+            that.trigger({ type: 'play' });
+        });
 
-HTML5Video.prototype.play = function() {
-	this.player.play();
-};
+        this.player.addEventListener('pause', function () {
+            that.state = 'paused';
+            that.trigger({ type: 'pause' });
+        });
 
-HTML5Video.prototype.pause = function() {
-	this.player.pause();
-};
+        this.player.addEventListener('ended', function () {
+            that.state = 'ended';
+            that.trigger({ type: 'ended' });
+        });
+    };
 
-HTML5Video.prototype.stop = function() {
-	this.player.currentTime = 0;
-	this.player.pause();
-	this.state = 'stopped';
-};
+    HTML5Video.prototype.play = function () {
+        this.player.play();
+    };
 
-HTML5Video.prototype.replay = function() {
-	this.player.currentTime = 0;
-	this.player.play();
-};
+    HTML5Video.prototype.pause = function () {
+        this.player.pause();
+    };
+
+    HTML5Video.prototype.stop = function () {
+        this.player.currentTime = 0;
+        this.player.pause();
+        this.state = 'stopped';
+    };
+
+    HTML5Video.prototype.replay = function () {
+        this.player.currentTime = 0;
+        this.player.play();
+    };
 
 // VideoJS video
-var VideoJSVideo = function( video ) {
-	Video.call( this, video );
-};
+    var VideoJSVideo = function (video) {
+        Video.call(this, video);
+    };
 
-VideoJSVideo.prototype = new Video();
-VideoJSVideo.prototype.constructor = VideoJSVideo;
-$.VideoController.addPlayer( 'VideoJSVideo', VideoJSVideo );
+    VideoJSVideo.prototype = new Video();
+    VideoJSVideo.prototype.constructor = VideoJSVideo;
+    $.VideoController.addPlayer('VideoJSVideo', VideoJSVideo);
 
-VideoJSVideo.isType = function( video ) {
-	if ( ( typeof video.attr( 'data-videojs-id' ) !== 'undefined' || video.hasClass( 'video-js' ) ) && typeof videojs !== 'undefined' ) {
-		return true;
-	}
+    VideoJSVideo.isType = function (video) {
+        if (( typeof video.attr('data-videojs-id') !== 'undefined' || video.hasClass('video-js') ) && typeof videojs !== 'undefined') {
+            return true;
+        }
 
-	return false;
-};
+        return false;
+    };
 
-VideoJSVideo.prototype._init = function() {
-	var that = this,
-		videoID = this.$video.hasClass( 'video-js' ) ? this.$video.attr( 'id' ) : this.$video.attr( 'data-videojs-id' );
-	
-	this.player = videojs( videoID );
+    VideoJSVideo.prototype._init = function () {
+        var that = this,
+            videoID = this.$video.hasClass('video-js') ? this.$video.attr('id') : this.$video.attr('data-videojs-id');
 
-	this.player.ready(function() {
-		that.ready = true;
-		that.trigger({ type: 'ready' });
+        this.player = videojs(videoID);
 
-		that.player.on( 'play', function() {
-			if ( that.started === false ) {
-				that.started = true;
-				that.trigger({ type: 'start' });
-			}
+        this.player.ready(function () {
+            that.ready = true;
+            that.trigger({ type: 'ready' });
 
-			that.state = 'playing';
-			that.trigger({ type: 'play' });
-		});
-		
-		that.player.on( 'pause', function() {
-			that.state = 'paused';
-			that.trigger({ type: 'pause' });
-		});
-		
-		that.player.on( 'ended', function() {
-			that.state = 'ended';
-			that.trigger({ type: 'ended' });
-		});
-	});
-};
+            that.player.on('play', function () {
+                if (that.started === false) {
+                    that.started = true;
+                    that.trigger({ type: 'start' });
+                }
 
-VideoJSVideo.prototype.play = function() {
-	this.player.play();
-};
+                that.state = 'playing';
+                that.trigger({ type: 'play' });
+            });
 
-VideoJSVideo.prototype.pause = function() {
-	this.player.pause();
-};
+            that.player.on('pause', function () {
+                that.state = 'paused';
+                that.trigger({ type: 'pause' });
+            });
 
-VideoJSVideo.prototype.stop = function() {
-	this.player.currentTime( 0 );
-	this.player.pause();
-	this.state = 'stopped';
-};
+            that.player.on('ended', function () {
+                that.state = 'ended';
+                that.trigger({ type: 'ended' });
+            });
+        });
+    };
 
-VideoJSVideo.prototype.replay = function() {
-	this.player.currentTime( 0 );
-	this.player.play();
-};
+    VideoJSVideo.prototype.play = function () {
+        this.player.play();
+    };
+
+    VideoJSVideo.prototype.pause = function () {
+        this.player.pause();
+    };
+
+    VideoJSVideo.prototype.stop = function () {
+        this.player.currentTime(0);
+        this.player.pause();
+        this.state = 'stopped';
+    };
+
+    VideoJSVideo.prototype.replay = function () {
+        this.player.currentTime(0);
+        this.player.play();
+    };
 
 // Sublime video
-var SublimeVideo = function( video ) {
-	Video.call( this, video );
-};
+    var SublimeVideo = function (video) {
+        Video.call(this, video);
+    };
 
-SublimeVideo.prototype = new Video();
-SublimeVideo.prototype.constructor = SublimeVideo;
-$.VideoController.addPlayer( 'SublimeVideo', SublimeVideo );
+    SublimeVideo.prototype = new Video();
+    SublimeVideo.prototype.constructor = SublimeVideo;
+    $.VideoController.addPlayer('SublimeVideo', SublimeVideo);
 
-SublimeVideo.isType = function( video ) {
-	if ( video.hasClass( 'sublime' ) && typeof sublime !== 'undefined' ) {
-		return true;
-	}
+    SublimeVideo.isType = function (video) {
+        if (video.hasClass('sublime') && typeof sublime !== 'undefined') {
+            return true;
+        }
 
-	return false;
-};
+        return false;
+    };
 
-SublimeVideo.prototype._init = function() {
-	var that = this;
+    SublimeVideo.prototype._init = function () {
+        var that = this;
 
-	sublime.ready(function() {
-		// Get a reference to the player
-		that.player = sublime.player( that.$video.attr( 'id' ) );
+        sublime.ready(function () {
+            // Get a reference to the player
+            that.player = sublime.player(that.$video.attr('id'));
 
-		that.ready = true;
-		that.trigger({ type: 'ready' });
+            that.ready = true;
+            that.trigger({ type: 'ready' });
 
-		that.player.on( 'play', function() {
-			if ( that.started === false ) {
-				that.started = true;
-				that.trigger({ type: 'start' });
-			}
+            that.player.on('play', function () {
+                if (that.started === false) {
+                    that.started = true;
+                    that.trigger({ type: 'start' });
+                }
 
-			that.state = 'playing';
-			that.trigger({ type: 'play' });
-		});
+                that.state = 'playing';
+                that.trigger({ type: 'play' });
+            });
 
-		that.player.on( 'pause', function() {
-			that.state = 'paused';
-			that.trigger({ type: 'pause' });
-		});
+            that.player.on('pause', function () {
+                that.state = 'paused';
+                that.trigger({ type: 'pause' });
+            });
 
-		that.player.on( 'stop', function() {
-			that.state = 'stopped';
-			that.trigger({ type: 'stop' });
-		});
+            that.player.on('stop', function () {
+                that.state = 'stopped';
+                that.trigger({ type: 'stop' });
+            });
 
-		that.player.on( 'end', function() {
-			that.state = 'ended';
-			that.trigger({ type: 'ended' });
-		});
-	});
-};
+            that.player.on('end', function () {
+                that.state = 'ended';
+                that.trigger({ type: 'ended' });
+            });
+        });
+    };
 
-SublimeVideo.prototype.play = function() {
-	this.player.play();
-};
+    SublimeVideo.prototype.play = function () {
+        this.player.play();
+    };
 
-SublimeVideo.prototype.pause = function() {
-	this.player.pause();
-};
+    SublimeVideo.prototype.pause = function () {
+        this.player.pause();
+    };
 
-SublimeVideo.prototype.stop = function() {
-	this.player.stop();
-};
+    SublimeVideo.prototype.stop = function () {
+        this.player.stop();
+    };
 
-SublimeVideo.prototype.replay = function() {
-	this.player.stop();
-	this.player.play();
-};
+    SublimeVideo.prototype.replay = function () {
+        this.player.stop();
+        this.player.play();
+    };
 
 // JWPlayer video
-var JWPlayerVideo = function( video ) {
-	Video.call( this, video );
-};
+    var JWPlayerVideo = function (video) {
+        Video.call(this, video);
+    };
 
-JWPlayerVideo.prototype = new Video();
-JWPlayerVideo.prototype.constructor = JWPlayerVideo;
-$.VideoController.addPlayer( 'JWPlayerVideo', JWPlayerVideo );
+    JWPlayerVideo.prototype = new Video();
+    JWPlayerVideo.prototype.constructor = JWPlayerVideo;
+    $.VideoController.addPlayer('JWPlayerVideo', JWPlayerVideo);
 
-JWPlayerVideo.isType = function( video ) {
-	if ( ( typeof video.attr( 'data-jwplayer-id' ) !== 'undefined' || video.hasClass( 'jwplayer' ) || video.find( "object[data*='jwplayer']" ).length !== 0 ) &&
-		typeof jwplayer !== 'undefined') {
-		return true;
-	}
+    JWPlayerVideo.isType = function (video) {
+        if (( typeof video.attr('data-jwplayer-id') !== 'undefined' || video.hasClass('jwplayer') || video.find("object[data*='jwplayer']").length !== 0 ) &&
+            typeof jwplayer !== 'undefined') {
+            return true;
+        }
 
-	return false;
-};
+        return false;
+    };
 
-JWPlayerVideo.prototype._init = function() {
-	var that = this,
-		videoID;
+    JWPlayerVideo.prototype._init = function () {
+        var that = this,
+            videoID;
 
-	if ( this.$video.hasClass( 'jwplayer' ) ) {
-		videoID = this.$video.attr( 'id' );
-	} else if ( typeof this.$video.attr( 'data-jwplayer-id' ) !== 'undefined' ) {
-		videoID = this.$video.attr( 'data-jwplayer-id');
-	} else if ( this.$video.find( "object[data*='jwplayer']" ).length !== 0 ) {
-		videoID = this.$video.find( 'object' ).attr( 'id' );
-	}
+        if (this.$video.hasClass('jwplayer')) {
+            videoID = this.$video.attr('id');
+        } else if (typeof this.$video.attr('data-jwplayer-id') !== 'undefined') {
+            videoID = this.$video.attr('data-jwplayer-id');
+        } else if (this.$video.find("object[data*='jwplayer']").length !== 0) {
+            videoID = this.$video.find('object').attr('id');
+        }
 
-	// Get a reference to the player
-	this.player = jwplayer( videoID );
+        // Get a reference to the player
+        this.player = jwplayer(videoID);
 
-	this.player.onReady(function() {
-		that.ready = true;
-		that.trigger({ type: 'ready' });
-	
-		that.player.onPlay(function() {
-			if ( that.started === false ) {
-				that.started = true;
-				that.trigger({ type: 'start' });
-			}
+        this.player.onReady(function () {
+            that.ready = true;
+            that.trigger({ type: 'ready' });
 
-			that.state = 'playing';
-			that.trigger({ type: 'play' });
-		});
+            that.player.onPlay(function () {
+                if (that.started === false) {
+                    that.started = true;
+                    that.trigger({ type: 'start' });
+                }
 
-		that.player.onPause(function() {
-			that.state = 'paused';
-			that.trigger({ type: 'pause' });
-		});
-		
-		that.player.onComplete(function() {
-			that.state = 'ended';
-			that.trigger({ type: 'ended' });
-		});
-	});
-};
+                that.state = 'playing';
+                that.trigger({ type: 'play' });
+            });
 
-JWPlayerVideo.prototype.play = function() {
-	this.player.play( true );
-};
+            that.player.onPause(function () {
+                that.state = 'paused';
+                that.trigger({ type: 'pause' });
+            });
 
-JWPlayerVideo.prototype.pause = function() {
-	this.player.pause( true );
-};
+            that.player.onComplete(function () {
+                that.state = 'ended';
+                that.trigger({ type: 'ended' });
+            });
+        });
+    };
 
-JWPlayerVideo.prototype.stop = function() {
-	this.player.stop();
-	this.state = 'stopped';
-};
+    JWPlayerVideo.prototype.play = function () {
+        this.player.play(true);
+    };
 
-JWPlayerVideo.prototype.replay = function() {
-	this.player.seek( 0 );
-	this.player.play( true );
-};
+    JWPlayerVideo.prototype.pause = function () {
+        this.player.pause(true);
+    };
 
-})( jQuery );
+    JWPlayerVideo.prototype.stop = function () {
+        this.player.stop();
+        this.state = 'stopped';
+    };
+
+    JWPlayerVideo.prototype.replay = function () {
+        this.player.seek(0);
+        this.player.play(true);
+    };
+
+})(jQuery);

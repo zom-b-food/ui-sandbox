@@ -138,7 +138,9 @@
                     ;
                     that.sliding = false;
                     ;
-                    setTimeout(function () { that.$element.trigger('slid') }, 0)
+                    setTimeout(function () {
+                        that.$element.trigger('slid')
+                    }, 0)
                 })
             }
             else {

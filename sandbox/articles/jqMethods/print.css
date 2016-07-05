@@ -1,35 +1,43 @@
 h1, h2, h3, h4, h5, h6 {
-	font-family: Helvetica, Arial;
-	color: black;
-	font-weight: bold;	
-	margin: 0;
-	padding: 0;
-	padding-top: 20px;
+    font-family: Helvetica, Arial;
+    color: black;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
 }
+
 h1 {
-	font-size: 45px;
-	padding-top: 0px;
-} 
+    font-size: 45px;
+    padding-top: 0px;
+}
+
 h2, h3, h4 {
-	font-size: 30px;
+    font-size: 30px;
 }
+
 h5, h6 {
-	font-size: 20px;
+    font-size: 20px;
 }
+
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
+
 a, img, a img {
-	border: 0;
-	outline: none;
+    border: 0;
+    outline: none;
 }
+
 .webroundup li {
-	float: left;
+    float: left;
 }
+
 .webroundup div {
-	float: left;
-	margin: 0 20px 20px 0;
+    float: left;
+    margin: 0 20px 20px 0;
 }
+
 #header,
 .post_taxonomy,
 .freebie_download,
@@ -44,5 +52,5 @@ a, img, a img {
 .wp-pagenavi,
 #sidebar,
 #footer {
-	display: none;
+    display: none;
 }

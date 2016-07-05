@@ -3,193 +3,194 @@
 // Adds the possibility to delay the loading of the images until the slides/thumbnails
 // that contain them become visible. This technique improves the initial loading
 // performance.
-;(function( window, $ ) {
+;
+(function (window, $) {
 
-	"use strict";
+    "use strict";
 
-	var NS = 'LazyLoading.' + $.SliderPro.namespace;
+    var NS = 'LazyLoading.' + $.SliderPro.namespace;
 
-	var LazyLoading = {
+    var LazyLoading = {
 
-		allowLazyLoadingCheck: true,
+        allowLazyLoadingCheck: true,
 
-		initLazyLoading: function() {
-			var that = this;
+        initLazyLoading: function () {
+            var that = this;
 
-			// The 'resize' event is fired after every update, so it's possible to use it for checking
-			// if the update made new slides become visible
-			// 
-			// Also, resizing the slider might make new slides or thumbnails visible
-			this.on( 'sliderResize.' + NS, $.proxy( this._lazyLoadingOnResize, this ) );
+            // The 'resize' event is fired after every update, so it's possible to use it for checking
+            // if the update made new slides become visible
+            //
+            // Also, resizing the slider might make new slides or thumbnails visible
+            this.on('sliderResize.' + NS, $.proxy(this._lazyLoadingOnResize, this));
 
-			// Check visible images when a new slide is selected
-			this.on( 'gotoSlide.' + NS, $.proxy( this._checkAndLoadVisibleImages, this ) );
+            // Check visible images when a new slide is selected
+            this.on('gotoSlide.' + NS, $.proxy(this._checkAndLoadVisibleImages, this));
 
-			// Check visible thumbnail images when the thumbnails are updated because new thumbnail
-			// might have been added or the settings might have been changed so that more thumbnail
-			// images become visible
-			// 
-			// Also, check visible thumbnail images after the thumbnails have moved because new thumbnails might
-			// have become visible
-			this.on( 'thumbnailsUpdate.' + NS + ' ' + 'thumbnailsMoveComplete.' + NS, $.proxy( this._checkAndLoadVisibleThumbnailImages, this ) );
-		},
+            // Check visible thumbnail images when the thumbnails are updated because new thumbnail
+            // might have been added or the settings might have been changed so that more thumbnail
+            // images become visible
+            //
+            // Also, check visible thumbnail images after the thumbnails have moved because new thumbnails might
+            // have become visible
+            this.on('thumbnailsUpdate.' + NS + ' ' + 'thumbnailsMoveComplete.' + NS, $.proxy(this._checkAndLoadVisibleThumbnailImages, this));
+        },
 
-		_lazyLoadingOnResize: function() {
-			var that = this;
+        _lazyLoadingOnResize: function () {
+            var that = this;
 
-			if ( this.allowLazyLoadingCheck === false ) {
-				return;
-			}
+            if (this.allowLazyLoadingCheck === false) {
+                return;
+            }
 
-			this.allowLazyLoadingCheck = false;
-			
-			this._checkAndLoadVisibleImages();
+            this.allowLazyLoadingCheck = false;
 
-			if ( this.$slider.find( '.sp-thumbnail' ).length !== 0 ) {
-				this._checkAndLoadVisibleThumbnailImages();
-			}
+            this._checkAndLoadVisibleImages();
 
-			// Use a timer to deffer the loading of images in order to prevent too many
-			// checking attempts
-			setTimeout(function() {
-				that.allowLazyLoadingCheck = true;
-			}, 500 );
-		},
+            if (this.$slider.find('.sp-thumbnail').length !== 0) {
+                this._checkAndLoadVisibleThumbnailImages();
+            }
 
-		// Check visible slides and load their images
-		_checkAndLoadVisibleImages: function() {
-			if ( this.$slider.find( '.sp-slide:not([ data-loaded ])' ).length === 0 ) {
-				return;
-			}
+            // Use a timer to deffer the loading of images in order to prevent too many
+            // checking attempts
+            setTimeout(function () {
+                that.allowLazyLoadingCheck = true;
+            }, 500);
+        },
 
-			var that = this,
+        // Check visible slides and load their images
+        _checkAndLoadVisibleImages: function () {
+            if (this.$slider.find('.sp-slide:not([ data-loaded ])').length === 0) {
+                return;
+            }
 
-				// Use either the middle position or the index of the selected slide as a reference, depending on
-				// whether the slider is loopable
-				referencePosition = this.settings.loop === true ? this.middleSlidePosition : this.selectedSlideIndex,
+            var that = this,
 
-				// Calculate how many slides are visible at the sides of the selected slide
-				visibleOnSides = Math.ceil( ( this.visibleSlidesSize - this.slideSize ) / 2 / this.slideSize ),
+            // Use either the middle position or the index of the selected slide as a reference, depending on
+            // whether the slider is loopable
+                referencePosition = this.settings.loop === true ? this.middleSlidePosition : this.selectedSlideIndex,
 
-				// Calculate the indexes of the first and last slide that will be checked
-				from = referencePosition - visibleOnSides - 1 > 0 ? referencePosition - visibleOnSides - 1 : 0,
-				to = referencePosition + visibleOnSides + 1 < this.getTotalSlides() - 1 ? referencePosition + visibleOnSides + 1 : this.getTotalSlides() - 1,
-				
-				// Get all the slides that need to be checked
-				slidesToCheck = this.slidesOrder.slice( from, to + 1 );
+            // Calculate how many slides are visible at the sides of the selected slide
+                visibleOnSides = Math.ceil(( this.visibleSlidesSize - this.slideSize ) / 2 / this.slideSize),
 
-			// Loop through the selected slides and if the slide is not marked as having
-			// been loaded yet, loop through its images and load them.
-			$.each( slidesToCheck, function( index, element ) {
-				var slide = that.slides[ element ],
-					$slide = slide.$slide;
+            // Calculate the indexes of the first and last slide that will be checked
+                from = referencePosition - visibleOnSides - 1 > 0 ? referencePosition - visibleOnSides - 1 : 0,
+                to = referencePosition + visibleOnSides + 1 < this.getTotalSlides() - 1 ? referencePosition + visibleOnSides + 1 : this.getTotalSlides() - 1,
 
-				if ( typeof $slide.attr( 'data-loaded' ) === 'undefined' ) {
-					$slide.attr( 'data-loaded', true );
+            // Get all the slides that need to be checked
+                slidesToCheck = this.slidesOrder.slice(from, to + 1);
 
-					$slide.find( 'img[ data-src ]' ).each(function() {
-						var image = $( this );
-						that._loadImage( image, function( newImage ) {
-							if ( newImage.hasClass( 'sp-image' ) ) {
-								slide.$mainImage = newImage;
-								slide.resizeMainImage( true );
-							}
-						});
-					});
-				}
-			});
-		},
+            // Loop through the selected slides and if the slide is not marked as having
+            // been loaded yet, loop through its images and load them.
+            $.each(slidesToCheck, function (index, element) {
+                var slide = that.slides[ element ],
+                    $slide = slide.$slide;
 
-		// Check visible thumbnails and load their images
-		_checkAndLoadVisibleThumbnailImages: function() {
-			if ( this.$slider.find( '.sp-thumbnail-container:not([ data-loaded ])' ).length === 0 ) {
-				return;
-			}
+                if (typeof $slide.attr('data-loaded') === 'undefined') {
+                    $slide.attr('data-loaded', true);
 
-			var that = this,
-				thumbnailSize = this.thumbnailsSize / this.thumbnails.length,
+                    $slide.find('img[ data-src ]').each(function () {
+                        var image = $(this);
+                        that._loadImage(image, function (newImage) {
+                            if (newImage.hasClass('sp-image')) {
+                                slide.$mainImage = newImage;
+                                slide.resizeMainImage(true);
+                            }
+                        });
+                    });
+                }
+            });
+        },
 
-				// Calculate the indexes of the first and last thumbnail that will be checked
-				from = Math.floor( Math.abs( this.thumbnailsPosition / thumbnailSize ) ),
-				to = Math.floor( ( - this.thumbnailsPosition + this.thumbnailsContainerSize ) / thumbnailSize ),
+        // Check visible thumbnails and load their images
+        _checkAndLoadVisibleThumbnailImages: function () {
+            if (this.$slider.find('.sp-thumbnail-container:not([ data-loaded ])').length === 0) {
+                return;
+            }
 
-				// Get all the thumbnails that need to be checked
-				thumbnailsToCheck = this.thumbnails.slice( from, to + 1 );
+            var that = this,
+                thumbnailSize = this.thumbnailsSize / this.thumbnails.length,
 
-			// Loop through the selected thumbnails and if the thumbnail is not marked as having
-			// been loaded yet, load its image.
-			$.each( thumbnailsToCheck, function( index, element ) {
-				var $thumbnailContainer = element.$thumbnailContainer;
+            // Calculate the indexes of the first and last thumbnail that will be checked
+                from = Math.floor(Math.abs(this.thumbnailsPosition / thumbnailSize)),
+                to = Math.floor(( -this.thumbnailsPosition + this.thumbnailsContainerSize ) / thumbnailSize),
 
-				if ( typeof $thumbnailContainer.attr( 'data-loaded' ) === 'undefined' ) {
-					$thumbnailContainer.attr( 'data-loaded', true );
+            // Get all the thumbnails that need to be checked
+                thumbnailsToCheck = this.thumbnails.slice(from, to + 1);
 
-					$thumbnailContainer.find( 'img[ data-src ]' ).each(function() {
-						var image = $( this );
+            // Loop through the selected thumbnails and if the thumbnail is not marked as having
+            // been loaded yet, load its image.
+            $.each(thumbnailsToCheck, function (index, element) {
+                var $thumbnailContainer = element.$thumbnailContainer;
 
-						that._loadImage( image, function() {
-							element.resizeImage();
-						});
-					});
-				}
-			});
-		},
+                if (typeof $thumbnailContainer.attr('data-loaded') === 'undefined') {
+                    $thumbnailContainer.attr('data-loaded', true);
 
-		// Load an image
-		_loadImage: function( image, callback ) {
-			// Create a new image element
-			var newImage = $( new Image() );
+                    $thumbnailContainer.find('img[ data-src ]').each(function () {
+                        var image = $(this);
 
-			// Copy the class(es) and inline style
-			newImage.attr( 'class', image.attr( 'class' ) );
-			newImage.attr( 'style', image.attr( 'style' ) );
+                        that._loadImage(image, function () {
+                            element.resizeImage();
+                        });
+                    });
+                }
+            });
+        },
 
-			// Copy the data attributes
-			$.each( image.data(), function( name, value ) {
-				newImage.attr( 'data-' + name, value );
-			});
+        // Load an image
+        _loadImage: function (image, callback) {
+            // Create a new image element
+            var newImage = $(new Image());
 
-			// Copy the width and height attributes if they exist
-			if ( typeof image.attr( 'width' ) !== 'undefined') {
-				newImage.attr( 'width', image.attr( 'width' ) );
-			}
+            // Copy the class(es) and inline style
+            newImage.attr('class', image.attr('class'));
+            newImage.attr('style', image.attr('style'));
 
-			if ( typeof image.attr( 'height' ) !== 'undefined') {
-				newImage.attr( 'height', image.attr( 'height' ) );
-			}
+            // Copy the data attributes
+            $.each(image.data(), function (name, value) {
+                newImage.attr('data-' + name, value);
+            });
 
-			if ( typeof image.attr( 'alt' ) !== 'undefined' ) {
-				newImage.attr( 'alt', image.attr( 'alt' ) );
-			}
+            // Copy the width and height attributes if they exist
+            if (typeof image.attr('width') !== 'undefined') {
+                newImage.attr('width', image.attr('width'));
+            }
 
-			if ( typeof image.attr( 'title' ) !== 'undefined' ) {
-				newImage.attr( 'title', image.attr( 'title' ) );
-			}
+            if (typeof image.attr('height') !== 'undefined') {
+                newImage.attr('height', image.attr('height'));
+            }
 
-			// Assign the source of the image
-			newImage.attr( 'src', image.attr( 'data-src' ) );
-			newImage.removeAttr( 'data-src' );
+            if (typeof image.attr('alt') !== 'undefined') {
+                newImage.attr('alt', image.attr('alt'));
+            }
 
-			// Add the new image in the same container and remove the older image
-			newImage.insertAfter( image );
-			image.remove();
-			image = null;
-			
-			if ( typeof callback === 'function' ) {
-				callback( newImage );
-			}
-		},
+            if (typeof image.attr('title') !== 'undefined') {
+                newImage.attr('title', image.attr('title'));
+            }
 
-		// Destroy the module
-		destroyLazyLoading: function() {
-			this.off( 'update.' + NS );
-			this.off( 'gotoSlide.' + NS );
-			this.off( 'sliderResize.' + NS );
-			this.off( 'thumbnailsUpdate.' + NS );
-			this.off( 'thumbnailsMoveComplete.' + NS );
-		}
-	};
+            // Assign the source of the image
+            newImage.attr('src', image.attr('data-src'));
+            newImage.removeAttr('data-src');
 
-	$.SliderPro.addModule( 'LazyLoading', LazyLoading );
+            // Add the new image in the same container and remove the older image
+            newImage.insertAfter(image);
+            image.remove();
+            image = null;
 
-})( window, jQuery );
+            if (typeof callback === 'function') {
+                callback(newImage);
+            }
+        },
+
+        // Destroy the module
+        destroyLazyLoading: function () {
+            this.off('update.' + NS);
+            this.off('gotoSlide.' + NS);
+            this.off('sliderResize.' + NS);
+            this.off('thumbnailsUpdate.' + NS);
+            this.off('thumbnailsMoveComplete.' + NS);
+        }
+    };
+
+    $.SliderPro.addModule('LazyLoading', LazyLoading);
+
+})(window, jQuery);

@@ -30,8 +30,11 @@ jasmineRequire.html = function (j$) {
 jasmineRequire.HtmlReporter = function (j$) {
 
     var noopTimer = {
-        start: function () {},
-        elapsed: function () { return 0; }
+        start: function () {
+        },
+        elapsed: function () {
+            return 0;
+        }
     };
 
     function HtmlReporter(options) {
@@ -39,7 +42,8 @@ jasmineRequire.HtmlReporter = function (j$) {
             getContainer = options.getContainer,
             createElement = options.createElement,
             createTextNode = options.createTextNode,
-            onRaiseExceptionsClick = options.onRaiseExceptionsClick || function () {},
+            onRaiseExceptionsClick = options.onRaiseExceptionsClick || function () {
+            },
             timer = options.timer || noopTimer,
             results = [],
             specsExecuted = 0,
@@ -160,7 +164,9 @@ jasmineRequire.HtmlReporter = function (j$) {
                 );
             }
             var statusBarMessage = "" + pluralize("spec", specsExecuted) + ", " + pluralize("failure", failureCount);
-            if (pendingSpecCount) { statusBarMessage += ", " + pluralize("pending spec", pendingSpecCount); }
+            if (pendingSpecCount) {
+                statusBarMessage += ", " + pluralize("pending spec", pendingSpecCount);
+            }
 
             var statusBarClassName = "bar " + ((failureCount > 0) ? "failed" : "passed");
             alert.appendChild(createDom("span", {className: statusBarClassName}, statusBarMessage));

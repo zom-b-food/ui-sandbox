@@ -1,9 +1,8 @@
-
 @import "variables";
 @import "mixins";
+
 // Typography
 // --------------------------------------------------
-
 
 @font-face {
   font-family: 'asap';
@@ -47,10 +46,7 @@
 @font-face {
   font-family: 'LigatureSymbols';
   src: url('../fonts/LigatureSymbols-2.11.eot');
-  src: url('../fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/LigatureSymbols-2.11.woff') format('woff'),
-  url('../fonts/LigatureSymbols-2.11.ttf') format('truetype'),
-  url('../fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+  src: url('../fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'), url('../fonts/LigatureSymbols-2.11.woff') format('woff'), url('../fonts/LigatureSymbols-2.11.ttf') format('truetype'), url('../fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
   src: url('../fonts/LigatureSymbols-2.11.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -71,16 +67,16 @@
 }
 
 .lsf-icon:before {
-  content:attr(title);
-  margin-right:0.3em;
-  font-size:112%;
-  border:2px solid $smoke;
-  padding:3px 5px 3px;
+  content: attr(title);
+  margin-right: 0.3em;
+  font-size: 112%;
+  border: 2px solid $smoke;
+  padding: 3px 5px 3px;
   border-radius: $border-radius-small;
-  color:$cream;
-  background-color:$nightblue;
+  color: $cream;
+  background-color: $nightblue;
   line-height: 20px;
-  opacity:.7;
+  opacity: .7;
 }
 
 .uk-active {
@@ -126,25 +122,26 @@
   }
 }
 
-
-
-
 .lsf-icon.magic:before {
   content: '\E089';
 
 }
+
 .lsf-icon.home:before {
   content: '\E072';
 
 }
+
 .lsf-icon.college:before {
   content: '\E174';
 
 }
+
 .lsf-icon.login:before {
   content: '\E087';
 
 }
+
 .lsf-icon.mail:before {
   content: '\E08a';
 
@@ -154,6 +151,7 @@
   content: '\E009';
 
 }
+
 .lsf-icon.sns:before {
   content: '\E11f';
 
@@ -164,11 +162,11 @@
 
 }
 
-
 .lsf-icon.twinkle:before {
   content: '\E073';
 
 }
+
 .lsf-icon.param:before {
   content: '\E09c';
 
@@ -3325,7 +3323,6 @@
   content: "\e260";
 }
 
-
 // Headings & Body
 // -------------------------
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -3334,7 +3331,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   line-height: $headings-line-height;
   color: $headings-color;
 }
-
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -3358,15 +3354,16 @@ h1, h2, h3, h4, h5, h6,
     color: $headings-small-color;
   }
 }
+
 .uk-container-center >.uk-grid >.uk-row-first > h2:first-of-type {
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
 
 }
 
 .uk-container-center >.uk-grid >.uk-row-first > h4:first-of-type {
-  padding:0;
-  margin:0 0 20px 0;
+  padding: 0;
+  margin: 0 0 20px 0;
 
 }
 
@@ -3377,7 +3374,7 @@ p, td, th, a, li, label, body, div, ul > li, button {
   line-height: $base-body-line-height;
   color: $base-body-color;
   a {
-    color:$seateal;
+    color: $seateal;
 
   }
 }

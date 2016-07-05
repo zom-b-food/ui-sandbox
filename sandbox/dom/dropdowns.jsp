@@ -9,21 +9,14 @@
 <meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE,NO-STORE">
 <meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
 <meta HTTP-EQUIV="EXPIRES" CONTENT="0">
-
 <script type="text/javascript" src="${contextPath}/js/jquery-1.11.1.min.js"></script>
 <link type="text/css" rel="stylesheet" href="${contextPath}/styles/jquery-ui.css"/>
 <link type="text/css" rel="stylesheet" href="${contextPath}/styles/old.css"/>
 <link type="text/css" rel="stylesheet" href="${contextPath}/styles/pops.css"/>
-
-
 <script type="text/javascript" src="${contextPath}/scripts/html5shiv.js"></script>
 <script type="text/javascript" src="${contextPath}/scripts/jquery-ui-1.10.3.js"></script>
 <script type="text/javascript" src="${contextPath}/scripts/modernizr.custom.adamMarsh.js"></script>
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-
-
 <title>Jquery Selects</title>
 <style type="text/css">
 html, body {
@@ -230,7 +223,6 @@ form.cmxform .gray * {
 }
 </style>
 <script type="text/javascript">
-
 $(function () {
 	$("#messages1").change(function () {
 		ToggleDropdown();
@@ -475,27 +467,21 @@ function ToggleDropdown3b() {
 	}
 
 }
-
 </script>
 </head>
 <body>
 <div id="container-page">
-
 <div class="popDiv">
 <h3>Crazy, Wacky, Smart Dropdowns</h3>
 <h4>Click around to see how smart these dropowns are. </h4>
 
 <div id="main" class="bgrFFF">
-
 <div id="content">
-
 <h2 id="gs">To add an action, select the type of action and configure any associated attributes.</h2>
 
 <div id="generalSettings">
 <div class="pad12">
 <div class="blBoxInner pad12">
-
-
 <div class="dropdown_messages">
 	<label for="messages1" class='required-after'><b>Action Type <span class="red"> *</span></b></label><br/>
 	<select class="selectbox-big" id="messages1" name="messages">
@@ -508,7 +494,6 @@ function ToggleDropdown3b() {
 	</select>
 
 	<div class="clear"></div>
-
 </div>
 <div class="clear"></div>
 <div id="reminder_wrapper" class="dropdown_messages">
@@ -536,199 +521,190 @@ function ToggleDropdown3b() {
 		</select> <label for="sendReminder">day(s) prior to expiration <span class="red">*</span></label>
 	</div>
 </div>
-
 <div id="reminder_sms1" class="reminderTablesDiv">
 	<p>Select SMS Reminder 1</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
-
 </div>
 <!-- reminder 1 email -->
 <div id="reminder_email1" class="reminderTablesDiv">
 	<p>Select Email Reminder 1</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
-
 </div>
 <!-- reminder 1 batch -->
 <div id="reminder_batch1" class="reminderTablesDiv">
 	<p>Select Email Batch Reminder 1</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
-
 </div>
 <!-- reminder 1 endpoint -->
 <div id="reminder_endpoint1" class="reminderTablesDiv">
 	<p>Select Endpoint Reminder 1</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
 </fieldset>
-
 <fieldset id="reminder2">
 <legend>Add Reminder 2</legend>
 <label for="type1a" class='required-after'>Reminder Type <span class="red"> *</span></label><br/>
@@ -753,50 +729,48 @@ function ToggleDropdown3b() {
 		</select> <label for="sendReminder2">day(s) prior to expiration <span class="red">*</span></label>
 	</div>
 </div>
-
 <div id="reminder_sms2" class="reminderTablesDiv">
 	<p>Select SMS Reminder 2</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
@@ -805,45 +779,44 @@ function ToggleDropdown3b() {
 	<p>Select Email Reminder 2</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
@@ -852,45 +825,44 @@ function ToggleDropdown3b() {
 	<p>Select Email Batch Reminder 2</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
@@ -899,61 +871,60 @@ function ToggleDropdown3b() {
 	<p>Select Endpoint Reminder 2</p>
 	<table class="tablesorter">
 		<thead>
-		<tr>
-			<th>
-				Message ID
-			</th>
-			<th>
-				Message
-			</th>
-		</tr>
+			<tr>
+				<th>
+					Message ID
+				</th>
+				<th>
+					Message
+				</th>
+			</tr>
 		</thead>
 		<tbody>
-		<tr class="odd">
-			<td><a href="#" class="">test profileupp</a></td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>dsfsdfsdfdsf Rufus</td>
-			<td>the Schnoodle king</td>
-		</tr>
-		<tr class="odd">
-			<td>New Profile For Audit</td>
-			<td>gdsgsdfgsfdg</td>
-		</tr>
-		<tr class="even">
-			<td>fddfdg</td>
-			<td>dfgfdgdfgdf</td>
-		</tr>
-		<tr class="odd">
-			<td>Profile name 123</td>
-			<td>sdfdfsdf</td>
-		</tr>
-		<tr class="even">
-			<td>Audit log check profile</td>
-			<td>Audit log check profile desc</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110256</td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>test profileupp110243</td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="odd">
-			<td>test profileupp110250</td>
-			<td>Test Profile Description</td>
-		</tr>
-		<tr class="even">
-			<td>test profileupp110217</td>
-			<td>Test Profile Description</td>
-		</tr>
+			<tr class="odd">
+				<td><a href="#" class="">test profileupp</a></td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>dsfsdfsdfdsf Rufus</td>
+				<td>the Schnoodle king</td>
+			</tr>
+			<tr class="odd">
+				<td>New Profile For Audit</td>
+				<td>gdsgsdfgsfdg</td>
+			</tr>
+			<tr class="even">
+				<td>fddfdg</td>
+				<td>dfgfdgdfgdf</td>
+			</tr>
+			<tr class="odd">
+				<td>Profile name 123</td>
+				<td>sdfdfsdf</td>
+			</tr>
+			<tr class="even">
+				<td>Audit log check profile</td>
+				<td>Audit log check profile desc</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110256</td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>test profileupp110243</td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="odd">
+				<td>test profileupp110250</td>
+				<td>Test Profile Description</td>
+			</tr>
+			<tr class="even">
+				<td>test profileupp110217</td>
+				<td>Test Profile Description</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
 </fieldset>
-
 <fieldset id="reminder3">
 	<legend>Add Reminder 3</legend>
 	<label for="type3a" class='required-after'>Reminder Type <span class="red"> *</span></label><br/>
@@ -982,41 +953,40 @@ function ToggleDropdown3b() {
 		<p>Select SMS Reminder 3</p>
 		<table class="tablesorter">
 			<thead>
-			<tr>
-				<th>
-					Message ID
-				</th>
-				<th>
-					Message
-				</th>
-			</tr>
+				<tr>
+					<th>
+						Message ID
+					</th>
+					<th>
+						Message
+					</th>
+				</tr>
 			</thead>
 			<tbody>
-			<tr class="odd">
-				<td>test profileupp</td>
-				<td>Test Profile Description</td>
-			</tr>
-			<tr class="even">
-				<td>dsfsdfsdfdsf Rufus</td>
-				<td>the Schnoodle king</td>
-			</tr>
-			<tr class="odd">
-				<td>New Profile For Audit</td>
-				<td>gdsgsdfgsfdg</td>
-			</tr>
-			<tr class="even">
-				<td>fddfdg</td>
-				<td>dfgfdgdfgdf</td>
-			</tr>
-			<tr class="odd">
-				<td>Profile name 123</td>
-				<td>sdfdfsdf</td>
-			</tr>
-			<tr class="even">
-				<td>Audit log check profile</td>
-				<td>Audit log check profile desc</td>
-			</tr>
-
+				<tr class="odd">
+					<td>test profileupp</td>
+					<td>Test Profile Description</td>
+				</tr>
+				<tr class="even">
+					<td>dsfsdfsdfdsf Rufus</td>
+					<td>the Schnoodle king</td>
+				</tr>
+				<tr class="odd">
+					<td>New Profile For Audit</td>
+					<td>gdsgsdfgsfdg</td>
+				</tr>
+				<tr class="even">
+					<td>fddfdg</td>
+					<td>dfgfdgdfgdf</td>
+				</tr>
+				<tr class="odd">
+					<td>Profile name 123</td>
+					<td>sdfdfsdf</td>
+				</tr>
+				<tr class="even">
+					<td>Audit log check profile</td>
+					<td>Audit log check profile desc</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -1025,37 +995,36 @@ function ToggleDropdown3b() {
 		<p>Select Email Reminder 3</p>
 		<table class="tablesorter">
 			<thead>
-			<tr>
-				<th>
-					Message ID
-				</th>
-				<th>
-					Message
-				</th>
-			</tr>
+				<tr>
+					<th>
+						Message ID
+					</th>
+					<th>
+						Message
+					</th>
+				</tr>
 			</thead>
 			<tbody>
-			<tr class="odd">
-				<td>test profileupp</td>
-				<td>Test Profile Description</td>
-			</tr>
-			<tr class="even">
-				<td>dsfsdfsdfdsf Rufus</td>
-				<td>the Schnoodle king</td>
-			</tr>
-			<tr class="odd">
-				<td>New Profile For Audit</td>
-				<td>gdsgsdfgsfdg</td>
-			</tr>
-			<tr class="even">
-				<td>fddfdg</td>
-				<td>dfgfdgdfgdf</td>
-			</tr>
-			<tr class="odd">
-				<td>Profile name 123</td>
-				<td>sdfdfsdf</td>
-			</tr>
-
+				<tr class="odd">
+					<td>test profileupp</td>
+					<td>Test Profile Description</td>
+				</tr>
+				<tr class="even">
+					<td>dsfsdfsdfdsf Rufus</td>
+					<td>the Schnoodle king</td>
+				</tr>
+				<tr class="odd">
+					<td>New Profile For Audit</td>
+					<td>gdsgsdfgsfdg</td>
+				</tr>
+				<tr class="even">
+					<td>fddfdg</td>
+					<td>dfgfdgdfgdf</td>
+				</tr>
+				<tr class="odd">
+					<td>Profile name 123</td>
+					<td>sdfdfsdf</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -1064,30 +1033,28 @@ function ToggleDropdown3b() {
 		<p>Select Email Batch Reminder 3</p>
 		<table class="tablesorter">
 			<thead>
-			<tr>
-				<th>
-					Message ID
-				</th>
-				<th>
-					Message
-				</th>
-
-			</tr>
+				<tr>
+					<th>
+						Message ID
+					</th>
+					<th>
+						Message
+					</th>
+				</tr>
 			</thead>
 			<tbody>
-			<tr class="odd">
-				<td>test profileupp</td>
-				<td>Test Profile Description</td>
-			</tr>
-			<tr class="even">
-				<td>dsfsdfsdfdsf Rufus</td>
-				<td>the Schnoodle king</td>
-			</tr>
-			<tr class="odd">
-				<td>New Profile For Audit</td>
-				<td>gdsgsdfgsfdg</td>
-			</tr>
-
+				<tr class="odd">
+					<td>test profileupp</td>
+					<td>Test Profile Description</td>
+				</tr>
+				<tr class="even">
+					<td>dsfsdfsdfdsf Rufus</td>
+					<td>the Schnoodle king</td>
+				</tr>
+				<tr class="odd">
+					<td>New Profile For Audit</td>
+					<td>gdsgsdfgsfdg</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -1096,37 +1063,36 @@ function ToggleDropdown3b() {
 		<p>Select Endpoint Reminder 3</p>
 		<table class="tablesorter">
 			<thead>
-			<tr>
-				<th>
-					Message ID
-				</th>
-				<th>
-					Message
-				</th>
-			</tr>
+				<tr>
+					<th>
+						Message ID
+					</th>
+					<th>
+						Message
+					</th>
+				</tr>
 			</thead>
 			<tbody>
-			<tr class="odd">
-				<td>test profileupp</td>
-				<td>Test Profile Description</td>
-			</tr>
-			<tr class="even">
-				<td>dsfsdfsdfdsf Rufus</td>
-				<td>the Schnoodle king</td>
-			</tr>
-			<tr class="odd">
-				<td>New Profile For Audit</td>
-				<td>gdsgsdfgsfdg</td>
-			</tr>
-			<tr class="even">
-				<td>fddfdg</td>
-				<td>dfgfdgdfgdf</td>
-			</tr>
-			<tr class="odd">
-				<td>Profile name 123</td>
-				<td>sdfdfsdf</td>
-			</tr>
-
+				<tr class="odd">
+					<td>test profileupp</td>
+					<td>Test Profile Description</td>
+				</tr>
+				<tr class="even">
+					<td>dsfsdfsdfdsf Rufus</td>
+					<td>the Schnoodle king</td>
+				</tr>
+				<tr class="odd">
+					<td>New Profile For Audit</td>
+					<td>gdsgsdfgsfdg</td>
+				</tr>
+				<tr class="even">
+					<td>fddfdg</td>
+					<td>dfgfdgdfgdf</td>
+				</tr>
+				<tr class="odd">
+					<td>Profile name 123</td>
+					<td>sdfdfsdf</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -1145,11 +1111,8 @@ function ToggleDropdown3b() {
 	</div>
 	<div class="clear"></div>
 </div>
-
 <p>&nbsp;</p>
-
 </div>
-
 </div>
 </div>
 </div>

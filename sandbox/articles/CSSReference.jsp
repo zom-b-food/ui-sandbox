@@ -3,7 +3,6 @@
 <head>
 	<title>www.ui-design-engineering.com</title>
 	<%@ include file="/sitewide/globals.jsp" %>
-
 	<style type="text/css">
 		#container-page {
 			margin-right: auto;
@@ -49,7 +48,6 @@
 		em {
 			font-size: 13px;
 		}
-
 	</style>
 </head>
 <body>
@@ -192,7 +190,7 @@
 	<td>:lang(<em>language</em>)</td>
 	<td class="notranslate">p:lang(it)</td>
 	<td>Selects every &lt;p&gt; element with a lang attribute value starting
-	    with &quot;it&quot;</td>
+		with &quot;it&quot;</td>
 	<td>2</td>
 </tr>
 <tr>
@@ -235,7 +233,7 @@
 	<td>[<em>attribute</em>*=<em>value</em>]</td>
 	<td>a[src*=&quot;w3schools&quot;]</td>
 	<td>Selects every &lt;a&gt; element whose src attribute value contains the substring
-	    &quot;w3schools&quot;</td>
+		&quot;w3schools&quot;</td>
 	<td>3</td>
 </tr>
 <tr>
@@ -254,7 +252,7 @@
 	<td>:only-of-type</td>
 	<td>p:only-of-type</td>
 	<td>Selects every &lt;p&gt; element that is the only &lt;p&gt; element of its
-	    parent
+		parent
 	</td>
 	<td>3</td>
 </tr>
@@ -274,7 +272,7 @@
 	<td>:nth-last-child(<em>n</em>)</td>
 	<td>p:nth-last-child(2)</td>
 	<td>Selects every &lt;p&gt; element that is the second child of its parent, counting
-	    from the last child
+		from the last child
 	</td>
 	<td>3</td>
 </tr>
@@ -288,7 +286,7 @@
 	<td>:nth-last-of-type(<em>n</em>)</td>
 	<td>p:nth-last-of-type(2)</td>
 	<td>Selects every &lt;p&gt; element that is the second &lt;p&gt; element of its parent, counting
-	    from the last child
+		from the last child
 	</td>
 	<td>3</td>
 </tr>

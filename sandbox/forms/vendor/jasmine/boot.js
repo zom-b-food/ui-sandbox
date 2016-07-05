@@ -112,7 +112,9 @@
      */
 
     var queryString = new jasmine.QueryString({
-        getWindowLocation: function () { return window.location; }
+        getWindowLocation: function () {
+            return window.location;
+        }
     });
 
     var catchingExceptions = queryString.getParam("catch");
@@ -124,10 +126,18 @@
      */
     var htmlReporter = new jasmine.HtmlReporter({
         env: env,
-        onRaiseExceptionsClick: function () { queryString.setParam("catch", !env.catchingExceptions()); },
-        getContainer: function () { return document.body; },
-        createElement: function () { return document.createElement.apply(document, arguments); },
-        createTextNode: function () { return document.createTextNode.apply(document, arguments); },
+        onRaiseExceptionsClick: function () {
+            queryString.setParam("catch", !env.catchingExceptions());
+        },
+        getContainer: function () {
+            return document.body;
+        },
+        createElement: function () {
+            return document.createElement.apply(document, arguments);
+        },
+        createTextNode: function () {
+            return document.createTextNode.apply(document, arguments);
+        },
         timer: new jasmine.Timer()
     });
 
@@ -141,7 +151,9 @@
      * Filter which specs will be run by matching the start of the full name against the `spec` query param.
      */
     var specFilter = new jasmine.HtmlSpecFilter({
-        filterString: function () { return queryString.getParam("spec"); }
+        filterString: function () {
+            return queryString.getParam("spec");
+        }
     });
 
     env.specFilter = function (spec) {

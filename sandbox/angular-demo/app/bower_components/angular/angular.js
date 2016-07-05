@@ -199,7 +199,9 @@
      * @param {string} string String to be converted to lowercase.
      * @returns {string} Lowercased string.
      */
-    var lowercase = function (string) {return isString(string) ? string.toLowerCase() : string;};
+    var lowercase = function (string) {
+        return isString(string) ? string.toLowerCase() : string;
+    };
     var hasOwnProperty = Object.prototype.hasOwnProperty;
 
     /**
@@ -212,19 +214,25 @@
      * @param {string} string String to be converted to uppercase.
      * @returns {string} Uppercased string.
      */
-    var uppercase = function (string) {return isString(string) ? string.toUpperCase() : string;};
+    var uppercase = function (string) {
+        return isString(string) ? string.toUpperCase() : string;
+    };
 
 
     var manualLowercase = function (s) {
         /* jshint bitwise: false */
         return isString(s)
-            ? s.replace(/[A-Z]/g, function (ch) {return String.fromCharCode(ch.charCodeAt(0) | 32);})
+            ? s.replace(/[A-Z]/g, function (ch) {
+            return String.fromCharCode(ch.charCodeAt(0) | 32);
+        })
             : s;
     };
     var manualUppercase = function (s) {
         /* jshint bitwise: false */
         return isString(s)
-            ? s.replace(/[a-z]/g, function (ch) {return String.fromCharCode(ch.charCodeAt(0) & ~32);})
+            ? s.replace(/[a-z]/g, function (ch) {
+            return String.fromCharCode(ch.charCodeAt(0) & ~32);
+        })
             : s;
     };
 
@@ -388,7 +396,9 @@
      * @returns {function(*, string)}
      */
     function reverseParams(iteratorFn) {
-        return function (value, key) {iteratorFn(key, value);};
+        return function (value, key) {
+            iteratorFn(key, value);
+        };
     }
 
     /**
@@ -531,7 +541,8 @@
      }
      ```
      */
-    function noop() {}
+    function noop() {
+    }
 
     noop.$inject = [];
 
@@ -554,12 +565,18 @@
      * @param {*} value to be returned.
      * @returns {*} the value passed in.
      */
-    function identity($) {return $;}
+    function identity($) {
+        return $;
+    }
 
     identity.$inject = [];
 
 
-    function valueFn(value) {return function () {return value;};}
+    function valueFn(value) {
+        return function () {
+            return value;
+        };
+    }
 
     function hasCustomToString(obj) {
         return isFunction(obj.toString) && obj.toString !== toString;
@@ -578,7 +595,9 @@
      * @param {*} value Reference to check.
      * @returns {boolean} True if `value` is undefined.
      */
-    function isUndefined(value) {return typeof value === 'undefined';}
+    function isUndefined(value) {
+        return typeof value === 'undefined';
+    }
 
 
     /**
@@ -593,7 +612,9 @@
      * @param {*} value Reference to check.
      * @returns {boolean} True if `value` is defined.
      */
-    function isDefined(value) {return typeof value !== 'undefined';}
+    function isDefined(value) {
+        return typeof value !== 'undefined';
+    }
 
 
     /**
@@ -637,7 +658,9 @@
      * @param {*} value Reference to check.
      * @returns {boolean} True if `value` is a `String`.
      */
-    function isString(value) {return typeof value === 'string';}
+    function isString(value) {
+        return typeof value === 'string';
+    }
 
 
     /**
@@ -658,7 +681,9 @@
      * @param {*} value Reference to check.
      * @returns {boolean} True if `value` is a `Number`.
      */
-    function isNumber(value) {return typeof value === 'number';}
+    function isNumber(value) {
+        return typeof value === 'number';
+    }
 
 
     /**
@@ -704,7 +729,9 @@
      * @param {*} value Reference to check.
      * @returns {boolean} True if `value` is a `Function`.
      */
-    function isFunction(value) {return typeof value === 'function';}
+    function isFunction(value) {
+        return typeof value === 'function';
+    }
 
 
     /**
@@ -1344,13 +1371,16 @@
             // are not allowed to have children. So we just ignore it.
             element.empty();
         }
-        catch (e) {}
+        catch (e) {
+        }
         var elemHtml = jqLite('<div>').append(element).html();
         try {
             return element[0].nodeType === NODE_TYPE_TEXT ? lowercase(elemHtml) :
                 elemHtml.
                     match(/^(<[^>]+>)/)[1].
-                    replace(/^<([\w\-]+)/, function (match, nodeName) {return '<' + lowercase(nodeName);});
+                    replace(/^<([\w\-]+)/, function (match, nodeName) {
+                        return '<' + lowercase(nodeName);
+                    });
         }
         catch (e) {
             return lowercase(elemHtml);
@@ -2737,7 +2767,9 @@
         return this.cache[node[this.expando]] || {};
     };
 
-    function jqNextId() { return ++jqId; }
+    function jqNextId() {
+        return ++jqId;
+    }
 
 
     var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
@@ -3154,7 +3186,9 @@
         },
         toString: function () {
             var value = [];
-            forEach(this, function (e) { value.push('' + e);});
+            forEach(this, function (e) {
+                value.push('' + e);
+            });
             return '[' + value.join(', ') + ']';
         },
 
@@ -3636,10 +3670,18 @@
             if (eventFns) {
                 // Create a dummy event to pass to the handlers
                 dummyEvent = {
-                    preventDefault: function () { this.defaultPrevented = true; },
-                    isDefaultPrevented: function () { return this.defaultPrevented === true; },
-                    stopImmediatePropagation: function () { this.immediatePropagationStopped = true; },
-                    isImmediatePropagationStopped: function () { return this.immediatePropagationStopped === true; },
+                    preventDefault: function () {
+                        this.defaultPrevented = true;
+                    },
+                    isDefaultPrevented: function () {
+                        return this.defaultPrevented === true;
+                    },
+                    stopImmediatePropagation: function () {
+                        this.immediatePropagationStopped = true;
+                    },
+                    isImmediatePropagationStopped: function () {
+                        return this.immediatePropagationStopped === true;
+                    },
                     stopPropagation: noop,
                     type: eventName,
                     target: element
@@ -4449,7 +4491,9 @@
                 }));
 
 
-        forEach(loadModules(modulesToLoad), function (fn) { if (fn) instanceInjector.invoke(fn); });
+        forEach(loadModules(modulesToLoad), function (fn) {
+            if (fn) instanceInjector.invoke(fn);
+        });
 
         return instanceInjector;
 
@@ -4501,7 +4545,9 @@
             }]);
         }
 
-        function value(name, val) { return factory(name, valueFn(val), false); }
+        function value(name, val) {
+            return factory(name, valueFn(val), false);
+        }
 
         function constant(name, value) {
             assertNotHasOwnProperty(name, 'constant');
@@ -4923,7 +4969,9 @@
             // does not scroll when user clicks on anchor link that is currently on
             // (no url change, no $location.hash() change), browser native does scroll
             if (autoScrollingEnabled) {
-                $rootScope.$watch(function autoScrollWatch() {return $location.hash();},
+                $rootScope.$watch(function autoScrollWatch() {
+                        return $location.hash();
+                    },
                     function autoScrollWatchAction(newVal, oldVal) {
                         // skip the initial scroll if $location.hash is empty
                         if (newVal === oldVal && newVal === '') return;
@@ -4992,7 +5040,8 @@
     }
 
     var $$CoreAnimateJsProvider = function () {
-        this.$get = function () {};
+        this.$get = function () {
+        };
     };
 
 // this is prefixed with Core since it conflicts with
@@ -5829,7 +5878,9 @@
 
         // TODO(vojta): remove this temporary api
         self.$$completeOutstandingRequest = completeOutstandingRequest;
-        self.$$incOutstandingRequestCount = function () { outstandingRequestCount++; };
+        self.$$incOutstandingRequestCount = function () {
+            outstandingRequestCount++;
+        };
 
         /**
          * Executes the `fn` function(supports currying) and decrements the `outstandingRequestCallbacks`
@@ -8771,7 +8822,9 @@
                                     match = directive;
                                 }
                             }
-                            catch (e) { $exceptionHandler(e); }
+                            catch (e) {
+                                $exceptionHandler(e);
+                            }
                         }
                     }
                     return match;
@@ -9204,7 +9257,9 @@
 
 
                 function cloneAndAnnotateFn(fn, annotation) {
-                    return extend(function () { return fn.apply(null, arguments); }, fn, annotation);
+                    return extend(function () {
+                        return fn.apply(null, arguments);
+                    }, fn, annotation);
                 }
 
 
@@ -9266,7 +9321,9 @@
                                     compare = equals;
                                 }
                                 else {
-                                    compare = function (a, b) { return a === b || (a !== a && b !== b); };
+                                    compare = function (a, b) {
+                                        return a === b || (a !== a && b !== b);
+                                    };
                                 }
                                 parentSet = parentGet.assign || function () {
                                     // reset the change, or we will throw this exception on every $digest
@@ -9378,9 +9435,11 @@
      * Closure compiler type information
      */
 
-    function nodesetLinkingFn(/* angular.Scope */ scope, /* NodeList */ nodeList, /* Element */ rootElement, /* function(Function) */ boundTranscludeFn) {}
+    function nodesetLinkingFn(/* angular.Scope */ scope, /* NodeList */ nodeList, /* Element */ rootElement, /* function(Function) */ boundTranscludeFn) {
+    }
 
-    function directiveLinkingFn(/* nodesetLinkingFn */ nodesetLinkingFn, /* angular.Scope */ scope, /* Node */ node, /* Element */ rootElement, /* function(Function) */ boundTranscludeFn) {}
+    function directiveLinkingFn(/* nodesetLinkingFn */ nodesetLinkingFn, /* angular.Scope */ scope, /* Node */ node, /* Element */ rootElement, /* function(Function) */ boundTranscludeFn) {
+    }
 
     function tokenDifference(str1, str2) {
         var values = '',
@@ -12942,7 +13001,8 @@
                 try {
                     hasApply = !!logFn.apply;
                 }
-                catch (e) {}
+                catch (e) {
+                }
 
                 if (hasApply) {
                     return function () {
@@ -13090,7 +13150,9 @@
     }
 
     var OPERATORS = createMap();
-    forEach('+ - * / % === !== == != < > <= >= && || ! = |'.split(' '), function (operator) { OPERATORS[operator] = true; });
+    forEach('+ - * / % === !== == != < > <= >= && || ! = |'.split(' '), function (operator) {
+        OPERATORS[operator] = true;
+    });
     var ESCAPE = {"n": "\n", "f": "\f", "r": "\r", "t": "\t", "v": "\v", "'": "'", '"': '"'};
 
 
@@ -13907,7 +13969,9 @@
             switch (ast.type) {
                 case AST.Program:
                     forEach(ast.body, function (expression, pos) {
-                        self.recurse(expression.expression, undefined, undefined, function (expr) { right = expr; });
+                        self.recurse(expression.expression, undefined, undefined, function (expr) {
+                            right = expr;
+                        });
                         if (pos !== ast.body.length - 1) {
                             self.current().body.push(right, ';');
                         }
@@ -13922,14 +13986,20 @@
                     recursionFn(expression);
                     break;
                 case AST.UnaryExpression:
-                    this.recurse(ast.argument, undefined, undefined, function (expr) { right = expr; });
+                    this.recurse(ast.argument, undefined, undefined, function (expr) {
+                        right = expr;
+                    });
                     expression = ast.operator + '(' + this.ifDefined(right, 0) + ')';
                     this.assign(intoId, expression);
                     recursionFn(expression);
                     break;
                 case AST.BinaryExpression:
-                    this.recurse(ast.left, undefined, undefined, function (expr) { left = expr; });
-                    this.recurse(ast.right, undefined, undefined, function (expr) { right = expr; });
+                    this.recurse(ast.left, undefined, undefined, function (expr) {
+                        left = expr;
+                    });
+                    this.recurse(ast.right, undefined, undefined, function (expr) {
+                        right = expr;
+                    });
                     if (ast.operator === '+') {
                         expression = this.plus(left, right);
                     }
@@ -14305,7 +14375,8 @@
             forEach(ast.body, function (expression) {
                 expressions.push(self.recurse(expression.expression));
             });
-            var fn = ast.body.length === 0 ? function () {} :
+            var fn = ast.body.length === 0 ? function () {
+            } :
                 ast.body.length === 1 ? expressions[0] :
                     function (scope, locals) {
                         var lastValue;
@@ -14579,7 +14650,9 @@
             };
         },
         value: function (value, context) {
-            return function () { return context ? {context: undefined, name: undefined, value: value} : value; };
+            return function () {
+                return context ? {context: undefined, name: undefined, value: value} : value;
+            };
         },
         identifier: function (name, expensiveChecks, context, create, expression) {
             return function (scope, locals, assign, inputs) {
@@ -15331,7 +15404,9 @@
         function scheduleProcessQueue(state) {
             if (state.processScheduled || !state.pending) return;
             state.processScheduled = true;
-            nextTick(function () { processQueue(state); });
+            nextTick(function () {
+                processQueue(state);
+            });
         }
 
         function Deferred() {
@@ -16560,7 +16635,9 @@
 
                         // Disable listeners, watchers and apply/digest methods
                         this.$destroy = this.$digest = this.$apply = this.$evalAsync = this.$applyAsync = noop;
-                        this.$on = this.$watch = this.$watchGroup = function () { return noop; };
+                        this.$on = this.$watch = this.$watchGroup = function () {
+                            return noop;
+                        };
                         this.$$listeners = {};
 
                         // Disconnect the next sibling to prevent `cleanUpScope` destroying those too
@@ -16828,7 +16905,9 @@
                             event = {
                                 name: name,
                                 targetScope: scope,
-                                stopPropagation: function () {stopPropagation = true;},
+                                stopPropagation: function () {
+                                    stopPropagation = true;
+                                },
                                 preventDefault: function () {
                                     event.defaultPrevented = true;
                                 },
@@ -16991,7 +17070,8 @@
                  * function used as an initial value for watchers.
                  * because it's unique we can easily tell it apart from other values
                  */
-                function initWatchVal() {}
+                function initWatchVal() {
+                }
 
                 function flushApplyAsync() {
                     while (applyAsyncQueue.length) {
@@ -17869,7 +17949,9 @@
             sce.valueOf = $sceDelegate.valueOf;
 
             if (!enabled) {
-                sce.trustAs = sce.getTrusted = function (type, value) { return value; };
+                sce.trustAs = sce.getTrusted = function (type, value) {
+                    return value;
+                };
                 sce.valueOf = identity;
             }
 
@@ -19340,7 +19422,8 @@
         }
 
         // Count the number of leading zeros.
-        for (i = 0; numStr.charAt(i) == ZERO_CHAR; i++) {/* jshint noempty: false */}
+        for (i = 0; numStr.charAt(i) == ZERO_CHAR; i++) {/* jshint noempty: false */
+        }
 
         if (i == (zeros = numStr.length)) {
             // The digits are all zero.
@@ -19454,7 +19537,9 @@
             var integerLen = parsedNumber.i;
             var exponent = parsedNumber.e;
             var decimals = [];
-            isZero = digits.reduce(function (isZero, d) { return isZero && !d; }, true);
+            isZero = digits.reduce(function (isZero, d) {
+                return isZero && !d;
+            }, true);
 
             // pad zeros for small numbers
             while (integerLen < 0) {
@@ -20181,21 +20266,29 @@
 
             if (!(isArrayLike(array))) return array;
 
-            if (!isArray(sortPredicate)) { sortPredicate = [sortPredicate]; }
-            if (sortPredicate.length === 0) { sortPredicate = ['+']; }
+            if (!isArray(sortPredicate)) {
+                sortPredicate = [sortPredicate];
+            }
+            if (sortPredicate.length === 0) {
+                sortPredicate = ['+'];
+            }
 
             var predicates = processPredicates(sortPredicate, reverseOrder);
             // Add a predicate at the end that evaluates to the element index. This makes the
             // sort stable as it works as a tie-breaker when all the input predicates cannot
             // distinguish between two elements.
-            predicates.push({ get: function () { return {}; }, descending: reverseOrder ? -1 : 1});
+            predicates.push({ get: function () {
+                return {};
+            }, descending: reverseOrder ? -1 : 1});
 
             // The next three lines are a version of a Swartzian Transform idiom from Perl
             // (sometimes called the Decorate-Sort-Undecorate idiom)
             // See https://en.wikipedia.org/wiki/Schwartzian_transform
             var compareValues = Array.prototype.map.call(array, getComparisonObject);
             compareValues.sort(doComparison);
-            array = compareValues.map(function (item) { return item.value; });
+            array = compareValues.map(function (item) {
+                return item.value;
+            });
 
             return array;
 
@@ -20235,7 +20328,9 @@
                         get = $parse(predicate);
                         if (get.constant) {
                             var key = get();
-                            get = function (value) { return value[key]; };
+                            get = function (value) {
+                                return value[key];
+                            };
                         }
                     }
                 }
@@ -27142,8 +27237,12 @@
             // if we have a trackFn then use that (passing scope and locals)
             // otherwise just hash the given viewValue
             var getTrackByValueFn = trackBy ?
-                function (value, locals) { return trackByFn(scope, locals); } :
-                function getHashOfValue(value) { return hashKey(value); };
+                function (value, locals) {
+                    return trackByFn(scope, locals);
+                } :
+                function getHashOfValue(value) {
+                    return hashKey(value);
+                };
             var getTrackByValue = function (value, key) {
                 return getTrackByValueFn(value, getLocals(value, key));
             };
@@ -27379,8 +27478,12 @@
                 // since ngModel only watches for object identity change
                 if (ngOptions.trackBy) {
                     scope.$watch(
-                        function () { return ngOptions.getTrackByValue(ngModelCtrl.$viewValue); },
-                        function () { ngModelCtrl.$render(); }
+                        function () {
+                            return ngOptions.getTrackByValue(ngModelCtrl.$viewValue);
+                        },
+                        function () {
+                            ngModelCtrl.$render();
+                        }
                     );
                 }
 
@@ -28806,7 +28909,9 @@
     var ngStyleDirective = ngDirective(function (scope, element, attr) {
         scope.$watch(attr.ngStyle, function ngStyleWatchAction(newStyles, oldStyles) {
             if (oldStyles && (newStyles !== oldStyles)) {
-                forEach(oldStyles, function (val, style) { element.css(style, '');});
+                forEach(oldStyles, function (val, style) {
+                    element.css(style, '');
+                });
             }
             if (newStyles) element.css(newStyles);
         }, true);
@@ -28955,7 +29060,9 @@
                     selectedScopes = [];
 
                 var spliceFactory = function (array, index) {
-                    return function () { array.splice(index, 1); };
+                    return function () {
+                        array.splice(index, 1);
+                    };
                 };
 
                 scope.$watch(watchExpr, function ngSwitchWatchAction(value) {
@@ -30138,7 +30245,9 @@
             "pluralCat": function (n, opt_precision) {
                 var i = n | 0;
                 var vf = getVF(n, opt_precision);
-                if (i == 1 && vf.v == 0) { return PLURAL_CATEGORY.ONE; }
+                if (i == 1 && vf.v == 0) {
+                    return PLURAL_CATEGORY.ONE;
+                }
                 return PLURAL_CATEGORY.OTHER;
             }
         });

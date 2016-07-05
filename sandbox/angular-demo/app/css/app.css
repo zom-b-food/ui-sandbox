@@ -15,7 +15,7 @@ body {
 
 .critters {
     list-style: none;
-    padding-left:0;
+    padding-left: 0;
 }
 
 .thumb {
@@ -76,7 +76,7 @@ ul.critter-thumbs img:hover {
 
 ul.specs {
     clear: both;
-    margin:5px;
+    margin: 5px;
     padding: 0;
     list-style: none;
 }
@@ -107,7 +107,7 @@ a.ng-binding {
 
 p.ng-binding {
     font-size: 12px;
-    line-height:15px;
-    margin:0;
-    padding:0;
+    line-height: 15px;
+    margin: 0;
+    padding: 0;
 }

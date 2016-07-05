@@ -33,9 +33,9 @@
  ========================================================================== */
 
 .uk-nestable {
-    padding: 0;
-    list-style: none;
-    @include hook-nestable();
+  padding: 0;
+  list-style: none;
+  @include hook-nestable();
 }
 
 /*
@@ -44,18 +44,18 @@
  */
 
 .uk-nestable a,
-.uk-nestable img { -webkit-touch-callout: none; }
-
+.uk-nestable img {
+  -webkit-touch-callout: none;
+}
 
 /* Sub-object `uk-nestable-list`
  ========================================================================== */
 
 .uk-nestable-list {
-    margin: 0;
-    padding-left: $nestable-padding-left;
-    list-style: none;
+  margin: 0;
+  padding-left: $nestable-padding-left;
+  list-style: none;
 }
-
 
 /* Sub-modifier `uk-nestable-item`
  ========================================================================== */
@@ -65,15 +65,18 @@
  */
 
 .uk-nestable-item {
-    /* 1 */
-    touch-action: none;
-    @include hook-nestable-item();
+  /* 1 */
+  touch-action: none;
+  @include hook-nestable-item();
 }
 
-.uk-nestable-item + .uk-nestable-item { margin-top: $nestable-item-margin; }
+.uk-nestable-item + .uk-nestable-item {
+  margin-top: $nestable-item-margin;
+}
 
-.uk-nestable-list:not(.uk-nestable-dragged) > .uk-nestable-item:first-child { margin-top: $nestable-item-margin; }
-
+.uk-nestable-list:not(.uk-nestable-dragged) > .uk-nestable-item:first-child {
+  margin-top: $nestable-item-margin;
+}
 
 /* Sub-modifier `uk-nestable-dragged`
  ========================================================================== */
@@ -83,43 +86,44 @@
  */
 
 .uk-nestable-dragged {
-    position: absolute;
-    z-index: $nestable-dragged-z-index;
-    pointer-events: none;
-    /* 1 */
-    padding-left: 0;
-    @include hook-nestable-dragged();
+  position: absolute;
+  z-index: $nestable-dragged-z-index;
+  pointer-events: none;
+  /* 1 */
+  padding-left: 0;
+  @include hook-nestable-dragged();
 }
-
 
 /* Sub-modifier `uk-nestable-placeholder`
  ========================================================================== */
 
-.uk-nestable-placeholder { position: relative; }
-
-.uk-nestable-placeholder > * { opacity: 0; }
-
-.uk-nestable-placeholder:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border: 1px dashed $nestable-placeholder-border;
-    opacity: 1;
-    @include hook-nestable-placeholder();
+.uk-nestable-placeholder {
+  position: relative;
 }
 
+.uk-nestable-placeholder > * {
+  opacity: 0;
+}
+
+.uk-nestable-placeholder:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 1px dashed $nestable-placeholder-border;
+  opacity: 1;
+  @include hook-nestable-placeholder();
+}
 
 /* Empty List
  ========================================================================== */
 
 .uk-nestable-empty {
-    min-height: $nestable-empty-height;
-    @include hook-nestable-empty();
+  min-height: $nestable-empty-height;
+  @include hook-nestable-empty();
 }
-
 
 /* Sub-object `uk-nestable-handle`
  ========================================================================== */
@@ -128,19 +132,23 @@
  * Deactivate browser touch actions in IE11
  */
 
-.uk-nestable-handle { touch-action: none; }
+.uk-nestable-handle {
+  touch-action: none;
+}
 
 /* Hover */
-.uk-nestable-handle:hover { cursor: move; }
-
+.uk-nestable-handle:hover {
+  cursor: move;
+}
 
 /* Sub-object `uk-nestable-moving`
  ========================================================================== */
 
 .uk-nestable-moving,
-/* Needed if moving over links or buttons */
-.uk-nestable-moving * { cursor: move; }
-
+  /* Needed if moving over links or buttons */
+.uk-nestable-moving * {
+  cursor: move;
+}
 
 /* [data-nestable-action='toggle']
  ========================================================================== */
@@ -150,49 +158,52 @@
  */
 
 [data-nestable-action='toggle'] {
-    cursor: pointer;
-    /* 1 */
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  cursor: pointer;
+  /* 1 */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
 
 /* Sub-object `.uk-nestable-toggle`
  ========================================================================== */
 
 .uk-nestable-toggle {
-    display: inline-block;
-    visibility: hidden;
-    @include hook-nestable-toggle();
+  display: inline-block;
+  visibility: hidden;
+  @include hook-nestable-toggle();
 }
 
 .uk-nestable-toggle:after {
-    content: $nestable-toggle-icon;
-    font-family: FontAwesome;
+  content: $nestable-toggle-icon;
+  font-family: FontAwesome;
 }
 
-.uk-parent > :not(.uk-nestable-list) .uk-nestable-toggle { visibility: visible; }
+.uk-parent > :not(.uk-nestable-list) .uk-nestable-toggle {
+  visibility: visible;
+}
 
 /*
  * Collapsed
  */
 
-.uk-collapsed .uk-nestable-list { display: none; }
+.uk-collapsed .uk-nestable-list {
+  display: none;
+}
 
-.uk-collapsed .uk-nestable-toggle:after { content: $nestable-toggle-collapsed-icon; }
-
+.uk-collapsed .uk-nestable-toggle:after {
+  content: $nestable-toggle-collapsed-icon;
+}
 
 /* Sub-object `uk-nestable-panel`
  ========================================================================== */
 
 .uk-nestable-panel {
-    padding: $nestable-panel-padding;
-    background: $nestable-panel-background;
-    @include hook-nestable-panel();
+  padding: $nestable-panel-padding;
+  background: $nestable-panel-background;
+  @include hook-nestable-panel();
 }
-
 
 // Hooks
 // ========================================================================
