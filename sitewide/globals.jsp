@@ -38,7 +38,6 @@
 <link rel="stylesheet" href="${assetPath}/css/normalize.css">
 <link rel="stylesheet" href="${assetPath}/css/ie10-viewport-bug-workaround.css">
 <link rel="stylesheet" href="${assetPath}/compiled/UI-SANDBOX.min.css">
-<link rel="stylesheet" href="${assetPath}/css/custom.css">
 <link rel="stylesheet" href="${assetPath}/css/components.css">
 <script src="${assetPath}/js/site.js"></script>
 <script src="${assetPath}/compiled/UI-SANDBOX.min.js"></script>

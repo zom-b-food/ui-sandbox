@@ -150,37 +150,6 @@
   line-height: $navbar-nav-subtitle-font-size + $navbar-nav-subtitle-offset;
 }
 
-/* Sub-objects: `uk-navbar-content`, `uk-navbar-brand`, `uk-navbar-toggle`
- ========================================================================== */
-
-/*
- * Imitate navbar items
- */
-
-.uk-navbar-content,
-.uk-navbar-brand,
-.uk-navbar-toggle {
-  box-sizing: border-box;
-  display: block;
-  height: $navbar-nav-height;
-  padding: 0 $navbar-nav-padding-horizontal;
-  float: left;
-  @include hook-navbar-content();
-}
-
-/*
- * Helper to center all child elements vertically
- */
-
-.uk-navbar-content:before,
-.uk-navbar-brand:before,
-.uk-navbar-toggle:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-
 /* Sub-objects: `uk-navbar-content`
  ========================================================================== */
 

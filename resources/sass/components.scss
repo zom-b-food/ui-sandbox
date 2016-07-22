@@ -1,13 +1,8 @@
-@import "variables";
-@import "mixins";
-// Defaults
-@import "components/loader.scss";
-@import "components/accordion.scss";
-@import "components/site-forms.scss";
-@import "components/tooltip.scss";
-@import "components/sticky.scss";
-@import "components/header-slidernav.scss";
-@import "components/slideshow.scss";
-@import "components/ac-accordion.scss";
-@import "components/ilightbox.scss";
+@import "components/header";
+@import "components/mobile-nav";
+@import "components/site-forms";
+@import "components/slideshow";
+@import "components/ac-accordion";
+@import "components/accordion";
+@import "components/ilightbox";
 

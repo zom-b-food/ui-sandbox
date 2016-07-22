@@ -1,7 +1,21 @@
+@import "fonts-icons";
+/*@import "components";*/
 @import "variables";
-@import "mixins";
 
-/* Don't edit these three items */
+.parent {
+  color:red;
+  .child {
+    color:blue;
+    .grand-child  {
+      color:green;
+      &.sibling {
+        color:pink;
+        font-weight:bold;
+      }
+    }
+  }
+}
+
 html, body {
   position: relative;
   min-height: 100%;
@@ -19,27 +33,31 @@ header {
   animation: fadein 4s;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   z-index: 3;
-
 }
 
-uk-grid {
-  margin: 0 auto !important;
+body.popDiv {
+  padding: 10px;
+}
+
+.uk-grid {
+  margin: 0 auto;
 }
 
 @media (min-width: 1220px) {
   .uk-grid.noPad > * {
-    padding-left: 0 !important;
-  }
-
-  @media (min-width: 1220px) {
-    .uk-grid {
-      margin-left: 0;
-    }
+    padding-left: 0;
   }
   .uk-grid {
     margin-left: 0;
   }
+}
 
+ul.logos li {
+  margin: 0 auto;
+  list-style-type: none;
+  list-style-image: none;
+  display:inline-block;
+  padding:0 16px 14px 0;
 }
 
 .noPad {
@@ -138,19 +156,7 @@ div#footerA {
   padding: 0;
 }
 
-.fade1 {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-}
-
-.fade2 {
-  opacity: 0;
-  filter: alpha(opacity=0);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-
-}
-
+/*You can edit below this line*/
 /* make keyframes that tell the start state and the end state of our object */
 
 @-webkit-keyframes fadeIn {
@@ -188,32 +194,30 @@ div#footerA {
   }
 }
 
+.colorbox {
+  padding: 4px;
+  height: 182px;
+  width: 100%;
+}
+
 .camel {
   background-color: $camel;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
 }
 
 .sand {
   background-color: $sand;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
 }
 
 .cream {
   background-color: $cream;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
 }
 
 .slategreen {
   background-color: $slategreen;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
   p, span, {
     color: #fff;
   }
@@ -221,30 +225,22 @@ div#footerA {
 
 .palegreen {
   background-color: $palegreen;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
 }
 
 .smoke {
   background-color: $smoke;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
 }
 
 .selected {
   background-color: $active;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
 }
 
 .blackish {
   background-color: $blackish;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
   p, span {
     color: #fff;
   }
@@ -252,16 +248,12 @@ div#footerA {
 
 .simba {
   background-color: $simba;
-  height: 175px;
-  width: 100%;
-  padding: 4px;
+  @extend .colorbox;
 }
 
 .nightblue {
   background-color: $nightblue;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
   p, span {
     color: #fff;
   }
@@ -269,9 +261,7 @@ div#footerA {
 
 .black {
   background-color: $black;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
   p, span {
     color: #fff;
   }
@@ -279,9 +269,7 @@ div#footerA {
 
 .dkocean {
   background-color: $dkocean;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
   p, span {
     color: #fff;
   }
@@ -289,9 +277,7 @@ div#footerA {
 
 .seateal {
   background-color: $seateal;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
   p, span {
     color: #fff;
   }
@@ -299,16 +285,12 @@ div#footerA {
 
 .moonblue {
   background-color: $moonblue;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
 }
 
 .linkblue {
   background-color: $linkblue;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
   p, span {
     color: #fff;
   }
@@ -316,9 +298,7 @@ div#footerA {
 
 .bluemist {
   background-color: $bluemist;
-  padding: 4px;
-  height: 175px;
-  width: 100%;
+  @extend .colorbox;
 }
 
 .banner {
@@ -362,17 +342,58 @@ a.back-to-top {
   background: #252525;
 }
 
+/*
+ * Blocks
+ */
+
 .am-middle,
 .am-section,
 .am-footer {
   padding: 5px 0;
 }
 
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  .am-middle,
+  .am-section,
+  .am-footer {
+    padding: 5px 0;
+  }
+}
+
+/* Large screen and bigger */
+@media (min-width: 1220px) {
+  .am-middle,
+  .am-section,
+  .am-footer {
+    padding: 20px 0;
+  }
+}
+
+/*
+ * Middle
+ */
+
 .am-middle {
   background: #fff;
   max-width: $utility-container-large-max-width;
   margin: 0 auto;
   min-height: 700px;
+}
+
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  .am-sidebar {
+    margin-right: -1px !important;
+    border-right: 1px solid #E5E5E5;
+  }
+  .am-main {
+    padding-left: 50px !important;
+    border-left: 1px solid #E5E5E5;
+  }
+  .am-sidebar .uk-panel {
+    padding-right: 20px;
+  }
 }
 
 .am-logo {
@@ -430,7 +451,6 @@ a.back-to-top {
     padding: 10px 0 0 12px;
     font-weight: bold;
     line-height: 17px;
-
   }
 }
 
@@ -456,7 +476,6 @@ a.back-to-top {
     padding: 10px 0 0 12px;
     font-weight: bold;
     line-height: 17px;
-
   }
 }
 
@@ -579,6 +598,7 @@ table {
   margin-top: 10px;
 }
 
+/* Active */
 .uk-active > a.sidelink {
   color: $dkocean;
   font-weight: 700;
@@ -638,9 +658,14 @@ li.uk-nav-header {
   width: 260px !important;
 }
 
+/* OnClick */
 .am-navbar .uk-navbar-nav > li > a:active {
   background-color: transparent;
 }
+
+/*
+ * Article
+ */
 
 .am-article-subtitle {
   padding-left: 6px;
