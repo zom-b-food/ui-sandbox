@@ -1,7 +1,7 @@
 {
     "files": [
         {
-            "source": "./resources/compiled/ui-design-engineering.min.js",
+            "source": "./resources/compiled/UI-SANDBOX.min.js",
             "type": "SCRIPT",
             "size": 5.096,
             "stopExecution": false
@@ -14,12 +14,17 @@
         },
 
         {
-            "source": "./resources/compiled/ui-design-engineering.min.css",
+            "source": "./resources/compiled/UI-SANDBOX.min.css",
             "type": "CSS",
             "size": 10.819
         },
         {
-            "source": "./resources/css/custom-w.css",
+            "source": "./resources/css/custom.css",
+            "type": "CSS",
+            "size": 7.336
+        },
+        {
+            "source": "./resources/css/components.css",
             "type": "CSS",
             "size": 7.336
         }
