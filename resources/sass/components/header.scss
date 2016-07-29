@@ -71,14 +71,12 @@ Header and Navigation
 
 #cd-linkedin {
   float: left;
-
   z-index: 1;
   margin-top: 20px;
 }
 
 #cd-res {
   float: right;
-
   z-index: 2;
   margin-top: 20px;
 }
@@ -95,7 +93,6 @@ Header and Navigation
   border-radius: .5em;
   padding: 4px 6px;
   color: #ffffff;
-
 }
 
 .am-btn1:hover, .am-btn2:hover {
@@ -110,7 +107,6 @@ Header and Navigation
   border-radius: .5em;
   padding: 4px 6px;
   color: #ffffff;
-
 }
 
 @media only screen and (min-width: 961px) {
@@ -129,6 +125,7 @@ Header and Navigation
     right: 6%;
     opacity: 1;
   }
+
   .am-btn2.is-hidden.slide-in {
     filter: alpha(opacity=70);
     border: 1px solid #4da9c7;
@@ -305,7 +302,6 @@ section#overlay {
   right: 5%;
   bottom: 20px;
   border-radius: 0.25em;
-
   visibility: hidden;
   z-index: 1;
   -webkit-backface-visibility: hidden;

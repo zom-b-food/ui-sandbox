@@ -306,14 +306,52 @@
 		<a href="${contextPath}/samplesites/samples.jsp" class="popupwindow samples">&nbsp;view them here.</a>
 	</p>
 
-	<div>
-		<ul>
-			<li><a href="http://www.shoecarnival.com" class="wide"> latest responsive site I built on this job (using
-				Foundation/SASS).</a></li>
-			<li><a href="../../sandbox/ramsell/partSMSummary.jsp" class="wide"> another responsive jsp prototype I built
-				at my last job (using Bootstrap/SASS).</a></li>
-		</ul>
-	</div>
+
+		<div>
+			<ul>
+				<li><a href="http://www.shoecarnival.com" class="wide"> latest
+					responsive site I built on this job (using
+					Foundation/SASS).</a></li>
+				<li><a href="../../sandbox/ramsell/partSMSummary.jsp" class="wide">
+					another responsive jsp prototype I built
+					at my last job (using Bootstrap/SASS).</a></li>
+			</ul>
+			<h4>UI projects:</h4>
+			<ul class="logos">
+				<li>
+					<img src="../../resources/images/logos/att.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/ms.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/visa.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/bbb.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/hm.png"/>
+				</li>
+
+				<li>
+					<img src="../../resources/images/logos/wa.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/hilton.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/ghc.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/rs.png"/>
+				</li>
+				<li>
+					<img src="../../resources/images/logos/sc.png"/>
+				</li>
+
+			</ul>
+		</div>
 </section>
 <section id="cd-placeholder-5" class="frame" data-uk-scrollspy="{cls:'uk-animation-fade', repeat: true, delay:500}">
 	<h2>Education &amp; Training</h2>

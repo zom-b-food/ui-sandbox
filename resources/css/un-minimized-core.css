@@ -988,6 +988,7 @@ img.true{box-sizing:content-box;}
 .offcanvas-box{padding:10px 4px 0 4px;color:#f0eee1;margin:0 auto;}
 ul.offcanvas-box li{margin:0 auto;list-style-image:url(../images/bullet.png);list-style-position:inside;color:#f0eee1;}
 ul.offcanvas-box li>a{color:#f0eee1;}
+.uk-nav-header:not(:first-child){margin-top:1px!important;}
 section.frame{padding:10px;height:auto;border:1px solid #cbdbe0;border-radius:4px;margin-bottom:20px;}
 div.map{margin-bottom:12px;}
 p.warning{background:-moz-linear-gradient(top,#0b1121 1%,#1b2c32 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(1%,#0b1121),color-stop(100%,#1b2c32));background:-webkit-linear-gradient(top,#0b1121 1%,#1b2c32 100%);background:-o-linear-gradient(top,#0b1121 1%,#1b2c32 100%);background:-ms-linear-gradient(top,#0b1121 1%,#1b2c32 100%);background:linear-gradient(top,#0b1121 1%,#1b2c32 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='$nightblue', endColorstr='$blackish', GradientType=0);padding:3px 0 0 0;height:100px;width:100%;}

@@ -101,6 +101,11 @@ ul.offcanvas-box li {
   }
 }
 
+.uk-nav-header:not(:first-child) {
+  margin-top: 1px !important;
+}
+
+
 section.frame {
   padding: 10px;
   height: auto;
