@@ -1,16 +1,23 @@
 {
-    "name": "UI-SANDBOX",
-    "version": "0.1.0",
-    "author": "Adam L Marsh (ui-design-engineering.com)",
-    "private": true,
+  "name": "UI-SANDBOX",
+  "version": "0.1.0",
+  "author": "Adam L Marsh (ui-design-engineering.com)",
+  "private": true,
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-cssc": "*",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.0.2",
+    "matchdep": "*"
+  }
 
-    "devDependencies": {
-        "grunt": "~0.4.0",
-        "grunt-contrib-cssmin": "*",
-        "grunt-contrib-sass": "*",
-        "grunt-contrib-uglify": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-cssc": "*",
-        "matchdep": "*"
-    }
 }

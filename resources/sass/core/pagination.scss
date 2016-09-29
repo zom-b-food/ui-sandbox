@@ -1,3 +1,6 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 // Name:            Pagination
 // Description:     Defines styles for a navigation between pages
 //
@@ -22,9 +25,6 @@
 //
 // ========================================================================
 
-@import "../variables";
-@import "../mixins";
-
 /* ========================================================================
    Component: Pagination
  ========================================================================== */
@@ -36,13 +36,13 @@
  */
 
 .uk-pagination {
-  /* 1 */
-  padding: 0;
-  list-style: none;
-  /* 2 */
-  text-align: center;
-  /* 3 */
-  font-size: 0.001px;
+    /* 1 */
+    padding: 0;
+    list-style: none;
+    /* 2 */
+    text-align: center;
+    /* 3 */
+    font-size: 0.001px;
 }
 
 /*
@@ -52,13 +52,12 @@
 
 .uk-pagination:before,
 .uk-pagination:after {
-  content: "";
-  display: table;
+    content: "";
+    display: table;
 }
 
-.uk-pagination:after {
-  clear: both;
-}
+.uk-pagination:after { clear: both; }
+
 
 /* Items
  ========================================================================== */
@@ -69,16 +68,14 @@
  */
 
 .uk-pagination > li {
-  display: inline-block;
-  /* 1 */
-  font-size: $pagination-font-size;
-  /* 2 */
-  vertical-align: top;
+    display: inline-block;
+    /* 1 */
+    font-size: $pagination-font-size;
+    /* 2 */
+    vertical-align: top;
 }
 
-.uk-pagination > li:nth-child(n+2) {
-  margin-left: $pagination-margin-left;
-}
+.uk-pagination > li:nth-child(n+2) { margin-left: $pagination-margin-left; }
 
 /*
  * 1. Makes pagination more robust against different box-sizing use
@@ -87,16 +84,16 @@
 
 .uk-pagination > li > a,
 .uk-pagination > li > span {
-  display: inline-block;
-  min-width: $pagination-line-height + (2 * $pagination-padding-vertical) - (2 * $pagination-padding-horizontal);
-  padding: $pagination-padding-vertical $pagination-padding-horizontal;
-  line-height: $pagination-line-height;
-  text-decoration: none;
-  /* 1 */
-  box-sizing: content-box;
-  /* 2 */
-  text-align: center;
-  @include hook-pagination-item();
+    display: inline-block;
+    min-width: $pagination-line-height + (2 * $pagination-padding-vertical) - (2 * $pagination-padding-horizontal);
+    padding: $pagination-padding-vertical $pagination-padding-horizontal;
+    line-height: $pagination-line-height;
+    text-decoration: none;
+    /* 1 */
+    box-sizing: content-box;
+    /* 2 */
+    text-align: center;
+    @include hook-pagination-item();
 }
 
 /*
@@ -104,9 +101,9 @@
  */
 
 .uk-pagination > li > a {
-  background: $pagination-background;
-  color: $pagination-color;
-  @include hook-pagination-link();
+    background: $pagination-background;
+    color: $pagination-color;
+    @include hook-pagination-link();
 }
 
 /*
@@ -116,20 +113,19 @@
  */
 
 .uk-pagination > li > a:hover,
-.uk-pagination > li > a:focus {
-  // 1
-  background-color: $pagination-hover-background;
-  color: $pagination-hover-color;
-  /* 2 */
-  outline: none;
-  @include hook-pagination-link-hover();
+.uk-pagination > li > a:focus { // 1
+    background-color: $pagination-hover-background;
+    color: $pagination-hover-color;
+    /* 2 */
+    outline: none;
+    @include hook-pagination-link-hover();
 }
 
 /* OnClick */
 .uk-pagination > li > a:active {
-  background-color: $pagination-onclick-background;
-  color: $pagination-onclick-color;
-  @include hook-pagination-link-active();
+    background-color: $pagination-onclick-background;
+    color: $pagination-onclick-color;
+    @include hook-pagination-link-active();
 }
 
 /*
@@ -137,9 +133,9 @@
  */
 
 .uk-pagination > .uk-active > span {
-  background: $pagination-active-background;
-  color: $pagination-active-color;
-  @include hook-pagination-active();
+    background: $pagination-active-background;
+    color: $pagination-active-color;
+    @include hook-pagination-active();
 }
 
 /*
@@ -147,32 +143,25 @@
  */
 
 .uk-pagination > .uk-disabled > span {
-  background-color: $pagination-disabled-background;
-  color: $pagination-disabled-color;
-  @include hook-pagination-disabled();
+    background-color: $pagination-disabled-background;
+    color: $pagination-disabled-color;
+    @include hook-pagination-disabled();
 }
+
 
 /* Previous and next navigation
  ========================================================================== */
 
-.uk-pagination-previous {
-  float: left;
-}
+.uk-pagination-previous { float: left; }
+.uk-pagination-next { float: right; }
 
-.uk-pagination-next {
-  float: right;
-}
 
 /* Alignment modifiers
  ========================================================================== */
 
-.uk-pagination-left {
-  text-align: left;
-}
+.uk-pagination-left { text-align: left; }
+.uk-pagination-right { text-align: right; }
 
-.uk-pagination-right {
-  text-align: right;
-}
 
 // Hooks
 // ========================================================================

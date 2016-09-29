@@ -1,208 +1,93 @@
-@import "fonts-icons";
-/*@import "components";*/
 @import "variables";
+@import "mixins";
 
-.parent {
-  color:red;
-  .child {
-    color:blue;
-    .grand-child  {
-      color:green;
-      &.sibling {
-        color:pink;
-        font-weight:bold;
-      }
-    }
-  }
-}
 
-html, body {
+/* Don't edit these three items */
+html {
   position: relative;
   min-height: 100%;
 }
 
 header {
-  height: 384px;
   width: 100%;
-  background: url(../images/scrollNav/intro-background3.jpg) no-repeat center center;
-  background-size: cover;
-  -webkit-animation: fadein 4s;
-  -moz-animation: fadein 4s;
-  -ms-animation: fadein 4s;
-  -o-animation: fadein 4s;
-  animation: fadein 4s;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  z-index: 3;
-}
-
-body.popDiv {
-  padding: 10px;
-}
-
-.uk-grid {
-  margin: 0 auto;
-}
-
-@media (min-width: 1220px) {
-  .uk-grid.noPad > * {
-    padding-left: 0;
-  }
-  .uk-grid {
-    margin-left: 0;
-  }
-}
-
-ul.logos li {
-  margin: 0 auto;
-  list-style-type: none;
-  list-style-image: none;
-  display:inline-block;
-  padding:0 16px 14px 0;
-}
-
-.noPad {
-  padding: 0 !important;
-}
-
-img.true {
-  box-sizing: content-box;
-}
-
-.uk-panel.maxWidth {
-  max-width: 244px !important;
-}
-
-.uk-panel-box {
-  padding: 10px;
-  background: $bluemist;
-  color: $black;
-  border: 1px solid $moonblue;
-  border-radius: 4px;
-}
-
-.uk-offcanvas-bar {
-  background: $smoke;
-}
-
-.offcanvas-box {
-  padding: 10px 4px 0 4px;
-  color: $cream;
-  margin: 0 auto;
-}
-
-ul.offcanvas-box li {
-  margin: 0 auto;
-  list-style-image: url(../images/bullet.png);
-  /* padding-bottom: .35rem; */
-  list-style-position: inside;
-  color: $cream;
-  > a {
-    color: $cream;
-  }
-}
-
-.uk-nav-header:not(:first-child) {
-  margin-top: 1px !important;
-}
-
-
-section.frame {
-  padding: 10px;
   height: auto;
-  border: 1px solid $moonblue;
-  border-radius: 4px;
-  margin-bottom: 20px;
-}
-
-div.map {
-  margin-bottom: 12px;
-}
-
-p.warning {
-  background: -moz-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, $nightblue), color-stop(100%, $blackish));
-  background: -webkit-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: -o-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: -ms-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: linear-gradient(top, $nightblue 1%, $blackish 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$nightblue', endColorstr='$blackish', GradientType=0);
-  padding: 3px 0 0 0;
-  height: 100px;
-  width: 100%;
-  p, span {
-    color: #853f3a;
-    text-align: center;
-    font-size: 12px;
-  }
 }
 
 footer {
-  background: -moz-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, $nightblue), color-stop(100%, $blackish));
-  background: -webkit-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: -o-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: -ms-linear-gradient(top, $nightblue 1%, $blackish 100%);
-  background: linear-gradient(top, $nightblue 1%, $blackish 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$nightblue', endColorstr='$blackish', GradientType=0);
-  padding: 3px 0 0 0;
-  height: 100px;
   width: 100%;
-  p, span {
-    color: $black-ice;
-    font-size: 10px;
-  }
+  background-color: $blackish;
 }
-
-div#footerA {
-  background-color: $nightblue;
-  border-bottom: 1px solid $camel;
-  height: 1px;
-  margin: 0;
-  padding: 0;
-}
-
 /*You can edit below this line*/
 /* make keyframes that tell the start state and the end state of our object */
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
 #content {
-  max-width: 1400px;
-  margin: 60px auto;
-  @media only screen and (min-width: 970px) {
+  background: transparent url("../images/gray_jean.png") repeat;
+}
 
+.social {
+  padding-top:4px;
+  padding-right:30px;
+}
+
+.list-inline>li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+a.back-to-top {
+  display: none;
+  width: 60px;
+  height: 60px;
+  text-indent: -9999px;
+  position: fixed;
+  z-index: 999;
+  right: 20px;
+  bottom: 20px;
+  background: transparent url("../images/back-to-top.png") no-repeat center 43%;
+}
+
+article:last-child {
+  padding-bottom: 20px;
+}
+
+ul.centered {
+  margin:0 auto;
+  max-width: 400px;
+  li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0 10px;
   }
+}
+
+.centered {
+  margin:0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+li.am-active {
+  background-color: #0c79a6;
+  a {
+    color: #FFF;
+  }
+}
+
+.am-article-subtitle {
+  padding-left: 6px;
+  border-left: 3px solid #1FA2D6;
+  font-size: 16px;
+  line-height: 16px;
 }
 
 .colorbox {
   padding: 4px;
   height: 182px;
-  width: 100%;
+  width: auto;
 }
 
 .camel {
@@ -236,6 +121,9 @@ div#footerA {
 .smoke {
   background-color: $smoke;
   @extend .colorbox;
+  p, span {
+    color: #fff;
+  }
 }
 
 .selected {
@@ -306,84 +194,20 @@ div#footerA {
   @extend .colorbox;
 }
 
-.banner {
-  background: black url("../images/banner-orig.jpg");
-  height: 300px;
-  background-repeat: no-repeat;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-position: center;
-  opacity: 0; /* make things invisible upon start */
-  -webkit-animation: fadeIn ease-in 1; /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-  -moz-animation: fadeIn ease-in 1;
-  animation: fadeIn ease-in 1;
-  -webkit-animation-fill-mode: forwards; /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  animation-duration: 1s;
-}
 
-a.back-to-top {
-  display: none;
-  width: 54px;
-  height: 47px;
-  text-indent: -9999px;
-  position: fixed;
-  z-index: 999;
-  right: 58px;
-  bottom: 80px;
-  background: transparent url("../images/back-to-top.png") no-repeat center 43%;
-}
-
-//am (adam layout)
-/* Layout
+/* Media Queries
  ========================================================================== */
-
-.am-background {
-  background: #252525;
-}
-
-/*
- * Blocks
- */
-
-.am-middle,
-.am-section,
-.am-footer {
-  padding: 5px 0;
-}
-
-/* Tablet and bigger */
-@media (min-width: 768px) {
-  .am-middle,
-  .am-section,
-  .am-footer {
-    padding: 5px 0;
-  }
-}
 
 /* Large screen and bigger */
 @media (min-width: 1220px) {
-  .am-middle,
   .am-section,
-  .am-footer {
-    padding: 20px 0;
-  }
+  .am-footer { padding: 20px 0; }
 }
 
-/*
- * Middle
- */
+/* Desktop and bigger */
+@media (max-width: 959px) {
 
-.am-middle {
-  background: #fff;
-  max-width: $utility-container-large-max-width;
-  margin: 0 auto;
-  min-height: 700px;
+
 }
 
 /* Tablet and bigger */
@@ -392,381 +216,29 @@ a.back-to-top {
     margin-right: -1px !important;
     border-right: 1px solid #E5E5E5;
   }
-  .am-main {
-    padding-left: 50px !important;
-    border-left: 1px solid #E5E5E5;
-  }
   .am-sidebar .uk-panel {
     padding-right: 20px;
   }
+  .am-section,
+  .am-footer { padding: 5px 0; }
 }
 
-.am-logo {
-  margin: 10px 0 20px 0;
-}
 
-.am-grid-margin-large .uk-grid-margin {
-  margin-top: 50px;
-}
-
-.am-icon {
-  position: relative;
-  width: 80px;
-  margin: -60px auto 0 auto;
-  border-radius: 5px;
-  background: #0BA1D8;
-  line-height: 80px;
-  color: #fff;
-}
-
-.am-icon:after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  width: 0;
-  height: 0;
-  margin-left: -10px;
-  border: 10px solid #0BA1D8;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-bottom: none;
-}
-
-#sidebar-pages {
-  width: auto;
-  padding: 0;
-  background: url(../images/sidebar111.png) no-repeat center;
-  height: 623px;
-  margin-top: 0;
-  width: 210;
-  div.span {
-    padding: 10px 0 0 12px;
-  }
-  p {
-    color: #e3e7ca;
-    padding: 10px 0 0 12px;
-    font-weight: bold;
-    line-height: 17px;
-    margin: 0 auto;
-  }
-  p:nth-of-type(2) {
-    color: $cream;
-    padding: 10px 0 0 12px;
-    font-weight: bold;
-    line-height: 17px;
+.parent {
+  color:red;
+  .child {
+    margin-left:12px;
+    color:blue;
+    &:last-child {
+      text-decoration:underline;
+    }
+    .grand-child  {
+      margin-left:12px;
+      color:green;
+      &.sibling {
+        color:purple;
+      }
+    }
   }
 }
 
-#sidebar-pages-alt {
-  width: auto;
-  padding: 0;
-  background: url(../images/sidebar111-alt.png) no-repeat center;
-  height: 623px;
-  margin-top: 0;
-  width: 210;
-  div.span {
-    padding: 10px 0 0 12px;
-  }
-  p {
-    color: #e3e7ca;
-    padding: 10px 0 0 12px;
-    font-weight: bold;
-    line-height: 17px;
-    margin: 0 auto;
-  }
-  p:nth-of-type(2) {
-    color: $cream;
-    padding: 10px 0 0 12px;
-    font-weight: bold;
-    line-height: 17px;
-  }
-}
-
-.rightbar {
-  height: 544px;
-}
-
-ul.centered {
-  margin: 0 auto;
-  max-width: 400px;
-  li {
-    display: inline-block;
-    list-style-type: none;
-    padding: 0 10px;
-  }
-}
-
-ul li {
-  margin-left: 4px;
-  list-style-image: url(../images/bullet.png);
-  /*  padding-bottom: .35rem;*/
-  list-style-position: outside;
-}
-
-ul.tight {
-  margin: 0 auto;
-}
-
-ul.tight > li {
-  margin-left: 0;
-  list-style-position: outside;
-  line-height: 18px;
-  font-size: .9em;
-  &.head {
-    color: $charcoal;
-    list-style-type: none;
-    list-style-image: none;
-  }
-}
-
-.list-inline>li {
-  display: inline-block;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.uk-sticky-placeholder {
-  width: 100%;
-}
-
-.bold, label, li.head {
-  font-weight: 700;
-  color: $charcoal;
-  list-style-image: none;
-}
-
-.am-side-nav {
-  background: $bluemist;
-  color: $black;
-  border: 1px solid $moonblue;
-  border-radius: 4px;
-  padding: 4px;
-  width: 100%;
-}
-
-.am-side-nav li {
-  margin-left: 4px;
-  list-style-image: url(../images/bullet.png);
-  list-style-position: inside;
-  &:first-of-type {
-
-  }
-  a {
-
-  }
-}
-
-.uk-nav-header:not(:first-child) {
-  margin-top: 1px;
-}
-
-.am-side-nav li.side-active, .am-side-nav li.active, .am-side-nav li.uk-active, .am-side-nav li.am-active, .am-side-nav li.sidelink-active {
-  font-weight: 700;
-  height: 20px;
-  width: auto;
-  color: $dkocean;
-}
-
-.am-top-nav li.active, .am-top-nav li.uk-active, .am-top-nav li.am-active {
-  background-color: $dkocean;
-  height: 54px;
-  border-radius: 0;
-}
-
-.ac-container, caption, table th {
-  text-align: left;
-}
-
-table td, table th {
-  vertical-align: top;
-  padding: 4px;
-}
-
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-  border-spacing: 0;
-  display: table;
-  width: 98%;
-  padding: 4px;
-  border: 1px solid #96aab1;
-  th {
-    font-weight: 700;
-    color: #c7d6e0;
-    background-color: #23527c;
-  }
-}
-
-.mt10 {
-  margin-top: 10px;
-}
-
-/* Active */
-.uk-active > a.sidelink {
-  color: $dkocean;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-li.link-active, li.anchor-active {
-  background-color: $dkocean;
-  height: 54px;
-  /*  background-color:$dkocean;*/
-  border-radius: 0;
-  a {
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-}
-
-li.sidelink-active {
-  height: 33px;
-  a {
-    color: $dkocean;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-}
-
-.uk-side-side > li {
-  padding: 6px;
-  height: 22px;
-  width: auto;
-  list-style-type: none;
-  color: white;
-}
-
-li.uk-nav-header {
-  padding: 4px;
-  height: 18px;
-  width: auto;
-  list-style-type: none;
-  list-style-image: none;
-  color: $blackish;
-  font-size: .85rem;
-  background-color: $moonblue;
-  margin-left: 0;
-}
-
-.uk-navbar-nav > li.side-active {
-  border-radius: 3px !important;
-}
-
-.am-nav2 {
-  width: 100%;
-  padding-left: 6px;
-}
-
-#sidebar {
-  width: 260px !important;
-}
-
-/* OnClick */
-.am-navbar .uk-navbar-nav > li > a:active {
-  background-color: transparent;
-}
-
-/*
- * Article
- */
-
-.am-article-subtitle {
-  padding-left: 6px;
-  border-left: 3px solid $palegreen;
-  font-size: 16px;
-  line-height: 16px;
-}
-
-/* Custom content
- ========================================================================== */
-
-.am-icons > [class*="uk-width-"] {
-  padding-bottom: 5px;
-  padding-top: 5px;
-}
-
-/*
- * Generate different grid panel colors
- */
-
-.am-grid-colors > * > * {
-  padding: 20px;
-}
-
-.am-grid-colors > :nth-child(8n-7) > * {
-  background: rgba(130, 200, 240, 0.1);
-}
-
-.am-grid-colors > :nth-child(8n-6) > * {
-  background: rgba(130, 200, 240, 0.15);
-}
-
-.am-grid-colors > :nth-child(8n-5) > * {
-  background: rgba(130, 200, 240, 0.2);
-}
-
-.am-grid-colors > :nth-child(8n-4) > * {
-  background: rgba(130, 200, 240, 0.25);
-}
-
-.am-grid-colors > :nth-child(8n-3) > * {
-  background: rgba(130, 200, 240, 0.3);
-}
-
-.am-grid-colors > :nth-child(8n-2) > * {
-  background: rgba(130, 200, 240, 0.35);
-}
-
-.am-grid-colors > :nth-child(8n-1) > * {
-  background: rgba(130, 200, 240, 0.40);
-}
-
-.am-grid-colors > :nth-child(8n) > * {
-  background: rgba(130, 200, 240, 0.45);
-}
-
-/*
- * Generate different grid panel heights
- */
-
-.am-grid-heights > :nth-child(8n-7) > * {
-  height: 80px;
-}
-
-.am-grid-heights > :nth-child(8n-6) > * {
-  height: 100px;
-}
-
-.am-grid-heights > :nth-child(8n-5) > * {
-  height: 160px;
-}
-
-.am-grid-heights > :nth-child(8n-4) > * {
-  height: 120px;
-}
-
-.am-grid-heights > :nth-child(8n-3) > * {
-  height: 180px;
-}
-
-.am-grid-heights > :nth-child(8n-2) > * {
-  height: 130px;
-}
-
-.am-grid-heights > :nth-child(8n-1) > * {
-  height: 150px;
-}
-
-.am-grid-heights > :nth-child(8n) > * {
-  height: 110px;
-}
-
-/*
- * Add a fixed height to grid items
- */
-
-.am-grid-height-250 > * > * {
-  height: 250px;
-}

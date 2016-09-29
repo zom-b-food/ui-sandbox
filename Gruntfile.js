@@ -1,50 +1,52 @@
 module.exports = function (grunt) {
+
     "use strict";
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+
     grunt.initConfig({
+
         pkg: grunt.file.readJSON('package.json'),
+
         cssc: {
             build: {
                 options: {
-                    debugInfo: false,
                     sortSelectors: true,
                     lineBreaks: true,
-                    sortDeclarations:true,
-                    consolidateViaDeclarations:true,
-                    consolidateViaSelectors:false,
-                    consolidateMediaQueries:true
+                    sortDeclarations: true,
+                    consolidateViaDeclarations: false,
+                    consolidateViaSelectors: false,
+                    consolidateMediaQueries: false
                 },
                 files: {
                     'resources/css/un-minimized-core.css': 'resources/css/un-minimized-core.css'
-
                 }
             }
         },
+
         cssmin: {
             build: {
                 src: 'resources/css/un-minimized-core.css',
                 dest: 'resources/compiled/<%= pkg.name %>.min.css'
-
             }
         },
+
         sass: {
             build: {
                 files: {
                     'resources/css/un-minimized-core.css': 'resources/sass/framework.scss',
                     'resources/css/custom.css': 'resources/sass/custom.scss',
+                    'resources/css/components/widget.css': 'resources/sass/components/widget.scss',
                     'resources/css/components.css': 'resources/sass/components.scss',
-                    /* remove for production - components are loaded into components.css*/
-                    'resources/css/components/header.css': 'resources/sass/components/header.scss',
-                    'resources/css/components/mobile-nav.css': 'resources/sass/components/mobile-nav.scss',
-                    'resources/css/components/site-forms.css': 'resources/sass/components/site-forms.scss',
-                    'resources/css/components/slideshow.css': 'resources/sass/components/slideshow.scss',
-                    'resources/css/components/accordion.css': 'resources/sass/components/accordion.scss',
-                    'resources/css/components/loader.css': 'resources/sass/components/loader.scss'
+                    /*  not included in pgk.name.min.css  (not global enough) build these separately--not included in globals.jsp */
+                    'resources/css/components/highlight.css': 'resources/sass/components/highlight.scss',
+                    'resources/css/components/amslides.css': 'resources/sass/components/amslides.scss'
 
                 }
             }
         },
+
         watch: {
+
             js: {
                 files: ['resources/js/<%= pkg.name %>.js'],
                 tasks: ['uglify']
@@ -60,17 +62,22 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         uglify: {
             build: {
                 files: {
                     'resources/compiled/<%= pkg.name %>.min.js': [
-                        'resources/js/site.js'
+                        'resources/js/site.js',
+                        'resources/js/uikit.js'
+
 
                     ]
                 }
             }
         }
+
     });
+
 
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -80,6 +87,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
+    grunt.registerTask('watch', ['watch']);
     grunt.registerTask('default', ['sass', 'uglify', 'cssc', 'cssmin']);
     grunt.registerTask('buildcss', ['sass', 'cssc', 'cssmin']);
 

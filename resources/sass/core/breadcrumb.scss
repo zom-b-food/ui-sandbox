@@ -1,3 +1,6 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 // Name:            Breadcrumb
 // Description:     Defines styles for a breadcrumb navigation
 //
@@ -16,8 +19,6 @@
 //
 // ========================================================================
 
-@import "../variables";
-@import "../mixins";
 
 /* ========================================================================
    Component: Breadcrumb
@@ -29,13 +30,14 @@
  */
 
 .uk-breadcrumb {
-  /* 1 */
-  padding: 0;
-  list-style: none;
-  /* 2 */
-  font-size: 0.001px;
-  @include hook-breadcrumb();
+    /* 1 */
+    padding: 0;
+    list-style: none;
+    /* 2 */
+    font-size: 0.001px;
+    @include hook-breadcrumb();
 }
+
 
 /* Items
  ========================================================================== */
@@ -45,30 +47,27 @@
  */
 
 .uk-breadcrumb > li {
-  font-size: $breadcrumb-font-size;
-  vertical-align: top;
+    font-size: $breadcrumb-font-size;
+    vertical-align: top;
 }
 
 .uk-breadcrumb > li,
 .uk-breadcrumb > li > a,
-.uk-breadcrumb > li > span {
-  display: inline-block;
-}
+.uk-breadcrumb > li > span { display: inline-block; }
 
 .uk-breadcrumb > li:nth-child(n+2):before {
-  content: $breadcrumb-divider;
-  display: inline-block;
-  margin: 0 $breadcrumb-divider-margin;
-  @include hook-breadcrumb-divider();
+    content: $breadcrumb-divider;
+    display: inline-block;
+    margin: 0 $breadcrumb-divider-margin;
+    @include hook-breadcrumb-divider();
 }
 
 /*
  * Disabled
  */
 
-.uk-breadcrumb > li:not(.uk-active) > span {
-  color: $breadcrumb-disabled-color;
-}
+.uk-breadcrumb > li:not(.uk-active) > span { color: $breadcrumb-disabled-color; }
+
 
 // Hooks
 // ========================================================================

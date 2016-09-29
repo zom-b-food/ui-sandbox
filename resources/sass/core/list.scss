@@ -1,3 +1,6 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 // Name:            List
 // Description:     Defines styles for ordered and unordered lists
 //
@@ -9,20 +12,14 @@
 //
 // ========================================================================
 
-@import "../variables";
-@import "../mixins";
 
 /* ========================================================================
    Component: List
  ========================================================================== */
 
-.uk-list, .uk-list-inline {
-  padding: 0;
-  list-style: none;
-}
-
-.uk-list-inline li {
-  display: inline-block;
+.uk-list {
+    padding: 0;
+    list-style: none;
 }
 
 /*
@@ -31,60 +28,56 @@
 
 .uk-list > li:before,
 .uk-list > li:after {
-  content: "";
-  display: table;
+    content: "";
+    display: table;
 }
 
-.uk-list > li:after {
-  clear: both;
-}
+.uk-list > li:after { clear: both; }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-list > li > :last-child {
-  margin-bottom: 0;
-}
+.uk-list > li > :last-child { margin-bottom: 0; }
 
 /*
  * Nested lists
  */
 
 .uk-list ul {
-  margin: 0;
-  padding-left: $list-nested-padding-left;
-  list-style: none;
+    margin: 0;
+    padding-left: $list-nested-padding-left;
+    list-style: none;
 }
+
 
 /* Modifier: `uk-list-line`
  ========================================================================== */
 
 .uk-list-line > li:nth-child(n+2) {
-  margin-top: $list-line-margin-top;
-  padding-top: $list-line-margin-top;
-  border-top: $list-line-border-width solid $list-line-border;
-  @include hook-list-line();
+    margin-top: $list-line-margin-top;
+    padding-top: $list-line-margin-top;
+    border-top: $list-line-border-width solid $list-line-border;
+    @include hook-list-line();
 }
+
 
 /* Modifier: `uk-list-striped`
  ========================================================================== */
 
 .uk-list-striped > li {
-  padding: $list-striped-padding-vertical $list-striped-padding-horizontal;
-  @include hook-list-striped();
+    padding: $list-striped-padding-vertical $list-striped-padding-horizontal;
+    @include hook-list-striped();
 }
 
-.uk-list-striped > li:nth-of-type(odd) {
-  background: $list-striped-background;
-}
+.uk-list-striped > li:nth-of-type(odd) { background: $list-striped-background; }
+
 
 /* Modifier: `uk-list-space`
  ========================================================================== */
 
-.uk-list-space > li:nth-child(n+2) {
-  margin-top: $list-space-margin-top;
-}
+.uk-list-space > li:nth-child(n+2) { margin-top: $list-space-margin-top; }
+
 
 // Hooks
 // ========================================================================

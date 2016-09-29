@@ -5,107 +5,172 @@
 html,
 body {
   height: auto;
-  font-size: $font-size-base;
+  font-size: $base-body-font-size;
 }
 
 p, table, td, th, a, li, label, body, div, ul > li, button {
-  font-size: 1em;
+  font-size: $base-body-font-size;
   @include break-small() {
-    font-size: 1em;
-    /*    border:1px solid lightgreen;*/
-  }
-  @include break-medium() {
-    font-size: 1em;
-    /*    border:1px solid #79382f;*/
-  }
-  @include break-large() {
-    font-size: 1em;
-    /*    border:1px solid #166e21;*/
-  }
-  @include break-xlarge() {
-    font-size: 1em;
-    /*    border:1px solid #54c2cc;*/
+    font-size: 1rem;
+
   }
 
+  @include break-medium-down() {
+    font-size: 1rem;
+
+  }
+
+  @include break-medium() {
+    font-size: 1rem;
+
+  }
+
+  @include break-large() {
+    font-size: 1rem;
+
+  }
+
+  @include break-xlarge() {
+    font-size: 1rem;
+
+  }
+}
+
+p, table, section, div, article {
+
+  @include break-small() {
+
+  }
+
+  @include break-medium-down() {
+
+  }
+
+  @include break-medium() {
+
+  }
+
+  @include break-large() {
+
+  }
+
+  @include break-xlarge() {
+
+  }
 }
 
 h1 {
-  font-size: 1.75em;
-  font-weight: $bold;
+  font-weight:$bold;
   @include break-small() {
-    font-size: 1.25em;
+    font-size: 2rem !important;
+  }
+
+  @include break-medium-down() {
+    font-size: 2rem !important;
   }
 
   @include break-medium() {
-    font-size: 1.75em;
+    font-size: 2.5rem !important;
   }
 
   @include break-large() {
-    font-size: 1.75em;
+    font-size: 2.5rem !important;
   }
 
   @include break-xlarge() {
-    font-size: 1.75em;
+    font-size: 2.5rem !important;
   }
 }
 
 h2 {
-  font-size: 1.5em;
-  font-weight: $bold;
+  font-weight:$bold;
   @include break-small() {
-    font-size: 1.15em;
+    font-size: 1.75rem !important;
+  }
+
+  @include break-medium-down() {
+    font-size: 1.75rem !important;
   }
 
   @include break-medium() {
-    font-size: 1.5em;
+    font-size: 2.15rem !important;
   }
 
   @include break-large() {
-    font-size: 1.5em;
+    font-size: 2.15rem !important;
   }
 
   @include break-xlarge() {
-    font-size: 1.5em;
+    font-size: 2.15rem !important;
   }
 }
 
-h3 {
-  font-size: 1.15em;
-  font-weight: $bold;
+h3, h3.uk-panel-title, h3.am-article-subtitle, h3.uk-accordion-title {
+  font-weight:$bold;
   @include break-small() {
-    font-size: 1.05em;
+    font-size: 1.25rem !important;
+  }
+
+  @include break-medium-down() {
+    font-size: 1.25rem;
   }
 
   @include break-medium() {
-    font-size: 1.15em;
+    font-size: 1.5rem !important;
   }
 
   @include break-large() {
-    font-size: 1.15em;
+    font-size: 1.5rem !important;
   }
 
   @include break-xlarge() {
-    font-size: 1.15em;
+    font-size: 1.5rem !important;
   }
 }
 
 h4, legend {
-  font-size: 1em;
-  font-weight: $bold;
+  font-weight:$bold;
   @include break-small() {
-    font-size: 1em;
+    font-size: 1.15rem !important;
+  }
+
+  @include break-medium-down() {
+    font-size: 1.15rem !important;
   }
 
   @include break-medium() {
-    font-size: 1em;
+    font-size: 1.25rem !important;
   }
 
   @include break-large() {
-    font-size: 1em;
+    font-size: 1.25rem !important;
   }
 
   @include break-xlarge() {
-    font-size: 1em;
+    font-size: 1.25rem !important;
+  }
+}
+
+.uk-article-lead {
+  font-weight:normal;
+  @include break-small() {
+    font-size: 1.15rem !important;
+  }
+
+  @include break-medium-down() {
+    font-size: 1.15rem !important;
+  }
+
+  @include break-medium() {
+    font-size: 1.25rem !important;
+  }
+
+  @include break-large() {
+    font-size: 1.25rem !important;
+  }
+
+  @include break-xlarge() {
+    font-size: 1.25rem !important;
   }
 }
 

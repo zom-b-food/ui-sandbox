@@ -1,6 +1,5 @@
 @import "../mixins.scss";
 @import "../variables.scss";
-
 // Name:            Accordion
 // Description:     Defines styles for the accordion
 //
@@ -21,16 +20,18 @@
 //
 // ========================================================================
 
+
+
 /* ========================================================================
    Component: Accordion
  ========================================================================== */
-.uk-accordion, .collapsible {
-  border: 1px solid $moonblue;
-  border-radius: 3px !important;
+.uk-accordion, .collapsible  {
+  border:1px solid $moonblue;
+  border-radius: 3px!important;
   padding: 0;
   @include hook-accordion();
-  >.uk-accordion-title {
-
+  >.uk-accordion-title{
+    font-weight:700;
     background: -moz-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #e8f3f9), color-stop(100%, #cedee4));
     background: -webkit-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
@@ -38,13 +39,13 @@
     background: -ms-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
     background: linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8f3f9', endColorstr='#cedee4', GradientType=0);
-    padding: 4px;
-    margin: 0;
+    padding:4px;
+    margin:0 ;
     cursor: pointer;
-    border-bottom: 1px solid $smoke;
-    font-family: $base-body-font-family !important;
+    border-bottom:1px solid $smoke;
+    font-family:$base-body-font-family !important;
     &:last-of-type {
-      border-bottom: none;
+      border-bottom:none;
     }
     &.uk-active {
       background-color: #154D77 !important;
@@ -81,12 +82,13 @@
 
   }
   .uk-accordion-content {
-    padding: 5px;
+    padding:5px;
     background-color: #ffffff;
     @include hook-accordion-content();
   }
 
 }
+
 
 /*
  * Micro clearfix to make panels more robust
@@ -98,17 +100,14 @@
   display: table;
 }
 
-.uk-accordion-content:after {
-  clear: both;
-}
+.uk-accordion-content:after { clear: both; }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-accordion-content > :last-child {
-  margin-bottom: 0;
-}
+.uk-accordion-content > :last-child { margin-bottom: 0; }
+
 
 // Hooks
 // ========================================================================
@@ -148,9 +147,9 @@ ul.collapsible {
 .collapsible-header {
 
   &.active {
-    min-height: 25px;
-    background-color: $dkocean;
-    color: $cream;
+    min-height:25px;
+    background-color:$dkocean;
+    color:$cream;
   }
 }
 
@@ -184,11 +183,11 @@ ul.collapsible {
   background: -ms-linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
   background: linear-gradient(top, #e8f3f9 1%, #cedee4 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e8f3f9', endColorstr='#cedee4', GradientType=0);
-  padding: 4px;
-  margin: 0;
+  padding:4px;
+  margin:0 ;
   cursor: pointer;
-  border-bottom: 1px solid $smoke;
-  font-family: $base-body-font-family !important;
+  border-bottom:1px solid $smoke;
+  font-family:$base-body-font-family !important;
   transform: scaleX(.92) translate3d(0, 0, 0);
   transition: margin .35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform .35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   list-style-position: inside;
@@ -215,10 +214,10 @@ ul.collapsible {
 }
 
 ul#popAccordion li.clean {
-  list-style-type: none;
-  list-style-image: none;
+  list-style-type:none;
+  list-style-image:none;
 
   i {
-    font-size: 12px;
+    font-size:12px;
   }
 }

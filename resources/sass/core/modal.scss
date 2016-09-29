@@ -1,3 +1,6 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
 // Name:            Modal
 // Description:     Defines styles for modal dialogs
 //
@@ -31,8 +34,7 @@
 //
 // ========================================================================
 
-@import "../variables";
-@import "../mixins";
+
 
 /* ========================================================================
    Component: Modal
@@ -50,48 +52,45 @@
  */
 
 .uk-modal {
-  /* 1 */
-  display: none;
-  /* 2 */
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $modal-z-index;
-  /* 3 */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* 4 */
-  background: $modal-background;
-  /* 5 */
-  opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
-  transition: opacity 0.15s linear;
-  /* 6 */
-  touch-action: cross-slide-y pinch-zoom double-tap-zoom;
-  /* 7 */
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  @include hook-modal();
+    /* 1 */
+    display: none;
+    /* 2 */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $modal-z-index;
+    /* 3 */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* 4 */
+    background: $modal-background;
+    /* 5 */
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+    /* 6 */
+    touch-action: cross-slide-y pinch-zoom double-tap-zoom;
+    /* 7 */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    @include hook-modal();
 }
 
 /*
  * Open state
  */
 
-.uk-modal.uk-open {
-  opacity: 1;
-}
+.uk-modal.uk-open { opacity: 1; }
 
 /*
  * Prevents duplicated scrollbar caused by 4.
  */
 
 .uk-modal-page,
-.uk-modal-page body {
-  overflow: hidden;
-}
+.uk-modal-page body { overflow: hidden; }
+
 
 /* Sub-object: `uk-modal-dialog`
  ========================================================================== */
@@ -104,37 +103,37 @@
  */
 
 .uk-modal-dialog {
-  /* 1 */
-  position: relative;
-  /* 2 */
-  box-sizing: border-box;
-  margin: $modal-dialog-margin-vertical auto;
-  padding: $modal-dialog-padding;
-  width: $modal-dialog-width;
-  max-width: 100%;
-  max-width: unquote("calc(100% - 20px)");
-  /* 3 */
-  background: $modal-dialog-background;
-  /* 4 */
-  opacity: 0;
-  -webkit-transform: translateY(-100px);
-  transform: translateY(-100px);
-  -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
-  transition: opacity 0.3s linear, transform 0.3s ease-out;
-  @include hook-modal-dialog();
+    /* 1 */
+    position: relative;
+    /* 2 */
+    box-sizing: border-box;
+    margin: $modal-dialog-margin-vertical auto;
+    padding: $modal-dialog-padding;
+    width: $modal-dialog-width;
+    max-width: 100%;
+    max-width: unquote("calc(100% - 20px)");
+    /* 3 */
+    background: $modal-dialog-background;
+    /* 4 */
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
+    transition: opacity 0.3s linear, transform 0.3s ease-out;
+    @include hook-modal-dialog();
 }
 
 /* Phone landscape and smaller */
-@media (max-width: $breakpoint-small-max) {
+@media (max-width: $break-small-max) {
 
-/*
- * Fit in small screen
- */
+    /*
+     * Fit in small screen
+     */
 
-  .uk-modal-dialog {
-    width: auto;
-    margin: 10px auto;
-  }
+    .uk-modal-dialog {
+        width: auto;
+        margin: 10px auto;
+    }
 
 }
 
@@ -143,46 +142,44 @@
  */
 
 .uk-open .uk-modal-dialog {
-  /* 4 */
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
+    /* 4 */
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
 }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-modal-dialog > :not([class*='uk-modal-']):last-child {
-  margin-bottom: 0;
-}
+.uk-modal-dialog > :not([class*='uk-modal-']):last-child { margin-bottom: 0; }
+
 
 /* Close in modal
  ========================================================================== */
 
 .uk-modal-dialog > .uk-close:first-child {
-  margin: -10px -10px 0 0;
-  float: right;
+    margin: -10px -10px 0 0;
+    float: right;
 }
 
 /*
  * Remove margin from adjacent element
  */
 
-.uk-modal-dialog > .uk-close:first-child + :not([class*='uk-modal-']) {
-  margin-top: 0;
-}
+ .uk-modal-dialog > .uk-close:first-child + :not([class*='uk-modal-']) { margin-top: 0; }
+
 
 /* Modifier: `uk-modal-dialog-lightbox`
  ========================================================================== */
 
 .uk-modal-dialog-lightbox {
-  margin: 15px auto;
-  padding: 0;
-  max-width: 95%;
-  max-width: unquote("calc(100% - 30px)");
-  min-height: 50px;
-  @include hook-modal-dialog-lightbox();
+    margin: 15px auto;
+    padding: 0;
+    max-width: 95%;
+    max-width: unquote("calc(100% - 30px)");
+    min-height: 50px;
+    @include hook-modal-dialog-lightbox();
 }
 
 /*
@@ -190,20 +187,20 @@
  */
 
 .uk-modal-dialog-lightbox > .uk-close:first-child {
-  position: absolute;
-  top: -12px;
-  right: -12px;
-  margin: 0;
-  float: none;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    margin: 0;
+    float: none;
 }
 
 /* Phone landscape and smaller */
-@media (max-width: $breakpoint-small-max) {
+@media (max-width: $break-small-max) {
 
-  .uk-modal-dialog-lightbox > .uk-close:first-child {
-    top: -7px;
-    right: -7px;
-  }
+    .uk-modal-dialog-lightbox > .uk-close:first-child {
+        top: -7px;
+        right: -7px;
+    }
 
 }
 
@@ -211,12 +208,12 @@
  ========================================================================== */
 
 .uk-modal-dialog-blank {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  -webkit-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    -webkit-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
 }
 
 /*
@@ -224,46 +221,44 @@
 */
 
 .uk-modal-dialog-blank > .uk-close:first-child {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1;
-  margin: 0;
-  float: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    margin: 0;
+    float: none;
 }
+
 
 /* Modifier: `uk-modal-dialog-large`
  ========================================================================== */
 
 /* Tablet and bigger */
-@media (min-width: $breakpoint-medium) {
+@media (min-width: $break-medium) {
 
-  .uk-modal-dialog-large {
-    width: $modal-dialog-large-width;
-  }
+    .uk-modal-dialog-large { width: $modal-dialog-large-width; }
 
 }
 
 /* Large screen and bigger */
-@media (min-width: $breakpoint-xlarge) {
+@media (min-width: $break-xlarge) {
 
-  .uk-modal-dialog-large {
-    width: $modal-dialog-large-width-large;
-  }
+    .uk-modal-dialog-large { width: $modal-dialog-large-width-large; }
 
 }
+
 
 /* Sub-Object: `uk-modal-header` and `uk-modal-footer`
  ========================================================================== */
 
 .uk-modal-header {
-  margin-bottom: $modal-header-margin-bottom;
-  @include hook-modal-header();
+    margin-bottom: $modal-header-margin-bottom;
+    @include hook-modal-header();
 }
 
 .uk-modal-footer {
-  margin-top: $modal-footer-margin-top;
-  @include hook-modal-footer();
+    margin-top: $modal-footer-margin-top;
+    @include hook-modal-footer();
 }
 
 /*
@@ -271,48 +266,49 @@
  */
 
 .uk-modal-header  > :last-child,
-.uk-modal-footer  > :last-child {
-  margin-bottom: 0;
-}
+.uk-modal-footer  > :last-child { margin-bottom: 0; }
+
 
 /* Sub-Object: `uk-modal-caption`
  ========================================================================== */
 
 .uk-modal-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: (-$modal-dialog-padding);
-  margin-bottom: $modal-caption-margin-bottom;
-  color: $modal-caption-color;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  @include hook-modal-caption();
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: (-$modal-dialog-padding);
+    margin-bottom: $modal-caption-margin-bottom;
+    color: $modal-caption-color;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include hook-modal-caption();
 }
+
 
 /* Sub-Object: `uk-modal-spinner`
  ========================================================================== */
 
 .uk-modal-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  font-size: 25px;
-  color: #ddd;
-  @include hook-modal-spinner();
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    font-size: 25px;
+    color: #ddd;
+    @include hook-modal-spinner();
 }
 
 .uk-modal-spinner:after {
-  content: "\f110";
-  display: block;
-  font-family: FontAwesome;
-  -webkit-animation: uk-rotate 2s infinite linear;
-  animation: uk-rotate 2s infinite linear;
+    content: "\f110";
+    display: block;
+    font-family: FontAwesome;
+    -webkit-animation: uk-rotate 2s infinite linear;
+    animation: uk-rotate 2s infinite linear;
 }
+
 
 // Hooks
 // ========================================================================

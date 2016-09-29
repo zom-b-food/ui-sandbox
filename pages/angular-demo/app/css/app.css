@@ -1,0 +1,95 @@
+/* app css stylesheet */
+
+body {
+    padding-top: 20px;
+}
+
+.critter-images {
+    background-color: #fff;
+    width: 330px;
+    height: 320px;
+    overflow: hidden;
+    position: relative;
+    float: left;
+}
+
+.critters {
+    list-style: none;
+    padding-left:0;
+}
+
+.thumb {
+    float: left;
+    margin: -0.5em 1em 1.5em 0;
+    padding-bottom: 1em;
+    height: 100px;
+    width: 100px;
+}
+
+.critters li {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 15px 4px 0 4px;
+    clear: both;
+    height: 110px;
+    list-style-image: none;
+    list-style-type: none;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+/** Detail View **/
+img.critter {
+    float: left;
+    padding: 2em;
+    height: 315px;
+    width: 340px;
+    display: none;
+}
+
+img.critter:first-child {
+    display: block;
+}
+
+ul.critter-thumbs {
+
+    border-top: 1px solid #cccccc;
+    list-style: none;
+}
+
+ul.critter-thumbs li {
+    border: 1px solid black;
+    display: inline-block;
+    margin: .7em;
+    background-color: white;
+}
+
+ul.critter-thumbs img {
+    height: 100px;
+    width: 100px;
+    padding: 1em;
+}
+
+ul.critter-thumbs img:hover {
+    cursor: pointer;
+}
+
+dd {
+    line-height:13px;
+}
+
+h1 {
+    border-bottom: 1px solid gray;
+}
+
+a.ng-binding {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+p.ng-binding {
+    font-size: 12px;
+    line-height:15px;
+    margin:0;
+    padding:0;
+}

@@ -64,6 +64,30 @@ Modules - reusable parts of our design
 Header and Navigation
 
 -------------------------------- */
+.banner {
+  background: black url("../images/banner-orig.jpg");
+  height:300px;
+  background-repeat:no-repeat;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-position:center;
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animation ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+  @include break-medium-down() {
+    height:100px;
+  }
+}
+
 .am-section {
   margin: 0 auto;
   padding: 2em 0;
@@ -125,7 +149,6 @@ Header and Navigation
     right: 6%;
     opacity: 1;
   }
-
   .am-btn2.is-hidden.slide-in {
     filter: alpha(opacity=70);
     border: 1px solid #4da9c7;
@@ -183,7 +206,6 @@ table.rufus {
 div.white * {
   color: $cream;
   opacity: .8;
-
 }
 
 .title {
@@ -336,7 +358,6 @@ section#overlay {
 .am-fixed-nav li a {
   display: block;
   padding: 1.5em;
-
   color: $camel;
 }
 
@@ -364,7 +385,6 @@ MQ's
      height: auto;
      background: none;*/
   }
-
   .am-anchors-nav ul {
     position: static;
     width: auto;
@@ -375,7 +395,6 @@ MQ's
     transform: translateY(0);
     line-height: 70px;
   }
-
   .am-anchors-nav ul.is-visible {
     margin-top: 80px;
     -webkit-transform: translateY(0);
@@ -384,12 +403,10 @@ MQ's
     -o-transform: translateY(0);
     transform: translateY(0);
   }
-
   .am-anchors-nav li {
     display: inline-block;
     margin-left: 1em;
   }
-
   .am-anchors-nav a {
     display: inline-block;
     height: auto;
@@ -420,7 +437,6 @@ MQ's
     -moz-transition: right 0.3s, opacity 0.3s;
     transition: right 0.3s, opacity 0.3s;
   }
-
   .am-btn.is-hidden.slide-in {
     /* slide in when the fixed nav gets fixed */
     right: 5%;
@@ -434,11 +450,9 @@ MQ's
     z-index: 1;
     top: 310px;
   }
-
   .am-fixed-nav nav, .am-fixed-nav ul, .am-fixed-nav li, .am-fixed-nav a {
 
   }
-
   .am-fixed-nav ul {
     /* reset navigation values */
     position: static;
@@ -453,12 +467,10 @@ MQ's
     text-align: center;
     background-color: transparent;
   }
-
   .am-fixed-nav li {
     display: inline-block;
     margin-left: -4px;
   }
-
   .am-fixed-nav li a {
     position: relative;
     text-align: center;
@@ -475,7 +487,6 @@ MQ's
       margin-top: 5px;
     }
   }
-
   .am-fixed-nav li a b {
     text-transform: uppercase;
     font-size: 12px;
@@ -483,31 +494,24 @@ MQ's
     font-weight: 700;
     color: rgba(240, 238, 225, 0.3);
   }
-
   .am-fixed-nav li a:hover b, .am-fixed-nav li a.active b {
     color: #ffffff;
   }
-
   .am-fixed-nav li:nth-child(1) a span {
     background-position: 0 0;
   }
-
   .am-fixed-nav li:nth-child(2) a span {
     background-position: -40px 0;
   }
-
   .am-fixed-nav li:nth-child(3) a span {
     background-position: -80px 0;
   }
-
   .am-fixed-nav li:nth-child(4) a span {
     background-position: -120px 0;
   }
-
   .am-fixed-nav li:nth-child(5) a span {
     background-position: -160px 0;
   }
-
   .am-fixed-nav.is-fixed {
     /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
     /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
@@ -517,17 +521,14 @@ MQ's
     height: 56px;
     width: 100%;
   }
-
   .am-fixed-nav.animate-children {
     /* on Firefox CSS transition/animation fails when parent element changes position attribute*/
     /* so we defined to diffent classes: .is-fixed to change the position value and .is-animated to change childrens' attributes (padding and opacity)*/
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
-
   .am-fixed-nav.animate-children li a {
     padding: 2px 28px 3px 28px;
   }
-
   .am-fixed-nav.animate-children li a span {
     opacity: 0;
   }
@@ -537,13 +538,6 @@ MQ's
   .am-section {
     margin: 0 auto;
     padding: 4em 0;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  header {
-    box-shadow: none;
-    height: 200px;
   }
 }
 
@@ -572,7 +566,6 @@ MQ's
     -moz-transition: left 0.3s, opacity 0.3s;
     transition: left 0.3s, opacity 0.3s;
   }
-
   #am-logo.is-hidden.slide-in {
     /* slide in when the navigation gets fixed */
     left: 5%;
@@ -580,15 +573,3 @@ MQ's
     margin: 0;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
